@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LGU\LocalUnit;
+use League\Flysystem\Adapter\Local;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,5 +62,16 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
 
     Route::middleware(['auth:brgy_official'])->group(function () {
         Route::view('/home', 'dashboard.brgy_official.home')->name('home');
+    });
+});
+
+Route::prefix('lgu')->name('lgu.')->group(function(){
+    Route::middleware(['guest:local_unit'])->group(function () {
+        Route::view('/login', 'dashboard.LGU.login')->name('login');
+        Route::post('/check', [LocalUnit::class, 'check'])->name('check');
+    });
+
+    Route::middleware(['auth:local_unit'])->group(function () {
+        Route::view('/home', 'dashboard.LGU.home')->name('home');
     });
 });
