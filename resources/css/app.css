@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+}
+
+.bg-kabisig {
+    background-color: #cce8ff;
+}
+
+.btn-primary {
+    background-color: #004f91;
+}
+
+.text-color {
+    color: #004f91;
+}
+
+.card-bg {
+    background-color: #fff;
+}
+
+.kabisig-logo {
+    height: 100vh;
+    width: 100vh;
+}
+
+.form-background {
+    background-color: #f6f8ff;
+}
+
+.logo-background {
+    background-color: #004f91;
+}
+
+.input-box {
+    background-color: #f3f3f3;
+}
+
+/* XL BREAK POINT */
+@media only screen and (max-width: 1199.98px) {
+    .login-img {
+        display: none;
+    }
+    .kabisig-logo {
+        display: none;
+    }
+    .carousel-height {
+        height: 75vh;
+    }
+}
+/* LG BREAK POINT */
+@media only screen and (max-width: 991.98px) {
+    .logo-background {
+        display: none;
+    }
+    .kabisig-logo {
+        display: none;
+    }
+    .carousel-height {
+        height: 60vh;
+    }
+}
+/* MD BREAK POINT */
+@media only screen and (max-width: 767.98px) {
+    .carousel-height {
+        height: 45vh;
+    }
+}
+/* SM BREAK POINT */
+@media (max-width: 575.98px) {
+    .carousel-height {
+        height: 30vh;
+    }
+}
