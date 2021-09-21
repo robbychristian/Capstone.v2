@@ -21,6 +21,10 @@ return [
         'driver'=>'eloquent',
         'model'=>App\Models\Admin::class,
     ],
+    'brgy_official'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\BrgyOfficial::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -48,6 +52,10 @@ return [
         'admin'=>[
             'driver'=>'session',
             'provider'=>'admins',
+        ],
+        'brgy_official'=>[
+            'driver'=>'session',
+            'provider'=>'brgy_officials',
         ],
     ],
 
@@ -83,6 +91,10 @@ return [
             'driver'=>'eloquent',
             'model'=>App\Models\Admin::class,
         ],
+        'brgy_officials'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\BrgyOfficial::class,
+        ],
     ],
 
     /*
@@ -110,6 +122,10 @@ return [
         'admin'=>[
             'driver'=>'eloquent',
             'model'=>App\Models\Admin::class,
+        ],
+        'brgy_official'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\BrgyOfficial::class,
         ],
     ],
 

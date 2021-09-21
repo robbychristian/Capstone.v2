@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminController;
 
@@ -48,5 +49,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin'])->group(function(){
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::view('/create', 'dashboard.admin.register_brgy')->name('register_brgy');
+    });
+});
+
+Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
+    Route::middleware(['guest:brgy_official'])->group(function () {
+        Route::view('/login', 'dashboard.brgy_official.login')->name('login');     
+        Route::post('/check', [BrgyOfficialController::class, 'check'])->name('check');     
+    });
+
+    Route::middleware(['auth:brgy_official'])->group(function () {
+        Route::view('/home', 'dashboard.brgy_official.home')->name('home');
     });
 });
