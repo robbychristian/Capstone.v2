@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\LGU\LocalUnit;
+use App\Http\Controllers\Features\AccountController;
+use App\Http\Controllers\Features\EvacuationController;
+use App\Http\Controllers\Features\GuidelinesController;
+use App\Models\Guidelines;
 use League\Flysystem\Adapter\Local;
 
 /*
@@ -21,7 +24,7 @@ use League\Flysystem\Adapter\Local;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes(['verify' => true]);
@@ -38,6 +41,9 @@ Route::prefix('user')->name('user.')->group(function(){
 
     Route::middleware(['auth'])->group(function(){
         Route::view('/home', 'dashboard.user.home')->name('home');
+        Route::resource('/account', AccountController::class);
+        Route::resource('/evacuation', EvacuationController::class);
+        Route::resource('/guidelines', GuidelinesController::class);
     });
 });
 
@@ -51,6 +57,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin'])->group(function(){
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::view('/create', 'dashboard.admin.register_brgy')->name('register_brgy');
+        Route::view('/account', 'dashboard.user.account')->name('account');
+        Route::view('/evacuation', 'dashboard.user.evacuationcenter')->name('evacuation');
+        Route::view('/guidelines', 'dashboard.user.guidelines')->name('guidelines');
     });
 });
 
@@ -62,6 +71,9 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
 
     Route::middleware(['auth:brgy_official'])->group(function () {
         Route::view('/home', 'dashboard.brgy_official.home')->name('home');
+        Route::view('/account', 'dashboard.user.account')->name('account');
+        Route::view('/evacuation', 'dashboard.user.evacuationcenter')->name('evacuation');
+        Route::view('/guidelines', 'dashboard.user.guidelines')->name('guidelines');
     });
 });
 

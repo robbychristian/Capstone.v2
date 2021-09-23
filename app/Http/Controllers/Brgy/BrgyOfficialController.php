@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class BrgyOfficialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
     function check(Request $request)
     {
         $request->validate([

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    function check(Request $request)
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
+    public function check(Request $request)
     {
         $request->validate([
             'email'=>'required',

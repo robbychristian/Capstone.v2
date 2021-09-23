@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class LocalUnit extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
     function check(Request $request)
     {
         $request->validate([

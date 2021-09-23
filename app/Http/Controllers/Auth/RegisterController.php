@@ -84,6 +84,6 @@ class RegisterController extends Controller
             'profile_pic' => 'noimage.jpg'
         ]);
         
-        return dd($user);
+        return redirect()->route('user.home');
     }
 }
