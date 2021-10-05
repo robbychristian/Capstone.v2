@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Features;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class GuidelinesController extends Controller
+class EvacuationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class GuidelinesController extends Controller
      */
     public function index()
     {
-        return view('features.guidelines');
+        return view('features.evacuationcenter');
     }
 
     /**

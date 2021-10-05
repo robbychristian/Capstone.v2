@@ -39,6 +39,44 @@ body {
     background-color: #f3f3f3;
 }
 
+/* GUIDELINES STYLE */
+.guideline-top-heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.guide-content-heading{
+    color: rgb(rgb(66, 66, 66));
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.guide-content-icon{
+    color: #004f91;
+}
+
+.guide-content-subheading{
+    font-size: 1rem;
+    text-align: left;
+    padding: 0rem 2rem;
+}
+
+/* ANNOUNCEMENTS STYLE */
+
+.card-announce-custom-bg{
+    background-color: #f5f5f5 !important;
+}
+
+.v-announcement-title{
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.v-announcement-date-title{
+    font-weight: bold;
+}
+
 /* XL BREAK POINT */
 @media only screen and (max-width: 1199.98px) {
     .login-img {

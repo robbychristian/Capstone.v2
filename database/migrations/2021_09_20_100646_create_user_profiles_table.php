@@ -22,7 +22,11 @@ class CreateUserProfilesTable extends Migration
             $table->string('birth_day');
             $table->string('profile_pic');
             $table->timestamps();
-            $table->foreign('user_email')->references('email')->on('users')->onDelete('cascade');
+            $table->foreign('user_email')
+                    ->references('email')
+                    ->on('users')
+                    ->onDelete('cascade')
+                    ->onUpdate(('cascade'));
         });
     }
 

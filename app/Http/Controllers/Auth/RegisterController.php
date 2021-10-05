@@ -72,6 +72,8 @@ class RegisterController extends Controller
             'first_name' => $request['fname'],
             'last_name' => $request['lname'],
             'brgy_loc' => $request['brgy'],
+            'is_blocked' => 0,
+            'is_deactivated' => 0,
             'password' => Hash::make($request['password']),
         ]);
 
@@ -84,6 +86,6 @@ class RegisterController extends Controller
             'profile_pic' => 'noimage.jpg'
         ]);
         
-        return redirect()->route('user.home');
+        return redirect()->route('user.login');
     }
 }

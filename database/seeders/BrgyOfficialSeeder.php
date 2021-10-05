@@ -22,7 +22,8 @@ class BrgyOfficialSeeder extends Seeder
             'password' => Hash::make('official'),
             'user_role' => 3,
             'brgy_position' => 'Kagawad',
-            'brgy_loc' => 'Barangay Santolan'
+            'brgy_loc' => 'Barangay Santolan',
+            'contact_no' => '09123456789'
         ]);
     }
 }

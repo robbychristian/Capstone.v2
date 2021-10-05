@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Features;
+namespace App\Http\Controllers\Brgy;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class EvacuationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('features.account');
+        return view('features.evacuationcenter');
     }
 
     /**

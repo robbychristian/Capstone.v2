@@ -1,14 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//users
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\AccountController as UserAccount;
+use App\Http\Controllers\Auth\AnnouncementController as UserAnnouncement;
+use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
+use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
+use App\Http\Controllers\Brgy\BrgyOfficialController;
+use App\Http\Controllers\Brgy\AccountController as BrgyAccount;
+use App\Http\Controllers\Brgy\AnnouncementController as BrgyAnnouncement;
+use App\Http\Controllers\Brgy\GuidelinesController as BrgyGuidelines;
+use App\Http\Controllers\Brgy\EvacuationController as BrgyEvacuation;
+use App\Http\Controllers\Brgy\ManageResidentController as BrgyManageResident;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncement;
+use App\Http\Controllers\Admin\EvacuationController as AdminEvacuation;
+use App\Http\Controllers\Admin\GuidelinesController as AdminGuidelines;
+use App\Http\Controllers\Admin\ManageResidentController as AdminManageResident;
+use App\Http\Controllers\Admin\ManageBrgyOfficialController as AdminManageBrgy;
 use App\Http\Controllers\LGU\LocalUnit;
-use App\Http\Controllers\Features\AccountController;
-use App\Http\Controllers\Features\EvacuationController;
-use App\Http\Controllers\Features\GuidelinesController;
 use App\Models\Guidelines;
 use League\Flysystem\Adapter\Local;
 
@@ -41,9 +53,10 @@ Route::prefix('user')->name('user.')->group(function(){
 
     Route::middleware(['auth'])->group(function(){
         Route::view('/home', 'dashboard.user.home')->name('home');
-        Route::resource('/account', AccountController::class);
-        Route::resource('/evacuation', EvacuationController::class);
-        Route::resource('/guidelines', GuidelinesController::class);
+        Route::resource('/account', UserAccount::class);
+        Route::resource('/announcements', UserAnnouncement::class);
+        Route::resource('/evacuation', UserEvacuation::class);
+        Route::resource('/guidelines', UserGuidelines::class);
     });
 });
 
@@ -57,9 +70,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin'])->group(function(){
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::view('/create', 'dashboard.admin.register_brgy')->name('register_brgy');
-        Route::view('/account', 'dashboard.user.account')->name('account');
-        Route::view('/evacuation', 'dashboard.user.evacuationcenter')->name('evacuation');
-        Route::view('/guidelines', 'dashboard.user.guidelines')->name('guidelines');
+        Route::resource('/announcements', AdminAnnouncement::class);
+        Route::resource('/evacuation', AdminEvacuation::class);
+        Route::resource('/guidelines', AdminGuidelines::class);
+        Route::post('/manageresident/block/{manageresident}', [AdminManageResident::class, 'block'])->name('manageresident.block');
+        Route::post('/manageresident/unblock/{manageresident}', [AdminManageResident::class, 'unblock'])->name('manageresident.unblock');
+        Route::post('/manageresident/deactivate/{manageresident}', [AdminManageResident::class, 'deactivate'])->name('manageresident.deactivate');
+        Route::post('/manageresident/activate/{manageresident}', [AdminManageResident::class, 'activate'])->name('manageresident.activate');
+        Route::resource('/manageresident', AdminManageResident::class);
+        Route::resource('/managebrgy_official', AdminManageBrgy::class);
     });
 });
 
@@ -71,9 +90,15 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
 
     Route::middleware(['auth:brgy_official'])->group(function () {
         Route::view('/home', 'dashboard.brgy_official.home')->name('home');
-        Route::view('/account', 'dashboard.user.account')->name('account');
-        Route::view('/evacuation', 'dashboard.user.evacuationcenter')->name('evacuation');
-        Route::view('/guidelines', 'dashboard.user.guidelines')->name('guidelines');
+        Route::resource('/account', BrgyAccount::class);
+        Route::resource('/announcements', BrgyAnnouncement::class);
+        Route::resource('/evacuation', BrgyEvacuation::class);
+        Route::resource('/guidelines', BrgyGuidelines::class);
+        Route::post('/manageresident/block/{manageresident}', [BrgyManageResident::class, 'block'])->name('manageresident.block');
+        Route::post('/manageresident/unblock/{manageresident}', [BrgyManageResident::class, 'unblock'])->name('manageresident.unblock');
+        Route::post('/manageresident/deactivate/{manageresident}', [BrgyManageResident::class, 'deactivate'])->name('manageresident.deactivate');
+        Route::post('/manageresident/activate/{manageresident}', [BrgyManageResident::class, 'activate'])->name('manageresident.activate');
+        Route::resource('/manageresident', BrgyManageResident::class);
     });
 });
 

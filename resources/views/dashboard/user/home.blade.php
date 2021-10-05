@@ -3,16 +3,21 @@
 @section('content')
 
     <div class="container-fluid mt-5">
-        @if (Auth::user()->brgy_loc == 'Barangay 1')
-            <div class="row">
-                
-                <!-- Vertical Navbar -->
-                @include('layouts.navbar')
+        @if (Auth::user()->is_blocked != 1)
+            @if (Auth::user()->brgy_loc == 'Barangay Santolan')
+                <div class="row">
 
-                <!-- Sub-Content (Features)-->
-                @yield('sub-content')
+                    <!-- Vertical Navbar -->
+                    @include('layouts.navbar')
 
-            </div>
+                    <!-- Sub-Content (Features)-->
+                    @yield('sub-content')
+
+                </div>
+            @endif
+
+        @else
+            You are blocked
         @endif
     </div>
 @endsection
