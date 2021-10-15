@@ -8,18 +8,25 @@ use App\Http\Controllers\Auth\AccountController as UserAccount;
 use App\Http\Controllers\Auth\AnnouncementController as UserAnnouncement;
 use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
 use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
+use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
+use App\Http\Controllers\Auth\ReportsController as UserReports;
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Brgy\AccountController as BrgyAccount;
 use App\Http\Controllers\Brgy\AnnouncementController as BrgyAnnouncement;
 use App\Http\Controllers\Brgy\GuidelinesController as BrgyGuidelines;
 use App\Http\Controllers\Brgy\EvacuationController as BrgyEvacuation;
 use App\Http\Controllers\Brgy\ManageResidentController as BrgyManageResident;
+use App\Http\Controllers\Brgy\VulnerabilityMapController as BrgyVulnerabilityMap;
+use App\Http\Controllers\Brgy\ReportsController as BrgyReports;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncement;
 use App\Http\Controllers\Admin\EvacuationController as AdminEvacuation;
 use App\Http\Controllers\Admin\GuidelinesController as AdminGuidelines;
 use App\Http\Controllers\Admin\ManageResidentController as AdminManageResident;
 use App\Http\Controllers\Admin\ManageBrgyOfficialController as AdminManageBrgy;
+use App\Http\Controllers\Admin\VulnerabilityMapController as AdminVulnerabilityMap;
+use App\Http\Controllers\Admin\ReportsController as AdminReports;
+
 use App\Http\Controllers\LGU\LocalUnit;
 use App\Models\Guidelines;
 use League\Flysystem\Adapter\Local;
@@ -43,36 +50,42 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('user')->name('user.')->group(function(){
-    Route::middleware(['guest'])->group(function(){
+Route::prefix('user')->name('user.')->group(function () {
+    Route::middleware(['guest'])->group(function () {
         Route::view('/login', 'dashboard.user.login')->name('login');
         Route::view('/register', 'dashboard.user.register')->name('register');
         Route::post('/create', [RegisterController::class, 'create'])->name('create');
         Route::post('/check', [LoginController::class, 'check'])->name('check');
     });
 
-    Route::middleware(['auth'])->group(function(){
+    Route::middleware(['auth'])->group(function () {
         Route::view('/home', 'dashboard.user.home')->name('home');
         Route::resource('/account', UserAccount::class);
         Route::resource('/announcements', UserAnnouncement::class);
         Route::resource('/evacuation', UserEvacuation::class);
         Route::resource('/guidelines', UserGuidelines::class);
+        Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);
+        Route::resource('/reports', UserReports::class);
     });
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::middleware(['guest:admin'])->group(function(){
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['guest:admin'])->group(function () {
         Route::view('/login', 'dashboard.admin.login')->name('login');
         Route::post('/check', [AdminController::class, 'check'])->name('check');
     });
 
-    Route::middleware(['auth:admin'])->group(function(){
+    Route::middleware(['auth:admin'])->group(function () {
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::view('/create', 'dashboard.admin.register_brgy')->name('register_brgy');
         Route::resource('/announcements', AdminAnnouncement::class);
         Route::resource('/evacuation', AdminEvacuation::class);
         Route::resource('/guidelines', AdminGuidelines::class);
+        Route::resource('/vulnerabilitymap', AdminVulnerabilityMap::class);
+        Route::resource('/reports', AdminReports::class);
+        Route::post('/reports/confirm/{id}', [AdminReports::class, 'confirmReport']);
+        Route::post('/reports/pending/{id}', [AdminReports::class, 'pendingReport']);
         Route::post('/manageresident/block/{manageresident}', [AdminManageResident::class, 'block'])->name('manageresident.block');
         Route::post('/manageresident/unblock/{manageresident}', [AdminManageResident::class, 'unblock'])->name('manageresident.unblock');
         Route::post('/manageresident/deactivate/{manageresident}', [AdminManageResident::class, 'deactivate'])->name('manageresident.deactivate');
@@ -82,10 +95,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
     });
 });
 
-Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
+Route::prefix('brgy_official')->name('brgy_official.')->group(function () {
     Route::middleware(['guest:brgy_official'])->group(function () {
-        Route::view('/login', 'dashboard.brgy_official.login')->name('login');     
-        Route::post('/check', [BrgyOfficialController::class, 'check'])->name('check');     
+        Route::view('/login', 'dashboard.brgy_official.login')->name('login');
+        Route::post('/check', [BrgyOfficialController::class, 'check'])->name('check');
     });
 
     Route::middleware(['auth:brgy_official'])->group(function () {
@@ -94,6 +107,10 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
         Route::resource('/announcements', BrgyAnnouncement::class);
         Route::resource('/evacuation', BrgyEvacuation::class);
         Route::resource('/guidelines', BrgyGuidelines::class);
+        Route::resource('/vulnerabilitymap', BrgyVulnerabilityMap::class);
+        Route::resource('/reports', BrgyReports::class);
+        Route::post('/reports/confirm/{id}', [BrgyReports::class, 'confirmReport']);
+        Route::post('/reports/pending/{id}', [BrgyReports::class, 'pendingReport']);
         Route::post('/manageresident/block/{manageresident}', [BrgyManageResident::class, 'block'])->name('manageresident.block');
         Route::post('/manageresident/unblock/{manageresident}', [BrgyManageResident::class, 'unblock'])->name('manageresident.unblock');
         Route::post('/manageresident/deactivate/{manageresident}', [BrgyManageResident::class, 'deactivate'])->name('manageresident.deactivate');
@@ -102,7 +119,7 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function(){
     });
 });
 
-Route::prefix('lgu')->name('lgu.')->group(function(){
+Route::prefix('lgu')->name('lgu.')->group(function () {
     Route::middleware(['guest:local_unit'])->group(function () {
         Route::view('/login', 'dashboard.LGU.login')->name('login');
         Route::post('/check', [LocalUnit::class, 'check'])->name('check');

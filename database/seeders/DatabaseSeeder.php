@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\EvacuationCenters;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BrgyOfficialSeeder::class);
         $this->call(LGUSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(EvacuationCenterSeeder::class);
+        $this->call(ReportSeeder::class);
     }
 }

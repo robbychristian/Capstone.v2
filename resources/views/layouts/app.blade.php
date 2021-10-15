@@ -10,8 +10,15 @@
 
     <title>KaBisig @yield('title')</title>
 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--ANIMATION JS-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +26,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--ANIMATION-->
 </head>
 
 <body>
@@ -26,7 +35,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <!--IF AUTH-->
             @if (Auth::check())
-                @if (Auth::user()->user_role === 4) <!--USER NAVBAR-->
+                @if (Auth::user()->user_role === 4)
+                    <!--USER NAVBAR-->
 
                     <div class="container-fluid">
 
@@ -42,13 +52,15 @@
 
                         @guest
                             <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endguest
 
                         @auth
                             <a class="navbar-brand" href="{{ url('user/home') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endauth
 
@@ -73,7 +85,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                        document.getElementById('logout-form').submit();">
+                                                                                                                                            document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -98,14 +110,14 @@
                                 <!-- Authentication Links -->
                                 @guest
                                     @if (Route::has('login'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.login') }}">{{ __('Login') }}</a>
                                         </li>
                                     @endif
 
                                     @if (Route::has('register'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.register') }}">{{ __('Register') }}</a>
                                         </li>
@@ -113,27 +125,35 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/users/account/{{ Auth::user()->id }}/edit"> <i
-                                                    class="fas fa-user-circle mr-2"></i>Account</a>
+                                            <a class="nav-link" href="/users/account/{{ Auth::user()->id }}/edit">
+                                                <i class="fas fa-user-circle mr-2"></i>Account</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('user.announcements.index') }}"> <i
                                                     class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                                         </li>
+
                                         <li class="nav-item">
-                                            <p class="nav-link" style="margin: 0"> <i
-                                                    class="fas fa-bookmark mr-2"></i>Protocols</p>
+                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu1"
+                                                data-toggle="collapse" data-target="#submenu1"><i
+                                                    class="fas fa-bookmark mr-2"></i> <span
+                                                    class="d-sm-inline">Protocols</span></a>
+                                            <div class="collapse" id="submenu1" aria-expanded="false">
+                                                <ul class="flex-column pl-2 nav">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('user.guidelines.index') }}">Guidelines</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('user.evacuation.index') }}">Evacuation
+                                                            Centers
+                                                            & Hospitals</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('user.guidelines.index') }}">Guidelines</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('user.evacuation.index') }}">Evacuation
-                                                Centers
-                                                & Hospitals</a>
-                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
@@ -152,7 +172,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -170,7 +190,8 @@
 
                     </div>
 
-                @elseif (Auth::user()->user_role === 3) <!--BARANGAY OFFICIAL NAVBAR-->
+                @elseif (Auth::user()->user_role === 3)
+                    <!--BARANGAY OFFICIAL NAVBAR-->
                     <div class="container-fluid">
 
 
@@ -185,13 +206,15 @@
 
                         @guest
                             <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endguest
 
                         @auth
                             <a class="navbar-brand" href="{{ url('brgy_official/home') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endauth
 
@@ -216,7 +239,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                        document.getElementById('logout-form').submit();">
+                                                                                                                                            document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -241,14 +264,14 @@
                                 <!-- Authentication Links -->
                                 @guest
                                     @if (Route::has('login'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.login') }}">{{ __('Login') }}</a>
                                         </li>
                                     @endif
 
                                     @if (Route::has('register'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.register') }}">{{ __('Register') }}</a>
                                         </li>
@@ -256,7 +279,8 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/brgy_official/account/{{ Auth::user()->id }}/edit">
+                                            <a class="nav-link"
+                                                href="/brgy_official/account/{{ Auth::user()->id }}/edit">
                                                 <i class="fas fa-user-circle mr-2"></i>Account</a>
                                         </li>
                                         <li class="nav-item">
@@ -264,19 +288,28 @@
                                                 href="{{ route('brgy_official.announcements.index') }}"> <i
                                                     class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                                         </li>
+
                                         <li class="nav-item">
-                                            <p class="nav-link" style="margin: 0"> <i
-                                                    class="fas fa-bookmark mr-2"></i>Protocols</p>
+                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu1"
+                                                data-toggle="collapse" data-target="#submenu1"><i
+                                                    class="fas fa-bookmark mr-2"></i> <span
+                                                    class="d-sm-inline">Protocols</span></a>
+                                            <div class="collapse" id="submenu1" aria-expanded="false">
+                                                <ul class="flex-column pl-2 nav">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('brgy_official.evacuation.index') }}">Evacuation
+                                                            Centers
+                                                            & Hospitals</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('brgy_official.evacuation.index') }}">Evacuation Centers
-                                                & Hospitals</a>
-                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
@@ -295,7 +328,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -312,7 +345,8 @@
                         </div>
 
                     </div>
-                @elseif (Auth::user()->user_role === 1) <!--ADMIN NAVBAR-->
+                @elseif (Auth::user()->user_role === 1)
+                    <!--ADMIN NAVBAR-->
                     <div class="container-fluid">
 
 
@@ -327,13 +361,15 @@
 
                         @guest
                             <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endguest
 
                         @auth
                             <a class="navbar-brand" href="{{ url('admin/home') }}">
-                                {{ config('app.name', 'KaBisig') }}
+                                <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                    class="logo-brand">
                             </a>
                         @endauth
 
@@ -358,7 +394,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                        document.getElementById('logout-form').submit();">
+                                                                                                                                            document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -383,14 +419,14 @@
                                 <!-- Authentication Links -->
                                 @guest
                                     @if (Route::has('login'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.login') }}">{{ __('Login') }}</a>
                                         </li>
                                     @endif
 
                                     @if (Route::has('register'))
-                                        <li class="nav-item">
+                                        <li class="nav-item navbar-link">
                                             <a class="nav-link"
                                                 href="{{ route('user.register') }}">{{ __('Register') }}</a>
                                         </li>
@@ -398,27 +434,35 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/brgy_official/announcements/{{ Auth::user()->id }}/edit">
+                                            <a class="nav-link"
+                                                href="/brgy_official/announcements/{{ Auth::user()->id }}/edit">
                                                 <i class="fas fa-user-circle mr-2"></i>Dashboard</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link"
-                                                href="{{ route('admin.announcements.index') }}"> <i
-                                                    class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
+                                            <a class="nav-link" href="{{ route('admin.announcements.index') }}">
+                                                <i class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                                         </li>
                                         <li class="nav-item">
-                                            <p class="nav-link" style="margin: 0"> <i
-                                                    class="fas fa-bookmark mr-2"></i>Protocols</p>
+                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu1"
+                                                data-toggle="collapse" data-target="#submenu1"><i
+                                                    class="fas fa-bookmark mr-2"></i> <span
+                                                    class="d-sm-inline">Protocols</span></a>
+                                            <div class="collapse" id="submenu1" aria-expanded="false">
+                                                <ul class="flex-column pl-2 nav">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('admin.guidelines.index') }}">Guidelines</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('admin.evacuation.index') }}">Evacuation
+                                                            Centers
+                                                            & Hospitals</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('admin.guidelines.index') }}">Guidelines</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-3"
-                                                href="{{ route('admin.evacuation.index') }}">Evacuation Centers
-                                                & Hospitals</a>
-                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
@@ -428,16 +472,21 @@
                                             <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Emergency Alert Message</a>
+                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Emergency
+                                                Alert Message</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>User Role</a>
+                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>User
+                                                Role</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route("admin.manageresident.index") }}"><i class="fas fa-edit mr-2"></i>Manage Residents</a>
+                                            <a class="nav-link"
+                                                href="{{ route('admin.manageresident.index') }}"><i
+                                                    class="fas fa-edit mr-2"></i>Manage Residents</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Manage Barangay Officials</a>
+                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Manage
+                                                Barangay Officials</a>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
@@ -449,7 +498,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -469,7 +518,8 @@
                 @endif
 
                 <!--IF GUEST-->
-            @elseif(!Auth::check()) <!--GUEST NAVBAR-->
+            @elseif(!Auth::check())
+                <!--GUEST NAVBAR-->
                 <div class="container-fluid">
 
 
@@ -484,13 +534,15 @@
 
                     @guest
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'KaBisig') }}
+                            <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                class="logo-brand">
                         </a>
                     @endguest
 
                     @auth
                         <a class="navbar-brand" href="{{ url('user/home') }}">
-                            {{ config('app.name', 'KaBisig') }}
+                            <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                class="logo-brand">
                         </a>
                     @endauth
 
@@ -515,7 +567,7 @@
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); 
-                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
 
                                     </a>
@@ -540,71 +592,18 @@
                             <!-- Authentication Links -->
                             @guest
                                 @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link"
+                                    <li class="nav-item navbar-link">
+                                        <a class="nav-link "
                                             href="{{ route('user.login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
 
                                 @if (Route::has('register'))
-                                    <li class="nav-item">
+                                    <li class="nav-item navbar-link">
                                         <a class="nav-link"
                                             href="{{ route('user.register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
-                            @else
-                                <div class="side-bar d-xl-none d-md-none d-xs-block">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/brgy_official/announcements/{{ Auth::user()->id }}/edit">
-                                            <i class="fas fa-user-circle mr-2"></i>Account</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link"
-                                            href="{{ route('brgy_official.announcements.index') }}"> <i
-                                                class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p class="nav-link" style="margin: 0"> <i
-                                                class="fas fa-bookmark mr-2"></i>Protocols</p>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ml-3"
-                                            href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ml-3"
-                                            href="{{ route('brgy_official.evacuation.index') }}">Evacuation Centers
-                                            & Hospitals</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#"><i
-                                                class="fas fa-map-marked mr-2"></i>Vulnerability
-                                            Map</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
-                                    </li>
-                                </div>
-                                <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-
                             </ul>
                         @endguest
 

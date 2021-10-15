@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserProfile;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -79,7 +80,7 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'email' => 'required|unique:users|email',
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
@@ -105,10 +106,10 @@ class AccountController extends Controller
         //    ]);
         //}
 
-        if($validator->fails()) {
-            return redirect('/user/account/'.Auth::user()->id.'/edit')
-                            ->withErrors($validator)
-                            ->withInput();
+        if ($validator->fails()) {
+            return redirect('/user/account/' . Auth::user()->id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
         } else {
             $user = User::where('id', $id)->update([
                 'first_name' => $request->input('fname'),
@@ -116,16 +117,14 @@ class AccountController extends Controller
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('new_pass'))
             ]);
-    
+
             $profile = UserProfile::where('id', $id)->update([
                 'user_email' => $request->input('email'),
                 'middle_name' => $request->input('mname'),
             ]);
-    
-            return redirect('/user/account/'.Auth::user()->id.'/edit')->with('success', 'Your account has been successfully updated!');
+
+            return redirect('/user/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
-
-
     }
 
     /**
@@ -137,5 +136,55 @@ class AccountController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listAPI()
+    {
+        $users = DB::table('users')
+            ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+            ->select('users.*', 'user_profiles.*')
+            ->get();
+
+        $json = $users->toJson(JSON_PRETTY_PRINT);
+
+        return $json;
+    }
+
+    public function creds($email, $pass)
+    {
+        $dbPass = User::where('email', $email)->value('password');
+
+        if (User::where('email', '=', $email)->exists()) {
+            if (Hash::check($pass, $dbPass)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function register()
+    {
+        $user = User::create([
+            'user_role' => 4,
+            'email' => ['email'],
+            'first_name' => ['fname'],
+            'last_name' => ['lname'],
+            'brgy_loc' => ['brgy'],
+            'is_blocked' => 0,
+            'is_deactivated' => 0,
+            'password' => Hash::make(['password']),
+        ]);
+
+        $user_profile = UserProfile::create([
+            'user_email' => ['email'],
+            'middle_name' => ['mname'],
+            'home_add' => ['address'],
+            'contact_no' => ['cnum'],
+            'birth_day' => ['mbday'] . '/' . ['dbday'] . '/' . ['ybday'],
+            'profile_pic' => 'noimage.jpg'
+        ]);
     }
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
+use App\Models\Reports;
+use Illuminate\Support\Facades\DB;
 
-class EvacuationController extends Controller
+class ReportsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $coordinates = EvacuationCenters::all();
-        return view('features.evacuationcenter', [
-            "coordinates" => $coordinates
+        $reports = Reports::all();
+        return view('features.reports', [
+            'reports' => $reports
         ]);
     }
 
@@ -84,6 +85,8 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = Reports::find($id);
+        $report->delete();
+        return redirect('user/reports');
     }
 }

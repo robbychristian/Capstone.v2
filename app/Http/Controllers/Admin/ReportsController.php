@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
+use App\Models\Reports;
+use Illuminate\Support\Facades\DB;
 
-class EvacuationController extends Controller
+class ReportsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $coordinates = EvacuationCenters::all();
-        return view('features.evacuationcenter', [
-            "coordinates" => $coordinates
+        $reports = Reports::all();
+        return view('features.reports', [
+            'reports' => $reports
         ]);
     }
 
@@ -84,6 +85,24 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = Reports::find($id);
+        $report->delete();
+        return redirect('admin/reports');
+    }
+
+    public function confirmReport($id)
+    {
+        DB::table('reports')
+            ->where('id', '=', $id)
+            ->update(['status' => 'report confirmed']);
+        return redirect('admin/reports');
+    }
+
+    public function pendingReport($id)
+    {
+        DB::table('reports')
+            ->where('id', '=', $id)
+            ->update(['status' => 'report pending']);
+        return redirect('admin/reports');
     }
 }

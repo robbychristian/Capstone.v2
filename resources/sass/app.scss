@@ -1,13 +1,76 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+$dark: #292929;
+$light: #efefef;
+$red: #d91e18;
+$orange: #ffa500;
+$small: 40em;
+
+.radio-button-wrap {
+    position: relative;
+    top: 50%;
+    margin-top: -2.5em;
+}
+
+.button-label {
+    display: inline-block;
+    padding: 1em 2em;
+    margin: 0.5em;
+    cursor: pointer;
+    color: $dark;
+    border-radius: 0.25em;
+    background: $light;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+    transition: 0.3s;
+    user-select: none;
+
+    h1 {
+        font-size: 1em;
+    }
+
+    &:hover {
+        background: darken($light, 10%);
+        color: darken($dark, 10%);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
+            inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+    }
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2),
+            inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+    }
+}
+
+#degreeHigh:checked + .button-label {
+    background: $red;
+    color: $light;
+
+    &:hover {
+        background: darken($red, 5%);
+        color: darken($light, 5%);
+    }
+}
+
+#degreeMedium:checked + .button-label {
+    background: $orange;
+    color: $light;
+
+    &:hover {
+        background: darken($orange, 5%);
+        color: darken($light, 5%);
+    }
+}

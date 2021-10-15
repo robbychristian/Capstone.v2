@@ -2,7 +2,7 @@
 <!--- Vertical Navbar -->
 <!---------------------->
 
-<!--USER SIDE NAVBAR-->
+<!--==========================================================================USER SIDE NAVBAR===============================================================================-->
 @if (Auth::user()->user_role === 4)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -21,31 +21,40 @@
                         <a class="nav-link" href="{{ route('user.announcements.index') }}"> <i
                                 class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                     </li>
+
                     <li class="nav-item">
-                        <p class="nav-link" style="margin: 0; color:#3490dc;"> <i
-                                class="fas fa-bookmark mr-2"></i>Protocols
-                        </p>
+                        <a class="nav-link collapsed text-truncate submenu" href="#submenu1" data-toggle="collapse"
+                            data-target="#submenu1"><i class="fas fa-bookmark mr-2"></i> <span
+                                class="d-none d-sm-inline">Protocols</span></a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('user.guidelines.index') }}">Guidelines</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3" href="{{ route('user.evacuation.index') }}">Evacuation
+                                        Centers
+                                        & Hospitals</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ml-3" href="{{ route('user.guidelines.index') }}">Guidelines</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-3" href="{{ route('user.evacuation.index') }}">Evacuation Centers
-                            & Hospitals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked mr-2"></i>Vulnerability
+                        <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}"><i
+                                class="fas fa-map-marked mr-2"></i>Vulnerability
                             Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                        <a class="nav-link" href="{{ route('user.reports.index') }}"><i
+                                class="fas fa-edit mr-2"></i>Reports</a>
                     </li>
                 </ul>
 
             </div>
         </nav>
     </div>
-<!--BRGY OFFICIAL SIDE NAVBAR-->
+    <!--==========================================================================BRGY SIDE NAVBAR===============================================================================-->
 @elseif (Auth::user()->user_role === 3)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -64,25 +73,35 @@
                         <a class="nav-link" href="{{ route('brgy_official.announcements.index') }}"> <i
                                 class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                     </li>
+
                     <li class="nav-item">
-                        <p class="nav-link" style="margin: 0; color:#3490dc;"> <i
-                                class="fas fa-bookmark mr-2"></i>Protocols
-                        </p>
+                        <a class="nav-link collapsed text-truncate submenu" href="#submenu1" data-toggle="collapse"
+                            data-target="#submenu1"><i class="fas fa-bookmark mr-2"></i> <span
+                                class="d-none d-sm-inline">Protocols</span></a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('brgy_official.evacuation.index') }}">Evacuation
+                                        Centers
+                                        & Hospitals</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link ml-3" href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-3" href="{{ route('brgy_official.evacuation.index') }}">Evacuation
-                            Centers
-                            & Hospitals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked mr-2"></i>Vulnerability
+                        <a class="nav-link" href="{{ route('brgy_official.vulnerabilitymap.index') }}"><i
+                                class="fas fa-map-marked mr-2"></i>Vulnerability
                             Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                        <a class="nav-link" href="{{ route('brgy_official.reports.index') }}"><i
+                                class="fas fa-edit mr-2"></i>Reports</a>
                     </li>
 
                     <li class="nav-item">
@@ -91,14 +110,18 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i class="fas fa-house-user mr-2"></i>Manage Resident</a>
+                        <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i
+                                class="fas fa-house-user mr-2"></i>Manage Resident</a>
                     </li>
                 </ul>
 
             </div>
         </nav>
     </div>
-<!--ADMIN SIDE NAVBAR-->
+
+
+
+    <!--==========================================================================ADMIN SIDE NAVBAR===============================================================================-->
 @elseif (Auth::user()->user_role === 1)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -110,30 +133,40 @@
             <div class="collapse navbar-collapse" id="sideNavBar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> <i
-                                class="fas fa-user-circle mr-2"></i>Dashboard</a>
+                        <a class="nav-link" href="#"> <i class="fas fa-user-circle mr-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.announcements.index') }}"> <i
                                 class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                     </li>
+
                     <li class="nav-item">
-                        <div class="nav-link text-dark"> <i
-                                class="fas fa-bookmark mr-2"></i>Protocols
+                        <a class="nav-link collapsed text-truncate submenu" href="#submenu1" data-toggle="collapse"
+                            data-target="#submenu1"><i class="fas fa-bookmark mr-2"></i> <span
+                                class="d-none d-sm-inline">Protocols</span></a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('admin.guidelines.index') }}">Guidelines</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3" href="{{ route('admin.evacuation.index') }}">Evacuation
+                                        Centers
+                                        & Hospitals</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link ml-4" href="{{ route('admin.guidelines.index') }}"><div class="ml-3">Guidelines</div></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ml-4" href="{{ route('admin.evacuation.index') }}"><div class="ml-3">Evacuation Centers & Hospitals</div></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-map-marked mr-2"></i>Vulnerability
+                        <a class="nav-link" href="{{ route('admin.vulnerabilitymap.index') }}"><i
+                                class="fas fa-map-marked mr-2"></i>Vulnerability
                             Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                        <a class="nav-link" href="{{ route('admin.reports.index') }}"><i
+                                class="fas fa-edit mr-2"></i>Reports</a>
                     </li>
 
                     <li class="nav-item">
@@ -142,16 +175,24 @@
                     </li>
 
                     <li class="nav-item">
-                        <div class="nav-link text-dark" href="#"><i class="fas fa-house-user mr-2"></i>User Role</div>
+                        <a class="nav-link collapsed text-truncate submenu" href="#submenu2" data-toggle="collapse"
+                            data-target="#submenu2"><i class="fas fa-house-user mr-2"></i> <span
+                                class="d-none d-sm-inline">User Role</span></a>
+                        <div class="collapse" id="submenu2" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('admin.manageresident.index') }}">Manage Residents</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ml-3"
+                                        href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
+                                        Officials</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link ml-4" href="{{ route('admin.manageresident.index') }}"><div class="ml-3">Manage Residents</div></a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link ml-4" href="{{ route('admin.managebrgy_official.index') }}"><div class="ml-3">Manage Barangay Officials</div></a>
-                    </li>
+
                 </ul>
 
             </div>

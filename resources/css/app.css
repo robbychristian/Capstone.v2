@@ -4,8 +4,205 @@ body {
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
     height: 100%;
+    background-color: white;
 }
 
+.color {
+    color: #004f91;
+}
+
+.logo-brand {
+    width: 150px;
+    height: 40px;
+}
+
+.navbar-link {
+    font-size: 1.2rem;
+}
+
+.submenu[data-toggle].collapsed:after {
+    content: " ▾";
+}
+
+.submenu[data-toggle]:not(.collapsed):after {
+    content: " ▴";
+}
+
+/* FIRST ROW INDEX */
+.mockup {
+    height: 600px;
+}
+
+.app-content {
+    text-align: center;
+}
+
+.app-tagline {
+    color: #004f91;
+    font-weight: 800;
+    font-size: 2.5rem;
+}
+
+.app-tagline-2 {
+    font-size: 2rem;
+}
+
+.app-desc {
+    font-size: 1.2rem;
+}
+
+.icon-android {
+    font-size: 3rem;
+}
+
+/* SECOND ROW INDEX */
+
+.heading-features {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.card-img-top {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.feature-content {
+    text-align: center;
+}
+
+.feature-title {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.feature-text {
+    font-size: 1rem;
+}
+
+/* THIRD ROW INDEX */
+
+.text-motto {
+    color: #004f91;
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/*LOGIN*/
+.shadow-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/*GUIDELINES*/
+
+.guide-content-heading {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #004f91;
+}
+
+.icon-background {
+    color: #004f91;
+}
+
+.duck-cover-hold-icon {
+    display: block;
+    margin: 0 auto;
+    height: 70px;
+}
+
+/*VULNERABILITY MAP*/
+
+.vul-caption {
+    font-size: 1rem;
+}
+
+.legend-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* XL BREAK POINT */
+@media only screen and (max-width: 1199.98px) {
+    .login-img {
+        display: none;
+    }
+
+    .kabisig-logo {
+        display: none;
+    }
+
+    .carousel-height {
+        height: 75vh;
+    }
+}
+
+/* LG BREAK POINT */
+@media only screen and (max-width: 991.98px) {
+    .logo-background {
+        display: none;
+    }
+
+    .kabisig-logo {
+        display: none;
+    }
+
+    .carousel-height {
+        height: 60vh;
+    }
+
+    .mockup {
+        height: 550px;
+    }
+}
+
+/* MD BREAK POINT */
+@media only screen and (max-width: 767.98px) {
+    .carousel-height {
+        height: 45vh;
+    }
+}
+
+/* SM BREAK POINT */
+@media (max-width: 575.98px) {
+    .carousel-height {
+        height: 30vh;
+    }
+
+    .app-content {
+        margin-top: 2rem;
+    }
+
+    .app-tagline {
+        font-size: 2rem;
+    }
+
+    .mockup {
+        height: 500px;
+    }
+
+    .icon-legend {
+        font-size: 2rem !important;
+    }
+}
+
+/*
 .bg-kabisig {
     background-color: #cce8ff;
 }
@@ -37,47 +234,47 @@ body {
 
 .input-box {
     background-color: #f3f3f3;
-}
+} */
 
-/* GUIDELINES STYLE */
-.guideline-top-heading{
+/* GUIDELINES STYLE 
+.guideline-top-heading {
     font-size: 2.5rem;
     font-weight: 700;
 }
-.guide-content-heading{
+.guide-content-heading {
     color: rgb(rgb(66, 66, 66));
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
-.guide-content-icon{
+.guide-content-icon {
     color: #004f91;
 }
 
-.guide-content-subheading{
+.guide-content-subheading {
     font-size: 1rem;
     text-align: left;
     padding: 0rem 2rem;
-}
+}*/
 
 /* ANNOUNCEMENTS STYLE */
 
-.card-announce-custom-bg{
+.card-announce-custom-bg {
     background-color: #f5f5f5 !important;
 }
 
-.v-announcement-title{
+.v-announcement-title {
     font-weight: bold;
     font-size: 1.5rem;
     text-decoration: underline;
 }
 
-.v-announcement-date-title{
+.v-announcement-date-title {
     font-weight: bold;
 }
 
-/* XL BREAK POINT */
+/* XL BREAK POINT 
 @media only screen and (max-width: 1199.98px) {
     .login-img {
         display: none;
@@ -88,8 +285,8 @@ body {
     .carousel-height {
         height: 75vh;
     }
-}
-/* LG BREAK POINT */
+}*/
+/* LG BREAK POINT 
 @media only screen and (max-width: 991.98px) {
     .logo-background {
         display: none;
@@ -100,16 +297,16 @@ body {
     .carousel-height {
         height: 60vh;
     }
-}
-/* MD BREAK POINT */
+}*/
+/* MD BREAK POINT 
 @media only screen and (max-width: 767.98px) {
     .carousel-height {
         height: 45vh;
     }
-}
-/* SM BREAK POINT */
+}*/
+/* SM BREAK POINT 
 @media (max-width: 575.98px) {
     .carousel-height {
         height: 30vh;
     }
-}
+}*/

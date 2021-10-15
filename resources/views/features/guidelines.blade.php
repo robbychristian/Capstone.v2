@@ -1,4 +1,4 @@
-@extends('dashboard.user.home')
+@extends('dashboard.admin.home')
 
 @section('title', '| Guidelines')
 @section('sub-content')
@@ -34,11 +34,6 @@
                             aria-controls="tsunami" aria-selected="false">Tsunami</a>
                     </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="landslide-tab" data-toggle="tab" href="#landslide" role="tab"
-                            aria-controls="landslide" aria-selected="false">Landslides</a>
-                    </li>
-
                 </ul> <!-- END OF NAVIGATION OF DISASTER -->
 
                 <!-- MAIN CONTAINER OF THE CONTENT OF GUIDELINES -->
@@ -51,7 +46,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">BEFORE</div>
+                                        <div class="col h4 text-center">BEFORE</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -59,50 +54,74 @@
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">KNOW THE HAZARDS IN YOUR AREA.
                                                 </div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-bullhorn fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center">
+                                                    <span class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bullhorn fa-stack-1x" style="color: white;"></i>
+                                                    </span>
+                                                </div>
                                                 <div class="col-10 guide-content-subheading">Monitor the news for weather
                                                     updates, warnings, and advisories.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-map-marked-alt fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center">
+                                                    <span class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-map-marked fa-stack-1x" style="color: white;"></i>
+                                                    </span>
+                                                </div>
                                                 <div class="col-10 guide-content-subheading">Know the flood early warning
                                                     and evacuation plan of the community.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-hands-helping fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hands-helping fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Participate in community flood
                                                     preparedness actions and drills.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-couch fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-couch fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Secure your home. Move
                                                     essential furniture and items to the upper floor.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-bolt fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bolt fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Before evacuating, turn off all
                                                     main switches of electricity, water and LPG tanks.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-dog fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-dog fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Put livestock and pets in a
                                                     safe area or designed evacuation sites for animals.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-running fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-running fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">When order is received,
                                                     immediately evacuate to higher and safer grounds.</div>
                                             </div>
@@ -112,97 +131,130 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">DURING</div>
+                                        <div class="col h4 text-center">DURING</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">STAY ON HIGHER GROUNDS</div>
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-door-closed fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay indoors and stay tuned for
-                                                latest news and weather updates.</div>
-                                        </div>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">STAY ON HIGHER GROUNDS</div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-door-closed fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Stay indoors and stay tuned for
+                                                    latest news and weather updates.</div>
+                                            </div>
 
-                                        <div class="row mb-3 ">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-plug fa-3x"></i></i></div>
-                                            <div class="col-10 guide-content-subheading">DO NOT touch electrical equipment
-                                                if you are wet or standing in floodwater.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-plug fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">DO NOT touch electrical
+                                                    equipment
+                                                    if you are wet or standing in floodwater.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-swimmer fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">DO NOT go swimming or boating in
-                                                swollen rivers.
-                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-swimmer fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">DO NOT go swimming or boating
+                                                    in
+                                                    swollen rivers.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-water fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">DO NOT cross streams when water
+                                                    level is already above the knee.</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-car fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading"> &nbsp; DO NOT walk or drive
+                                                    through flooded areas.</div>
                                             </div>
                                         </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-water fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">DO NOT cross streams when water
-                                                level is already above the knee.</div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-car fa-4x"></i></div>
-                                            <div class="col-10 guide-content-subheading">DO NOT walk or drive
-                                                through flooded areas.
-                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">AFTER</div>
+                                        <div class="col h4 text-center">AFTER</div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col">
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">STAY ALERT AND KEEP SAFE.</div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-house-user fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Leave the evacuation area only
                                                     when authorities say it is safe to return home. </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-tree fa-3x"></i></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-tree fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Report fallen trees and
                                                     electric posts to proper authorities.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-bolt fa-3x"></i></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bolt fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for wet or submerged
                                                     electrical outlets and applicances before turning on electricity.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-house-damage fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-damage fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check your house for possible
                                                     damages and repair as necessary.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-skull-crossbones fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-skull-crossbones fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Make sure that the food and
                                                     water for drinking are not contaminated by flood water.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-database fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-database fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Throw away rainwater in cans,
                                                     pots, and tires to prevent breeding of mosquitoes.</div>
                                             </div>
@@ -233,7 +285,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">BEFORE</div>
+                                        <div class="col h4 text-center">BEFORE</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -241,8 +293,11 @@
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">KNOW THE HAZARDS IN YOUR AREA.
                                                 </div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-first-aid fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-first-aid fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">
                                                     <div class="row">
                                                         <div class="col-12">Familiarize yourself with the
@@ -261,36 +316,52 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-tools fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-tools fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check your house and have it
                                                     repaired if necessary.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-fire fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas  fa-fire fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Store harmful chemicals and
                                                     flammable materials properly.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-couch fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-couch fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Secure heavy furniture and
                                                     hanging objects.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-suitcase fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-suitcase fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Prepare your family's GO BAG
                                                     containing items needed for survival.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-hands-helping fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hands-helping fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Participate in office and
                                                     community earthquake drills.</div>
                                             </div>
@@ -301,106 +372,151 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">DURING</div>
+                                        <div class="col h4 text-center">DURING</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">WHEN INSIDE A BUILDING, STAY CALM AND
-                                                DO THE:</div>
-                                            <div class="col-2 guide-content-icon text-center"></div>
-                                            <div class="col-10 guide-content-subheading">DUCK COVER HOLD</div>
-                                        </div>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">WHEN INSIDE A BUILDING, STAY CALM
+                                                    AND DO THE:</div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-house-user fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay indoors and stay tuned for
-                                                latest news and weather updates.</div>
-                                        </div>
+                                                <img src="{{ URL::asset('img/duckcoverholdicon.png') }}"
+                                                    class="duck-cover-hold-icon" alt="">
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"></div>
-                                            <div class="col-10 guide-content-subheading">Duck under a strong table and hold
-                                                on to it. Stay alert for potential threats.</div>
-                                        </div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-border-all fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay away from glass windows,
-                                                shelves and heavy objects.
-                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Stay indoors and stay tuned
+                                                    for
+                                                    latest news and weather updates.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-door-open fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">After shaking stops, exit the
-                                                building and go to designated evacuation centers.</div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">WHEN YOU ARE OUTSIDE, MOVE TO AN OPEN
-                                                AREA!</div>
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-building fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay away from buildings, trees,
-                                                electric posts and landslide prone areas.</div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-car-side fa-3x"></i></i></div>
-                                            <div class="col-10 guide-content-subheading">If you're in a moving vehicle,
-                                                stop and exit the vehicle.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <img
+                                                        src="{{ URL::asset('img/icon-duck.png') }}"
+                                                        class="duck-cover-hold-icon" alt=""
+                                                        style="height: 65px; width: 65px;">
+                                                </div>
+                                                <div class="col-10 guide-content-subheading">Duck under a strong table and
+                                                    hold
+                                                    on to it. Stay alert for potential threats.</div>
+                                            </div>
 
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-border-all fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Stay away from glass windows,
+                                                    shelves and heavy objects.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-door-open fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">After shaking stops, exit the
+                                                    building and go to designated evacuation centers.</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">WHEN YOU ARE OUTSIDE, MOVE TO AN
+                                                    OPEN
+                                                    AREA!</div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-building fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Stay away from buildings,
+                                                    trees,
+                                                    electric posts and landslide prone areas.</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-car-side fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">If you're in a moving vehicle,
+                                                    stop and exit the vehicle.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">AFTER</div>
+                                        <div class="col h4 text-center">AFTER</div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col">
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">STAY ALERT FOR AFTERSHOCKS!</div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-band-aid fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-band-aid fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Assess yourself and others for
                                                     injuries. Provide first aid if necessary. </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-wheelchair fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-wheelchair fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Prioritize the needs of older
                                                     persons, pregnant women, PWDs and children.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-water fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-water fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">If in a coastal area and there
                                                     is a threat of a tsunami, evacuate to higher ground immediately.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-skull-crossbones fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-skull-crossbones fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for spills of toxic and
                                                     flammable chemicals.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-house-damage fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-damage fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay out of the building until
                                                     advised that it is safe to return.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-faucet fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-faucet fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for damages in water and
                                                     electrical lines, and gas or LPG leaks.</div>
                                             </div>
@@ -431,7 +547,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">BEFORE</div>
+                                        <div class="col h4 text-center">BEFORE</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -439,43 +555,62 @@
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">KNOW THE HAZARDS IN YOUR AREA.
                                                 </div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-bullhorn fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bullhorn fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Monitor the news for weather
                                                     updates, warnings and advisories.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-clipboard-list fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-clipboard-list fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Know the early warning and
                                                     evacuation plan of the community.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-hammer fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hammer fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check the integrity of your
                                                     house and repair weak parts.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-suitcase fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-suitcase fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Prepare your family's GO BAG
                                                     containing items needed for survival.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-cat fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-cat fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Put livestock and pets in safe
                                                     area or designated evacuation site for animals.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-map-pin fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-map-pin fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">When notified, immediately go
                                                     to the designated evacuation center.</div>
                                             </div>
@@ -486,40 +621,55 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">DURING</div>
+                                        <div class="col h4 text-center">DURING</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">STAY ALERT AND STAY TUNED.</div>
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-house-user fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay calm. Stay indoors and tune
-                                                in for latest news and weather updates.</div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-charging-station fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Turn off main electrical switch
-                                                and water valve.
-                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">STAY ALERT AND STAY TUNED.</div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Stay calm. Stay indoors and
+                                                    tune
+                                                    in for latest news and weather updates.</div>
                                             </div>
-                                        </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-lightbulb fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Use flashlight or emergency lamp.
-                                                Be cautious in using candles and gas lamps.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"><span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Turn off main electrical
+                                                    switch
+                                                    and water valve.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-border-all fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Stay
-                                                away from glass windows.
-                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-lightbulb fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Use flashlight or emergency
+                                                    lamp.
+                                                    Be cautious in using candles and gas lamps.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-border-all fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stay
+                                                    away from glass windows.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -527,7 +677,7 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">AFTER</div>
+                                        <div class="col h4 text-center">AFTER</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -535,41 +685,60 @@
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">REMAIN ALERT AND BE CAUTIOUS.
                                                 </div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-user-check fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-user-check fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Wait for authorities to
                                                     declare that it is safe to return home. </div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-tree fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-tree fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay away from fallen trees,
                                                     damaged structures and power lines.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-hiking fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hiking fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Do not go sightseeing as you
                                                     may hinder the work of emergency services.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-tools fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"><span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-tools fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Be cautious in checking and
-                                                    repairing the damaged parts of your house.</div>
+                                                    repairing the damaged parts of your house..</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-charging-station fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for wet or submerged
                                                     electrical outlets and appliances before turning on electricity.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-database fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-database fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Throw away rainwater in cans,
                                                     pots and tires to prevent breeding of mosquitoes.</div>
                                             </div>
@@ -599,7 +768,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">BEFORE</div>
+                                        <div class="col h4 text-center">BEFORE</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -607,36 +776,52 @@
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">KNOW THE HAZARDS IN YOUR AREA.
                                                 </div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-bullhorn fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bullhorn fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Know if your area has
                                                     potential threat of tsunami.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-map-marked-alt fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-map-marked fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Know the location of the
                                                     evacuation site and the fastest and safest way to go there.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-hands-helping fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hands-helping fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Participate in community
                                                     tsunami preparedness actions and drills.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-seedling fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-seedling fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Plant mangroves and trees near
                                                     the shore.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-suitcase fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-suitcase fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Prepare your family's GO BAG
                                                     containing items needed for survival.</div>
                                             </div>
@@ -646,89 +831,128 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">DURING</div>
+                                        <div class="col h4 text-center">DURING</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">KNOW THE SIGNS OF AN INCOMING TSUNAMI
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">KNOW THE SIGNS OF AN INCOMING
+                                                    TSUNAMI
+                                                </div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-chart-line fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Earthquake that is strong
+                                                    enough
+                                                    to be felt.</div>
                                             </div>
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-chart-line fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Earthquake that is strong enough
-                                                to be felt.</div>
-                                        </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-sun fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading" style="padding: 0rem 3rem;">Sudden drop or
-                                                rise of sea water level.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-sun fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading"> &nbsp;&nbsp;&nbsp; Sudden
+                                                    drop or
+                                                    rise of sea water level.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-volume-up fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading" style="padding: 0rem 3rem;">
-                                                Roaring sound of incoming tsunami.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-volume-up fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roaring sound of incoming tsunami.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-12 guide-content-heading">STAY ON HIGHER GROUNDS.</div>
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-mountain fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Do not stay in low-lying coastal
-                                                area after a strong earthquake. Move to higher ground immediately.</div>
-                                        </div>
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">STAY ON HIGHER GROUNDS.</div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-mountain fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Do not stay in low-lying
+                                                    coastal
+                                                    area after a strong earthquake. Move to higher ground immediately.</div>
+                                            </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-2 guide-content-icon text-center"><i
-                                                    class="fas fa-camera fa-3x"></i></div>
-                                            <div class="col-10 guide-content-subheading">Never go down the beach to watch
-                                                or take pictures of the tsunami.</div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-camera fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Never go down the beach to
+                                                    watch
+                                                    or take pictures of the tsunami.</div>
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">AFTER</div>
+                                        <div class="col h4 text-center">AFTER</div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col">
                                             <div class="row mb-3">
                                                 <div class="col-12 guide-content-heading">STAY ALERT AND KEEP SAFE.</div>
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-door-open fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-door-open fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Leave the evacuation area only
                                                     when authorities say it is safe to return home.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-search-location fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-search-location fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for missing persons and
                                                     report it to authorities.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-ambulance fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-ambulance fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Bring the injured and sick to
                                                     the nearest hospital.</div>
                                             </div>
 
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-charging-station fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for wet or submerged
                                                     electrical outlets and appliances before turning on electricity.</div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-2 guide-content-icon text-center"><i
-                                                        class="fas fa-house-damage fa-3x"></i></div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-damage fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
                                                 <div class="col-10 guide-content-subheading">Check your house for possible
                                                     damages and repair as necessary.</div>
                                             </div>
@@ -803,7 +1027,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">BAGO BUMAHA</div>
+                                        <div class="col h4 text-center">BAGO BUMAHA</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -813,7 +1037,7 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">HABANG BUMABAHA</div>
+                                        <div class="col h4 text-center">HABANG BUMABAHA</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -823,7 +1047,7 @@
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center guideline-top-heading">PAGKATAPOS NG BAHA</div>
+                                        <div class="col h4 text-center">PAGKATAPOS NG BAHA</div>
                                     </div>
 
                                     <div class="row mb-3">
@@ -846,11 +1070,6 @@
                     <div class="tab-pane fade" id="fil-tsunami" role="tabpanel" aria-labelledby="fil-tsunami-tab">Tsunami
                     </div>
                     <!-- END DIV OF TSUNAMI -->
-
-                    <!-- LANDSLIDE CONTENT -->
-                    <div class="tab-pane fade" id="lupa" role="tabpanel" aria-labelledby="lupa-tab">Lupa</div>
-                    <!-- END DIV OF LANDSLIDE -->
-
 
 
                 </div> <!-- END MAIN CONTAINER OF THE CONTENT OF GUIDELINES -->
