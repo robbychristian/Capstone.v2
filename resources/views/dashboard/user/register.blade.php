@@ -70,22 +70,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="inputBday">Birthday</label>
-                                    <select name="mbday" id="inputBday" class="form-control">
-                                        <option selected>Month</option>
-                                        <option value='1'>January</option>
-                                        <option value='2'>February</option>
-                                        <option value='3'>March</option>
-                                        <option value='4'>April</option>
-                                        <option value='5'>May</option>
-                                        <option value='6'>June</option>
-                                        <option value='7'>July</option>
-                                        <option value='8'>August</option>
-                                        <option value='9'>September</option>
-                                        <option value='10'>October</option>
-                                        <option value='11'>November</option>
-                                        <option value='12'>December</option>
-                                    </select>
+
+                                    <input name="dbday" type="text" class="form-control mt-2" id="inputBday"
+                                        placeholder="Day">
+                                </div>
+                                <div class="form-group col-md-2">
+
+                                    <input name="ybday" type="text" class="form-control mt-2" id="inputBday"
+                                        placeholder="Year">
                                 </div>
                             </div>
 
