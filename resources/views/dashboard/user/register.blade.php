@@ -37,8 +37,8 @@
                                     <label for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control">
                                         <option selected>Choose your barangay</option>
-                                        <option>Barangay Santolan</option>
-                                        <option>Barangay 2</option>
+                                        <option value="Barangay Santolan">Barangay Santolan</option>
+                                        <option value="Barangay Dela Paz">Barangay Dela Paz</option>
                                         <option>Barangay 3</option>
                                         <option>Barangay 4</option>
                                         <option>Barangay 5</option>
