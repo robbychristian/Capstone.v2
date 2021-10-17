@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="inputBday">Birthday</label>
-                                    <select name="mbday" id="inputBday" class="form-control">
+                                    <select name="mbday" id="mbday" class="form-control">
                                         <option selected>Month</option>
                                         <option value='1'>January</option>
                                         <option value='2'>February</option>
@@ -73,20 +73,8 @@
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
                                         <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
-                                    <select name="mbday" id="inputBday" class="form-control">
-                                        <option selected>Month</option>
-                                        <option value='1'>January</option>
-                                        <option value='2'>February</option>
-                                        <option value='3'>March</option>
-                                        <option value='4'>April</option>
-                                        <option value='5'>May</option>
-                                        <option value='6'>June</option>
-                                        <option value='7'>July</option>
-                                        <option value='8'>August</option>
-                                        <option value='9'>September</option>
-                                        <option value='10'>October</option>
-                                        <option value='11'>November</option>
-                                        <option value='12'>December</option>
+                                    <select name="dbday" id="dbday" class="form-control">
+
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
@@ -153,5 +141,24 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
+
+    <script>
+        $(document).ready(function() {
+            const month = $("#mbday")
+
+            $("#mbday").on('change', function() {
+                if (this.value == '2') {
+                    for (i = 1; i <= 28; i++) {
+                        $('dbday').html("<option value = " + i + ">" + i + "</option>")
+                    }
+                } else if (this.value == '1' || this.value == '3' || this.value == '5' || this.value ==
+                    '7' || this.value == '9' || this.value == '11') {
+                    for (i = 1; i <= 31; i++) {
+                        $('dbday').html("<option value = " + i + ">" + i + "</option>")
+                    }
+                }
+            })
+        })
+    </script>
 
 @endsection
