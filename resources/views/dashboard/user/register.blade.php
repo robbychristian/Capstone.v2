@@ -7,7 +7,8 @@
 
             $("#mbday").on('change', function() {
                 const optionSelected = $("option:selected", this)
-                if (optionSelected == 'February') {
+                var valueSelected = this.value;
+                if (valueSelected == '2') {
                     console.log("nicececece")
                 }
             })
