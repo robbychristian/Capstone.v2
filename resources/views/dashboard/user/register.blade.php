@@ -144,10 +144,12 @@
 
     <script>
         $(document).ready(function() {
-            const month = $("#mbday")
 
             $("#mbday").on('change', function() {
-                alert("nice")
+                const optionSelected = $("option:selected", this)
+                if (optionSelected == 'February') {
+                    console.log("nicececece")
+                }
             })
         })
     </script>
