@@ -70,9 +70,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <div class="d-none d-xl-block d-lg-block d-md-block">
-                                        <label for="inputBday" style="color:white"></label>
-                                    </div>
                                     <select name="mbday" id="inputBday" class="form-control">
                                         <option selected>Month</option>
                                         <option value='1'>January</option>
