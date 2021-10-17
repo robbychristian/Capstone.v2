@@ -147,16 +147,7 @@
             const month = $("#mbday")
 
             $("#mbday").on('change', function() {
-                if (this.value == '2') {
-                    for (i = 1; i <= 28; i++) {
-                        $('dbday').html("<option value = " + i + ">" + i + "</option>")
-                    }
-                } else if (this.value == '1' || this.value == '3' || this.value == '5' || this.value ==
-                    '7' || this.value == '9' || this.value == '11') {
-                    for (i = 1; i <= 31; i++) {
-                        $('dbday').html("<option value = " + i + ">" + i + "</option>")
-                    }
-                }
+                alert("nice")
             })
         })
     </script>
