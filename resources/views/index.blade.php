@@ -9,17 +9,7 @@
                 </div>
             </div>
 
-            <div data-aos="fade-left" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex">
-                <div class="justify-content-center align-self-center app-content">
-                    <h3 class="app-tagline"> Disaster Preparedness Companion.</h3>
-                    <h3 class="app-tagline-2 mt-4"> We Are With You.</h3>
-                    <p class="app-desc mt-4 ">Be our companion to be shelthered and protected. Together, let's help hand in
-                        hand against disasters. KaBisig accompanies you with updates and guides.</p>
-                    <a href="#" class="btn btn-dark btn-lg active mt-3" role="button" aria-pressed="true"><i
-                            class="fab fa-android icon-android fa-spin mr-3"
-                            style=" vertical-align: middle;"></i><strong>Download our Android App</strong></a>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="bg-kabisig p-5">
