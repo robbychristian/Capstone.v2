@@ -2,6 +2,17 @@
 
 @section('content')
 
+    <script>
+        $(document).ready(function() {
+
+            $("#mbday").on('change', function() {
+                const optionSelected = $("option:selected", this)
+                if (optionSelected == 'February') {
+                    console.log("nicececece")
+                }
+            })
+        })
+    </script>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -142,16 +153,5 @@
     </footer>
     <!-- Footer -->
 
-    <script>
-        $(document).ready(function() {
-
-            $("#mbday").on('change', function() {
-                const optionSelected = $("option:selected", this)
-                if (optionSelected == 'February') {
-                    console.log("nicececece")
-                }
-            })
-        })
-    </script>
 
 @endsection
