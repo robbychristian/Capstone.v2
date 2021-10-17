@@ -7,9 +7,10 @@
 
             $("#mbday").on('change', function() {
                 const optionSelected = $("option:selected", this)
-                var valueSelected = this.value;
+                var valueSelected = this.value
+                var option = $('<option></option>').attr("value", "option value").text("Text");
                 if (valueSelected == '2') {
-                    console.log("nicececece")
+                    $("#dbday").empty().append(option)
                 }
             })
         })
