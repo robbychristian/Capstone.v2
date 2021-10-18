@@ -200,6 +200,10 @@ body {
     .icon-legend {
         font-size: 2rem !important;
     }
+
+    .guide-content-icon .fa-class {
+        font-size: 0.875em;
+    }
 }
 
 /*
