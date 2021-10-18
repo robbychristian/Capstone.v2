@@ -202,7 +202,7 @@
                                 <div class="form-group col-md-2">
                                     <label for="inputBday">Birthday</label>
                                     <select name="mbday" id="mbday" class="form-control">
-                                        <option selected>Month</option>
+                                        <option selected disabled>Month</option>
                                         <option value='1'>January</option>
                                         <option value='2'>February</option>
                                         <option value='3'>March</option>
@@ -225,7 +225,7 @@
                                         <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
                                     <select name="dbday" id="dbday" class="form-control">
-                                        <option>Day</option>
+                                        <option selected disabled>Day</option>
                                     </select>
                                     <small class="text-danger">@error('dbday')
                                             {{ $message }}
