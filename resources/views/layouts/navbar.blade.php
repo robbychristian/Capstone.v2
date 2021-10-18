@@ -14,26 +14,27 @@
             <div class="collapse navbar-collapse" id="sideNavBar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit"> <i
+                        <a class="nav-link nav-size" href="/user/account/{{ Auth::user()->id }}/edit"> <i
                                 class="fas fa-user-circle mr-2"></i>Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.announcements.index') }}"> <i
+                        <a class="nav-link nav-size" href="{{ route('user.announcements.index') }}"> <i
                                 class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link collapsed text-truncate submenu" href="#submenu1" data-toggle="collapse"
-                            data-target="#submenu1"><i class="fas fa-bookmark mr-2"></i> <span
+                        <a class="nav-link collapsed text-truncate submenu nav-size" href="#submenu1"
+                            data-toggle="collapse" data-target="#submenu1"><i class="fas fa-bookmark mr-2"></i> <span
                                 class="d-none d-sm-inline">Protocols</span></a>
                         <div class="collapse" id="submenu1" aria-expanded="false">
                             <ul class="flex-column pl-2 nav">
                                 <li class="nav-item">
-                                    <a class="nav-link ml-3"
+                                    <a class="nav-link ml-3 nav-size"
                                         href="{{ route('user.guidelines.index') }}">Guidelines</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link ml-3" href="{{ route('user.evacuation.index') }}">Evacuation
+                                    <a class="nav-link ml-3 nav-size"
+                                        href="{{ route('user.evacuation.index') }}">Evacuation
                                         Centers
                                         & Hospitals</a>
                                 </li>
@@ -41,12 +42,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}"><i
+                        <a class="nav-link nav-size" href="{{ route('user.vulnerabilitymap.index') }}"><i
                                 class="fas fa-map-marked mr-2"></i>Vulnerability
                             Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.reports.index') }}"><i
+                        <a class="nav-link nav-size" href="{{ route('user.reports.index') }}"><i
                                 class="fas fa-edit mr-2"></i>Reports</a>
                     </li>
                 </ul>
