@@ -152,7 +152,7 @@ body {
         height: 75vh;
     }
 
-    .nav-size {
+    .nav-size a {
         font-size: 1.2rem;
     }
 }
