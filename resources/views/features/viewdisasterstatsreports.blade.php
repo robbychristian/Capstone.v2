@@ -15,7 +15,8 @@
                 <div class="row"></div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                    <a href="" class="btn btn-primary" href="#" role="button">Create a Disaster Statistical Reports</a>
+                    <a href="" class="btn btn-primary" href="{{ route('brgy_official.vulnerabilitymap.create') }}"
+                        role="button">Create a Disaster Statistical Reports</a>
                 </div>
             </div>
 
