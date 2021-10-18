@@ -147,21 +147,33 @@
                                 <div class="form-group col-md-4">
                                     <label for="inputfName">First Name</label>
                                     <input name="fname" type="text" class="form-control" id="inputfName">
+                                    <small class="text-danger">@error('fname')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputmName">Middle Name</label>
                                     <input name="mname" type="text" class="form-control" id="inputmName">
+                                    <small class="text-danger">@error('mname')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
 
                                 <div class="form-group col-md-4">
                                     <label for="inputlName">Last Name</label>
                                     <input name="lname" type="text" class="form-control" id="inputlName">
+                                    <small class="text-danger">@error('lname')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="inputAddress">Home Address</label>
-                                    <input name="address" type="text" class="form-control" id="inputAddress">
+                                    <input name="home_add" type="text" class="form-control" id="inputAddress">
+                                    <small class="text-danger">@error('home_add')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputBrgy">Barangay</label>
@@ -173,6 +185,9 @@
                                         <option>Barangay 4</option>
                                         <option>Barangay 5</option>
                                     </select>
+                                    <small class="text-danger">@error('brgy')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                             </div>
 
@@ -180,6 +195,9 @@
                                 <div class="form-group col-md-6">
                                     <label for="inputContactNum">Contact Number</label>
                                     <input name="cnum" type="text" class="form-control" id="inputContactNum">
+                                    <small class="text-danger">@error('cnum')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="inputBday">Birthday</label>
@@ -198,14 +216,20 @@
                                         <option value='11'>November</option>
                                         <option value='12'>December</option>
                                     </select>
+                                    <small class="text-danger">@error('mbday')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
                                         <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
                                     <select name="dbday" id="dbday" class="form-control">
-
+                                        <option>Day</option>
                                     </select>
+                                    <small class="text-danger">@error('dbday')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
@@ -213,23 +237,34 @@
                                     </div>
                                     <input name="ybday" type="text" class="form-control mt-2" id="inputBday"
                                         placeholder="Year">
+                                    <small class="text-danger">@error('ybday')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputEmail">Email</label>
                                 <input name="email" type="email" class="form-control" id="inputEmail">
+                                <small class="text-danger">@error('email')
+                                        {{ $message }}
+                                    @enderror</small>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Password</label>
-                                    <input name="password" type="password" class="form-control" id="inputPassword">
+                                    <input name="pass" type="password" class="form-control" id="inputPassword">
+                                    <small class="text-danger">@error('pass')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputConfpw">Confirm Password</label>
-                                    <input name="password_confirmation" type="password" class="form-control"
-                                        id="inputConfpw">
+                                    <input name="cpass" type="password" class="form-control" id="inputConfpw">
+                                    <small class="text-danger">@error('cpass')
+                                            {{ $message }}
+                                        @enderror</small>
                                 </div>
                             </div>
 
@@ -248,6 +283,9 @@
                                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                                         conditions
                                     </span></label>
+                                <small class="text-danger">@error('cbox')
+                                        {{ $message }}
+                                    @enderror</small>
                             </div>
 
                             <button name="" type="submit" class="btn btn-primary mt-2">Submit</button>

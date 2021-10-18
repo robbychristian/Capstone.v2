@@ -71,19 +71,31 @@ class RegisterController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
+            'home_add' => 'required|max:255',
+            'brgy' => 'required',
+            'mbday' => 'required',
+            'dbday' => 'required',
+            'ybday' => 'required',
+            'email' => 'required|email|unique:users|string',
             'cnum' => 'required|max:255',
-            'curr_pass' => 'required|min:8',
-            'new_pass' => 'required|min:8',
-            'conf_pass' => 'required|min:8|same:new_pass'
+            'pass' => 'required|min:8',
+            'cpass' => 'required|min:8|same:new_pass',
+            'cbox' => 'required'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
             'mname.required' => 'The middle name field must not be empty!',
             'lname.required' => 'The last name field must not be empty!',
+            'brgy.required' => 'The Barangay field must not be empty!',
+            'home_add.required' => 'The Home Address field must not be empty!',
+            'mbday.required' => 'The month field must not be empty!',
+            'dbday.required' => 'The day field must not be empty!',
+            'ybday.required' => 'The year field must not be empty!',
+            'email.required' => 'The email field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
-            'curr_pass.required' => 'The current password field must not be empty!',
-            'new_pass.required' => 'The new password field must not be empty!',
-            'conf_pass.required' => 'The confirm password field must not be empty!',
-            'conf_pass.same' => 'Confirm password should match new password!',
+            'pass.required' => 'The new password field must not be empty!',
+            'cpass.required' => 'The confirm password field must not be empty!',
+            'cpass.same' => 'Confirm password should match new password!',
+            'cbox.required' => 'Terms and agreements must be confirmed!',
         ]);
 
         if ($validator->fails()) {
