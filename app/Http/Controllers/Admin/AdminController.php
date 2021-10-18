@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -18,18 +19,28 @@ class AdminController extends Controller
     public function check(Request $request)
     {
         $request->validate([
-            'email'=>'required',
-            'password'=>'required'
-        ],[
-            'email.exists'=>'This email does not exists'
+            'email' => 'required',
+            'password' => 'required'
+        ], [
+            'email.exists' => 'This email does not exists'
         ]);
-        
-        $creds = $request->only('email','password');
-        if(Auth::guard('admin')->attempt($creds)){
-            return redirect()->route('admin.home');
-        } else {
-            return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
-        }
 
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:admins,email',
+            'password' => 'required|min: 8',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/admin/login')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $creds = $request->only('email', 'password');
+            if (Auth::guard('admin')->attempt($creds)) {
+                return redirect()->route('admin.home');
+            } else {
+                return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
+            }
+        }
     }
 }
