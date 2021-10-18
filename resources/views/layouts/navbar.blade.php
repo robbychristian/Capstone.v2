@@ -31,11 +31,12 @@
                         <div class="collapse" id="submenu1" aria-expanded="false">
                             <ul class="flex-column pl-2 nav">
                                 <li class="nav-item">
-                                    <a class="nav-link ml-3"
+                                    <a class="nav-link ml-3" style="font-size:1.2rem;"
                                         href="{{ route('user.guidelines.index') }}">Guidelines</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link ml-3" href="{{ route('user.evacuation.index') }}">Evacuation
+                                    <a class="nav-link ml-3" style="font-size:1.2rem;"
+                                        href="{{ route('user.evacuation.index') }}">Evacuation
                                         Centers
                                         & Hospitals</a>
                                 </li>
