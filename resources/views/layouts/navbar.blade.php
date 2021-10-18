@@ -181,7 +181,7 @@
                     <li class="nav-item">
                         <a class="nav-link collapsed text-truncate submenu" href="#submenu2" data-toggle="collapse"
                             data-target="#submenu2"><i class="fas fa-house-user mr-2"></i> <span
-                                class="d-none d-sm-inline">User Role</span></a>
+                                class=" d-sm-inline">User Role</span></a>
                         <div class="collapse" id="submenu2" aria-expanded="false">
                             <ul class="flex-column pl-2 nav">
                                 <li class="nav-item">
