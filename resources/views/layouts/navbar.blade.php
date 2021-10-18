@@ -67,6 +67,9 @@
             <div class="collapse navbar-collapse" id="sideNavBar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
+                        <a class="nav-link" href=""> <i class="fas fa-chart-bar"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/brgy_official/account/{{ Auth::user()->id }}/edit"> <i
                                 class="fas fa-user-circle mr-2"></i>Account</a>
                     </li>

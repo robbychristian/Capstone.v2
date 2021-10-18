@@ -17,7 +17,7 @@
                         <hr>
                         @if (Session::has('Fail'))
                             <div class="alert alert-warning">
-                                <div class="h5"><b>Credentials<b> does not match anything in the records!</div>
+                                <div class="h5"><b>Credentials</b> does not match anything in the records!</div>
                             </div>
                         @endif
                         <div class="container">
