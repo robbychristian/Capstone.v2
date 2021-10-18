@@ -146,7 +146,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputfName">First Name</label>
-                                    <input name="fname" type="text" class="form-control" id="inputfName">
+                                    <input name="fname" type="text" class="form-control" id="inputfName"
+                                        value="{{ old(fname) }}">
                                     <small class="text-danger">@error('fname')
                                             {{ $message }}
                                         @enderror</small>
