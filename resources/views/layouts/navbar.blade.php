@@ -14,7 +14,8 @@
             <div class="collapse navbar-collapse" id="sideNavBar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit"> <i
+                        <a class="nav-link" style="font-size:1.2rem;"
+                            href="/user/account/{{ Auth::user()->id }}/edit"> <i
                                 class="fas fa-user-circle mr-2"></i>Account</a>
                     </li>
                     <li class="nav-item">
