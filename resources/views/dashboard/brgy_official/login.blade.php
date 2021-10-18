@@ -17,7 +17,7 @@
                         <hr>
                         @if (Session::get('Fail'))
                             <div class="alert alert-warning">
-                                <div class="h5">{{ $message }}</div>
+                                <div class="h5">{{ Session::get('Fail') }}</div>
                             </div>
                         @endif
                         <div class="container">
