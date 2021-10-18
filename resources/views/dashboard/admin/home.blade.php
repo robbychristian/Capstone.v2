@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-3">
         <div class="row">
 
             <!-- Vertical Navbar -->
