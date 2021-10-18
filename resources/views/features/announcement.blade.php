@@ -8,9 +8,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-8">
                 <h3 class="mb-1">Announcements</h3>
-                <p class="module-desc"><i>Communicate with your residents directly and let them know the updates
-                        within your
-                        barangay. </i></p>
+
             </div>
             <!-- Button trigger modal -->
 
@@ -72,8 +70,7 @@
                                                 </a>
                                             </div>
                                             <div class="v-announcement-date">
-                                                <form action="/admin/announcements/{{ $announcement->id }}"
-                                                    method="POST">
+                                                <form action="/admin/announcements/{{ $announcement->id }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger">Delete</button>
