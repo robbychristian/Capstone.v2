@@ -114,8 +114,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i
-                                class="fas fa-house-user mr-2"></i>Manage Resident</a>
+                        <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i class="fas fa-users"></i>Manage Resident</a>
                     </li>
                 </ul>
 
