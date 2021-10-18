@@ -182,7 +182,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
-                                        <option selected>Choose your barangay</option>
+                                        <option selected disabled>Choose your barangay</option>
                                         <option value="Barangay Santolan">Barangay Santolan</option>
                                         <option value="Barangay Dela Paz">Barangay Dela Paz</option>
                                         <option>Barangay 3</option>
