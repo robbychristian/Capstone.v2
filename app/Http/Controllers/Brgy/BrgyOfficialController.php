@@ -24,7 +24,7 @@ class BrgyOfficialController extends Controller
         ]);
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|exists',
+            'email' => 'required|email|exists:brgy_officials',
             'password' => 'required|min: 8'
         ]);
 
