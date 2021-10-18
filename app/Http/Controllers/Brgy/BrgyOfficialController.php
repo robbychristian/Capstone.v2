@@ -24,12 +24,13 @@ class BrgyOfficialController extends Controller
         ]);
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'email' => 'required|email|exists',
             'password' => 'required|min: 8'
         ]);
 
         if ($validator->fails()) {
             return redirect('/brgy_official/login/')
+                ->with("Fail", "Credentials does not match any record")
                 ->withErrors($validator)
                 ->withInput();
         } else {

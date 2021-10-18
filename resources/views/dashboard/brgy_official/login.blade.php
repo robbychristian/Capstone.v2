@@ -15,6 +15,11 @@
                     <div class="card-body shadow-card">
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Login your Account</h3>
                         <hr>
+                        @if (Session::get('fail'))
+                            <div class="alert alert-warning">
+                                <div class="h5">{{ $message }}</div>
+                            </div>
+                        @endif
                         <div class="container">
                             <form method="POST" action="{{ route('brgy_official.check') }}">
                                 @csrf
@@ -26,7 +31,7 @@
                                     <div class="col-md-6">
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -43,7 +48,7 @@
                                     <div class="col-md-6">
                                         <input id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
-                                            required autocomplete="current-password">
+                                            autocomplete="current-password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
