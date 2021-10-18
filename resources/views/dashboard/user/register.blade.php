@@ -146,14 +146,16 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputfName">First Name</label>
-                                    <input name="fname" type="text" class="form-control" id="inputfName">
+                                    <input name="fname" type="text" class="form-control" id="inputfName"
+                                        value="{{ old('fname') }}">
                                     <small class="text-danger">@error('fname')
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputmName">Middle Name</label>
-                                    <input name="mname" type="text" class="form-control" id="inputmName">
+                                    <input name="mname" type="text" class="form-control" id="inputmName"
+                                        value="{{ old('mname') }}">
                                     <small class="text-danger">@error('mname')
                                             {{ $message }}
                                         @enderror</small>
@@ -161,7 +163,8 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="inputlName">Last Name</label>
-                                    <input name="lname" type="text" class="form-control" id="inputlName">
+                                    <input name="lname" type="text" class="form-control" id="inputlName"
+                                        value="{{ old('lname') }}">
                                     <small class="text-danger">@error('lname')
                                             {{ $message }}
                                         @enderror</small>
@@ -170,14 +173,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="inputAddress">Home Address</label>
-                                    <input name="home_add" type="text" class="form-control" id="inputAddress">
+                                    <input name="home_add" type="text" class="form-control" id="inputAddress"
+                                        value="{{ old('home_add') }}">
                                     <small class="text-danger">@error('home_add')
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputBrgy">Barangay</label>
-                                    <select name="brgy" id="inputBrgy" class="form-control">
+                                    <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
                                         <option selected>Choose your barangay</option>
                                         <option value="Barangay Santolan">Barangay Santolan</option>
                                         <option value="Barangay Dela Paz">Barangay Dela Paz</option>
@@ -194,14 +198,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputContactNum">Contact Number</label>
-                                    <input name="cnum" type="text" class="form-control" id="inputContactNum">
+                                    <input name="cnum" type="text" class="form-control" id="inputContactNum"
+                                        value="{{ old('cnum') }}">
                                     <small class="text-danger">@error('cnum')
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="inputBday">Birthday</label>
-                                    <select name="mbday" id="mbday" class="form-control">
+                                    <select name="mbday" id="mbday" class="form-control" value="{{ old('mbday') }}">
                                         <option selected disabled>Month</option>
                                         <option value='1'>January</option>
                                         <option value='2'>February</option>
@@ -224,7 +229,7 @@
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
                                         <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
-                                    <select name="dbday" id="dbday" class="form-control">
+                                    <select name="dbday" id="dbday" class="form-control" value="{{ old('dbday') }}">
                                         <option selected disabled>Day</option>
                                     </select>
                                     <small class="text-danger">@error('dbday')
@@ -236,7 +241,7 @@
                                         <label for="inputBday" style="color:white"></label>
                                     </div>
                                     <input name="ybday" type="text" class="form-control mt-2" id="inputBday"
-                                        placeholder="Year">
+                                        placeholder="Year" value="{{ old('ybday') }}">
                                     <small class="text-danger">@error('ybday')
                                             {{ $message }}
                                         @enderror</small>
@@ -245,7 +250,8 @@
 
                             <div class="form-group">
                                 <label for="inputEmail">Email</label>
-                                <input name="email" type="email" class="form-control" id="inputEmail">
+                                <input name="email" type="email" class="form-control" id="inputEmail"
+                                    value="{{ old('email') }}">
                                 <small class="text-danger">@error('email')
                                         {{ $message }}
                                     @enderror</small>
@@ -278,7 +284,8 @@
                             </div>
 
                             <div class="form-group form-check">
-                                <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1"
+                                    value="{{ old('cbox') }}">
                                 <label class="form-check-label" for="exampleCheck1">I have read and agree to the <span
                                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                                         conditions
