@@ -15,7 +15,7 @@
                     <div class="card-body shadow-card">
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Login your Account</h3>
                         <hr>
-                        @if (Session::get('fail'))
+                        @if (Session::get('Fail'))
                             <div class="alert alert-warning">
                                 <div class="h5">{{ $message }}</div>
                             </div>
