@@ -66,26 +66,53 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-        $user = User::create([
-            'user_role' => 4,
-            'email' => $request['email'],
-            'first_name' => $request['fname'],
-            'last_name' => $request['lname'],
-            'brgy_loc' => $request['brgy'],
-            'is_blocked' => 0,
-            'is_deactivated' => 0,
-            'password' => Hash::make($request['password']),
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|unique:users|email',
+            'fname' => 'required|max:255',
+            'mname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'cnum' => 'required|max:255',
+            'curr_pass' => 'required|min:8',
+            'new_pass' => 'required|min:8',
+            'conf_pass' => 'required|min:8|same:new_pass'
+        ], $messages = [
+            'fname.required' => 'The first name field must not be empty!',
+            'mname.required' => 'The middle name field must not be empty!',
+            'lname.required' => 'The last name field must not be empty!',
+            'cnum.required' => 'The contact number field must not be empty!',
+            'curr_pass.required' => 'The current password field must not be empty!',
+            'new_pass.required' => 'The new password field must not be empty!',
+            'conf_pass.required' => 'The confirm password field must not be empty!',
+            'conf_pass.same' => 'Confirm password should match new password!',
         ]);
 
-        $user_profile = UserProfile::create([
-            'user_email' => $request['email'],
-            'middle_name' => $request['mname'],
-            'home_add' => $request['address'],
-            'contact_no' => $request['cnum'],
-            'birth_day' => $request['mbday'].'/'.$request['dbday'].'/'.$request['ybday'],
-            'profile_pic' => 'noimage.jpg'
-        ]);
-        
-        return redirect()->route('user.login');
+        if ($validator->fails()) {
+            return redirect('/user/register/')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+
+            $user = User::create([
+                'user_role' => 4,
+                'email' => $request['email'],
+                'first_name' => $request['fname'],
+                'last_name' => $request['lname'],
+                'brgy_loc' => $request['brgy'],
+                'is_blocked' => 0,
+                'is_deactivated' => 0,
+                'password' => Hash::make($request['password']),
+            ]);
+
+            $user_profile = UserProfile::create([
+                'user_email' => $request['email'],
+                'middle_name' => $request['mname'],
+                'home_add' => $request['address'],
+                'contact_no' => $request['cnum'],
+                'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
+                'profile_pic' => 'noimage.jpg'
+            ]);
+
+            return redirect()->route('user.login');
+        }
     }
 }
