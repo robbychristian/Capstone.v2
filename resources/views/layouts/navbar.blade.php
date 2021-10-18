@@ -114,6 +114,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('brgy_official.stats.index') }}"> <i class="fas fa-clipboard mr-2"></i>Disaster Statistics</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i class="fas fa-users mr-2"></i>Manage Resident</a>
                     </li>
                 </ul>

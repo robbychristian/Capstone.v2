@@ -18,6 +18,7 @@ use App\Http\Controllers\Brgy\EvacuationController as BrgyEvacuation;
 use App\Http\Controllers\Brgy\ManageResidentController as BrgyManageResident;
 use App\Http\Controllers\Brgy\VulnerabilityMapController as BrgyVulnerabilityMap;
 use App\Http\Controllers\Brgy\ReportsController as BrgyReports;
+use App\Http\Controllers\Brgy\StatisticsController as BrgyStatsReport;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncement;
 use App\Http\Controllers\Admin\EvacuationController as AdminEvacuation;
@@ -116,6 +117,7 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function () {
         Route::post('/manageresident/deactivate/{manageresident}', [BrgyManageResident::class, 'deactivate'])->name('manageresident.deactivate');
         Route::post('/manageresident/activate/{manageresident}', [BrgyManageResident::class, 'activate'])->name('manageresident.activate');
         Route::resource('/manageresident', BrgyManageResident::class);
+        Route::resource('/stats', BrgyStatsReport::class);
     });
 });
 
