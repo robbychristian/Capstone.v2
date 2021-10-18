@@ -42,7 +42,7 @@
                 if (valueSelected == '2') {
                     $("#dbday").empty()
                     $.each(febDays, function(key, value) {
-                        $el.append($("<option></option>")
+                        $("#dbday").append($("<option></option>")
                             .attr("value", value).text(key))
                     })
                 }
