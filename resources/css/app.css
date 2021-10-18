@@ -151,10 +151,6 @@ body {
     .carousel-height {
         height: 75vh;
     }
-
-    .nav-size a {
-        font-size: 1.2rem;
-    }
 }
 
 /* LG BREAK POINT */
