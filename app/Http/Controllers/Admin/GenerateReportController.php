@@ -39,18 +39,13 @@ class GenerateReportController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'monthOfdisaster' => 'required',
+        $validator = Validator::make($request->all(), [
+            'monthOfdisaster' => 'required',
                 'yearOfdisaster' => 'required',
-            ],
-            $messages = [
-                'monthOfdisaster' => 'The month of disaster field is required!',
-                'yearOfdisaster' => 'The year of disaster field is required!',
-
-            ]
-        );
+        ], $messages = [
+            'monthOfdisaster' => 'The month of disaster field is required!',
+            'yearOfdisaster' => 'The year of disaster field is required!',
+        ]);
 
         if ($validator->fails()) {
             return redirect('/admin/generate')
