@@ -3,18 +3,15 @@
 @section('content')
 
     <div class="container-fluid mt-3">
-                <div class="row">
+        <div class="row">
 
-                    <!-- Vertical Navbar -->
-                    @include('layouts.navbar')
+            <!-- Vertical Navbar -->
+            @include('layouts.navbar')
 
-                    <!-- Sub-Content (Features)-->
-                    @yield('sub-content')
+            <!-- Sub-Content (Features)-->
+            @yield('sub-content')
 
-                </div>
+        </div>
 
-        @else
-            You are blocked
-        @endif
     </div>
 @endsection
