@@ -71,7 +71,7 @@ class StatisticsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/stats/create')
+            return redirect('/brgy_official/stats/create')
                 ->withErrors($validator)
                 ->withInput();
         } else {
