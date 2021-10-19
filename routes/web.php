@@ -36,7 +36,13 @@ use App\Http\Controllers\Admin\ReportsController as AdminReports;
 use App\Http\Controllers\Admin\StatisticsController as AdminStatsReport;
 
 
+use App\Http\Controllers\LGU\DelaPazController as LGUBrgyDelaPaz;
 use App\Http\Controllers\LGU\LocalUnit;
+use App\Http\Controllers\LGU\ManggahanController as LGUBrgyManggahan;
+use App\Http\Controllers\LGU\MaybungaController as LGUBrgyMaybunga;
+use App\Http\Controllers\LGU\RosarioController as LGUBrgyRosario;
+use App\Http\Controllers\LGU\SantolanController as LGUBrgySantolan;
+
 use App\Models\Guidelines;
 use League\Flysystem\Adapter\Local;
 
@@ -142,5 +148,10 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
 
     Route::middleware(['auth:local_unit'])->group(function () {
         Route::view('/home', 'dashboard.LGU.home')->name('home');
+        Route::resource('/brgy_delapaz', LGUBrgyDelaPaz::class);
+        Route::resource('/brgy_manggahan', LGUBrgyManggahan::class);
+        Route::resource('/brgy_maybunga', LGUBrgyMaybunga::class);
+        Route::resource('/brgy_rosario', LGUBrgyRosario::class);
+        Route::resource('/brgy_santolan', LGUBrgySantolan::class);
     });
 });

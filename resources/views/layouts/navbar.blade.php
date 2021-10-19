@@ -205,4 +205,44 @@
             </div>
         </nav>
     </div>
+
+    <!--==========================================================================LGU SIDE NAVBAR===============================================================================-->
+@elseif (Auth::user()->user_role === 5)
+<div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
+    <nav class="navbar navbar-expand-md navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sideNavBar"
+            aria-controls="sideNavBar" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="sideNavBar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lgu.brgy_delapaz.index') }}"> <i
+                            class="fas fa-chevron-right mr-2"></i>Barangay Dela Paz</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lgu.brgy_manggahan.index') }}"> <i
+                            class="fas fa-chevron-right mr-2"></i>Barangay Manggahan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lgu.brgy_maybunga.index') }}"> <i class="fas fa-chevron-right mr-2"></i></i>Barangay Maybunga</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lgu.brgy_rosario.index') }}"><i
+                            class="fas fa-chevron-right mr-2"></i>Barangay Rosario</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lgu.brgy_santolan.index') }}"><i class="fas fa-chevron-right mr-2"></i>Barangay Santolan</a>
+                </li>
+
+
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
 @endif
