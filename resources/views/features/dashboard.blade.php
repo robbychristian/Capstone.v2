@@ -418,11 +418,12 @@
             data: dataFA,
             options: {
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Families Affected per Disaster',
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Families Affected per Disaster',
+                    }
                 },
-
                 scales: {
                     y: {
                         beginAtZero: true
@@ -830,9 +831,11 @@
             data: dataIndiv,
             options: {
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Individuals Affected per Disaster',
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Individuals Affected per Disaster',
+                    }
                 },
 
                 scales: {
