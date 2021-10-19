@@ -1,4 +1,4 @@
-@extends('dashboard.LGU.home')
+@extends('dashboard.admin.home')
 
 @section('title', '| Barangay Manggahan')
 @section('sub-content')
