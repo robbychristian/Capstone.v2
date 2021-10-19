@@ -37,9 +37,7 @@
                             <option value='November'>November</option>
                             <option value='December'>December</option>
                         </select>
-                        <div class="text-danger">@error('monthOfdisaster')
-                                {{ $message }}
-                            @enderror</div>
+
                     </div>
 
                     <div class="form-group col">
@@ -49,9 +47,6 @@
                             <option value='2021'>2021</option>
                             <option value='2022'>2022</option>
                         </select>
-                        <div class="text-danger">@error('yearOfdisaster')
-                                {{ $message }}
-                            @enderror</div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Download</button>
