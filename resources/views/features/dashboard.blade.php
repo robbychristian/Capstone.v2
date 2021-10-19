@@ -1243,11 +1243,12 @@
             data: dataevac,
             options: {
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Evacuees per Disaster',
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Evacuees per Disaster',
+                    }
                 },
-
                 scales: {
                     y: {
                         beginAtZero: true
