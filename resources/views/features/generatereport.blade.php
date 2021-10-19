@@ -8,6 +8,11 @@
 
             <div class="card-body">
                 <h5 class="card-title">Generate Disaster Statistical Reports</h5>
+                @if (Session::get('error'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('error') }}
+                    </div>
+                @endif
                 @if (Auth::user()->user_role === 1)
                     <form action="/admin/generate" method="POST">
                     @elseif (Auth::user()->user_role === 3)
