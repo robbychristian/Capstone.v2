@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
 use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
 use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
 use App\Http\Controllers\Auth\ReportsController as UserReports;
+
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Brgy\AccountController as BrgyAccount;
 use App\Http\Controllers\Brgy\AnnouncementController as BrgyAnnouncement;
@@ -21,14 +22,19 @@ use App\Http\Controllers\Brgy\ManageResidentController as BrgyManageResident;
 use App\Http\Controllers\Brgy\VulnerabilityMapController as BrgyVulnerabilityMap;
 use App\Http\Controllers\Brgy\ReportsController as BrgyReports;
 use App\Http\Controllers\Brgy\StatisticsController as BrgyStatsReport;
+
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncement;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\EvacuationController as AdminEvacuation;
+use App\Http\Controllers\Admin\GenerateReportController as AdminGenerateReport;
 use App\Http\Controllers\Admin\GuidelinesController as AdminGuidelines;
 use App\Http\Controllers\Admin\ManageResidentController as AdminManageResident;
 use App\Http\Controllers\Admin\ManageBrgyOfficialController as AdminManageBrgy;
 use App\Http\Controllers\Admin\VulnerabilityMapController as AdminVulnerabilityMap;
 use App\Http\Controllers\Admin\ReportsController as AdminReports;
+use App\Http\Controllers\Admin\StatisticsController as AdminStatsReport;
+
 
 use App\Http\Controllers\LGU\LocalUnit;
 use App\Models\Guidelines;
@@ -95,6 +101,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/manageresident/activate/{manageresident}', [AdminManageResident::class, 'activate'])->name('manageresident.activate');
         Route::resource('/manageresident', AdminManageResident::class);
         Route::resource('/managebrgy_official', AdminManageBrgy::class);
+        Route::resource('/stats', AdminStatsReport::class);
+        Route::resource('/dashboard', AdminDashboard::class);
+        Route::resource('/generate', AdminGenerateReport::class);
     });
 });
 

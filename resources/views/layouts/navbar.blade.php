@@ -140,7 +140,7 @@
             <div class="collapse navbar-collapse" id="sideNavBar">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> <i class="fas fa-user-circle mr-2"></i>Dashboard</a>
+                        <a class="nav-link" href="{{ route('admin.dashboard.index') }}"> <i class="fas fa-chart-bar mr-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.announcements.index') }}"> <i

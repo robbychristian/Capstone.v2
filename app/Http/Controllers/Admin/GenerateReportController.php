@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DisasterExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class GenerateReportController extends Controller
 {
@@ -14,7 +17,7 @@ class GenerateReportController extends Controller
      */
     public function index()
     {
-        //
+        return view('features.generatereport');
     }
 
     /**
@@ -35,7 +38,10 @@ class GenerateReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $monthDisaster =  $request->input('monthOfdisaster');
+        $yearDisaster = $request->input('yearOfdisaster');
+
+        return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
     }
 
     /**
