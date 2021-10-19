@@ -37,8 +37,9 @@ class StatisticsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
+    {   
+        dd('hello');
+        /*$validator = Validator::make($request->all(), [
             'typeOfdisaster' => 'required',
             'nameOfdisaster' => 'required|max:255',
             'monthOfdisaster' => 'required',
@@ -104,7 +105,7 @@ class StatisticsController extends Controller
 
 
             return redirect('/brgy_official/stats/create')
-                ->with('success', 'Disaster Report Saved!');
+                ->with('success', 'Disaster Report Saved!'); */
         }
     }
 
