@@ -150,7 +150,7 @@
                 @if (Auth::user()->user_role === 1)
                 <form action="" method="POST">
                 @elseif (Auth::user()->user_role === 3)
-                <form action="{{ route("brgy_official.stats.store") }}" method="POST">
+                <form action="/brgy_official/stats/" method="POST">
                 @endif
                     @csrf
                     <div class="form-row">
