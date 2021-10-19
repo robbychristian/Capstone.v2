@@ -103,7 +103,7 @@ class StatisticsController extends Controller
             };
 
 
-            return redirect('brgy_official/stats/create')
+            return redirect('/brgy_official/stats/create')
                 ->with('success', 'Disaster Report Saved!');
         }
     }
