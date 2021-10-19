@@ -1,6 +1,6 @@
 @extends('dashboard.admin.home')
 
-@section('title', '| Create Disaster Statistical Report')
+@section('title', '| Disaster Statistical Report')
 @section('sub-content')
 <script>
     $(document).ready(function() {

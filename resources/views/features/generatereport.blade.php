@@ -1,6 +1,6 @@
 @extends('dashboard.admin.home')
 
-@section('title', '| Create Disaster Statistical Report')
+@section('title', '| Generate Disaster Statistical Report')
 @section('sub-content')
 
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">

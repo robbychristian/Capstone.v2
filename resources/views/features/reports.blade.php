@@ -1,6 +1,6 @@
 @extends('dashboard.admin.home')
 
-@section('title', '| Account')
+@section('title', '| Reports')
 @section('sub-content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="row">
