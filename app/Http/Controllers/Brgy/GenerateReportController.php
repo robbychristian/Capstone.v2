@@ -38,10 +38,21 @@ class GenerateReportController extends Controller
      */
     public function store(Request $request)
     {
-        $monthDisaster =  $request->input('monthOfdisaster');
-        $yearDisaster = $request->input('yearOfdisaster');
+        $validator = Validator::make($request->all(), [
+            'monthOfdisaster' => 'required',
+            'yearOfdisaster' => 'required',
+        ]);
 
-        return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
+        if ($validator->fails()) {
+            return redirect('/admin/generate')
+                ->with('error', 'Please choose a month and year!')
+                ->withErrors($validator);
+        } else{
+            $monthDisaster =  $request->input('monthOfdisaster');
+            $yearDisaster = $request->input('yearOfdisaster');
+    
+            return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
+        }
     }
 
     /**
