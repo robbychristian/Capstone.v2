@@ -179,7 +179,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="inputDay">Date</label>
-                            <select id="month" class="form-control" name="monthOfdisaster">
+                            <select id="month" class="form-control" name="monthOfdisaster" value="{{ old('monthOfdisaster') }}">
                                 <option value="" disabled>Month</option>
                                 <option value='January'>January</option>
                                 <option value='February'>February</option>
@@ -201,7 +201,7 @@
                         <div class="form-group col-md-2">
                             <label for="inputDay" style="color:white"></label>
                             <select id="day"  class="form-control mt-2" id="inputDay" placeholder="Day"
-                            name="dayOfdisaster">
+                            name="dayOfdisaster" value="{{ old('dayOfdisaster') }}">
                                 <option value="">Day</option>
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
@@ -250,7 +250,14 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Barangay</label>
-                            <input type="text" class="form-control" name="barangay" value="{{ old('barangay') }}">
+                            <select id="inputBrgy" class="form-control" name="barangay" value="{{ old('barangay') }}">
+                                <option value="">Barangay</option>
+                                <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
+                                <option value='Barangay Manggahan'>Barangay Manggahan</option>
+                                <option value='Barangay Maybunga'>Barangay Maybunga</option>
+                                <option value='Barangay Rosario'>Barangay Rosario</option>
+                                <option value='Barangay Santolan'>Barangay Santolan</option>
+                            </select>
                             <div class="text-danger">@error('barangay')
                                     {{ $message }}
                                 @enderror</div>
