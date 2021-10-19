@@ -42,12 +42,18 @@ class GenerateReportController extends Controller
         $validator = Validator::make($request->all(), [
             'monthOfdisaster' => 'required',
             'yearOfdisaster' => 'required',
+        ], [
+            $messages = [
+                'monthOfdisaster' => 'The month of disaster field is required!',
+                'yearOfdisaster' => 'The year of disaster field is required!',
+            ]
         ]);
 
         if ($validator->fails()) {
             return redirect('/admin/generate')
                 ->with('error', 'Please choose a month and year!')
-                ->withErrors($validator);
+                ->withErrors($validator)
+                ->withInput();
         } else{
             $monthDisaster =  $request->input('monthOfdisaster');
             $yearDisaster = $request->input('yearOfdisaster');
