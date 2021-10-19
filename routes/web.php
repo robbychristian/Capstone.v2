@@ -13,8 +13,10 @@ use App\Http\Controllers\Auth\ReportsController as UserReports;
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Brgy\AccountController as BrgyAccount;
 use App\Http\Controllers\Brgy\AnnouncementController as BrgyAnnouncement;
+use App\Http\Controllers\Brgy\DashboardController as BrgyDashboard;
 use App\Http\Controllers\Brgy\GuidelinesController as BrgyGuidelines;
 use App\Http\Controllers\Brgy\EvacuationController as BrgyEvacuation;
+use App\Http\Controllers\Brgy\GenerateReportController as BrgyGenerateReport;
 use App\Http\Controllers\Brgy\ManageResidentController as BrgyManageResident;
 use App\Http\Controllers\Brgy\VulnerabilityMapController as BrgyVulnerabilityMap;
 use App\Http\Controllers\Brgy\ReportsController as BrgyReports;
@@ -118,6 +120,8 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function () {
         Route::post('/manageresident/activate/{manageresident}', [BrgyManageResident::class, 'activate'])->name('manageresident.activate');
         Route::resource('/manageresident', BrgyManageResident::class);
         Route::resource('/stats', BrgyStatsReport::class);
+        Route::resource('/generate', BrgyGenerateReport::class);
+        Route::resource('/dashboard', BrgyDashboard::class);
     });
 });
 

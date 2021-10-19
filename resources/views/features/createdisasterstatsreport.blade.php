@@ -2,7 +2,136 @@
 
 @section('title', '| Create Disaster Statistical Report')
 @section('sub-content')
+<script>
+    $(document).ready(function() {
 
+        $("#month").on('change', function() {
+            const optionSelected = $("option:selected", this)
+            var valueSelected = this.value
+            var febDays = {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+                "17": "17",
+                "18": "18",
+                "19": "19",
+                "20": "20",
+                "21": "21",
+                "22": "22",
+                "23": "23",
+                "24": "24",
+                "25": "25",
+                "26": "26",
+                "27": "27",
+                "28": "28",
+            }
+            var day30 = {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+                "17": "17",
+                "18": "18",
+                "19": "19",
+                "20": "20",
+                "21": "21",
+                "22": "22",
+                "23": "23",
+                "24": "24",
+                "25": "25",
+                "26": "26",
+                "27": "27",
+                "28": "28",
+                "29": "29",
+                "30": "30",
+            }
+            var day31 = {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "11": "11",
+                "12": "12",
+                "13": "13",
+                "14": "14",
+                "15": "15",
+                "16": "16",
+                "17": "17",
+                "18": "18",
+                "19": "19",
+                "20": "20",
+                "21": "21",
+                "22": "22",
+                "23": "23",
+                "24": "24",
+                "25": "25",
+                "26": "26",
+                "27": "27",
+                "28": "28",
+                "29": "29",
+                "30": "30",
+                "31": "31",
+            }
+            var option = $('<option></option>').attr("value", "option value").text("Text");
+            if (valueSelected == 'February') {
+                $("#day").empty()
+                $.each(febDays, function(key, value) {
+                    $("#day").append($("<option></option>")
+                        .attr("value", value).text(key))
+                })
+            } else if (valueSelected == 'January' || valueSelected == 'March' || valueSelected == 'May' ||
+                valueSelected == 'July' || valueSelected == 'September' || valueSelected == 'November') {
+                $("#day").empty()
+                $.each(day31, function(key, value) {
+                    $("#day").append($("<option></option>")
+                        .attr("value", value).text(key))
+                })
+            } else if (valueSelected == 'April' || valueSelected == 'June' || valueSelected == 'August' ||
+                valueSelected == 'October' || valueSelected == 'December') {
+                $("#day").empty()
+                $.each(day30, function(key, value) {
+                    $("#day").append($("<option></option>")
+                        .attr("value", value).text(key))
+                })
+            } else {
+                $("#day").empty()
+                $("#day").append($("<option></option>")
+                    .attr("value", "").text("Day"))
+            }
+        })
+    })
+</script>
  <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <h3 class="mb-3">Disaster Assessment</h3>
         <div class="card">
@@ -18,7 +147,11 @@
                     </script>
                 @endif
 
+                @if (Auth::user()->user_role === 1)
                 <form action="" method="POST">
+                @elseif (Auth::user()->user_role === 3)
+                <form action="/brgy_official/stats" method="POST">
+                @endif
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -38,7 +171,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="nameOfdisaster">
+                            <input type="text" class="form-control" name="nameOfdisaster" value="{{ old('nameOfdisaster') }}">
                             <small id="nameOfDisaster" class="form-text text-muted">Indicate if applicable.</small>
                             <div class="text-danger">@error('nameOfdisaster')
                                     {{ $message }}
@@ -48,7 +181,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="inputDay">Date</label>
-                            <select id="inputMonth" class="form-control" name="monthOfdisaster">
+                            <select id="month" class="form-control" name="monthOfdisaster">
                                 <option value="" disabled>Month</option>
                                 <option value='January'>January</option>
                                 <option value='February'>February</option>
@@ -69,7 +202,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputDay" style="color:white"></label>
-                            <select id="inputMonth"  class="form-control mt-2" id="inputDay" placeholder="Day"
+                            <select id="day"  class="form-control mt-2" id="inputDay" placeholder="Day"
                             name="dayOfdisaster">
                                 <option value="">Day</option>
                                 <option value='1'>1</option>
@@ -112,14 +245,14 @@
                         <div class="form-group col-md-2">
                             <label for="inputYear" style="color:white"></label>
                             <input type="text" class="form-control mt-2" id="inputYear" placeholder="Year"
-                                name="yearOfdisaster">
+                                name="yearOfdisaster" value="{{ old('yearOfdisaster') }}">
                             <div class="text-danger">@error('yearOfdisaster')
                                     {{ $message }}
                                 @enderror</div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Barangay</label>
-                            <input type="text" class="form-control" name="barangay">
+                            <input type="text" class="form-control" name="barangay" value="{{ old('barangay') }}">
                             <div class="text-danger">@error('barangay')
                                     {{ $message }}
                                 @enderror</div>
@@ -129,21 +262,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Total Number of Families Affected</label>
-                            <input type="text" class="form-control" name="familiesAffected">
+                            <input type="text" class="form-control" name="familiesAffected" value="{{ old('familiesAffected') }}">
                             <div class="text-danger">@error('familiesAffected')
                                     {{ $message }}
                                 @enderror</div>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Total Number of Individuals Affected</label>
-                            <input type="text" class="form-control" name="individualsAffected">
+                            <input type="text" class="form-control" name="individualsAffected" value="{{ old('individualsAffected') }}">
                             <div class="text-danger">@error('individualsAffected')
                                     {{ $message }}
                                 @enderror</div>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Total Number of Evacuees</label>
-                            <input type="text" class="form-control" name="evacuees">
+                            <input type="text" class="form-control" name="evacuees" value="{{ old('evacuees') }}">
                             <div class="text-danger">@error('evacuees')
                                     {{ $message }}
                                 @enderror</div>
