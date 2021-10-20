@@ -118,7 +118,7 @@ class RegisterController extends Controller
             $user_profile = UserProfile::create([
                 'user_email' => $request['email'],
                 'middle_name' => $request['mname'],
-                'home_add' => $request['address'],
+                'home_add' => $request['home_add'],
                 'contact_no' => $request['cnum'],
                 'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
                 'profile_pic' => 'noimage.jpg'
