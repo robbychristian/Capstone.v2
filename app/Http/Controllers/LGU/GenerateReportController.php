@@ -97,13 +97,9 @@ class GenerateReportController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/lgu/generate/{brgy}', [
-                'error' => 'Please choose a month and year!',
-                'brgy' => $brgy_name
-
-            ]);
-                //->with('error', 'Please choose a month and year!')
-                //->withErrors($validator);
+            return redirect('/lgu/generate/'.$brgy_name)
+                ->with('error', 'Please choose a month and year!')
+                ->withErrors($validator);
         } else{
             $monthDisaster =  $request->input('monthOfdisaster');
             $yearDisaster = $request->input('yearOfdisaster');
