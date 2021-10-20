@@ -141,7 +141,7 @@
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Create your account</h3>
                         <hr>
 
-                        <form action="{{ route('register') }}" method="POST">
+                        <form action="{{ route('user.create') }}" method="POST">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-4">
