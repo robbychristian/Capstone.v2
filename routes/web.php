@@ -75,7 +75,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/check', [LoginController::class, 'check'])->name('check');
         Route::get('/email/verify', function () {
             return view('auth.verify-email');
-        })->middleware('auth')->name('verification.notice');
+        })->middleware('user')->name('verification.notice');
     });
 
     Route::middleware(['auth'])->group(function () {
