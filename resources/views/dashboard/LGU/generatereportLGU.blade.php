@@ -14,7 +14,7 @@
                     </div>
                 @endif
                     
-                <form action="/lgu/generate" method="POST">
+                <form action="/lgu/generate/{{ $barangay }}" method="POST">
                     @csrf
 
                     <div class="form-row">

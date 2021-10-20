@@ -23,10 +23,11 @@ class LGUDisasterExport implements  FromQuery, WithHeadings,ShouldAutoSize,WithE
     protected $monthDisaster;
     protected $yearDisaster;
 
-    function __construct($monthDisaster, $yearDisaster)
+    function __construct($monthDisaster, $yearDisaster, $barangay)
     {
         $this->monthDisaster = $monthDisaster;
         $this->yearDisaster = $yearDisaster;
+        $this->barangay = $barangay;
     }
 
     public function query()
@@ -37,6 +38,7 @@ class LGUDisasterExport implements  FromQuery, WithHeadings,ShouldAutoSize,WithE
             ->join('disaster_affected_streets', 'disaster_reports.id', '=', 'disaster_affected_streets.disaster_id')
             ->where('disaster_reports.month_disaster', $this->monthDisaster)
             ->where('disaster_reports.year_disaster', $this->yearDisaster)
+            ->where('disaster_reports.barangay', $this->barangay)
             ->orderBy('disaster_reports.id');
         
         return $data;

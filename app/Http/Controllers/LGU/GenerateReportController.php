@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\LGU;
 
+use App\Exports\LGUDisasterExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class GenerateReportController extends Controller
@@ -85,25 +88,26 @@ class GenerateReportController extends Controller
         //
     }
     
-    //public function testGenerate(Request $request, $brgy_name)
-    //{
-    //    $validator = Validator::make($request->all(), [
-    //        'monthOfdisaster' => 'required',
-    //        'yearOfdisaster' => 'required',
-    //    ]);
-//
-    //    if ($validator->fails()) {
-    //        return redirect('/admin/generate')
-    //            ->with('error', 'Please choose a month and year!')
-    //            ->withErrors($validator);
-    //    } else{
-    //        $monthDisaster =  $request->input('monthOfdisaster');
-    //        $yearDisaster = $request->input('yearOfdisaster');
-    //
-    //        return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
-    //    }
-    //}
-//
+    public function testGenerate(Request $request, $brgy_name)
+    {
+        $validator = Validator::make($request->all(), [
+            'monthOfdisaster' => 'required',
+            'yearOfdisaster' => 'required',
+            'barangay' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/lgu/generate/{brgy}')
+                ->with('error', 'Please choose a month and year!')
+                ->withErrors($validator);
+        } else{
+            $monthDisaster =  $request->input('monthOfdisaster');
+            $yearDisaster = $request->input('yearOfdisaster');
+    
+            return Excel::download(new LGUDisasterExport($monthDisaster, $yearDisaster, $brgy_name), 'Disaster Report.xlsx');
+        }
+    }
+
     public function showGenerator($brgy)
     {
         $barangay = $brgy;
