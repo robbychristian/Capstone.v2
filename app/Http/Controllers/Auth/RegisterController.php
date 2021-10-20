@@ -92,9 +92,9 @@ class RegisterController extends Controller
             'ybday.required' => 'The year field must not be empty!',
             'email.required' => 'The email field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
-            'pass.required' => 'The new password field must not be empty!',
+            'pass.required' => 'The password field must not be empty!',
             'cpass.required' => 'The confirm password field must not be empty!',
-            'cpass.same' => 'Confirm password should match new password!',
+            'cpass.same' => 'Confirm password should match password!',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
 
