@@ -39,12 +39,8 @@
                         </div>
 
                         <div class="form-group col">
-                            <label for="inputDay">Year</label>
-                            <select id="inputYear" class="form-control" name="yearOfdisaster">
-                                <option value="">Year</option>
-                                <option value='2021'>2021</option>
-                                <option value='2022'>2022</option>
-                            </select>
+                            <label for="brgy">Barangay</label>
+                            <input class="form-control" type="text" value="{{ $barangay }}" name ="barangay" readonly>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Download</button>
