@@ -4,6 +4,7 @@
 @section('sub-content')
 
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+        <h3>{{ $barangay }}</h3>
         <div class="card" style="width: 30rem;">
 
             <div class="card-body">
@@ -13,7 +14,7 @@
                         {{ Session::get('error') }}
                     </div>
                 @endif
-                    <h3>{{ $barangay }}</h3>
+                    
                 <form action="/lgu/generate" method="POST">
                     @csrf
                     <div class="form-row">
