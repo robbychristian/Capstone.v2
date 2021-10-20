@@ -18,7 +18,7 @@ class DelaPazController extends Controller
     {
          // ADD WHERE CLAUSE IN BRGY
          $date = Carbon::now()->format('Y');
-         $barangay = 'Barangay Dela Paz';
+         $barangay = 'Barangay Dela Pazoewadasd';
 
          //january
          $jan_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
