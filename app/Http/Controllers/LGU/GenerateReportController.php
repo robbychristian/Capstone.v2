@@ -106,6 +106,7 @@ class GenerateReportController extends Controller
 //
     public function showGenerator($brgy)
     {
-        return view('dashboard.LGU.generatereportLGU')->with($brgy);
+        $barangay = $brgy;
+        return view('dashboard.LGU.generatereportLGU')->with($barangay);
     }
 }
