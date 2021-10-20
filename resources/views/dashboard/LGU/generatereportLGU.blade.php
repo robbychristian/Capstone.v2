@@ -13,7 +13,7 @@
                         {{ Session::get('error') }}
                     </div>
                 @endif
-                    <h3><?php echo $barangay?></h3>
+                    <h3>{{ $request->route('barangay'); }}</h3>
                 <form action="/lgu/generate" method="POST">
                     @csrf
                     <div class="form-row">
