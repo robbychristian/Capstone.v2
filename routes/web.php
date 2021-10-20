@@ -155,6 +155,7 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
         Route::resource('/brgy_rosario', LGUBrgyRosario::class);
         Route::resource('/brgy_santolan', LGUBrgySantolan::class);
         Route::resource('/generate', LGUGenerateReport::class);
+        Route::get('/generate/{brgy}', [LGUGenerateReport::class, 'showGenerator']);
 
     });
 });

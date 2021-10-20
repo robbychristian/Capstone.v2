@@ -16,7 +16,7 @@ class GenerateReportController extends Controller
      */
     public function index()
     {
-        return view('dashboard.LGU.generatereportLGU');
+        //
     }
 
     /**
@@ -104,8 +104,8 @@ class GenerateReportController extends Controller
     //    }
     //}
 //
-    //public function showGenerator($brgy)
-    //{
-    //    
-    //}
+    public function showGenerator($brgy)
+    {
+        return view('dashboard.LGU.generatereportLGU')->with($brgy);
+    }
 }
