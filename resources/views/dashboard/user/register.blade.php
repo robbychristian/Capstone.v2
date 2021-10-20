@@ -183,11 +183,11 @@
                                     <label for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
                                         <option selected disabled>Choose your barangay</option>
-                                        <option value="Barangay Santolan">Barangay Santolan</option>
-                                        <option value="Barangay Dela Paz">Barangay Dela Paz</option>
-                                        <option>Barangay 3</option>
-                                        <option>Barangay 4</option>
-                                        <option>Barangay 5</option>
+                                        <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
+                                        <option value='Barangay Manggahan'>Barangay Manggahan</option>
+                                        <option value='Barangay Maybunga'>Barangay Maybunga</option>
+                                        <option value='Barangay Rosario'>Barangay Rosario</option>
+                                        <option value='Barangay Santolan'>Barangay Santolan</option>
                                     </select>
                                     <small class="text-danger">@error('brgy')
                                             {{ $message }}
