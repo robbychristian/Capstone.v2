@@ -64,9 +64,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        $validator = Validator::make($data, [
+        $validator = Validator::make($request, [
             'email' => 'required|unique:users|email',
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
@@ -106,21 +106,21 @@ class RegisterController extends Controller
 
             $user = User::create([
                 'user_role' => 4,
-                'email' => $data['email'],
-                'first_name' => $data['fname'],
-                'last_name' => $data['lname'],
-                'brgy_loc' => $data['brgy'],
+                'email' => $request['email'],
+                'first_name' => $request['fname'],
+                'last_name' => $request['lname'],
+                'brgy_loc' => $request['brgy'],
                 'is_blocked' => 0,
                 'is_deactivated' => 0,
-                'password' => Hash::make($data['password']),
+                'password' => Hash::make($request['password']),
             ]);
 
             $user_profile = UserProfile::create([
-                'user_email' => $data['email'],
-                'middle_name' => $data['mname'],
-                'home_add' => $data['home_add'],
-                'contact_no' => $data['cnum'],
-                'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
+                'user_email' => $request['email'],
+                'middle_name' => $request['mname'],
+                'home_add' => $request['home_add'],
+                'contact_no' => $request['cnum'],
+                'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
                 'profile_pic' => 'noimage.jpg'
             ]);
 
