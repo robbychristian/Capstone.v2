@@ -284,8 +284,7 @@
                             </div>
 
                             <div class="form-group form-check">
-                                <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1"
-                                    value="{{ old('cbox') }}">
+                                <input name="cbox" type="checkbox" class="form-check-input" id="checkbox">
                                 <label class="form-check-label" for="exampleCheck1">I have read and agree to the <span
                                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                                         conditions
