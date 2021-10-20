@@ -6,7 +6,7 @@
     <div class="col-xl-10 col-lg-9 col-md-8">
 
         <div class="d-grid gap-2  d-lg-flex d-md-flex justify-content-md-end mt-4">
-            <a class="btn btn-primary" href="" role="button">Generate Report</a>
+            <a class="btn btn-primary" href="/lgu/generate" role="button">Generate Report</a>
         </div>
         <h3>{{ $barangay }}</h3>
         <div class="card mt-3" style="position: relative; height:50vh;">

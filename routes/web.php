@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\StatisticsController as AdminStatsReport;
 
 
 use App\Http\Controllers\LGU\DelaPazController as LGUBrgyDelaPaz;
+use App\Http\Controllers\LGU\GenerateReportController as LGUGenerateReport;
 use App\Http\Controllers\LGU\LocalUnit;
 use App\Http\Controllers\LGU\ManggahanController as LGUBrgyManggahan;
 use App\Http\Controllers\LGU\MaybungaController as LGUBrgyMaybunga;
@@ -153,5 +154,7 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
         Route::resource('/brgy_maybunga', LGUBrgyMaybunga::class);
         Route::resource('/brgy_rosario', LGUBrgyRosario::class);
         Route::resource('/brgy_santolan', LGUBrgySantolan::class);
+        Route::resource('/generate', LGUGenerateReport::class);
+
     });
 });

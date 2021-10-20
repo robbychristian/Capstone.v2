@@ -16,7 +16,7 @@ class GenerateReportController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.LGU.generatereportLGU');
     }
 
     /**
@@ -85,22 +85,27 @@ class GenerateReportController extends Controller
         //
     }
     
-    public function testGenerate(Request $request, $brgy_name)
-    {
-        $validator = Validator::make($request->all(), [
-            'monthOfdisaster' => 'required',
-            'yearOfdisaster' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/admin/generate')
-                ->with('error', 'Please choose a month and year!')
-                ->withErrors($validator);
-        } else{
-            $monthDisaster =  $request->input('monthOfdisaster');
-            $yearDisaster = $request->input('yearOfdisaster');
-    
-            return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
-        }
-    }
+    //public function testGenerate(Request $request, $brgy_name)
+    //{
+    //    $validator = Validator::make($request->all(), [
+    //        'monthOfdisaster' => 'required',
+    //        'yearOfdisaster' => 'required',
+    //    ]);
+//
+    //    if ($validator->fails()) {
+    //        return redirect('/admin/generate')
+    //            ->with('error', 'Please choose a month and year!')
+    //            ->withErrors($validator);
+    //    } else{
+    //        $monthDisaster =  $request->input('monthOfdisaster');
+    //        $yearDisaster = $request->input('yearOfdisaster');
+    //
+    //        return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
+    //    }
+    //}
+//
+    //public function showGenerator($brgy)
+    //{
+    //    
+    //}
 }
