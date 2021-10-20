@@ -17,6 +17,15 @@
                     
                 <form action="/lgu/generate" method="POST">
                     @csrf
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="inputBrgy">Barangay</label>
+                            <input class="form-control" type="text" value="{{ $barangay }}" name="barangay" readonly>
+                        </div>
+
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col">
                             <label for="inputDay">Month</label>
@@ -46,13 +55,6 @@
                                 <option value='2022'>2022</option>
                             </select>
                         </div>
-
-                        
-                        <div class="form-group col">
-                            <label for="inputBrgy">Barangay</label>
-                            <input class="form-control" type="text" value="{{ $barangay }}" name="barangay" readonly>
-                        </div>
-
 
                     </div>
                     <button type="submit" class="btn btn-primary">Download</button>
