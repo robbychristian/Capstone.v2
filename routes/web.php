@@ -73,7 +73,9 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::view('/register', 'dashboard.user.register')->name('register');
         Route::post('/create', [RegisterController::class, 'create'])->name('create');
         Route::post('/check', [LoginController::class, 'check'])->name('check');
-        Route::view('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+        Route::get('/email/verify', function () {
+            return view('auth.verify-email');
+        })->middleware('auth')->name('verification.notice');
     });
 
     Route::middleware(['auth'])->group(function () {
