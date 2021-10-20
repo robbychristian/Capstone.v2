@@ -64,6 +64,10 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('user')->name('user.')->group(function () {
@@ -157,6 +161,5 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
         //Route::resource('/generate', LGUGenerateReport::class);
         Route::get('/generate/{brgy}', [LGUGenerateReport::class, 'showGenerator']);
         Route::post('/generate/{brgy}/{brgy_loc}', [LGUGenerateReport::class, 'testGenerate']);
-
     });
 });

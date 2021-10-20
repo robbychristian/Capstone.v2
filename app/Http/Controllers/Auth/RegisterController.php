@@ -124,7 +124,7 @@ class RegisterController extends Controller
                 'profile_pic' => 'noimage.jpg'
             ]);
 
-            return redirect()->route('user.login');
+            return redirect()->route('/email/verify');
         }
     }
 }
