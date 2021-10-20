@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 //users
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\AccountController as UserAccount;
 use App\Http\Controllers\Auth\AnnouncementController as UserAnnouncement;
 use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
@@ -72,6 +73,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::view('/register', 'dashboard.user.register')->name('register');
         Route::post('/create', [RegisterController::class, 'create'])->name('create');
         Route::post('/check', [LoginController::class, 'check'])->name('check');
+        Route::view('/verify', [VerificationController::class, 'show']);
     });
 
     Route::middleware(['auth'])->group(function () {
