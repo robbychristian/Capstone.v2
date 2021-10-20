@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 //users
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\VerificationController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\AccountController as UserAccount;
 use App\Http\Controllers\Auth\AnnouncementController as UserAnnouncement;
 use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
@@ -76,6 +76,11 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/email/verify', function () {
             return view('auth.verify');
         })->name('verification.notice');
+        Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+            $request->fulfill();
+
+            return redirect('/login');
+        })->name('verification.verify');
     });
 
     Route::middleware(['auth'])->group(function () {
