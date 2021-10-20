@@ -18,7 +18,7 @@ class DelaPazController extends Controller
     {
          // ADD WHERE CLAUSE IN BRGY
          $date = Carbon::now()->format('Y');
-         $barangay = 'Barangay Dela Pazoewadasd';
+         $barangay = 'Barangay Dela Paz';
 
          //january
          $jan_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
@@ -1213,6 +1213,9 @@ class DelaPazController extends Controller
  
  
          return view('dashboard.LGU.delapaz', compact(
+
+             'barangay',
+
              'jan_typhoon_count',
              'jan_flood_count',
              'jan_lpa_count',
@@ -1494,7 +1497,7 @@ class DelaPazController extends Controller
              'dec_landslide_count_evac',
              'dec_others_count_evac',
 
-             'barangay',
+
            
  
  

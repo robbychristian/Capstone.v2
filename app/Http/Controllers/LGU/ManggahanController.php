@@ -1213,6 +1213,9 @@ class ManggahanController extends Controller
  
  
          return view('dashboard.LGU.manggahan', compact(
+
+             'barangay',
+             
              'jan_typhoon_count',
              'jan_flood_count',
              'jan_lpa_count',

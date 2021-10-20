@@ -1213,6 +1213,9 @@ class RosarioController extends Controller
  
  
          return view('dashboard.LGU.rosario', compact(
+
+             'barangay',
+
              'jan_typhoon_count',
              'jan_flood_count',
              'jan_lpa_count',
