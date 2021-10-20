@@ -132,7 +132,7 @@ class RegisterController extends Controller
             'brgy_loc' => $data['brgy'],
             'is_blocked' => 0,
             'is_deactivated' => 0,
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['pass']),
         ]);
 
         $user_profile = UserProfile::create([
