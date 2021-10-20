@@ -42,6 +42,6 @@ class VerificationController extends Controller
 
     public function show()
     {
-        return view('auth.verify');
+        return redirect('auth.verify');
     }
 }
