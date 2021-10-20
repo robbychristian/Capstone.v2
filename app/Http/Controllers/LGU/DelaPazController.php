@@ -1493,6 +1493,8 @@ class DelaPazController extends Controller
              'dec_earthquake_count_evac',
              'dec_landslide_count_evac',
              'dec_others_count_evac',
+
+             'barangay',
            
  
  

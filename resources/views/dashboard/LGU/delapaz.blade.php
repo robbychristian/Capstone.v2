@@ -8,7 +8,7 @@
         <div class="d-grid gap-2  d-lg-flex d-md-flex justify-content-md-end mt-4">
             <a class="btn btn-primary" href="" role="button">Generate Report</a>
         </div>
-        <h3>Barangay Dela Paz</h3>
+        <h3>{{ $barangay }}</h3>
         <div class="card mt-3" style="position: relative; height:50vh;">
             <div class="card-body">
                 <canvas id="myChart"></canvas>
