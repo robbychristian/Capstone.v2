@@ -95,7 +95,7 @@ class RegisterController extends Controller
             'pass.required' => 'The new password field must not be empty!',
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match new password!',
-            'cbox.required' => 'Terms and conditions must be confirmed!',
+            'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
 
         if ($validator->fails()) {
