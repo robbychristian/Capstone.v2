@@ -79,7 +79,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users|string',
             'cnum' => 'required|max:255',
             'pass' => 'required|min:8',
-            'cpass' => 'required|min:8|same:new_pass',
+            'cpass' => 'required|min:8|same:pass',
             'cbox' => 'required'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
