@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'cnum' => 'required|max:255',
             'pass' => 'required|min:8',
             'cpass' => 'required|min:8|same:pass',
-            'cbox' => 'required'
+            'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
             'mname.required' => 'The middle name field must not be empty!',
@@ -95,7 +95,7 @@ class RegisterController extends Controller
             'pass.required' => 'The new password field must not be empty!',
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match new password!',
-            'cbox.required' => 'Terms and agreements must be confirmed!',
+            'cbox.required' => 'Terms and conditions must be confirmed!',
         ]);
 
         if ($validator->fails()) {
