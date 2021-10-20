@@ -4,7 +4,6 @@
 @section('sub-content')
 
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
-        <h3 class="mb-3">{{ $barangay }}</h3>
         <div class="card" style="width: 30rem;">
 
             <div class="card-body">
