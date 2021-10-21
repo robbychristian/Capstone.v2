@@ -26,6 +26,10 @@ class RedirectIfAuthenticated
                 return redirect()->route('user.home');
             } else if ($guard === 'admin' && Auth::guard($guard)->check()) {
                 return redirect()->route('admin.home');
+            } else if ($guard === 'brgy_official' && Auth::guard($guard)->check()) {
+                return redirect()->route('brgy_official.home');
+            } else if ($guard === 'lgu' && Auth::guard($guard)->check()) {
+                return redirect()->route('lgu.home');
             }
         }
 
