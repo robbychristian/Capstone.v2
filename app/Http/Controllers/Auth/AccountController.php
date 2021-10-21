@@ -165,7 +165,7 @@ class AccountController extends Controller
         }
     }
 
-    public function register($fname)
+    public function register($fname, $mname, $lname, $email, $pass)
     {
         $user = User::create([
             'user_role' => 4,
