@@ -165,26 +165,13 @@ class AccountController extends Controller
         }
     }
 
-    public function register($fname, $mname, $lname, $email, $pass)
+    public function fetchCreds($email)
     {
-        $user = User::create([
-            'user_role' => 4,
-            'email' => ['email'],
-            'first_name' => ['fname'],
-            'last_name' => ['lname'],
-            'brgy_loc' => ['brgy'],
-            'is_blocked' => 0,
-            'is_deactivated' => 0,
-            'password' => Hash::make(['password']),
-        ]);
+        $userCreds = DB::table('users')
+            ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+            ->select('users.*', 'user_profiles.*')
+            ->get();
 
-        $user_profile = UserProfile::create([
-            'user_email' => ['email'],
-            'middle_name' => ['mname'],
-            'home_add' => ['address'],
-            'contact_no' => ['cnum'],
-            'birth_day' => ['mbday'] . '/' . ['dbday'] . '/' . ['ybday'],
-            'profile_pic' => 'noimage.jpg'
-        ]);
+        return $userCreds;
     }
 }
