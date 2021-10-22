@@ -170,6 +170,8 @@ class AccountController extends Controller
         $userCreds = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
+            ->where('users.email', $email)
+            ->where('user_profiles.user_email', $email)
             ->get();
 
         return $userCreds;
