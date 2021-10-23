@@ -86,4 +86,10 @@ class AnnouncementController extends Controller
     {
         //
     }
+
+    public function fetchAnnouncements()
+    {
+        $announcements = Announcement::all();
+        return $announcements;
+    }
 }
