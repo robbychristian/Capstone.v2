@@ -89,4 +89,12 @@ class ReportsController extends Controller
         $report->delete();
         return redirect('user/reports');
     }
+
+    public function fetchReport($id)
+    {
+        $reports = DB::table('reports')
+            ->where('user_id', $id)
+            ->get();
+        return $reports;
+    }
 }
