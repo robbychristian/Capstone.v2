@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AccountController;
 use App\Http\Controllers\Auth\AnnouncementController;
+use App\Http\Controllers\Auth\ReportsController;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,6 @@ Route::get('logincreds/{email}/{pass}', [AccountController::class, 'creds']);
 Route::get("search/{email}", [AccountController::class, 'search']);
 Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);
+Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
 
 Auth::routes();
