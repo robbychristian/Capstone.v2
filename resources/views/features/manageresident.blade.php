@@ -106,7 +106,7 @@
         </div>
         <div class="table-responsive">
             <table class="table table-hover">
-                <thead style="background-color: #004f91;" >
+                <thead style="background-color: #004f91;">
                     <tr>
                         <th scope="col" style="color: white;">Full Name</th>
                         <th scope="col" style="color: white;">Email</th>
@@ -124,8 +124,68 @@
                             <td>{{ $user->contact_no }}</td>
                             <td>{{ $user->brgy_loc }}</td>
                             <td colspan="2">
-                                <button type="button" class="btn btn-warning">Block</button>
-                                <button type="button" class="btn btn-danger">Deactivate</button>
+                                @if (Auth::user()->user_role === 3)
+                                    <!--IF BRGY OFFICIAL-->
+                                    @if ($user->is_blocked == true)
+                                        <form action="/brgy_official/manageresident/unblock/{{ $user->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-warning">Unblock</button>
+                                        </form>
+                                    @elseif ($user->is_blocked == false)
+                                        <form action="/brgy_official/manageresident/block/{{ $user->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-warning">Block</button>
+                                        </form>
+                                    @endif
+                                    @if ($user->is_deactivated == true)
+                                        <form action="/brgy_official/manageresident/activate/{{ $user->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Activate</button>
+                                        </form>
+                                    @elseif ($user->is_deactivated == false)
+                                        <form action="/brgy_official/manageresident/deactivate/{{ $user->id }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Deactivate</button>
+                                        </form>
+                                    @endif
+                                @endif
+                                @if (Auth::user()->user_role === 1)
+                                    <!--IF ADMIN-->
+                                    @if ($user->is_blocked == true)
+                                        <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-warning">Unblock</button>
+                                        </form>
+                                    @elseif ($user->is_blocked == false)
+                                        <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-warning">Block</button>
+                                        </form>
+                                    @endif
+                                    @if ($user->is_deactivated == true)
+                                        <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Activate</button>
+                                        </form>
+                                    @elseif ($user->is_deactivated == false)
+                                        <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Deactivate</button>
+                                        </form>
+                                    @endif
+                                @endif
                             </td>
 
                         </tr>
