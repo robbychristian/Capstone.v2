@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -51,6 +52,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
             'email' => 'required|unique:users|email',
             'fname' => 'required|max:255',
@@ -124,6 +126,10 @@ class RegisterController extends Controller
         //    'cpass.same' => 'Confirm password should match password!',
         //    'cbox.accepted' => 'Terms and conditions must be confirmed!',
         //]);
+
+        $file = new UserProfile();
+
+        
 
         $user = User::create([
             'user_role' => 4,

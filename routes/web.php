@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 //users
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -167,4 +168,8 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
         Route::get('/generate/{brgy}', [LGUGenerateReport::class, 'showGenerator']);
         Route::post('/generate/{brgy}/{brgy_loc}', [LGUGenerateReport::class, 'testGenerate']);
     });
+});
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
 });
