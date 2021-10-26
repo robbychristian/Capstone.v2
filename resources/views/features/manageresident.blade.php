@@ -12,10 +12,10 @@
             <div class="col-2 mb-4">
                 @if (Auth::user()->user_role === 1)
                     <a href="{{ route('admin.manageresident.create') }}">
-                @elseif (Auth::user()->user_role === 3)
-                    <a href="{{ route('brgy_official.manageresident.create') }}">
+                    @elseif (Auth::user()->user_role === 3)
+                        <a href="{{ route('brgy_official.manageresident.create') }}">
                 @endif
-                    <button class="btn btn-primary">Add Resident</button>
+                <button class="btn btn-primary">Add Resident</button>
                 </a>
             </div>
         </div>
@@ -36,7 +36,8 @@
                             <td class="h3">{{ $user->last_name }}, {{ $user->first_name }}
                                 {{ $user->middle_name }}</td>
                             <td>
-                                @if (Auth::user()->user_role === 3) <!--IF BRGY OFFICIAL-->
+                                @if (Auth::user()->user_role === 3)
+                                    <!--IF BRGY OFFICIAL-->
                                     @if ($user->is_blocked == true)
                                         <form action="/brgy_official/manageresident/unblock/{{ $user->id }}"
                                             method="POST">
@@ -68,32 +69,29 @@
                                         </form>
                                     @endif
                                 @endif
-                                @if (Auth::user()->user_role === 1) <!--IF ADMIN-->
+                                @if (Auth::user()->user_role === 1)
+                                    <!--IF ADMIN-->
                                     @if ($user->is_blocked == true)
-                                        <form action="/admin/manageresident/unblock/{{ $user->id }}"
-                                            method="POST">
+                                        <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <button class="btn btn-secondary">Unblock</button>
                                         </form>
                                     @elseif ($user->is_blocked == false)
-                                        <form action="/admin/manageresident/block/{{ $user->id }}"
-                                            method="POST">
+                                        <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <button class="btn btn-secondary">Block</button>
                                         </form>
                                     @endif
                                     @if ($user->is_deactivated == true)
-                                        <form action="/admin/manageresident/activate/{{ $user->id }}"
-                                            method="POST">
+                                        <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <button class="btn btn-danger">Activate</button>
                                         </form>
                                     @elseif ($user->is_deactivated == false)
-                                        <form action="/admin/manageresident/deactivate/{{ $user->id }}"
-                                            method="POST">
+                                        <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
                                             <button class="btn btn-danger">Deactivate</button>
@@ -109,33 +107,34 @@
 
         <table class="table table-hover">
             <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
+                <tr>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Barangay Location</th>
+                    <th scope="col">Action</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+                @foreach ($users as $user)
+                    <tr>
+                        <td> {{ $user->first_name }} {{ $user->middle_name }}{{ $user->last_name }}
+                        </td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->contact_no }}</td>
+                        <td>{{ $user->barangay }}</td>
+                        <td colspan="2">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-warning">Block</button>
+                                <button type="button" class="btn btn-danger">Deactivate</button>
+                            </div>
+                        </td>
+
+                    </tr>
+                @endforeach
+
             </tbody>
-          </table>
+        </table>
 
     </div>
 
