@@ -112,7 +112,7 @@
                         <th scope="col" style="color: white;">Email</th>
                         <th scope="col" style="color: white;">Contact Number</th>
                         <th scope="col" style="color: white;">Barangay Location</th>
-                        <th scope="col" colspan="2" style="color: white;">Action</th>
+                        <th scope="col" style="color: white;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -123,7 +123,7 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->contact_no }}</td>
                             <td>{{ $user->brgy_loc }}</td>
-                            <td>
+                            <td colspan="2">
                                 @if (Auth::user()->user_role === 3)
                                     <!--IF BRGY OFFICIAL-->
                                     @if ($user->is_blocked == true)
@@ -158,7 +158,7 @@
                                     @endif
                                 @endif
                             </td>
-                            <td>
+                            <td colspan="2">
                                 @if (Auth::user()->user_role === 1)
                                     <!--IF ADMIN-->
                                     @if ($user->is_blocked == true)
