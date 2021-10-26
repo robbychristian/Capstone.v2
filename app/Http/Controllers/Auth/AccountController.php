@@ -81,19 +81,21 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|unique:users|email',
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'cnum' => 'required|max:255',
+            'cnum' => 'required|numeric|min:11',
             'curr_pass' => 'required|min:8',
             'new_pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:new_pass'
         ], $messages = [
+            'email.required' => 'The email field must not be empty!',
             'fname.required' => 'The first name field must not be empty!',
             'mname.required' => 'The middle name field must not be empty!',
             'lname.required' => 'The last name field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
+            'cnum.integer' => 'Invalid phone number!',
+            'cnum.min' => 'The contact number must be 11 digits only!',
             'curr_pass.required' => 'The current password field must not be empty!',
             'new_pass.required' => 'The new password field must not be empty!',
             'conf_pass.required' => 'The confirm password field must not be empty!',
@@ -114,13 +116,12 @@ class AccountController extends Controller
             $user = User::where('id', $id)->update([
                 'first_name' => $request->input('fname'),
                 'last_name' => $request->input('lname'),
-                'email' => $request->input('email'),
                 'password' => Hash::make($request->input('new_pass'))
             ]);
 
             $profile = UserProfile::where('id', $id)->update([
-                'user_email' => $request->input('email'),
                 'middle_name' => $request->input('mname'),
+                'contact_no' => $request->input('cnum'),
             ]);
 
             return redirect('/user/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
