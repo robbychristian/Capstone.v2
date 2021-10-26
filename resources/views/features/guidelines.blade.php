@@ -203,7 +203,7 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-door-open fa-stack-1x" style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Leave the evacuation area only
                                                     when authorities say it is safe to return home. </div>
@@ -390,7 +390,7 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-door-closed fa-stack-1x" style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay indoors and stay tuned
                                                     for
@@ -515,7 +515,7 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-faucet fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x" style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for damages in water and
                                                     electrical lines, and gas or LPG leaks.</div>
@@ -631,7 +631,7 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-house-user fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-door-closed fa-stack-1x" style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay calm. Stay indoors and
                                                     tune
