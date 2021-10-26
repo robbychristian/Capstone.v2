@@ -29,7 +29,7 @@
                           </div>
                           <div class="col-md-8 ">
                             <div class="card-body d-flex flex-column">
-                                <div class="custom-file" style="margin-top: auto">
+                                <div class="custom-file">
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
                                     <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
