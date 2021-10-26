@@ -20,8 +20,8 @@
                     @csrf
                     @method('PUT')
                     <h5 class="mb-3">Profile Picture</h5>
-                    <div class="card mb-3">
-                        <div class="row no-gutters d-flex">
+                    <div class="card mb-3 d-flex">
+                        <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="{{ asset('img/appmockup.png') }}" alt="..." class="img-responsive" style="width: 100%;
                             object-fit: cover;
