@@ -280,12 +280,12 @@
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
                                     <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
-                                    @error('file')
-                                    <small class="text-danger">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
                                 </div>
+                                @error('file')
+                                <small class="text-danger">
+                                    {{ $message }}
+                                </small>
+                                @enderror
                             </div>
 
                             <div class="form-group form-check">
