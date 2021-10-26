@@ -84,7 +84,7 @@ class AccountController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'cnum' => 'required|numeric|min:11',
+            'cnum' => 'required|numeric|size:11',
             'curr_pass' => 'required|min:8',
             'new_pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:new_pass'
