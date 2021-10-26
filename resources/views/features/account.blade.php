@@ -22,8 +22,10 @@
                     <h5 class="mb-3">Profile Picture</h5>
                     <div class="card mb-3">
                         <div class="row no-gutters">
-                          <div class="col-md-4 profile-picture" style="width: 100%; height: 500px; max-height:500px; overflow:hidden;">
-                            <img src="{{ asset('img/appmockup.png') }}" alt="..." class="img-responsive" style="max-width: 100%; max-height: 100%;">
+                          <div class="col-md-4">
+                            <img src="{{ asset('img/appmockup.png') }}" alt="..." class="img-responsive" style="width: 100%;
+                            object-fit: cover;
+                            height: 300px;">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
