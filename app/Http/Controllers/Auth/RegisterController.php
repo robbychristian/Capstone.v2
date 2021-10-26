@@ -150,8 +150,13 @@ class RegisterController extends Controller
             'home_add' => $data['home_add'],
             'contact_no' => $data['cnum'],
             'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
-            'profile_pic' => $data['file']->file->hashName()
         ]);
+
+        if (request()->hasFile('file')) {
+            $file = request()->file('file')->getClientOriginalName();
+            request()->file('file')->storeAs('profile_pics', $user->id . '/' .$file, '');
+            $user_profile->update(['profile_pic' => $file]);
+        }
         
         dd($data['file']);
     }
