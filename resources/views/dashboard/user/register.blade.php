@@ -274,14 +274,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="inputUpload">Upload your Profile Picture</label>
-                                <div class="custom-file">
-                                    <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
-                                        aria-describedby="inputGroupFileAddon04">
-                                    <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
-                                </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Default file input example</label>
+                                <input class="form-control" type="file" id="formFile" name="file">
                             </div>
+
                             @error('file')
                             <small class="text-danger">
                                 {{ $message }}

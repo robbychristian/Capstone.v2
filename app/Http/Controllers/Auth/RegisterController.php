@@ -95,7 +95,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data, Request $request)
+    protected function create(array $data)
     {
         //$validator = Validator::make($data, [
         //    'email' => 'required|unique:users|email',
@@ -128,26 +128,9 @@ class RegisterController extends Controller
         //    'cpass.same' => 'Confirm password should match password!',
         //    'cbox.accepted' => 'Terms and conditions must be confirmed!',
         //]);
-
-        if ($request->hasFile('file')) {
-            $request->validate([
-                'file' => 'mimes: png, jpeg,jpg',
-            ]);
-
-            $request->file->store('profile_pic', "public");
-            
-            $user_profile = UserProfile::create([
-                'user_email' => $data['email'],
-                'middle_name' => $data['mname'],
-                'home_add' => $data['home_add'],
-                'contact_no' => $data['cnum'],
-                'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
-                'profile_pic' => $request->file->hashName()
-            ]);
-        }
-
         
-
+        
+        
         $user = User::create([
             'user_role' => 4,
             'email' => $data['email'],
@@ -158,8 +141,16 @@ class RegisterController extends Controller
             'is_deactivated' => 0,
             'password' => Hash::make($data['pass']),
         ]);
-
-
+        
+        $user_profile = UserProfile::create([
+            'user_email' => $data['email'],
+            'middle_name' => $data['mname'],
+            'home_add' => $data['home_add'],
+            'contact_no' => $data['cnum'],
+            'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
+            'profile_pic' => $data['file']->file->hashName()
+        ]);
+        
         return $user;
     }
 }
