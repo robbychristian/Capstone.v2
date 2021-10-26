@@ -66,7 +66,7 @@ class RegisterController extends Controller
             'dbday' => 'required',
             'ybday' => 'required',
             'email' => 'required|email|unique:users|string',
-            'cnum' => 'required|max:255',
+            'cnum' => 'required|numeric|size:11',
             'pass' => 'required|min:8',
             'cpass' => 'required|min:8|same:pass',
             'cbox' => 'accepted'
@@ -81,6 +81,8 @@ class RegisterController extends Controller
             'ybday.required' => 'The year field must not be empty!',
             'email.required' => 'The email field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
+            'cnum.numeric' => 'Invalid phone number!',
+            'cnum.size' => 'The contact number must be 11 digits only!',
             'pass.required' => 'The password field must not be empty!',
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match password!',
