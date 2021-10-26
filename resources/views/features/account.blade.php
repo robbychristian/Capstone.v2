@@ -34,7 +34,7 @@
                                         aria-describedby="inputGroupFileAddon04">
                                     <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
                                 </div>
-                                <p class="card-text align-self-end"><small class="text-muted">Accessible formats: jpg, png only</small></p>
+                                <p class="card-text "><small class="text-muted">Accessible formats: jpg, png only</small></p>
                             </div>
                           </div>
                         </div>
