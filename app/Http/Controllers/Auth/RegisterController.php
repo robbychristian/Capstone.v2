@@ -127,7 +127,7 @@ class RegisterController extends Controller
         //    'cbox.accepted' => 'Terms and conditions must be confirmed!',
         //]);
 
-        $file = new UserProfile();
+        $data['file']->file->store('profile_pic', 'public');
 
         
 
@@ -148,7 +148,7 @@ class RegisterController extends Controller
             'home_add' => $data['home_add'],
             'contact_no' => $data['cnum'],
             'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
-            'profile_pic' => 'noimage.jpg'
+            'profile_pic' => $data['file']->file->hashName()
         ]);
 
         return $user;
