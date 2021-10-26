@@ -20,15 +20,15 @@
                     @csrf
                     @method('PUT')
                     <h5 class="mb-3">Profile Picture</h5>
-                    <div class="card mb-3 d-flex">
+                    <div class="card mb-3 border-0">
                         <div class="row no-gutters">
                           <div class="col-md-4">
                             <img src="{{ asset('img/appmockup.png') }}" alt="..." class="img-responsive" style="width: 100%;
                             object-fit: cover;
                             height: 300px;"> <!-- must be 375 x 300 px -->
                           </div>
-                          <div class="col-md-8 align-items-md-end">
-                            <div class="card-body">
+                          <div class="col-md-8 d-flex">
+                            <div class="card-body align-items-md-end">
                                 <div class="custom-file">
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
