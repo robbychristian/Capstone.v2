@@ -150,7 +150,7 @@ class RegisterController extends Controller
             'home_add' => $data['home_add'],
             'contact_no' => $data['cnum'],
             'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
-            'profile_pic' => $request->file->hashName()
+            'profile_pic' => $data['file']->file->hashName()
         ]);
         
         return $user;
