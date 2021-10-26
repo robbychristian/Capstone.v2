@@ -20,10 +20,10 @@
                     @csrf
                     @method('PUT')
                     <h5 class="mb-3">Profile Picture</h5>
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3">
                         <div class="row no-gutters">
                           <div class="col-md-4">
-                            <img src="..." alt="...">
+                            <img src="{{ asset('img/appmockup.png') }}" alt="...">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
@@ -34,6 +34,7 @@
                           </div>
                         </div>
                       </div>
+                      <hr>
                     <h5 class="mb-3">Account Information</h5>
                     <div class="form-row">
                         <div class="form-group col-md-4">
