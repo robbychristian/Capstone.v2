@@ -141,7 +141,7 @@
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Create your account</h3>
                         <hr>
 
-                        <form action="{{ route('user.create') }}" method="POST">
+                        <form action="{{ route('user.create') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-4">
@@ -275,7 +275,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="inputUpload">Upload a valid ID</label>
+                                <label for="inputUpload">Upload your Profile Picture</label>
                                 <div class="custom-file">
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
