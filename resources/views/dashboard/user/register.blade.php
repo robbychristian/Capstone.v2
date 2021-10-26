@@ -281,12 +281,12 @@
                                         aria-describedby="inputGroupFileAddon04">
                                     <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
                                 </div>
-                                @error('file')
-                                <small class="text-danger">
-                                    {{ $message }}
-                                </small>
-                                @enderror
                             </div>
+                            @error('file')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                            @enderror
 
                             <div class="form-group form-check">
                                 <input name="cbox" type="checkbox" class="form-check-input" id="checkbox">
