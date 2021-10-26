@@ -28,12 +28,13 @@
                             height: 300px;"> <!-- must be 375 x 300 px -->
                           </div>
                           <div class="col-md-8 ">
-                            <div class="card-body align-items-end">
+                            <div class="card-body align-items-md-end">
                                 <div class="custom-file">
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
                                     <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
                                 </div>
+                                <p class="card-text"><small class="text-muted">Accessible formats: jpg, png only</small></p>
                             </div>
                           </div>
                         </div>
