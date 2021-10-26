@@ -274,7 +274,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="formFile" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="formFile" name="file">
                             </div>
