@@ -153,6 +153,6 @@ class RegisterController extends Controller
             'profile_pic' => $data['file']->file->hashName()
         ]);
         
-        return $user;
+        dd($data['file']);
     }
 }
