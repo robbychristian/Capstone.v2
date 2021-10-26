@@ -94,7 +94,7 @@ class AccountController extends Controller
             'mname.required' => 'The middle name field must not be empty!',
             'lname.required' => 'The last name field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
-            'cnum.integer' => 'Invalid phone number!',
+            'cnum.numeric' => 'Invalid phone number!',
             'cnum.min' => 'The contact number must be 11 digits only!',
             'curr_pass.required' => 'The current password field must not be empty!',
             'new_pass.required' => 'The new password field must not be empty!',
