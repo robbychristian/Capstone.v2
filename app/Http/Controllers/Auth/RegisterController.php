@@ -159,6 +159,6 @@ class RegisterController extends Controller
             $user_profile->update(['profile_pic' => $file]);
         }
         
-        dd($data['file']);
+        return $user;
     }
 }
