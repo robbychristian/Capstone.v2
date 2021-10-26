@@ -59,7 +59,7 @@
                             <div class="col-sm-2 col-md-3 col-lg-2 col-xl-2">
                                 <div class="d-flex flex-column">
                                     <div class="v-announcement-date-title">Posted on:</div>
-                                    <div class="v-announcement-date">{{ $quotes->created_at->diffForHumans() }}</div>
+                                    <div class="v-announcement-date">{{ $announcement->created_at->diffForHumans() }}</div>
                                 </div>
                                 @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                                     @if (Auth::user()->user_role === 1)
