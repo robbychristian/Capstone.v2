@@ -134,7 +134,7 @@
     </script>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-8" style=" height:85vh;">
+            <div class="col-md-8">
                 <div class="card shadow-card" style="margin: 2rem 0rem;">
                     <div class="card-body">
 
