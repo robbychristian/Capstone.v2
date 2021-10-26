@@ -11,7 +11,7 @@
                     {{ Session::get('success') }}
                 </div>
             @endif
-            <div class="row">
+            <div class="row d-flex">
                 @if (Auth::user()->user_role === 4)
                     <form action="/user/account/{{ $user->id }}" method="POST">
                 @endif
