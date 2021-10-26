@@ -96,7 +96,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data, Request $request)
+    protected function create(array $data)
     {
         //$validator = Validator::make($data, [
         //    'email' => 'required|unique:users|email',
