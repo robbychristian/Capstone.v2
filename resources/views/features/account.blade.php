@@ -27,8 +27,8 @@
                             object-fit: cover;
                             height: 300px;"> <!-- must be 375 x 300 px -->
                           </div>
-                          <div class="col-md-8 ">
-                            <div class="card-body align-items-md-end">
+                          <div class="col-md-8 align-items-md-end">
+                            <div class="card-body">
                                 <div class="custom-file">
                                     <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04">
