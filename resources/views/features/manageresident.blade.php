@@ -118,16 +118,14 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td> {{ $user->first_name }} {{ $user->middle_name }}{{ $user->last_name }}
+                        <td> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
                         </td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->contact_no }}</td>
                         <td>{{ $user->brgy_loc }}</td>
                         <td colspan="2">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-warning">Block</button>
-                                <button type="button" class="btn btn-danger">Deactivate</button>
-                            </div>
+                            <button type="button" class="btn btn-outline-warning">Block</button>
+                            <button type="button" class="btn btn-outline-danger">Deactivate</button>
                         </td>
 
                     </tr>
