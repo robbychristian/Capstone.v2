@@ -10,6 +10,8 @@
 
     <title>KaBisig @yield('title')</title>
 
+    <!--- icon -->
+    <link rel = "icon" href = "{{ asset('img/title-website-icon.png') }}"type = "image/png" sizes="16x16" >
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
