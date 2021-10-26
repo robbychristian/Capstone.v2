@@ -104,35 +104,36 @@
                 </tbody>
             </table>
         </div>
-
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Contact Number</th>
-                    <th scope="col">Barangay Location</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($users as $user)
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead style="background-color: #004f91; color: '#fff';" >
                     <tr>
-                        <td> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
-                        </td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->contact_no }}</td>
-                        <td>{{ $user->brgy_loc }}</td>
-                        <td colspan="2">
-                            <button type="button" class="btn btn-outline-warning">Block</button>
-                            <button type="button" class="btn btn-outline-danger">Deactivate</button>
-                        </td>
-
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Barangay Location</th>
+                        <th scope="col">Action</th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
+                            </td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->contact_no }}</td>
+                            <td>{{ $user->brgy_loc }}</td>
+                            <td colspan="2">
+                                <button type="button" class="btn btn-warning">Block</button>
+                                <button type="button" class="btn btn-danger">Deactivate</button>
+                            </td>
 
-            </tbody>
-        </table>
+                        </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
 
     </div>
 
