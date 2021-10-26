@@ -122,7 +122,7 @@
                         </td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->contact_no }}</td>
-                        <td>{{ $user->barangay }}</td>
+                        <td>{{ $user->brgy_loc }}</td>
                         <td colspan="2">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-warning">Block</button>
