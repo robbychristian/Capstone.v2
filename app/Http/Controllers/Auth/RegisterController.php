@@ -150,6 +150,7 @@ class RegisterController extends Controller
             'home_add' => $data['home_add'],
             'contact_no' => $data['cnum'],
             'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
+            'profile_pic' => "noimage.jpg",
         ]);
 
         if (request()->hasFile('file')) {
