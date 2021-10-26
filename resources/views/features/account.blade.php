@@ -22,14 +22,16 @@
                     <h5 class="mb-3">Profile Picture</h5>
                     <div class="card mb-3">
                         <div class="row no-gutters">
-                          <div class="col-md-4">
-                            <img src="{{ asset('img/appmockup.png') }}" height="300" width="300" alt="...">
+                          <div class="col-md-4 profile-picture" style="width: 100%; height: 500px; max-height:500px; overflow:hidden;">
+                            <img src="{{ asset('img/appmockup.png') }}" alt="..." class="img-responsive" style="max-width: 100%; max-height: 100%;">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <div class="custom-file">
+                                    <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
+                                </div>
                             </div>
                           </div>
                         </div>
