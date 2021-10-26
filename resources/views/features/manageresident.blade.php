@@ -106,13 +106,13 @@
         </div>
         <div class="table-responsive">
             <table class="table table-hover">
-                <thead style="background-color: #004f91; color: '#fff';" >
+                <thead style="background-color: #004f91;" >
                     <tr>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Contact Number</th>
-                        <th scope="col">Barangay Location</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="color: white;">Full Name</th>
+                        <th scope="col" style="color: white;">Email</th>
+                        <th scope="col" style="color: white;">Contact Number</th>
+                        <th scope="col" style="color: white;">Barangay Location</th>
+                        <th scope="col" style="color: white;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
