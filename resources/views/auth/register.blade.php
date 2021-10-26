@@ -275,8 +275,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="inputUpload">Upload a valid ID</label>
-                                <input class="form-control" type="file" id="formFile" name="file">
+                                <label for="inputUpload">Upload your Profle Picture</label>
+                                <input name="file" class="form-control" type="file" id="formFile">
+                                @error('file')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
                             </div>
 
                             <div class="form-group form-check">
