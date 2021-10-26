@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'cnum' => 'required|max:255',
             'pass' => 'required|min:8',
             'cpass' => 'required|min:8|same:pass',
-            'file' => 'required|mimes: jpg, jpeg, png',
+            'file' => 'required',
             'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
@@ -86,7 +86,6 @@ class RegisterController extends Controller
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match password!',
             'file.required' => 'An image upload is required',
-            'file.mimes' => 'Upload JPG, PNG, and JPEG files only',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
     }
