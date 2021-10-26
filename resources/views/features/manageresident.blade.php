@@ -123,10 +123,10 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->contact_no }}</td>
                             <td>{{ $user->brgy_loc }}</td>
-                            @if (Auth::user()->user_role === 3)
-                                <!--IF BRGY OFFICIAL-->
-                                @if ($user->is_blocked == true)
-                                    <td>
+                            <td>
+                                @if (Auth::user()->user_role === 3)
+                                    <!--IF BRGY OFFICIAL-->
+                                    @if ($user->is_blocked == true)
                                         <form action="/brgy_official/manageresident/unblock/{{ $user->id }}"
                                             method="POST">
                                             @csrf
@@ -140,10 +140,8 @@
                                             @method('POST')
                                             <button class="btn btn-warning">Block</button>
                                         </form>
-                                    </td>
-                                @endif
-                                @if ($user->is_deactivated == true)
-                                    <td>
+                                    @endif
+                                    @if ($user->is_deactivated == true)
                                         <form action="/brgy_official/manageresident/activate/{{ $user->id }}"
                                             method="POST">
                                             @csrf
@@ -157,13 +155,13 @@
                                             @method('POST')
                                             <button class="btn btn-danger">Deactivate</button>
                                         </form>
-                                    </td>
+                                    @endif
                                 @endif
-                            @endif
-                            @if (Auth::user()->user_role === 1)
-                                <!--IF ADMIN-->
-                                @if ($user->is_blocked == true)
-                                    <td>
+                            </td>
+                            <td>
+                                @if (Auth::user()->user_role === 1)
+                                    <!--IF ADMIN-->
+                                    @if ($user->is_blocked == true)
                                         <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
@@ -175,10 +173,8 @@
                                             @method('POST')
                                             <button class="btn btn-warning">Block</button>
                                         </form>
-                                    </td>
-                                @endif
-                                @if ($user->is_deactivated == true)
-                                    <td>
+                                    @endif
+                                    @if ($user->is_deactivated == true)
                                         <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
@@ -190,10 +186,9 @@
                                             @method('POST')
                                             <button class="btn btn-danger">Deactivate</button>
                                         </form>
-                                    </td>
+                                    @endif
                                 @endif
-                            @endif
-
+                            </td>
 
                         </tr>
                     @endforeach
