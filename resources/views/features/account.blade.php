@@ -11,6 +11,7 @@
                     {{ Session::get('success') }}
                 </div>
             @endif
+            
             <div class="card">
                 <div class="card-body">
                     @if (Auth::user()->user_role === 4)
@@ -18,6 +19,7 @@
                     @endif
                     @csrf
                     @method('PUT')
+                    <h5 class="mb-3">Account Information</h5>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputfName">First Name</label>
