@@ -99,28 +99,23 @@ class ReportsController extends Controller
         return $reports;
     }
 
-    public function sendReport($id, $fname, $mname, $lname, $title, $desc, $locLat, $locLen, $locImg) 
+    public function sendReport(Request $request)
     {
-        $report = Reports::create([
-            "user_id" => $id,
-            'full_name' => $fname. ' ' . $mname . ' ' . $lname,
-            'title' => $title,
-            'description' => $desc,
-            'status' => 'report pending',
-            'loc_lat' => $locLat,
-            'loc_lng' => $locLen,
-            'loc_img' => $locImg
-        ]);
-        $validator = Validator::make(request()->all(), [
-            'image' => 'mimes: jpg, png',
-        ]);
-    
-        if ($validator->fails()) {
-            return response()->json(['error'=>$validator->errors()], 401);
+        $report = new Reports;
+        $report->user_id = $request->user_id;
+        $report->full_name = $request->full_name;
+        $report->title = $request->title;
+        $report->description = $request->description;
+        $report->status = $request->status;
+        $report->loc_lat = $request->loc_lat;
+        $report->loc_lng = $request->loc_lng;
+        $report->loc_img = $request->loc_img;
+        $result = $report->save();
+        if ($result){
+            return ["Result" => "Saved"];
+        } else {
+            return ["Result" => "Failed"];
         }
-    
-        $path = request()->file('image')->store('public/reports');
-        return true;
     }
 
     public function uploadReport(Request $request)
