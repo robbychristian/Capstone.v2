@@ -29,7 +29,7 @@
                         <th scope="col" style="color: white;">Email</th>
                         <th scope="col" style="color: white;">Contact Number</th>
                         <th scope="col" style="color: white;">Barangay Location</th>
-                        <th scope="col" colspan='2' style="color: white;">Action</th>
+                        <th scope="col" colspan='2' style="color: white;text-align:'center';">Action</th>
                     </tr>
                 </thead>
                 <tbody>
