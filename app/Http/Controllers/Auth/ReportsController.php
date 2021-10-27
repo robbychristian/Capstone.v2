@@ -97,4 +97,22 @@ class ReportsController extends Controller
             ->get();
         return $reports;
     }
+
+    public function sendReport($id, $fname, $mname, $lname, $title, $desc, $locLat, $locLen, $locImg) {
+        $report = Reports::create([
+            "user_id" => $id,
+            'full_name' => $fname. ' ' . $mname . ' ' . $lname,
+            'title' => $title,
+            'description' => $desc,
+            'status' => 'report pending',
+            'loc_lat' => $locLat,
+            'loc_lng' => $locLen,
+            'loc_img' => 'no_image.jpg'
+        ]);
+
+            $file = $locImg;
+            $file->store('reports', $id . '/' . $file, '');
+            $report->update(['loc_img' => $file]);
+        return true;
+    }
 }

@@ -28,5 +28,6 @@ Route::get("search/{email}", [AccountController::class, 'search']);
 Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);
 Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
+Route::get('sendReport/{id}/{fname}/{mname}/{lname}/{title}/{desc}/{lat}/{len}/{img}', [ReportsController::class, 'sendReport']);
 
 Auth::routes();
