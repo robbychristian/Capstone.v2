@@ -20,7 +20,6 @@
             </div>
         </div>
         <hr>
-        <h3 class="mb-3">List of Residents</h3>
         
         <div class="table-responsive">
             <table class="table table-hover">
