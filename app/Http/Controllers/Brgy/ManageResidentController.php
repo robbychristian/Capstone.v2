@@ -20,12 +20,17 @@ class ManageResidentController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')
+        /*$users = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
             ->where('users.brgy_loc', Auth::user()->brgy_loc)
             ->get()
-            ->paginate(15);
+            ->paginate(15); */
+        $users = User::join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+                    ->select('users.*', 'user_profiles.*')
+                    ->where('users.brgy_loc', Auth::user()->brgy_loc)
+                    ->get()
+                    ->paginate(15);
         return view('features.manageresident', [
             'users' => $users
         ]);
