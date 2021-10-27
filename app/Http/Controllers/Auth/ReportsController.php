@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Reports;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ReportsController extends Controller
 {
@@ -98,7 +99,8 @@ class ReportsController extends Controller
         return $reports;
     }
 
-    public function sendReport($id, $fname, $mname, $lname, $title, $desc, $locLat, $locLen, $locImg) {
+    public function sendReport($id, $fname, $mname, $lname, $title, $desc, $locLat, $locLen, $locImg) 
+    {
         $report = Reports::create([
             "user_id" => $id,
             'full_name' => $fname. ' ' . $mname . ' ' . $lname,
@@ -107,12 +109,22 @@ class ReportsController extends Controller
             'status' => 'report pending',
             'loc_lat' => $locLat,
             'loc_lng' => $locLen,
-            'loc_img' => 'no_image.jpg'
+            'loc_img' => $locImg
         ]);
-
-            $file = $locImg;
-            $file->store('reports', $id . '/' . $file, '');
-            $report->update(['loc_img' => $file]);
+        $validator = Validator::make(request()->all(), [
+            'image' => 'mimes: jpg, png',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+    
+        $path = request()->file('image')->store('public/reports');
         return true;
+    }
+
+    public function uploadReport(Request $request)
+    {
+        //
     }
 }
