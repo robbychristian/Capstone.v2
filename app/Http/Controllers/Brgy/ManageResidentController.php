@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserProfile;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Pagination\Paginator as PaginationPaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -29,8 +31,8 @@ class ManageResidentController extends Controller
         $users = User::join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
                     ->select('users.*', 'user_profiles.*')
                     ->where('users.brgy_loc', Auth::user()->brgy_loc)
-                    ->get()
-                    ->paginate(15);
+                    ->get();
+                    //->paginate(15);
         return view('features.manageresident', [
             'users' => $users
         ]);
