@@ -8,7 +8,12 @@
                 <div class="h3">Add Residents</div>
             </div>
             <div class="col-2">
-                <button class="btn btn-primary">Back</button>
+                
+            @if (Auth::user()->user_role === 1)
+                <a class="btn btn-primary" href="/admin/manageresident" role="button">Back</a>
+            @elseif (Auth::user()->user_role === 3)
+            <a class="btn btn-primary" href="/brgy_official/manageresident" role="button">Back</a>
+            @endif
             </div>
         </div>
 
