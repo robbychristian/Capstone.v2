@@ -229,7 +229,6 @@
                         </div>
                         <div class=" d-grid gap-2 d-md-block">
                             <button class="btn btn-primary" type="submit">Submit</button>
-                            <a class="btn btn-outline-secondary" href="#" role="button">Cancel</a>
                         </div>
                     </form>
                 </div>
