@@ -43,6 +43,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputAddress">Barangay Position</label>
                     <select name="brgy_pos" id="" class="form-control">
+                        <option value="">Position</option>
                         <option value="Kagawad">Kagawad</option>
                         <option value="Responder">Responder</option>
                         <option value="Volunteer">Volunteer</option>
