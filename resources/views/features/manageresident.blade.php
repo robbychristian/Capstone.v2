@@ -94,6 +94,7 @@
                                         </form>
                                     </td>
                                 @elseif ($user->is_blocked == false)
+                                    <td>
                                     <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
                                         @csrf
                                         @method('POST')
