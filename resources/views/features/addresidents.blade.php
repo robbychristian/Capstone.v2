@@ -18,7 +18,7 @@
         </div>
 
         @if (Auth::user()->user_role === 1)
-            <form action="/admin/manageresident/" method="POST" class="mt-5">
+            <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-5">
         @elseif (Auth::user()->user_role === 3)
             <form action="/brgy_official/manageresident/" method="POST" class="mt-5">
         @endif
@@ -59,12 +59,12 @@
                     <label for="inputBrgy">Barangay</label>
                     @if (Auth::user()->user_role === 1)
                         <select name="brgy" id="inputBrgy" class="form-control">
-                            <option selected>Choose your barangay</option>
-                            <option>Barangay Santolan</option>
-                            <option>Barangay 2</option>
-                            <option>Barangay 3</option>
-                            <option>Barangay 4</option>
-                            <option>Barangay 5</option>
+                            <option value="">Barangay</option>
+                            <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
+                            <option value='Barangay Manggahan'>Barangay Manggahan</option>
+                            <option value='Barangay Maybunga'>Barangay Maybunga</option>
+                            <option value='Barangay Rosario'>Barangay Rosario</option>
+                            <option value='Barangay Santolan'>Barangay Santolan</option>
                         </select>
                         <small class="text-danger">@error('brgy')
                                 {{ $message }}
