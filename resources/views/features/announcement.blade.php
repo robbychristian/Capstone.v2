@@ -109,7 +109,7 @@
         @else
             <div class="card">
                 <div class="card-body">
-                    There are no announcements.
+                    There are no announcements to show.
                 </div>
             </div>
         @endif
