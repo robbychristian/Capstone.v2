@@ -159,7 +159,8 @@ class ReportsController extends Controller
         foreach($request->json()->all() as $item){
             array_push($data, $item);
         }
-        return $data[0];
+        //$request->File($data[0])->storeAs('report_imgs', )
+        return $data[0]->name;
         //return $request->json()->all();
     }
 }
