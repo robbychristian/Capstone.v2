@@ -42,7 +42,7 @@
         <div class="card w-100 card-announce-custom-bg mt-3">
             <ul class="list-group list-group-flush">
                 <!-- ANNOUNCEMENT LIST -->
-                @foreach ($announcements as $announcement)
+                @forelse ($announcements as $announcement)
 
                     <li class="list-group-item announcement-list">
                         <div class="d-flex flex-row align-items-center">
@@ -99,20 +99,15 @@
                             </div>
                         </div>
                     </li>
+                    @empty
+                    <p class="text-secondary"> There are no announcements.</p>
 
-                @endforeach
+                @endforelse
 
                 <!-- END OF ANNOUNCEMENT LIST -->
             </ul>
         </div>
 
-        @empty($announcements)
-            <div class="card">
-                <div class="card-body">
-                    There are no announcements.
-                </div>
-            </div>
-        @endempty
     </div>
 
 
