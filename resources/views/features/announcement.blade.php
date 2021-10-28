@@ -42,8 +42,8 @@
         <div class="card w-100 card-announce-custom-bg mt-3">
             <ul class="list-group list-group-flush">
                 <!-- ANNOUNCEMENT LIST -->
-                @forelse ($announcements as $announcement)
-
+                @foreach ($announcements as $announcement)
+                    @if ($announcemnt->brgy_loc == Auth::user()->brgy_loc)
                     <li class="list-group-item announcement-list">
                         <div class="d-flex flex-row align-items-center">
                             <div class="col-sm-2 col-md-3 col-lg-2 col-xl-1"><i class="fas fa-user-circle fa-4x"
@@ -98,11 +98,13 @@
                                 @endif
                             </div>
                         </div>
-                    </li>
-                    @empty
-                    <p class="text-secondary"> There are no announcements.</p>
+                    </li> 
+                    @else
+                        <li>There are no announcements.</li>
+                    @endif
 
-                @endforelse
+
+                @endforeach
 
                 <!-- END OF ANNOUNCEMENT LIST -->
             </ul>
