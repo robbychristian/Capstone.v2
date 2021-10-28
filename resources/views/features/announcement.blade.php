@@ -107,7 +107,7 @@
                 </ul>
             </div>
            
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="d-grid gap-2 mt-5 d-md-flex justify-content-md-end">
                 {{ $announcements->links() }}
             </div>
         @else
