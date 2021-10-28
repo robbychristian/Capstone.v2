@@ -81,7 +81,13 @@ class AccountController extends Controller
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'curr_pass' => 'required|min:8',
+            'curr_pass' => [
+                'required', function ($attribute, $value, $fail) {
+                    if (!Hash::check($value, Auth::user()->password)) {
+                        $fail('Old Password didn\'t match!');
+                    }
+                },
+            ],
             'new_pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:new_pass',
         ], $messages = [

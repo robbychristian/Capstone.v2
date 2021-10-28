@@ -88,7 +88,7 @@ class AccountController extends Controller
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::user()->password)) {
-                        $fail('Old Password didn\'t match');
+                        $fail('Old Password didn\'t match!');
                     }
                 },
             ],
