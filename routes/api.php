@@ -29,6 +29,6 @@ Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);
 Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
 //Route::post('upload/', [ReportsController::class, 'uploadReport']);
-Route::resource("reports", ReportsController::class);
+Route::post("sendreport", [ReportsController::class, 'submitReport']);
 
 Auth::routes();
