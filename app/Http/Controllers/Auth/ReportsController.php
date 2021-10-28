@@ -153,7 +153,7 @@ class ReportsController extends Controller
     //$report->loc_img = $request->loc_img;
     //$result = $report->save();
     return response()->json([
-        'response' => $request,
+        'userID' => $request->user_id,
         'message' => 'Success'
     ], 200);
 }
