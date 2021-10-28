@@ -152,7 +152,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputfName">First Name</label>
                                 <input type="text" name="fname" class="form-control @error('fname') is-invalid @enderror"
-                                    id="inputfName" value="{{  }}">
+                                    id="inputfName" value="">
                                 <small class="text-danger">@error('fname')
                                         {{ $message }}
                                     @enderror</small>
@@ -160,7 +160,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputmName">Middle Name</label>
                                 <input type="text" name="mname" class="form-control @error('mname') is-invalid @enderror"
-                                    id="inputmName" value="{{  }}">
+                                    id="inputmName" value="">
                                 <small class="text-danger">@error('mname')
                                         {{ $message }}
                                     @enderror</small>
@@ -169,7 +169,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputlName">Last Name</label>
                                 <input type="text" name="lname" class="form-control @error('lname') is-invalid @enderror"
-                                    id="inputlName" value="{{  }}">
+                                    id="inputlName" value="">
                                 <small class="text-danger">@error('lname')
                                         {{ $message }}
                                     @enderror</small>
