@@ -152,6 +152,6 @@ class ReportsController extends Controller
     //$report->loc_lng = $request->loc_lng;
     //$report->loc_img = $request->loc_img;
     //$result = $report->save();
-    return json_encode($request);
+    return json_encode($request->request);
 }
 }
