@@ -59,7 +59,8 @@
                             <div class="col-sm-2 col-md-3 col-lg-2 col-xl-2">
                                 <div class="d-flex flex-column">
                                     <div class="v-announcement-date-title">Posted on:</div>
-                                    <div class="v-announcement-date">{{ Carbon\Carbon::parse($announcement->created_at)->format('d F Y') }}</div>
+                                    <div class="v-announcement-date">
+                                        {{ Carbon\Carbon::parse($announcement->created_at)->format('d F Y') }}</div>
                                 </div>
                                 @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                                     @if (Auth::user()->user_role === 1)
@@ -104,20 +105,14 @@
                 <!-- END OF ANNOUNCEMENT LIST -->
             </ul>
         </div>
-        <!--
-            <nav aria-label="Page navigation example" class="mt-5">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav> -->
+
+        @empty($announcements)
+            <div class="card">
+                <div class="card-body">
+                    There are no announcements.
+                </div>
+            </div>
+        @endempty
     </div>
 
 
