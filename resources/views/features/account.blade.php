@@ -23,7 +23,7 @@
                     <div class="card mb-3 border-0">
                         <div class="row no-gutters">
                           <div class="col-md-4">
-                            <img src="{{ asset('profile_pic/' . $user->profile_pic) }}" alt="..." class="img-responsive" style="width: 100%;
+                            <img src="{{ asset($user->profile_pic) }}" alt="..." class="img-responsive" style="width: 100%;
                             object-fit: cover;
                             height: 300px;"> <!-- must be 375 x 300 px -->
                           </div>
