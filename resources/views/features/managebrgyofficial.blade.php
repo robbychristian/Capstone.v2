@@ -19,20 +19,26 @@
             </div>
         </div>
 
-        <div class="row mr-5 ml-2">
+        <div class="table-responsive">
             <table class="table table-hover">
-                <thead>
+                <thead style="background-color: #004f91;">
                     <tr class="table-active">
-                        <th scope="col">Name</th>
-                        <th scope="col">Barangay</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="color: white;">Full Name</th>
+                        <th scope="col" style="color: white;">Email</th>
+                        <th scope="col" style="color: white;">Contact Number</th>
+                        <th scope="col" style="color: white;">Barangay Location</th>
+                        <th scope="col" style="color: white;">Barangay Position</th>
+                        <th scope="col" style="color: white;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($brgy_officials as $brgy_official)
                         <tr>
                             <td class="h3">{{ $brgy_official->name }}</td>
+                            <td class="h3">{{ $brgy_official->email }}</td>
+                            <td class="h3">{{ $brgy_official->contact_no }}</td>
                             <td class="h3">{{ $brgy_official->brgy_loc }}</td>
+                            <td class="h3">{{ $brgy_official->brgy_position }}</td>
                             <td>
                                 <form action="/admin/managebrgy_official/{{ $brgy_official->id }}" method="POST">
                                     @csrf
