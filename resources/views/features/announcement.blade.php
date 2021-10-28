@@ -38,7 +38,7 @@
             @endif
         </div>
 
-        @empty($announcements)
+        @if(count($announcements) > 0)
 
             <div class="card w-100 card-announce-custom-bg mt-3">
                 <ul class="list-group list-group-flush">
@@ -112,7 +112,7 @@
                     There are no announcements.
                 </div>
             </div>
-        @endempty
+        @endif
 
     </div>
 
