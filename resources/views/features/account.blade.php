@@ -180,7 +180,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputEmail">Email Address</label>
                                 <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
-                                    id="inputEmail" value="{{ Auth::user()->email }}">
+                                    id="inputEmail" value="{{ Auth::user()->email }}" disabled>
                                 <small class="text-danger">@error('email')
                                         {{ $message }}
                                     @enderror</small>
