@@ -190,6 +190,11 @@
                                 <input type="text" name="position" class="form-control" id="inputContactNum"
                                     value="{{ Auth::user()->brgy_position }}" disabled>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputContactNum">Barangay</label>
+                                <input type="text" name="brgy" class="form-control" id="inputContactNum"
+                                    value="{{ Auth::user()->brgy_loc }}" disabled>
+                            </div>
                         </div>
 
                         <hr>
