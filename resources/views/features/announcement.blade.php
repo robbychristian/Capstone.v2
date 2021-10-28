@@ -107,7 +107,7 @@
                 </ul>
             </div>
         @else
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-body">
                     There are no announcements to show.
                 </div>
