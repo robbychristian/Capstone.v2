@@ -38,7 +38,7 @@
             @endif
         </div>
 
-        @if(!$announcements->isEmpty())
+
         <div class="card w-100 card-announce-custom-bg mt-3">
             <ul class="list-group list-group-flush">
                 <!-- ANNOUNCEMENT LIST -->
@@ -58,7 +58,8 @@
                             <div class="col-sm-2 col-md-3 col-lg-2 col-xl-2">
                                 <div class="d-flex flex-column">
                                     <div class="v-announcement-date-title">Posted on:</div>
-                                    <div class="v-announcement-date">{{ Carbon\Carbon::parse($announcement->created_at)->format('d F Y') }}</div>
+                                    <div class="v-announcement-date">
+                                        {{ Carbon\Carbon::parse($announcement->created_at)->format('d F Y') }}</div>
                                 </div>
                                 @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                                     @if (Auth::user()->user_role === 1)
@@ -97,7 +98,7 @@
                             </div>
                         </div>
                     </li>
-                    
+
 
                 @endforeach
 
@@ -105,13 +106,15 @@
             </ul>
         </div>
 
-        @else
-        <div class="card">
-            <div class="card-body">
-                There are no announcements.
+        @empty($announcements)
+            <div class="card">
+                <div class="card-body">
+                    There are no announcements.
+                </div>
             </div>
-        </div>
-        @endif
+        @endempty
+
+
 
     </div>
 
