@@ -39,12 +39,11 @@
         </div>
 
         @foreach ($announcements as $announcement)
+
             @if ($announcement->brgy_loc == Auth::user()->brgy_loc)
                 <div class="card w-100 card-announce-custom-bg mt-3">
                     <ul class="list-group list-group-flush">
                         <!-- ANNOUNCEMENT LIST -->
-
-
 
                         <li class="list-group-item announcement-list">
                             <div class="d-flex flex-row align-items-center">
@@ -103,19 +102,22 @@
                             </div>
                         </li>
 
+
+
+                        <!-- END OF ANNOUNCEMENT LIST -->
+                    </ul>
+                </div>
             @endforeach
 
-            <!-- END OF ANNOUNCEMENT LIST -->
-            </ul>
-    </div>
+        @else
+            <div class="card">
+                <div class="card-body">
+                    This is some text within a card body.
+                </div>
+            </div>
+        @endif
 
-    @else
-    <div class="card">
-        <div class="card-body">
-            There are no announcements.
-        </div>
     </div>
-    @endif
 
 
 
