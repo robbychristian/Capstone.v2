@@ -53,6 +53,7 @@ class ManageBrgyOfficialController extends Controller
             'cnum' => 'required|numeric|size:11',
             'pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:pass',
+            'file' => 'required',
             'cbox' => 'required'
         ], $messages = [
             'fname.required' => 'The first name field is required!',
@@ -68,6 +69,7 @@ class ManageBrgyOfficialController extends Controller
             'pass.min' => 'Password must be at least 8 characters',
             'conf_pass.required' => 'The confirm password field is required!',
             'conf_pass.same' => 'Password mismatch!',
+            'file.required' => 'An image upload is required',
             'cbox.required' => 'Agree to terms and conditions',
         ]);
 
