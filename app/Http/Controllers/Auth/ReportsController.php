@@ -157,6 +157,6 @@ class ReportsController extends Controller
     //} else {
     //    return ["Result" => "Failed"];
     //}
-    return $request->user_id;
+    return $request;
 }
 }
