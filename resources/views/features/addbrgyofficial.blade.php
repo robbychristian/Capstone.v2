@@ -18,14 +18,14 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputfName">First Name</label>
-                    <input name="fname" type="text" class="form-control" id="inputfName">
+                    <input name="fname" type="text" class="form-control" id="inputfName" value={{ old('fname') }}>
                     <small class="text-danger">@error('fname')
                             {{ $message }}
                         @enderror</small>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputmName">Middle Name</label>
-                    <input name="mname" type="text" class="form-control" id="inputmName">
+                    <input name="mname" type="text" class="form-control" id="inputmName" value={{ old('mname') }}>
                     <small class="text-danger">@error('mname')
                             {{ $message }}
                         @enderror</small>
@@ -33,7 +33,7 @@
 
                 <div class="form-group col-md-4">
                     <label for="inputlName">Last Name</label>
-                    <input name="lname" type="text" class="form-control" id="inputlName">
+                    <input name="lname" type="text" class="form-control" id="inputlName" value={{ old('lname') }}>
                     <small class="text-danger">@error('lname')
                             {{ $message }}
                         @enderror</small>
@@ -74,7 +74,7 @@
                 </div>
                     <div class="form-group col-md-4">
                     <label for="inputContactNum">Contact Number</label>
-                    <input name="cnum" type="text" class="form-control" id="inputContactNum">
+                    <input name="cnum" type="text" class="form-control" id="inputContactNum" value={{ old('cnum') }}>
                     <small class="text-danger">@error('cnum')
                             {{ $message }}
                         @enderror</small>
@@ -83,7 +83,7 @@
 
             <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input name="email" type="email" class="form-control" id="inputEmail">
+                <input name="email" type="email" class="form-control" id="inputEmail" value={{ old('email') }}>
                 <small class="text-danger">@error('email')
                         {{ $message }}
                     @enderror</small>
