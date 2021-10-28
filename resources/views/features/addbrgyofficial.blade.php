@@ -40,13 +40,13 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-4">
                     <label for="inputAddress">Barangay Position</label>
                     <select name="brgy_pos" id="" class="form-control">
-                        <option>Kagawad</option>
-                        <option>Responder</option>
-                        <option>Volunteer</option>
-                        <option>Barangay SK</option>
+                        <option value="Kagawad">Kagawad</option>
+                        <option value="Responder">Responder</option>
+                        <option value="Volunteer">Volunteer</option>
+                        <option value="Barangay SK">Barangay SK</option>
                     </select>
                     <small class="text-danger">@error('address')
                             {{ $message }}
@@ -56,12 +56,12 @@
                     <label for="inputBrgy">Barangay</label>
                     @if (Auth::user()->user_role === 1)
                         <select name="brgy" id="inputBrgy" class="form-control">
-                            <option selected>Choose your barangay</option>
-                            <option>Barangay Santolan</option>
-                            <option>Barangay 2</option>
-                            <option>Barangay 3</option>
-                            <option>Barangay 4</option>
-                            <option>Barangay 5</option>
+                            <option value="">Barangay</option>
+                            <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
+                            <option value='Barangay Manggahan'>Barangay Manggahan</option>
+                            <option value='Barangay Maybunga'>Barangay Maybunga</option>
+                            <option value='Barangay Rosario'>Barangay Rosario</option>
+                            <option value='Barangay Santolan'>Barangay Santolan</option>
                         </select>
                         <small class="text-danger">@error('brgy')
                                 {{ $message }}
@@ -71,10 +71,7 @@
                             readonly>
                     @endif
                 </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                     <label for="inputContactNum">Contact Number</label>
                     <input name="cnum" type="text" class="form-control" id="inputContactNum">
                     <small class="text-danger">@error('cnum')

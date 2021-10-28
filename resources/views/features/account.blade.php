@@ -152,7 +152,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputfName">First Name</label>
                                 <input type="text" name="fname" class="form-control @error('fname') is-invalid @enderror"
-                                    id="inputfName">
+                                    id="inputfName" value="{{  }}">
                                 <small class="text-danger">@error('fname')
                                         {{ $message }}
                                     @enderror</small>
@@ -160,7 +160,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputmName">Middle Name</label>
                                 <input type="text" name="mname" class="form-control @error('mname') is-invalid @enderror"
-                                    id="inputmName">
+                                    id="inputmName" value="{{  }}">
                                 <small class="text-danger">@error('mname')
                                         {{ $message }}
                                     @enderror</small>
@@ -169,7 +169,7 @@
                             <div class="form-group col-md-4">
                                 <label for="inputlName">Last Name</label>
                                 <input type="text" name="lname" class="form-control @error('lname') is-invalid @enderror"
-                                    id="inputlName">
+                                    id="inputlName" value="{{  }}">
                                 <small class="text-danger">@error('lname')
                                         {{ $message }}
                                     @enderror</small>
@@ -177,15 +177,15 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail">Email Address</label>
                                 <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
-                                    id="inputEmail">
+                                    id="inputEmail" value="{{ Auth::user()->email }}">
                                 <small class="text-danger">@error('email')
                                         {{ $message }}
                                     @enderror</small>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="inputContactNum">Position</label>
                                 <input type="text" name="position" class="form-control" id="inputContactNum"
                                     value="{{ Auth::user()->brgy_position }}" disabled>
