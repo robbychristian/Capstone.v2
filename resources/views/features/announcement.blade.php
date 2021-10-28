@@ -106,6 +106,7 @@
                     <!-- END OF ANNOUNCEMENT LIST -->
                 </ul>
             </div>
+            {{ $announcements->links() }}
         @else
             <div class="card mt-3">
                 <div class="card-body" style="font-weight: 400; font-size: 1rem;">
