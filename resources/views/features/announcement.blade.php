@@ -107,10 +107,9 @@
                 </ul>
             </div>
            
-
-            <nav aria-label="Page navigation example justify-content-end">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 {{ $announcements->links() }}
-              </nav>
+            </div>
         @else
             <div class="card mt-3">
                 <div class="card-body" style="font-weight: 400; font-size: 1rem;">
