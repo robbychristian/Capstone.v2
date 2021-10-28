@@ -34,11 +34,11 @@
                 <tbody>
                     @foreach ($brgy_officials as $brgy_official)
                         <tr>
-                            <td class="h3">{{ $brgy_official->name }}</td>
-                            <td class="h3">{{ $brgy_official->email }}</td>
-                            <td class="h3">{{ $brgy_official->contact_no }}</td>
-                            <td class="h3">{{ $brgy_official->brgy_loc }}</td>
-                            <td class="h3">{{ $brgy_official->brgy_position }}</td>
+                            <td>{{ $brgy_official->name }}</td>
+                            <td>{{ $brgy_official->email }}</td>
+                            <td>{{ $brgy_official->contact_no }}</td>
+                            <td>{{ $brgy_official->brgy_loc }}</td>
+                            <td>{{ $brgy_official->brgy_position }}</td>
                             <td>
                                 <form action="/admin/managebrgy_official/{{ $brgy_official->id }}" method="POST">
                                     @csrf
