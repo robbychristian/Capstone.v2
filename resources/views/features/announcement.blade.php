@@ -38,10 +38,11 @@
             @endif
         </div>
 
-
+        @if ($announcement->brgy_loc == Auth::user()->brgy_loc)
         <div class="card w-100 card-announce-custom-bg mt-3">
             <ul class="list-group list-group-flush">
                 <!-- ANNOUNCEMENT LIST -->
+
                 @foreach ($announcements as $announcement)
 
                     <li class="list-group-item announcement-list">
@@ -104,6 +105,15 @@
                 <!-- END OF ANNOUNCEMENT LIST -->
             </ul>
         </div>
+        
+        @else
+        <div class="card">
+            <div class="card-body">
+             There are no announcements.
+            </div>
+          </div>
+        @endif
+
         <!--
             <nav aria-label="Page navigation example" class="mt-5">
                 <ul class="pagination justify-content-end">
