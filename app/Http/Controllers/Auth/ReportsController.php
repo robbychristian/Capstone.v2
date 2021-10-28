@@ -152,9 +152,6 @@ class ReportsController extends Controller
     //$report->loc_lng = $request->loc_lng;
     //$report->loc_img = $request->loc_img;
     //$result = $report->save();
-    return response()->json([
-        'userID' => $request->input('user_id'),
-        'message' => 'Success'
-    ], 200);
+    return json_encode($request);
 }
 }
