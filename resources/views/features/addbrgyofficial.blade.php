@@ -10,7 +10,7 @@
                 <div class="h3">Add Barangay Officials</div>
             </div>
             <div class="col-2">
-                <button class="btn btn-primary">Back</button>
+                <a class="btn btn-primary" href="/admin/managebrgy_official">Back</a>
             </div>
         </div>
         <form action="{{ route('admin.managebrgy_official.store') }}" method="POST" class="mt-4">
