@@ -429,6 +429,9 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}"> <i class="fas fa-chart-bar mr-2"></i>Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link"
                                                 href="/brgy_official/account/{{ Auth::user()->id }}/edit">
                                                 <i class="fas fa-user-circle mr-2"></i>Account</a>
@@ -461,12 +464,24 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i
+                                            <a class="nav-link" href="{{ route('brgy_official.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link" href="{{ route('brgy_official.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>Emergency Alert
+                                                Message</a>
+                                        </li>
+                    
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('brgy_official.stats.index') }}"> <i class="fas fa-clipboard mr-2"></i>Disaster Statistics</a>
+                                        </li>
+                    
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i class="fas fa-users mr-2"></i>Manage Resident</a>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
@@ -585,7 +600,7 @@
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                                href="/brgy_official/announcements/{{ Auth::user()->id }}/edit">
+                                                href="/admin/announcements/{{ Auth::user()->id }}/edit">
                                                 <i class="fas fa-user-circle mr-2"></i>Dashboard</a>
                                         </li>
                                         <li class="nav-item">
