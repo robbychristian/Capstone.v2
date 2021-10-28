@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </li> 
-                    @else
+                    @elseif ($announcemnt->brgy_loc != Auth::user()->brgy_loc)
                         <li>There are no announcements.</li>
                     @endif
 
