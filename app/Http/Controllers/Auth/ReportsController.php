@@ -157,6 +157,6 @@ class ReportsController extends Controller
     //} else {
     //    return ["Result" => "Failed"];
     //}
-    return $request;
+    return $request->data;
 }
 }
