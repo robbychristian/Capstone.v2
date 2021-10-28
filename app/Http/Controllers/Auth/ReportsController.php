@@ -99,28 +99,48 @@ class ReportsController extends Controller
         return $reports;
     }
 
-    public function sendReport(Request $request)
-    {
-        $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-        $report = new Reports;
-        $report->user_id = $request->user_id;
-        $report->full_name = $request->full_name;
-        $report->title = $request->title;
-        $report->description = $request->description;
-        $report->status = $request->status;
-        $report->loc_lat = $request->loc_lat;
-        $report->loc_lng = $request->loc_lng;
-        $report->loc_img = $request->loc_img;
-        $result = $report->save();
-        if ($result){
-            return ["Result" => "Saved"];
-        } else {
-            return ["Result" => "Failed"];
-        }
-    }
+    //public function sendReport(Request $request)
+    //{
+    //    $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+    //    $report = new Reports;
+    //    $report->user_id = $request->user_id;
+    //    $report->full_name = $request->full_name;
+    //    $report->title = $request->title;
+    //    $report->description = $request->description;
+    //    $report->status = $request->status;
+    //    $report->loc_lat = $request->loc_lat;
+    //    $report->loc_lng = $request->loc_lng;
+    //    $report->loc_img = $request->loc_img;
+    //    $result = $report->save();
+    //    if ($result){
+    //        return ["Result" => "Saved"];
+    //    } else {
+    //        return ["Result" => "Failed"];
+    //    }
+    //}
 
     public function uploadReport(Request $request)
     {
         //
     }
+
+    public function submitReport(Request $request)
+{
+    $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+    $report = new Reports;
+    $report->user_id = $request->user_id;
+    $report->full_name = $request->full_name;
+    $report->title = $request->title;
+    $report->description = $request->description;
+    $report->status = $request->status;
+    $report->loc_lat = $request->loc_lat;
+    $report->loc_lng = $request->loc_lng;
+    $report->loc_img = $request->loc_img;
+    $result = $report->save();
+    if ($result){
+        return ["Result" => "Saved"];
+    } else {
+        return ["Result" => "Failed"];
+    }
+}
 }
