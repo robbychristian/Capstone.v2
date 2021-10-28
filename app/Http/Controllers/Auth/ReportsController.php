@@ -141,17 +141,17 @@ class ReportsController extends Controller
 
     public function submitReport(Request $request)
     {
-        $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-        $report = new Reports;
-        $report->user_id = $request->input()->user_id;
-        $report->full_name = $request->input()->full_name;
-        $report->title = $request->input()->title;
-        $report->description = $request->input()->description;
-        $report->status = $request->input()->status;
-        $report->loc_lat = $request->input()->loc_lat;
-        $report->loc_lng = $request->input()->loc_lng;
-        $report->loc_img = $request->input()->loc_img;
-        $report = $report->save();
-        return $report;
+        //$request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+        //$report = new Reports;
+        //$report->user_id = $request->input()->user_id;
+        //$report->full_name = $request->input()->full_name;
+        //$report->title = $request->input()->title;
+        //$report->description = $request->input()->description;
+        //$report->status = $request->input()->status;
+        //$report->loc_lat = $request->input()->loc_lat;
+        //$report->loc_lng = $request->input()->loc_lng;
+        //$report->loc_img = $request->input()->loc_img;
+        //$report = $report->save();
+        return json_decode($request);
     }
 }
