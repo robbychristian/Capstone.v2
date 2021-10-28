@@ -108,7 +108,7 @@
             </div>
         @else
             <div class="card mt-3">
-                <div class="card-body">
+                <div class="card-body" style="font-weight:700; font-size: 2rem;">
                     There are no announcements to show.
                 </div>
             </div>
