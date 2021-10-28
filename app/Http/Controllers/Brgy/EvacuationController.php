@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Brgy;
 
 use App\Http\Controllers\Controller;
+use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
-
+ 
 class EvacuationController extends Controller
 {
     /**
@@ -14,7 +15,10 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        return view('features.evacuationcenter');
+        $coordinates = EvacuationCenters::all();
+        return view('features.evacuationcenter', [
+            "coordinates" => $coordinates
+        ]);
     }
 
     /**

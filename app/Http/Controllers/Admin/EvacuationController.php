@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
 
 class EvacuationController extends Controller
@@ -14,7 +15,10 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        //
+        $coordinates = EvacuationCenters::all();
+        return view('features.evacuationcenter', [
+            "coordinates" => $coordinates
+        ]);
     }
 
     /**
