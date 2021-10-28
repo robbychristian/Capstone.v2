@@ -106,16 +106,6 @@
             </ul>
         </div>
 
-        @empty($announcements)
-            <div class="card">
-                <div class="card-body">
-                    There are no announcements.
-                </div>
-            </div>
-        @endempty
-
-
-
     </div>
 
 
