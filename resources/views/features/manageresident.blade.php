@@ -127,8 +127,10 @@
                 </tbody>
             </table>
         </div>
+        @if (Auth::user()->user_role === 3)
 
         {{ $users->links() }}
+        @endif
 
     </div>
 
