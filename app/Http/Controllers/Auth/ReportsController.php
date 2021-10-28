@@ -42,21 +42,21 @@ class ReportsController extends Controller
     public function store(Request $request)
     {
         $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-    $report = new Reports;
-    $report->user_id = $request->user_id;
-    $report->full_name = $request->full_name;
-    $report->title = $request->title;
-    $report->description = $request->description;
-    $report->status = $request->status;
-    $report->loc_lat = $request->loc_lat;
-    $report->loc_lng = $request->loc_lng;
-    $report->loc_img = $request->loc_img;
-    $result = $report->save();
-    if ($result){
-        return ["Result" => "Saved"];
-    } else {
-        return ["Result" => "Failed"];
-    }
+        $report = new Reports;
+        $report->user_id = $request->user_id;
+        $report->full_name = $request->full_name;
+        $report->title = $request->title;
+        $report->description = $request->description;
+        $report->status = $request->status;
+        $report->loc_lat = $request->loc_lat;
+        $report->loc_lng = $request->loc_lng;
+        $report->loc_img = $request->loc_img;
+        $result = $report->save();
+        if ($result) {
+            return ["Result" => "Saved"];
+        } else {
+            return ["Result" => "Failed"];
+        }
     }
 
     /**
@@ -140,18 +140,18 @@ class ReportsController extends Controller
     }
 
     public function submitReport(Request $request)
-{
-    //$request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-    //$report = new Reports;
-    //$report->user_id = $request->user_id;
-    //$report->full_name = $request->full_name;
-    //$report->title = $request->title;
-    //$report->description = $request->description;
-    //$report->status = $request->status;
-    //$report->loc_lat = $request->loc_lat;
-    //$report->loc_lng = $request->loc_lng;
-    //$report->loc_img = $request->loc_img;
-    //$result = $report->save();
-    return $request->config;
-}
+    {
+        $request->file('image')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+        $report = new Reports;
+        $report->user_id = $request->input()->user_id;
+        $report->full_name = $request->input()->full_name;
+        $report->title = $request->input()->title;
+        $report->description = $request->input()->description;
+        $report->status = $request->input()->status;
+        $report->loc_lat = $request->input()->loc_lat;
+        $report->loc_lng = $request->input()->loc_lng;
+        $report->loc_img = $request->input()->loc_img;
+        $report = $report->save();
+        return $report;
+    }
 }
