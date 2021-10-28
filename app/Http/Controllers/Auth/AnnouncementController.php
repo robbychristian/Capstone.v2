@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Announcement;
+use Illuminate\Support\Facades\Auth;
 
 class AnnouncementController extends Controller
 {
@@ -15,7 +16,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::all();
+        $announcements = Announcement::where('brgy_loc', '=', Auth::user()->brgy_loc);
         return view('features.announcement', [
             'announcements' => $announcements
         ]);

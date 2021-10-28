@@ -38,13 +38,11 @@
             @endif
         </div>
 
-
+        @if(!$announcements->isEmpty())
         <div class="card w-100 card-announce-custom-bg mt-3">
             <ul class="list-group list-group-flush">
                 <!-- ANNOUNCEMENT LIST -->
                 @foreach ($announcements as $announcement)
-                    @if ($announcement->brgy_loc == Auth::user()->brgy_loc)
-                        
                     <li class="list-group-item announcement-list">
                         <div class="d-flex flex-row align-items-center">
                             <div class="col-sm-2 col-md-3 col-lg-2 col-xl-1"><i class="fas fa-user-circle fa-4x"
@@ -100,20 +98,20 @@
                         </div>
                     </li>
                     
-                    @else
-                    <div class="card">
-                        <div class="card-body">
-                            There are no announcements.
-                        </div>
-                    </div>
-                    @endif
-
 
                 @endforeach
 
                 <!-- END OF ANNOUNCEMENT LIST -->
             </ul>
         </div>
+
+        @else
+        <div class="card">
+            <div class="card-body">
+                There are no announcements.
+            </div>
+        </div>
+        @endif
 
     </div>
 
