@@ -160,7 +160,7 @@ class ReportsController extends Controller
             array_push($data, $item);
         }
         //$request->File($data[0])->storeAs('report_imgs', )
-        return $data[0]->name;
+        return $data[0]['name'];
         //return $request->json()->all();
     }
 }
