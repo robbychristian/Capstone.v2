@@ -49,7 +49,7 @@
             <!--IF AUTH-->
             @if (Auth::check())
                 @if (Auth::user()->user_role === 5)
-                    <!--USER NAVBAR-->
+                    <!--LGU NAVBAR-->
 
                     <div class="container-fluid">
 
@@ -275,7 +275,7 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/users/account/{{ Auth::user()->id }}/edit">
+                                            <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
                                                 <i class="fas fa-user-circle mr-2"></i>Account</a>
                                         </li>
                                         <li class="nav-item">
@@ -305,12 +305,12 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i
+                                            <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link" href="{{ route('user.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
