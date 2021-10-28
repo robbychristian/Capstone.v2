@@ -201,7 +201,7 @@
                             {{ $message }}
                         @enderror</small>
                 @elseif (Auth::user()->user_role === 3)
-                    <input name="brgy" type="text" class="form-control" id="inputAddress" value="Barangay Santolan"
+                    <input name="brgy" type="text" class="form-control" id="inputAddress" value="{{ Auth::user()->brgy_loc }}"
                         readonly>
                 @endif
             </div>
