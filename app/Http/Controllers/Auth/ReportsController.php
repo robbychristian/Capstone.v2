@@ -159,7 +159,7 @@ class ReportsController extends Controller
         foreach($request->json()->all() as $item){
             array_push($data, $item);
         }
-        return $data;
+        return $data[0];
         //return $request->json()->all();
     }
 }
