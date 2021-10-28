@@ -16,7 +16,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::where('brgy_loc', '=', Auth::user()->brgy_loc)->paginate(2);
+        $announcements = Announcement::where('brgy_loc', '=', Auth::user()->brgy_loc)->paginate(1);
         return view('features.announcement', [
             'announcements' => $announcements
         ]);
