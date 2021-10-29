@@ -154,6 +154,7 @@ class ReportsController extends Controller
         //$postInput = file_get_contents('php://input');
         //$data = json_decode($postInput, true);
         //return ["user_id" => $data["user_id"] ];
+        $response = [];
         $data = array();
         $image = array();
         $user_id = array();
@@ -194,8 +195,14 @@ class ReportsController extends Controller
         foreach($data[8] as $item){
             array_push($loc_img, $item);
         }
-        $request->file($data[0])->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-        return $data[0];
+        //$request->file($data[0])->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+        //return $data[0];
         //return $request->json()->all();
+
+        if($request->has('loc_img')){
+            return $response['status'] = 'success';
+        } else {
+            return $response['status'] = 'fail';
+        }
     }
 }
