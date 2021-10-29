@@ -28,7 +28,7 @@
                         @if ($report->user_id === Auth::user()->id && Auth::user()->user_role === 4)
                             <tr>
                                 <th scope="row">{{ $report->title }}</th>
-                                <td>{{ asset('reports/'. $report->loc_img) }}</td>
+                                <td>{{ asset('storage/public/report_imgs/1/'. $report->loc_img) }}</td>
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td>{{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
