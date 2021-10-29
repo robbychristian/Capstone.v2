@@ -159,8 +159,11 @@
 
                 let lat = loc_lat.toString()
                 let lng = loc_lng.toString()
-                console.log(typeof(lat) + " " + lat)
-                console.log(typeof(lng) + " " + lng)
+
+                let floatLat = parseFloat(lat)
+                let floatLng = parseFloat(lng)
+                console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
+                console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
 
                 //var location = {
                 //    lat: Number(loc_lat),
