@@ -209,6 +209,10 @@ class ReportsController extends Controller
     public function uploadImage(Request $request)
     {
         $img = $request->json()->all();
-        return $img;
+        if ($request->hasFile($img)){
+            return $img;
+        } else {
+            return "no";
+        }
     }
 }
