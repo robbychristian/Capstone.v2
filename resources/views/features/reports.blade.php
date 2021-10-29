@@ -157,17 +157,23 @@
 
             function initMap(loc_lat, loc_lng) {
 
-                var location = {
-                    lat: Number(loc_lat),
-                    lng: Number(loc_lng)
-                }
+                let lat = Number(loc_lat)
+                let lng = Number(loc_lng)
+
+                //var location = {
+                //    lat: Number(loc_lat),
+                //    lng: Number(loc_lng)
+                //}
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    center: location,
+                    center: {
+                        lat: lat,
+                        lng: lng
+                    },
                 }
 
-                var latlng = new google.maps.LatLng(loc_lat, loc_lng)
+                var latlng = new google.maps.LatLng(lat, lng)
 
                 var marker = new google.maps.Marker({
                     position: latlng
