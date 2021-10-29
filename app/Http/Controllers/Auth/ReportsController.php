@@ -212,7 +212,17 @@ class ReportsController extends Controller
         $img = $request->json()->all();
         if ($request->hasFile('photo')){
             $file = $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
-            return $file;
+            $report = new Reports;
+            $report->user_id = $request->user_id;
+            $report->full_name = $request->full_name;
+            $report->title = $request->title;
+            $report->description = $request->description;
+            $report->status = $request->status;
+            $report->loc_lat = $request->loc_lat;
+            $report->loc_lng = $request->loc_lng;
+            $report->loc_img = $request->loc_img;
+            $report = $report->save();
+            return "saved";
         } else {
             return "no";
         }
