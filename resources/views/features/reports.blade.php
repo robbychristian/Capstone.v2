@@ -29,7 +29,6 @@
                             <tr>
                                 <th scope="row">{{ $report->title }}</th>
                                 <td>
-                                    
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#id{{ $report->id }}">
                                         View Image
@@ -37,7 +36,11 @@
                                 </td>
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
-                                <td>{{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
+                                <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#map{{ $report->id }}">
+                                        View Image
+                                    </button>
+                                    {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
                                 <td>{{ $report->created_at }}</td>
                                 <td>
                                     <form action="/user/reports/{{ $report->id }}" method="POST">
@@ -102,7 +105,27 @@
                         @endif
 
                         <!-- Modal -->
-                        <div class="modal fade" id="id{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="id{{ $report->id }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: center;">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img class="img-fluid rounded mx-auto d-block"
+                                            src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="map{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModal"
                             aria-hidden="true" style="text-align: center;">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
@@ -113,7 +136,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                       <img class="img-fluid rounded mx-auto d-block" src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}">
+                                        <div id="map" style="height: 600px; width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -122,5 +145,43 @@
                 </tbody>
             </table>
         </div>
+
+
+        <script type="text/javascript">
+            function initMap() {
+                var options = {
+                    zoom: 16,
+                    gestureHandling: "none",
+                    zoomControl: false,
+                    center: {
+                        lat: 14.6131,
+                        lng: 121.0880
+                    },
+                }
+
+                var map = new google.maps.Map(document.getElementById('map'), options);
+
+                var markers = [
+                    @foreach ($coordinates as $coordinate)
+                        ["{{ $coordinate->lat }}","{{ $coordinate->lng }}"],
+                    
+                    @endforeach
+                ];
+
+                for (var i = 0; i < markers.length; i++) {
+                    var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+
+
+                }
+            }
+        </script>
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
+        </script>
     </div>
 @endsection
