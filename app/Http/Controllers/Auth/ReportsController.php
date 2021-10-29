@@ -205,4 +205,13 @@ class ReportsController extends Controller
             return $response['status'] = 'nope';
         }
     }
+
+    public function uploadImage(Request $request)
+    {
+        if($request->hasFile('photo')){
+            return "nice";
+        } else {
+            return 'not ok';
+        }
+    }
 }
