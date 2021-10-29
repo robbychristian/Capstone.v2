@@ -37,7 +37,7 @@
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#map{{ $report->id }}">
+                                        data-target="#map{{ $report->id }}" id="open">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -125,8 +125,9 @@
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="map{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModal"
-                            aria-hidden="true" style="text-align: center;">
+                        <div class="modal fade" id="map{{ $report->id }}" tabindex="-1"
+                            aria-labelledby="exampleModal" aria-hidden="true" style="text-align: center;"
+                            data-lat={{ $report->loc_lat }} data-long={{ $report->loc_lng }}>
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -148,19 +149,25 @@
 
 
         <script type="text/javascript">
-            function initMap() {
+            function initMap(loc) {
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    zoomControl: false,
-                    center: {
-                        lat: 14.6131,
-                        lng: 121.0880
-                    },
+                    center: loc
                 }
 
+                var marker = new google.maps.Marker({
+                    position: loc
+                });
+
                 var map = new google.maps.Map(document.getElementById('map'), options);
+                marker.setMap(map);
             }
+
+            $("#open").click(function() {
+                // get latitude and longitude that pass from open modal button
+                initMap(new google.maps.LatLng($(this).data('lat'), $(this).data('long')));
+            });
         </script>
 
         <script async defer
