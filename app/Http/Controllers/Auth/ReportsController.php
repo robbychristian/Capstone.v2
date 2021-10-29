@@ -211,7 +211,8 @@ class ReportsController extends Controller
     {
         $img = $request->json()->all();
         if ($request->hasFile('photo')){
-            return $request->user_id;
+            $file = $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+            return $file;
         } else {
             return "no";
         }
