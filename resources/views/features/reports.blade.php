@@ -154,17 +154,20 @@
             //var element = $(this);
             var map;
 
-            var location = {
-                lat: loc_lat,
-                lng: loc_lng
-            }
 
             function initMap(loc_lat, loc_lng) {
+
+                var location = {
+                    lat: loc_lat,
+                    lng: loc_lng
+                }
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
                     center: location,
                 }
+
+
 
                 var latlng = new google.maps.LatLng(loc_lat, loc_lng)
 
