@@ -151,30 +151,33 @@
 
 
         <script type="text/javascript">
-            var element = $(this);
+            //var element = $(this);
             var map;
 
-            function initMap(loc) {
+            function initMap() {
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    center: loc
+                    center: {
+                    lat: 14.6131,
+                    lng: 121.0880
+                },
                 }
 
-                var marker = new google.maps.Marker({
-                    position: loc
-                });
+                //var marker = new google.maps.Marker({
+                //    position: loc
+                //});
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                marker.setMap(map);
+                //marker.setMap(map);
             }
 
-            $('#modalMap').on('show.bs.modal', function(e) {
-                var element = $(e.relatedTarget);
-                var data = element.data("lat").split(',');
-                var latlng = new google.maps.LatLng(data[0], data[1]);
-                initMap(latlng);
-                $("#lat").html(latlng.lat() + ", " + latlng.lng());
+            $('#modalMap').on('show.bs.modal', function() {
+                //var element = $(e.relatedTarget);
+                //var data = element.data("lat").split(',');
+                //var latlng = new google.maps.LatLng(data[0], data[1]);
+                //initMap(latlng);
+                //$("#lat").html(latlng.lat() + ", " + latlng.lng());
                 google.maps.event.trigger(map, 'resize');
             });
         </script>
