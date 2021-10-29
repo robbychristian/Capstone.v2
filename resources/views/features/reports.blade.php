@@ -172,16 +172,17 @@
 
                 map = new google.maps.Map(document.getElementById('map'), options);
                 marker.setMap(map);
+                google.maps.event.trigger(map, 'resize');
             }
 
-            $('#modalMap').on('show.bs.modal', function() {
-                //var element = $(e.relatedTarget);
-                //var data = element.data("lat").split(',');
-                //var latlng = new google.maps.LatLng(data[0], data[1]);
-                //initMap(latlng);
-                //$("#lat").html(latlng.lat() + ", " + latlng.lng());
-                google.maps.event.trigger(map, 'resize');
-            });
+            //$('#modalMap').on('show.bs.modal', function() {
+            //    //var element = $(e.relatedTarget);
+            //    //var data = element.data("lat").split(',');
+            //    //var latlng = new google.maps.LatLng(data[0], data[1]);
+            //    //initMap(latlng);
+            //    //$("#lat").html(latlng.lat() + ", " + latlng.lng());
+            //    
+            //});
         </script>
 
         <script async defer
