@@ -28,7 +28,7 @@
                         @if ($report->user_id === Auth::user()->id && Auth::user()->user_role === 4)
                             <tr>
                                 <th scope="row">{{ $report->title }}</th>
-                                <td><img src="{{ asset('KabisigGit/storage/app/public/report_imgs/'. $report->user_id . '/' . $report->loc_img) }}"></td>
+                                <td><img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/'. $report->user_id . '/' . $report->loc_img) }}"></td>
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td>{{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
