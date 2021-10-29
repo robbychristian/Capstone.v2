@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#map{{ $report->id }}">
-                                        Map
+                                        View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
                                 <td>{{ $report->created_at }}</td>
