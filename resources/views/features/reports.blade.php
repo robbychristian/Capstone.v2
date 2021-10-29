@@ -158,8 +158,8 @@
             function initMap(loc_lat, loc_lng) {
 
                 var location = {
-                    lat: parseFloat(loc_lat),
-                    lng: parseFloat(loc_lng)
+                    lat: Number(loc_lat),
+                    lng: Number(loc_lng)
                 }
                 var options = {
                     zoom: 16,
