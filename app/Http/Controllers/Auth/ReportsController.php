@@ -141,7 +141,6 @@ class ReportsController extends Controller
 
     public function submitReport(Request $request)
     {
-        $request->file('photo')->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
         //$report = new Reports;
         //$report->user_id = $request->input()->user_id;
         //$report->full_name = $request->input()->full_name;
@@ -195,6 +194,7 @@ class ReportsController extends Controller
         foreach($data[8] as $item){
             array_push($loc_img, $item);
         }
+        $request->file($data[0])->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
         return $data[0];
         //return $request->json()->all();
     }
