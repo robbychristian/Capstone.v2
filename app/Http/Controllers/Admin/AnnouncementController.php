@@ -15,7 +15,7 @@ class AnnouncementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $announcements = Announcement::latest()->paginate(10);
         return view('features.announcement', [
             'announcements' => $announcements
@@ -43,7 +43,7 @@ class AnnouncementController extends Controller
         $announcement = Announcement::create([
             'brgy_position' => 'NaN',
             'name' => Auth::user()->name,
-            'brgy_loc' => 'NaN',
+            'brgy_loc' => 'Barangay Santolan',
             'title' => $request->input('title'),
             'body' => $request->input('message')
         ]);
