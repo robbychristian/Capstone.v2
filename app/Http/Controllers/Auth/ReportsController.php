@@ -156,14 +156,46 @@ class ReportsController extends Controller
         //$data = json_decode($postInput, true);
         //return ["user_id" => $data["user_id"] ];
         $data = array();
-        $user_id = 0;
+        $image = array();
+        $user_id = array();
+        $full_name = array();
+        $title = array();
+        $desc = array();
+        $stat = array();
+        $loc_lat = array();
+        $loc_lng = array();
+        $loc_img = array();
         foreach($request->json()->all() as $item){
             array_push($data, $item);
         }
-        foreach($data[1] as $item){
-            $user_id = $item;
+        foreach($data[0] as $item){
+            array_push($image, $item);
         }
-        return $user_id;
+        foreach($data[1] as $item){
+            array_push($user_id, $item);
+        }
+        foreach($data[2] as $item){
+            array_push($full_name, $item);
+        }
+        foreach($data[3] as $item){
+            array_push($title, $item);
+        }
+        foreach($data[4] as $item){
+            array_push($desc, $item);
+        }
+        foreach($data[5] as $item){
+            array_push($stat, $item);
+        }
+        foreach($data[6] as $item){
+            array_push($loc_lat, $item);
+        }
+        foreach($data[7] as $item){
+            array_push($loc_lng, $item);
+        }
+        foreach($data[8] as $item){
+            array_push($loc_img, $item);
+        }
+        return $data[0];
         //return $request->json()->all();
     }
 }
