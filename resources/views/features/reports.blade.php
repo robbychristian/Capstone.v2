@@ -186,8 +186,9 @@
 
                 map = new google.maps.Map(document.getElementById('map'), options);
                 //marker.setMap(map);
-                google.maps.event.trigger(map, 'resize');
             }
+
+            google.maps.event.trigger(map, 'resize');
 
             //$('#modalMap').on('show.bs.modal', function() {
             //    //var element = $(e.relatedTarget);
