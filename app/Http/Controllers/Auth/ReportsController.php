@@ -227,4 +227,10 @@ class ReportsController extends Controller
             return "no";
         }
     }
+
+    public function deleteReport($id)
+    {
+        $report = Reports::find($id);
+        $report->delete();
+    }
 }

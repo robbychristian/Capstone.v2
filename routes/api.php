@@ -31,5 +31,6 @@ Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
 //Route::post('upload/', [ReportsController::class, 'uploadReport']);
 Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);
+Route::get('deletereport', [ReportsController::class, 'deleteReport']);
 
 Auth::routes();
