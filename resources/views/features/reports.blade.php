@@ -103,7 +103,7 @@
 
                         <!-- Modal -->
                         <div class="modal fade" id="id{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            aria-hidden="true" style="text-align: center;">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
