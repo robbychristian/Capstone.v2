@@ -208,7 +208,7 @@ class ReportsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        $img = $request->json($request->input('photo'));
+        $img = $request->input('photo');
         return $img;
     }
 }
