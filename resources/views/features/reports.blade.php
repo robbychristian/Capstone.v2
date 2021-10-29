@@ -157,13 +157,13 @@
 
             function initMap(loc_lat, loc_lng) {
 
-                let lat = loc_lat.toString()
-                let lng = loc_lng.toString()
-
-                let floatLat = parseFloat(lat)
-                let floatLng = parseFloat(lng)
-                console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
-                console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
+                //let lat = loc_lat.toString()
+                //let lng = loc_lng.toString()
+//
+                //let floatLat = parseFloat(lat)
+                //let floatLng = parseFloat(lng)
+                //console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
+                //console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
 
                 //var location = {
                 //    lat: Number(loc_lat),
