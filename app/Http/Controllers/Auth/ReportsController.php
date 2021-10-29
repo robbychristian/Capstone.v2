@@ -208,7 +208,7 @@ class ReportsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        if($request->hasFile()){
+        if($request->hasFile($request->photo)){
             return "nice";
         } else {
             return 'not ok';
