@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
-                                        data-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
+                                        onclick="initMap({{ $report->loc_lng }}, {{ $report->loc_lat }})">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -126,8 +126,8 @@
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="modalMap" tabindex="-1"
-                            aria-labelledby="exampleModal" aria-hidden="true" style="text-align: center;">
+                        <div class="modal fade" id="modalMap" tabindex="-1" aria-labelledby="exampleModal"
+                            aria-hidden="true" style="text-align: center;">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -154,22 +154,24 @@
             //var element = $(this);
             var map;
 
-            function initMap() {
+            function initMap(loc_lat, loc_lng) {
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
                     center: {
-                    lat: 14.6131,
-                    lng: 121.0880
-                },
+                        lat: loc_lat,
+                        lng: loc_lng
+                    },
                 }
 
-                //var marker = new google.maps.Marker({
-                //    position: loc
-                //});
+                var latlng = new google.maps.LatLng(loc_lat, loc_lng)
+
+                var marker = new google.maps.Marker({
+                    position: latlng
+                });
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                //marker.setMap(map);
+                marker.setMap(map);
             }
 
             $('#modalMap').on('show.bs.modal', function() {
