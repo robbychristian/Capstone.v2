@@ -199,13 +199,14 @@ class ReportsController extends Controller
         //return $data[0];
         //return $request->json()->all();
 
-        if(request()->hasFile($data[0])){
-            return $response['status'] = 'success';
+        if ($request->hasFile('photo')){
+            $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
+            return "done";
         } else {
-            return $response['status'] = 'nope';
+            return "no";
         }
     }
-
+    
     public function uploadImage(Request $request)
     {
         $img = $request->json()->all();
