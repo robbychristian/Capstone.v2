@@ -156,10 +156,14 @@ class ReportsController extends Controller
         //$data = json_decode($postInput, true);
         //return ["user_id" => $data["user_id"] ];
         $data = array();
+        $user_id = 0;
         foreach($request->json()->all() as $item){
             array_push($data, $item);
         }
-        return $data[1];
+        foreach($data[1] as $item){
+            $user_id = $item;
+        }
+        return $user_id;
         //return $request->json()->all();
     }
 }
