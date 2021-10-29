@@ -29,9 +29,9 @@
                             <tr>
                                 <th scope="row">{{ $report->title }}</th>
                                 <td>
-                                    <!--<img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" > -->
+                                    
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal">
+                                        data-target="#{{ $report->id }}">
                                         Launch demo modal
                                     </button>
                                 </td>
@@ -102,23 +102,18 @@
                         @endif
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                         <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                       <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" >
                                     </div>
                                 </div>
                             </div>
@@ -127,10 +122,5 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Button trigger modal -->
-
-
-
     </div>
 @endsection
