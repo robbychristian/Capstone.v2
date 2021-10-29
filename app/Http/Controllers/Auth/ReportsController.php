@@ -199,7 +199,7 @@ class ReportsController extends Controller
         //return $data[0];
         //return $request->json()->all();
 
-        if($request->has('loc_img')){
+        if($request->has('photo')){
             return $response['status'] = 'success';
         } else {
             return $response['status'] = 'fail';
