@@ -31,7 +31,7 @@
                                 <td>
                                     
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#{{ $report->id }}">
+                                        data-target="#id{{ $report->id }}">
                                         Launch demo modal
                                     </button>
                                 </td>
@@ -102,7 +102,7 @@
                         @endif
 
                         <!-- Modal -->
-                        <div class="modal fade" id="{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="id{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
