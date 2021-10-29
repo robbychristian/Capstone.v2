@@ -178,14 +178,14 @@
                 },
                 }
 
-                var latlng = new google.maps.LatLng(floatLat, floatLng)
+                //var latlng = new google.maps.LatLng(floatLat, floatLng)
 
-                var marker = new google.maps.Marker({
-                    position: latlng
-                });
+                //var marker = new google.maps.Marker({
+                //    position: latlng
+                //});
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                marker.setMap(map);
+                //marker.setMap(map);
                 google.maps.event.trigger(map, 'resize');
             }
 
