@@ -37,7 +37,8 @@
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#map{{ $report->id }}" id="open" data-lat={{ $report->loc_lat }} data-long={{ $report->loc_lng }}>
+                                        data-target="#modalMap"
+                                        data-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -125,11 +126,13 @@
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="map{{ $report->id }}" tabindex="-1"
+                        <div class="modal fade" id="modalMap" tabindex="-1"
                             aria-labelledby="exampleModal" aria-hidden="true" style="text-align: center;">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
+                                        <h4 class="modal-title w-100">Google Map <span id="lat"
+                                                class="float-right"></span></h4>
                                         <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -148,6 +151,9 @@
 
 
         <script type="text/javascript">
+            var element = $(this);
+            var map;
+
             function initMap(loc) {
                 var options = {
                     zoom: 16,
@@ -159,13 +165,17 @@
                     position: loc
                 });
 
-                var map = new google.maps.Map(document.getElementById('map'), options);
+                map = new google.maps.Map(document.getElementById('map'), options);
                 marker.setMap(map);
             }
 
-            $("#open").click(function() {
-                // get latitude and longitude that pass from open modal button
-                initMap(new google.maps.LatLng($(this).data('lat'), $(this).data('long')));
+            $('#modalMap').on('show.bs.modal', function(e) {
+                var element = $(e.relatedTarget);
+                var data = element.data("lat").split(',');
+                var latlng = new google.maps.LatLng(data[0], data[1]);
+                initMap(latlng);
+                $("#lat").html(latlng.lat() + ", " + latlng.lng());
+                google.maps.event.trigger(map, 'resize');
             });
         </script>
 
