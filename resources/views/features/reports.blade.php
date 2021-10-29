@@ -173,19 +173,19 @@
                     zoom: 16,
                     gestureHandling: "none",
                     center: {
-                    lat: 14.6131,
-                    lng: 121.0880
+                    lat: floatLat,
+                    lng: floatLng
                 },
                 }
 
-                //var latlng = new google.maps.LatLng(lat, lng)
-//
-                //var marker = new google.maps.Marker({
-                //    position: latlng
-                //});
+                var latlng = new google.maps.LatLng(floatLat, floatLng)
+
+                var marker = new google.maps.Marker({
+                    position: latlng
+                });
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                //marker.setMap(map);
+                marker.setMap(map);
                 google.maps.event.trigger(map, 'resize');
             }
 
