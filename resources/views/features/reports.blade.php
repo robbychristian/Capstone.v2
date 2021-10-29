@@ -159,6 +159,7 @@
 
                 let lat = Number(loc_lat)
                 let lng = Number(loc_lng)
+                console.log(type(lat))
 
                 //var location = {
                 //    lat: Number(loc_lat),
