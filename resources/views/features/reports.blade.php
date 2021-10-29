@@ -32,7 +32,7 @@
                                     
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#id{{ $report->id }}">
-                                        Launch demo modal
+                                        View Image
                                     </button>
                                 </td>
                                 <td>{{ $report->description }}</td>
@@ -113,7 +113,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                       <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" >
+                                       <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" height="300" width="300">
                                     </div>
                                 </div>
                             </div>
