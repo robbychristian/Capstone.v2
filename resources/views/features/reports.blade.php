@@ -157,8 +157,8 @@
 
             function initMap(loc_lat, loc_lng) {
 
-                let lat = Number(loc_lat)
-                let lng = Number(loc_lng)
+                let lat = parseDouble(loc_lat)
+                let lng = parseDouble(loc_lng)
                 console.log(typeof(lat))
                 console.log(typeof(lng))
 
