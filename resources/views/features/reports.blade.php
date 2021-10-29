@@ -172,9 +172,13 @@
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    center: {
-                    lat: floatLat,
-                    lng: floatLng
+                //    center: {
+                //    lat: floatLat,
+                //    lng: floatLng
+                //},
+                center: {
+                    lat: 14.6131,
+                    lng: 121.0880
                 },
                 }
 
