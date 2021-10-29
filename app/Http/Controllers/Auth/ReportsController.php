@@ -211,7 +211,47 @@ class ReportsController extends Controller
     {
         $img = $request->json()->all();
         if ($request->hasFile('photo')){
-            return "yes";
+            $data = array();
+        $image = array();
+        $user_id = array();
+        $full_name = array();
+        $title = array();
+        $desc = array();
+        $stat = array();
+        $loc_lat = array();
+        $loc_lng = array();
+        $loc_img = array();
+        foreach($request->json()->all() as $item){
+            array_push($data, $item);
+        }
+        foreach($data[0] as $item){
+            array_push($image, $item);
+        }
+        foreach($data[1] as $item){
+            array_push($user_id, $item);
+        }
+        foreach($data[2] as $item){
+            array_push($full_name, $item);
+        }
+        foreach($data[3] as $item){
+            array_push($title, $item);
+        }
+        foreach($data[4] as $item){
+            array_push($desc, $item);
+        }
+        foreach($data[5] as $item){
+            array_push($stat, $item);
+        }
+        foreach($data[6] as $item){
+            array_push($loc_lat, $item);
+        }
+        foreach($data[7] as $item){
+            array_push($loc_lng, $item);
+        }
+        foreach($data[8] as $item){
+            array_push($loc_img, $item);
+        }
+        return 'yes';
         } else {
             return "no";
         }
