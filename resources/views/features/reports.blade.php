@@ -7,7 +7,7 @@
             <div class="h3">View Reports</div>
         </div>
 
-        <div class="row mt-5">
+        <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
