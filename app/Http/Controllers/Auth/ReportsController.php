@@ -211,7 +211,7 @@ class ReportsController extends Controller
     {
         $img = $request->json()->all();
         if ($request->hasFile('photo')){
-            return $request->json()->all();
+            return $request->photo;
         } else {
             return "no";
         }
