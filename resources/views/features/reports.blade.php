@@ -113,7 +113,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                       <img class="img-responsive" style="display:block; width:auto; max-height:100%" src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="max-height:250px;">
+                                       <img class="img-responsive" style="display:block; width:auto; max-height:100%; text-align:center;" src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="max-height:250px;">
                                     </div>
                                 </div>
                             </div>
