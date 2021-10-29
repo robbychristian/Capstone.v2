@@ -37,7 +37,7 @@
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#map{{ $report->id }}" id="open">
+                                        data-target="#map{{ $report->id }}" id="open" data-lat={{ $report->loc_lat }} data-long={{ $report->loc_lng }}>
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -126,8 +126,7 @@
 
                         <!-- Modal -->
                         <div class="modal fade" id="map{{ $report->id }}" tabindex="-1"
-                            aria-labelledby="exampleModal" aria-hidden="true" style="text-align: center;"
-                            data-lat={{ $report->loc_lat }} data-long={{ $report->loc_lng }}>
+                            aria-labelledby="exampleModal" aria-hidden="true" style="text-align: center;">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
