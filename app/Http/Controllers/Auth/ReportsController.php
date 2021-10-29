@@ -199,10 +199,10 @@ class ReportsController extends Controller
         //return $data[0];
         //return $request->json()->all();
 
-        if($request->has('photo')){
+        if(request()->hasFile($data[0])){
             return $response['status'] = 'success';
         } else {
-            return $response['status'] = 'fail';
+            return $response['status'] = 'nope';
         }
     }
 }
