@@ -15,7 +15,7 @@
                     <div class="card-body shadow-card">
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Login your Account</h3>
                         <hr>
-                        @if (Session::has('Fail'))
+                        @if (Session::has('fail'))
                             <div class="alert alert-warning">
                                 <div>Credentials does not match anything in the records!</div>
                             </div>

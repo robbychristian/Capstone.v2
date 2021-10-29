@@ -30,7 +30,7 @@ class BrgyOfficialController extends Controller
 
         if ($validator->fails()) {
             return redirect('/brgy_official/login/')
-                ->with("Fail", "Credentials does not match any record")
+                ->with("fail", "Credentials does not match any record")
                 ->withErrors($validator)
                 ->withInput();
         } else {
