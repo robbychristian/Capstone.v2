@@ -159,8 +159,8 @@
 
                 let lat = parseFloat(loc_lat)
                 let lng = parseFloat(loc_lng)
-                console.log(typeof(lat))
-                console.log(typeof(lng))
+                console.log(typeof(lat) + " " + lat)
+                console.log(typeof(lng) + " " + lng)
 
                 //var location = {
                 //    lat: Number(loc_lat),
