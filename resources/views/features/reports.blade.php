@@ -178,6 +178,8 @@
                 },
                 }
 
+                console.log(options.center)
+
                 //var latlng = new google.maps.LatLng(floatLat, floatLng)
 
                 //var marker = new google.maps.Marker({
