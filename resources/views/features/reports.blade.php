@@ -188,7 +188,7 @@
                //});
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                marker.setMap(map);
+                //marker.setMap(map);
                 google.maps.event.trigger(map, 'resize');
             }
 
