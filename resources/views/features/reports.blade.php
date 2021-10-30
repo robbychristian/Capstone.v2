@@ -36,8 +36,7 @@
                                 </td>
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
-                                <td> <a href="#" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#modalMap"
+                                <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMap"
                                         data-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
                                         View Map
                                     </a>
@@ -159,7 +158,7 @@
 
                 //let lat = loc_lat.toString()
                 //let lng = loc_lng.toString()
-////
+                ////
                 //let floatLat = parseFloat(lat)
                 //let floatLng = parseFloat(lng)
                 //console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
@@ -172,27 +171,27 @@
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                //    center: {
-                //    lat: floatLat,
-                //    lng: floatLng
-                //},
-                center: reportLoc,
+                    //    center: {
+                    //    lat: floatLat,
+                    //    lng: floatLng
+                    //},
+                    center: reportLoc,
                 }
 
                 console.log(options.center)
 
                 //var latlng = new google.maps.LatLng(floatLat, floatLng)
 
-               //var marker = new google.maps.Marker({
-               //    position: reportLoc
-               //});
+                //var marker = new google.maps.Marker({
+                //    position: reportLoc
+                //});
 
                 map = new google.maps.Map(document.getElementById('map'), options);
                 //marker.setMap(map);
-                google.maps.event.trigger(map, 'resize');
+                
             }
 
-            
+
 
             //$('#modalMap').on('show.bs.modal', function() {
             //    //var element = $(e.relatedTarget);
@@ -204,10 +203,12 @@
             //});
 
             $('#modalMap').on('shown.bs.modal', function(e) {
-        var element = $(e.relatedTarget);
-        var data = element.data("lat").split(',')
-        initMap(new google.maps.LatLng(data[0], data[1]));
-    });
+                var element = $(e.relatedTarget);
+                var data = element.data("lat").split(',')
+                initMap(new google.maps.LatLng(data[0], data[1]));
+                $("#lat").html(latlng.lat() + ", " +latlng.lng());
+                google.maps.event.trigger(map, 'resize');
+            });
         </script>
 
         <script async defer
