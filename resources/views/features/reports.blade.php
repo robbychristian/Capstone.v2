@@ -139,7 +139,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div id="map"></div>
+                                        <div id="map" style="height: 600px; width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                 //    lat: floatLat,
                 //    lng: floatLng
                 //},
-                center: new google.maps.LatLng(floatLat, floatLng),
+                center: new google.maps.LatLng(floatLat, floatLng)
                 }
 
                 console.log(options.center)
