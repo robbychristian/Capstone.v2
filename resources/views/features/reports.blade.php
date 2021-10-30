@@ -37,9 +37,9 @@
                                 <td>{{ $report->description }}</td>
                                 <td>
                                     @if ($report->status == 'Report Pending')
-                                        <span class="badge badge-pill badge-warning"> {{ $report->status }}</span>
+                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;"> {{ $report->status }}</span>
                                     @else
-                                    <span class="badge badge-pill badge-success"> {{ $report->status }}</span>
+                                    <span class="badge badge-pill badge-success" style="font-size: 1rem;"> {{ $report->status }}</span>
                                     @endif
 
                                 </td>
