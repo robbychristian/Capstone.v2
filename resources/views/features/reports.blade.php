@@ -203,7 +203,7 @@
             //    
             //});
 
-            $('#myMapModal').on('shown.bs.modal', function(e) {
+            $('#modalMap').on('shown.bs.modal', function(e) {
         var element = $(e.relatedTarget);
         var data = element.data("lat").split(',')
         initMap(new google.maps.LatLng(data[0], data[1]));
