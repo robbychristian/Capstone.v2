@@ -35,7 +35,14 @@
                                     </button>
                                 </td>
                                 <td>{{ $report->description }}</td>
-                                <td>{{ $report->status }}</td>
+                                <td>
+                                    @if ($report->status == 'Report Pending')
+                                        <span class="badge badge-pill badge-warning"> {{ $report->status }}</span>
+                                    @else
+                                    <span class="badge badge-pill badge-success"> {{ $report->status }}</span>
+                                    @endif
+
+                                </td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
                                         onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
