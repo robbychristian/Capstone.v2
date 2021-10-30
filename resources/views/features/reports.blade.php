@@ -159,7 +159,7 @@
 
                 let lat = loc_lat.toString()
                 let lng = loc_lng.toString()
-//
+                //
                 let floatLat = parseFloat(lat)
                 let floatLng = parseFloat(lng)
                 console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
@@ -172,11 +172,8 @@
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                //    center: {
-                //    lat: floatLat,
-                //    lng: floatLng
-                //},
-                center: new google.maps.LatLng(floatLat, floatLng)
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: new google.maps.LatLng(floatLat, floatLng)
                 }
 
                 console.log(options.center)
@@ -192,7 +189,7 @@
                 //google.maps.event.trigger(map, 'resize');
             }
 
-            
+
 
             //$('#modalMap').on('show.bs.modal', function() {
             //    //var element = $(e.relatedTarget);
