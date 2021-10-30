@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
-                                        onclick="initMap(123.12314123, 14.93921423)">
+                                        onclick="initMap( 14.93921423, 123.12314123)">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -157,14 +157,14 @@
 
             function initMap(loc_lat, loc_lng) {
 
-                let lat = loc_lat.toString()
-                let lng = loc_lng.toString()
-                //
-                let floatLat = parseFloat(lat)
-                let floatLng = parseFloat(lng)
-                console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
-                console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
-
+                //let lat = loc_lat.toString()
+                //let lng = loc_lng.toString()
+                ////
+                //let floatLat = parseFloat(lat)
+                //let floatLng = parseFloat(lng)
+                //console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
+                //console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
+//
                 //var location = {
                 //    lat: Number(loc_lat),
                 //    lng: Number(loc_lng)
@@ -176,12 +176,12 @@
                     //    lat: floatLat,
                     //    lng: floatLng
                     //},
-                    center: new google.maps.LatLng(floatLat, floatLng)
+                    center: new google.maps.LatLng(loc_lat, loc_lng)
                 }
 
                 console.log(options.center)
 
-                var latlng = new google.maps.LatLng(floatLat, floatLng)
+                var latlng = new google.maps.LatLng(loc_lat, loc_lng)
 
                 var marker = new google.maps.Marker({
                     position: latlng
