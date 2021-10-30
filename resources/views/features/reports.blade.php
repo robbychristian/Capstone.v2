@@ -136,6 +136,20 @@
                                     </button>
                                         
                                 </td>
+
+                                <td>
+                                    <button  class="btn btn-success">
+                                        <i class="fas fa-check fa-lg"></i>
+                                    </button>
+                                        
+                                </td>
+
+                                <td>
+                                    <button  class="btn btn-success">
+                                        <i class="fas fa-check fa-lg"></i>
+                                    </button>
+                                        
+                                </td>
                             </tr>
                         @endif
 
