@@ -181,11 +181,11 @@
 
                 console.log(options.center)
 
-                var latlng = new google.maps.LatLng(floatLat, floatLng)
+                //var latlng = new google.maps.LatLng(floatLat, floatLng)
 
-                var marker = new google.maps.Marker({
-                    position: latlng
-                });
+               //var marker = new google.maps.Marker({
+               //    position: reportLoc
+               //});
 
                 map = new google.maps.Map(document.getElementById('map'), options);
                 marker.setMap(map);
