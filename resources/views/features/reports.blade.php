@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
-                                        onclick="initMap({{ $report->loc_lng }}, {{ $report->loc_lat }})">
+                                        onclick="initMap(123.12314123, 14.93921423)">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -176,10 +176,7 @@
                     //    lat: floatLat,
                     //    lng: floatLng
                     //},
-                    center: {
-                    lat: 14.6131,
-                    lng: 121.0880
-                },
+                    center: new google.maps.LatLng(floatLat, floatLng)
                 }
 
                 console.log(options.center)
