@@ -36,10 +36,11 @@
                                 </td>
                                 <td>{{ $report->description }}</td>
                                 <td>{{ $report->status }}</td>
-                                <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalMap"
-                                        data-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
+                                <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modalMap"
+                                        onclick="initMap({{ $report->loc_lng }}, {{ $report->loc_lat }})">
                                         View Map
-                                    </a>
+                                    </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
                                 <td>{{ $report->created_at }}</td>
                                 <td>
@@ -150,19 +151,19 @@
 
 
         <script type="text/javascript">
-            var element = $(this);
+            //var element = $(this);
             var map;
 
 
-            function initMap(reportLoc) {
+            function initMap(loc_lat, loc_lng) {
 
-                //let lat = loc_lat.toString()
-                //let lng = loc_lng.toString()
-                ////
-                //let floatLat = parseFloat(lat)
-                //let floatLng = parseFloat(lng)
-                //console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
-                //console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
+                let lat = loc_lat.toString()
+                let lng = loc_lng.toString()
+//
+                let floatLat = parseFloat(lat)
+                let floatLng = parseFloat(lng)
+                console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
+                console.log(typeof(lng) + " " + lng + typeof(floatLng) + " " + floatLng)
 
                 //var location = {
                 //    lat: Number(loc_lat),
@@ -171,27 +172,27 @@
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    //    center: {
-                    //    lat: floatLat,
-                    //    lng: floatLng
-                    //},
-                    center: reportLoc,
+                //    center: {
+                //    lat: floatLat,
+                //    lng: floatLng
+                //},
+                center: new google.maps.LatLng(floatLat, floatLng),
                 }
 
                 console.log(options.center)
 
-                //var latlng = new google.maps.LatLng(floatLat, floatLng)
+                var latlng = new google.maps.LatLng(floatLat, floatLng)
 
-                //var marker = new google.maps.Marker({
-                //    position: reportLoc
-                //});
+                var marker = new google.maps.Marker({
+                    position: latlng
+                });
 
                 map = new google.maps.Map(document.getElementById('map'), options);
-                //marker.setMap(map);
-                
+                marker.setMap(map);
+                //google.maps.event.trigger(map, 'resize');
             }
 
-
+            
 
             //$('#modalMap').on('show.bs.modal', function() {
             //    //var element = $(e.relatedTarget);
@@ -201,14 +202,6 @@
             //    //$("#lat").html(latlng.lat() + ", " + latlng.lng());
             //    
             //});
-
-            $('#modalMap').on('shown.bs.modal', function(e) {
-                var element = $(e.relatedTarget);
-                var data = element.data("lat").split(',')
-                initMap(new google.maps.LatLng(data[0], data[1]));
-                $("#lat").html(latlng.lat() + ", " +latlng.lng());
-                google.maps.event.trigger(map, 'resize');
-            });
         </script>
 
         <script async defer
