@@ -39,9 +39,12 @@
                                     @if ($report->status == 'Report Pending')
                                         <span class="badge badge-pill badge-warning" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
-                                    @else
+                                    @elseif($report->status == 'Report Confirmed')
                                         <span class="badge badge-pill badge-success" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
+                                    @else
+                                    <span class="badge badge-pill badge-danger" style="font-size: 1rem;">
+                                        {{ $report->status }}</span>
                                     @endif
 
                                 </td>

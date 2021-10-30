@@ -94,7 +94,7 @@ class ReportsController extends Controller
     {
         DB::table('reports')
             ->where('id', '=', $id)
-            ->update(['status' => 'report confirmed']);
+            ->update(['status' => 'Report Confirmed']);
         return redirect('brgy_official/reports');
     }
 
@@ -102,7 +102,7 @@ class ReportsController extends Controller
     {
         DB::table('reports')
             ->where('id', '=', $id)
-            ->update(['status' => 'report pending']);
+            ->update(['status' => 'Report Pending']);
         return redirect('brgy_official/reports');
     }
 }
