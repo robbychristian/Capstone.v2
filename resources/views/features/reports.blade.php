@@ -37,9 +37,11 @@
                                 <td>{{ $report->description }}</td>
                                 <td>
                                     @if ($report->status == 'Report Pending')
-                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;"> {{ $report->status }}</span>
+                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;">
+                                            {{ $report->status }}</span>
                                     @else
-                                    <span class="badge badge-pill badge-success" style="font-size: 1rem;"> {{ $report->status }}</span>
+                                        <span class="badge badge-pill badge-success" style="font-size: 1rem;">
+                                            {{ $report->status }}</span>
                                     @endif
 
                                 </td>
@@ -61,10 +63,25 @@
                             <tr>
                                 <th scope="row">{{ $report->full_name }}</th>
                                 <td>{{ $report->title }}</td>
-                                <td>{{ $report->loc_img }}</td>
+                                <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#id{{ $report->id }}">
+                                        View Image
+                                    </button></td>
                                 <td>{{ $report->description }}</td>
-                                <td>{{ $report->status }}</td>
-                                <td>{{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
+                                <td>
+                                    @if ($report->status == 'Report Pending')
+                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;">
+                                            {{ $report->status }}</span>
+                                    @else
+                                        <span class="badge badge-pill badge-success" style="font-size: 1rem;">
+                                            {{ $report->status }}</span>
+                                    @endif
+                                </td>
+                                <td><button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modalMap"
+                                        onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
+                                        View Map
+                                    </button></td>
                                 <td>{{ $report->created_at }}</td>
                                 <td>
                                     <div class="row">
