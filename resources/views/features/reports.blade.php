@@ -43,8 +43,8 @@
                                         <span class="badge badge-success" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
                                     @else
-                                    <span class="badge badge-danger" style="font-size: 1rem;">
-                                        {{ $report->status }}</span>
+                                        <span class="badge badge-danger" style="font-size: 1rem;">
+                                            {{ $report->status }}</span>
                                     @endif
 
                                 </td>
@@ -87,68 +87,94 @@
                                     </button></td>
                                 <td>{{ $report->created_at }}</td>
                                 <!---
-                                <td>
-                                    <div class="row">
-                                        <div class="col-2">
-                                            @if (Auth::user()->user_role === 4)
-                                                <form action="/user/reports/{{ $report->id }}" method="POST">
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        @if (Auth::user()->user_role === 4)
+                                                            <form action="/user/reports/{{ $report->id }}" method="POST">
                                                 @elseif (Auth::user()->user_role === 1)
-                                                    <form action="/admin/reports/{{ $report->id }}" method="POST">
+                                                                <form action="/admin/reports/{{ $report->id }}" method="POST">
                                                     @elseif (Auth::user()->user_role === 3)
-                                                        <form action="/brgy_official/reports/{{ $report->id }}"
-                                                            method="POST">
-                                            @endif
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class="col-2" style="margin-top: -1.5px">
-                                            @if (Auth::user()->user_role === 1)
-                                                <form action="/admin/reports/pending/{{ $report->id }}" method="POST">
+                                                                    <form action="/brgy_official/reports/{{ $report->id }}"
+                                                                        method="POST">
+                                                        @endif
+                                                        @csrf
+                                                        @method("DELETE")
+                                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-2" style="margin-top: -1.5px">
+                                                        @if (Auth::user()->user_role === 1)
+                                                            <form action="/admin/reports/pending/{{ $report->id }}" method="POST">
                                                 @elseif (Auth::user()->user_role === 3)
-                                                    <form action="/brgy_official/reports/pending/{{ $report->id }}"
-                                                        method="POST">
-                                            @endif
-                                            @csrf
-                                            @method("POST")
-                                            <button class="btn btn-warning"><i class="fas fa-clock"></i></i></button>
-                                            </form>
-                                        </div>
-                                        <div class="col-2">
-                                            @if (Auth::user()->user_role === 1)
-                                                <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
+                                                                <form action="/brgy_official/reports/pending/{{ $report->id }}"
+                                                                    method="POST">
+                                                        @endif
+                                                        @csrf
+                                                        @method("POST")
+                                                        <button class="btn btn-warning"><i class="fas fa-clock"></i></i></button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        @if (Auth::user()->user_role === 1)
+                                                            <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
                                                 @elseif (Auth::user()->user_role === 3)
-                                                    <form action="/brgy_official/reports/confirm/{{ $report->id }}"
-                                                        method="POST">
-                                            @endif
-                                            @csrf
-                                            @method("POST")
-                                            <button class="btn btn-success"><i class="fas fa-check"></i></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td> -->
+                                                                <form action="/brgy_official/reports/confirm/{{ $report->id }}"
+                                                                    method="POST">
+                                                        @endif
+                                                        @csrf
+                                                        @method("POST")
+                                                        <button class="btn btn-success"><i class="fas fa-check"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td> -->
 
                                 <td>
-                                    <button  class="btn btn-success">
+                                    @if (Auth::user()->user_role === 1)
+                                        <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
+                                        @elseif (Auth::user()->user_role === 3)
+                                            <form action="/brgy_official/reports/confirm/{{ $report->id }}"
+                                                method="POST">
+                                    @endif
+                                    @csrf
+                                    @method("POST")
+                                    <button class="btn btn-success">
                                         <i class="fas fa-check fa-lg"></i>
                                     </button>
-                                        
+                                    </form>
+
                                 </td>
 
                                 <td>
-                                    <button  class="btn btn-success">
-                                        <i class="fas fa-check fa-lg"></i>
+                                    @if (Auth::user()->user_role === 1)
+                                        <form action="/admin/reports/pending/{{ $report->id }}" method="POST">
+                                        @elseif (Auth::user()->user_role === 3)
+                                            <form action="/brgy_official/reports/pending/{{ $report->id }}"
+                                                method="POST">
+                                    @endif
+                                    @csrf
+                                    @method("POST")
+                                    <button class="btn btn-warning">
+                                        <i class="fas fa-clock fa-lg"></i>
                                     </button>
-                                        
+                                    </form>
                                 </td>
 
                                 <td>
-                                    <button  class="btn btn-success">
-                                        <i class="fas fa-check fa-lg"></i>
+                                    @if (Auth::user()->user_role === 4)
+                                        <form action="/user/reports/{{ $report->id }}" method="POST">
+                                        @elseif (Auth::user()->user_role === 1)
+                                            <form action="/admin/reports/{{ $report->id }}" method="POST">
+                                            @elseif (Auth::user()->user_role === 3)
+                                                <form action="/brgy_official/reports/{{ $report->id }}" method="POST">
+                                    @endif
+                                    @csrf
+                                    @method("DELETE")
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-trash fa-lg"></i>
                                     </button>
-                                        
+                                    </form>
                                 </td>
                             </tr>
                         @endif
