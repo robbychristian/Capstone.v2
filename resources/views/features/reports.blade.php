@@ -139,7 +139,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div id="map" style="height: 600px; width: 100%;"></div>
+                                        <div id="map"></div>
                                     </div>
                                 </div>
                             </div>
