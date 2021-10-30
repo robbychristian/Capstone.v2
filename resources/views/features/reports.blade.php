@@ -40,8 +40,7 @@
                                         data-target="#modalMap"
                                         onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
                                         View Map
-                                    </button>
-                                    {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
+                                    </button></td>
                                 <td>{{ $report->created_at }}</td>
                                 <td>
                                     <form action="/user/reports/{{ $report->id }}" method="POST">
