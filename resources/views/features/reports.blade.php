@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
-                                        onclick="initMap({{ $report->loc_lng }}, {{ $report->loc_lat }})">
+                                        onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
                                         View Map
                                     </button>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
@@ -155,11 +155,11 @@
             var map;
 
 
-            function initMap(loc_lng, loc_lat) {
+            function initMap(loc_lat, loc_lng) {
 
                 let lat = loc_lat.toString()
                 let lng = loc_lng.toString()
-                //
+//
                 let floatLat = parseFloat(lat)
                 let floatLng = parseFloat(lng)
                 console.log(typeof(lat) + " " + lat + typeof(floatLat) + " " + floatLat)
@@ -172,16 +172,16 @@
                 var options = {
                     zoom: 16,
                     gestureHandling: "none",
-                    //    center: {
-                    //    lat: floatLat,
-                    //    lng: floatLng
-                    //},
-                    center: new google.maps.LatLng(floatLng, floatLat)
+                //    center: {
+                //    lat: floatLat,
+                //    lng: floatLng
+                //},
+                center: new google.maps.LatLng(floatLat, floatLng)
                 }
 
                 console.log(options.center)
 
-                var latlng = new google.maps.LatLng(floatLng, floatLat)
+                var latlng = new google.maps.LatLng(floatLat, floatLng)
 
                 var marker = new google.maps.Marker({
                     position: latlng
@@ -192,12 +192,7 @@
                 //google.maps.event.trigger(map, 'resize');
             }
 
-            google.maps.event.addListenerOnce(map, 'idle', () => {
-                const event = new Event('resize');
-                window.dispatchEvent(event);
-            });
-
-
+            
 
             //$('#modalMap').on('show.bs.modal', function() {
             //    //var element = $(e.relatedTarget);
