@@ -38,7 +38,7 @@
                                 <td>{{ $report->status }}</td>
                                 <td> <a href="#" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalMap"
-                                        dat-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
+                                        data-lat="{{ $report->loc_lat }}, {{ $report->loc_lng }}">
                                         View Map
                                     </a>
                                     {{ $report->loc_lng . ' ' . $report->loc_lat }}</td>
