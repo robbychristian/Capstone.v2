@@ -20,7 +20,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">Location</th>
                         <th scope="col">Timestamp</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,13 +37,13 @@
                                 <td>{{ $report->description }}</td>
                                 <td>
                                     @if ($report->status == 'Report Pending')
-                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;">
+                                        <span class="badge badge-warning" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
                                     @elseif($report->status == 'Report Confirmed')
-                                        <span class="badge badge-pill badge-success" style="font-size: 1rem;">
+                                        <span class="badge badge-success" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
                                     @else
-                                    <span class="badge badge-pill badge-danger" style="font-size: 1rem;">
+                                    <span class="badge badge-danger" style="font-size: 1rem;">
                                         {{ $report->status }}</span>
                                     @endif
 
@@ -73,10 +73,10 @@
                                 <td>{{ $report->description }}</td>
                                 <td>
                                     @if ($report->status == 'Report Pending')
-                                        <span class="badge badge-pill badge-warning" style="font-size: 1rem;">
+                                        <span class="badge badge-warning" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
                                     @else
-                                        <span class="badge badge-pill badge-success" style="font-size: 1rem;">
+                                        <span class="badge badge-success" style="font-size: 1rem;">
                                             {{ $report->status }}</span>
                                     @endif
                                 </td>
@@ -86,6 +86,7 @@
                                         View Map
                                     </button></td>
                                 <td>{{ $report->created_at }}</td>
+                                <!---
                                 <td>
                                     <div class="row">
                                         <div class="col-2">
@@ -127,6 +128,13 @@
                                             </form>
                                         </div>
                                     </div>
+                                </td> -->
+
+                                <td>
+                                    <button  class="btn btn-success">
+                                        <i class="fas fa-check fa-lg"></i>
+                                    </button>
+                                        
                                 </td>
                             </tr>
                         @endif
