@@ -176,7 +176,10 @@
                     //    lat: floatLat,
                     //    lng: floatLng
                     //},
-                    center: new google.maps.LatLng(floatLat, floatLng)
+                    center: {
+                    lat: 14.6131,
+                    lng: 121.0880
+                },
                 }
 
                 console.log(options.center)
