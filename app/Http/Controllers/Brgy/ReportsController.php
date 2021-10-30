@@ -87,7 +87,7 @@ class ReportsController extends Controller
     {
         $report = Reports::find($id);
         $report->delete();
-        return redirect('user/reports');
+        return redirect('brgy_official/reports');
     }
 
     public function confirmReport($id)
