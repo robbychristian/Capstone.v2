@@ -77,11 +77,11 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/email/verify', function () {
             return view('auth.verify');
         })->name('verification.notice');
-        Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-            $request->fulfill();
-
-            return redirect('/login');
-        })->name('verification.verify');
+        //Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        //    $request->fulfill();
+//
+        //    return redirect('/login');
+        //})->name('verification.verify');
     });
 
     Route::middleware(['auth'])->group(function () {
