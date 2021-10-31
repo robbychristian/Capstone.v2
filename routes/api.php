@@ -34,6 +34,6 @@ Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
 Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);
 Route::get('deletereport/{id}', [ReportsController::class, 'deleteReport']);
-Route::get('vulnerabilitymap', [VulnerabilityMapController::class, 'fetchLocations']);
+Route::get('vulnerablearea', [VulnerabilityMapController::class, 'fetchLocations']);
 
 Auth::routes();
