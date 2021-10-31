@@ -138,6 +138,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'first_name' => $data['fname'],
             'last_name' => $data['lname'],
+            'email_verified_at' => NULL,
             'brgy_loc' => $data['brgy'],
             'is_blocked' => 0,
             'is_deactivated' => 0,
