@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Auth\Events\Registered;
 
 use Illuminate\Http\data;
 use Illuminate\Http\UploadedFile;
