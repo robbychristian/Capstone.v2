@@ -169,12 +169,6 @@ class RegisterController extends Controller
             request()->file('file')->storeAs('profile_pics', $user->id . '/' .$file, '');
             $user_profile->update(['profile_pic' => $file]);
         }
-        $this->validator(request()->all())->validate();
-
-        event(new Registered($user = $this->create(request()->all())));
-
-        return $this->registered(request(), $user)
-            ?: redirect($this->redirectPath());
         
         return $user;
     }
