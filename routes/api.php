@@ -3,9 +3,11 @@
 use App\Http\Controllers\Auth\AccountController;
 use App\Http\Controllers\Auth\AnnouncementController;
 use App\Http\Controllers\Auth\ReportsController;
+use App\Http\Controllers\Auth\VulnerabilityMapController;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +34,6 @@ Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
 Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);
 Route::get('deletereport/{id}', [ReportsController::class, 'deleteReport']);
+Route::get('vulnerabilitymap', [VulnerabilityMapController::class, 'fetchLocations']);
 
 Auth::routes();
