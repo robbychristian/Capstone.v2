@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Brgy;
 use App\Http\Controllers\Controller;
 use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
  
 class EvacuationController extends Controller
 {
@@ -15,7 +16,7 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $coordinates = EvacuationCenters::all();
+        $coordinates = EvacuationCenters::where('brgy_loc', '=', Auth::user()->brgy_loc)->get();
         return view('features.evacuationcenter', [
             "coordinates" => $coordinates
         ]);
