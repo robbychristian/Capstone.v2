@@ -26,7 +26,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
-            $url = 'https://kabisigapp.com/user/login';
             return (new MailMessage)
                 ->subject('Verify Email Address')
                 ->line('Click the button below to verify your email address.')
