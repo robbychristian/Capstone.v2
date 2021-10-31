@@ -12,5 +12,6 @@ class EvacuationCenters extends Model
     protected $fillable = [
         'lat',
         'lng',
+        'brgy_loc',
     ];
 }
