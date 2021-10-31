@@ -19,7 +19,7 @@
 
             var markers = [
                 @foreach ($coordinates as $coordinate)
-                    ["{{ $coordinate->lat }}","{{ $coordinate->lng }}"],
+                    ["{{ floatval($coordinate->lat) }}","{{ floatval($coordinate->lng) }}"],
                 
                 @endforeach
             ];
