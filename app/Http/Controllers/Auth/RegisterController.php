@@ -29,15 +29,15 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
+    //public function register(Request $request)
+    //{
+    //    $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+    //    event(new Registered($user = $this->create($request->all())));
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
-    }
+    //    return $this->registered($request, $user)
+    //        ?: redirect($this->redirectPath());
+    //}
 
     /**
      * Where to redirect users after registration.
@@ -169,6 +169,12 @@ class RegisterController extends Controller
             request()->file('file')->storeAs('profile_pics', $user->id . '/' .$file, '');
             $user_profile->update(['profile_pic' => $file]);
         }
+        $this->validator(request()->all())->validate();
+
+        event(new Registered($user = $this->create(request()->all())));
+
+        return $this->registered(request(), $user)
+            ?: redirect($this->redirectPath());
         
         return $user;
     }
