@@ -121,7 +121,7 @@ class AccountController extends Controller
                 ->withInput();
         } else {
 
-            if ($request()->hasFile('file')) {
+            if ($request->hasFile('file')) {
                 $file = $request->file('file')->getClientOriginalName();
                 $request->file('file')->storeAs('profile_pics', Auth::user()->id . '/' . $file, '');
                 $user = User::where('id', $id)->update([
