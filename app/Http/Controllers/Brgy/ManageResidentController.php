@@ -29,9 +29,9 @@ class ManageResidentController extends Controller
             ->get()
             ->paginate(15); */
         $users = User::join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
-                    ->select('users.*', 'user_profiles.*')
-                    ->where('users.brgy_loc', Auth::user()->brgy_loc)
-                    ->paginate(15);
+            ->select('users.*', 'user_profiles.*')
+            ->where('users.brgy_loc', Auth::user()->brgy_loc)
+            ->paginate(15);
         return view('features.manageresident', [
             'users' => $users
         ]);
@@ -61,7 +61,7 @@ class ManageResidentController extends Controller
             'lname' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'address' => 'required|max:255',
-            'cnum' => 'required|numeric|size:11',
+            'cnum' => 'required|max:255',
             'mbday' => 'required',
             'dbday' => 'required|max:31|integer',
             'ybday' => 'required|max:2100|integer',
@@ -75,8 +75,6 @@ class ManageResidentController extends Controller
             'lname.required' => 'The last name field is required!',
             'address.required' => 'The home address field is required!',
             'cnum.required' => 'The contact number field must not be empty!',
-            'cnum.numeric' => 'Invalid phone number!',
-            'cnum.size' => 'The contact number must be 11 digits only!',
             'mbday.required' => 'The birth month field is required!',
             'dbday.required' => 'The birth day field is required!',
             'dbday.max' => 'The field must not exceed over 31!',
@@ -92,8 +90,8 @@ class ManageResidentController extends Controller
 
         if ($validator->fails()) {
             return redirect('/brgy_official/manageresident/create')
-                            ->withErrors($validator)
-                            ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         } else {
             $user = User::create([
                 'user_role' => 4,
@@ -111,7 +109,7 @@ class ManageResidentController extends Controller
                 'middle_name' => $request['mname'],
                 'home_add' => $request['address'],
                 'contact_no' => $request['cnum'],
-                'birth_day' => $request['mbday'].'/'.$request['dbday'].'/'.$request['ybday'],
+                'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
                 'profile_pic' => 'noimage.jpg',
             ]);
 

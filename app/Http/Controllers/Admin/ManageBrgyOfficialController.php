@@ -50,7 +50,7 @@ class ManageBrgyOfficialController extends Controller
             'email' => 'required|email|unique:brgy_officials',
             'brgy_pos' => 'required',
             'brgy' => 'required',
-            'cnum' => 'required|numeric|size:11',
+            'cnum' => 'required|max:255',
             'pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:pass',
             'file' => 'required',
@@ -60,11 +60,9 @@ class ManageBrgyOfficialController extends Controller
             'mname.required' => 'The middle name field is required!',
             'lname.required' => 'The last name field is required!',
             'address.required' => 'The home address field is required!',
-            'brgy_pos.required' => 'The barangay position field is required!', 
+            'brgy_pos.required' => 'The barangay position field is required!',
             'brgy.required' => 'The barangay field is required!',
             'cnum.required' => 'The contact number field must not be empty!',
-            'cnum.numeric' => 'Invalid phone number!',
-            'cnum.size' => 'The contact number must be 11 digits only!',
             'pass.required' => 'The password field is required!',
             'pass.min' => 'Password must be at least 8 characters',
             'conf_pass.required' => 'The confirm password field is required!',
@@ -75,13 +73,13 @@ class ManageBrgyOfficialController extends Controller
 
         if ($validator->fails()) {
             return redirect('/admin/managebrgy_official/create')
-                            ->withErrors($validator)
-                            ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         } else {
             $brgy_officials = BrgyOfficial::create([
                 'email' => $request['email'],
                 'password' => $request['pass'],
-                'name' => $request['fname'].' '.$request['mname'].' '.$request['lname'],
+                'name' => $request['fname'] . ' ' . $request['mname'] . ' ' . $request['lname'],
                 'user_role' => 3,
                 'brgy_position' => $request['brgy_pos'],
                 'brgy_loc' => $request['brgy'],

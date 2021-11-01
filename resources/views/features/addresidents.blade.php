@@ -131,6 +131,15 @@
                 }
             })
         })
+
+        function onlyNumberKey(evt) {
+
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode < 48 || ASCIICode > 57)
+                return false;
+            return true;
+        }
     </script>
 
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
@@ -201,8 +210,8 @@
                             {{ $message }}
                         @enderror</small>
                 @elseif (Auth::user()->user_role === 3)
-                    <input name="brgy" type="text" class="form-control" id="inputAddress" value="{{ Auth::user()->brgy_loc }}"
-                        readonly>
+                    <input name="brgy" type="text" class="form-control" id="inputAddress"
+                        value="{{ Auth::user()->brgy_loc }}" readonly>
                 @endif
             </div>
         </div>
@@ -210,7 +219,8 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputContactNum">Contact Number</label>
-                <input name="cnum" type="text" class="form-control" id="inputContactNum" value={{ old('cnum') }}>
+                <input name="cnum" type="text" class="form-control" id="inputContactNum"
+                    onkeypress="return onlyNumberKey(event)" maxlength="11" value={{ old('cnum') }}>
                 <small class="text-danger">@error('cnum')
                         {{ $message }}
                     @enderror</small>
