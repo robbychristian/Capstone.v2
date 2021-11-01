@@ -120,23 +120,22 @@ class AccountController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $user = User::where('id', $id)->update([
-                'first_name' => $request->input('fname'),
-                'last_name' => $request->input('lname'),
-                'password' => Hash::make($request->input('new_pass'))
-            ]);
-
-            $profile = UserProfile::where('id', $id)->update([
-                'middle_name' => $request->input('mname'),
-                'contact_no' => $request->input('cnum'),
-                'profile_pic' => $request->input('file'),
-            ]);
 
             if ($request()->hasFile('file')) {
-                $file = $request()->file('file')->getClientOriginalName();
-                $request()->file('file')->storeAs('profile_pics', Auth::user()->id . '/' . $file, '');
-                $profile->update(['profile_pic' => $file]);
+                $file = $request->file('file')->getClientOriginalName();
+                $request->file('file')->storeAs('profile_pics', Auth::user()->id . '/' . $file, '');
+                $user = User::where('id', $id)->update([
+                    'first_name' => $request->input('fname'),
+                    'last_name' => $request->input('lname'),
+                    'password' => Hash::make($request->input('new_pass'))
+                ]);
+                $profile = UserProfile::where('id', $id)->update([
+                    'middle_name' => $request->input('mname'),
+                    'contact_no' => $request->input('cnum'),
+                    'profile_pic' => $file,
+                ]);
             }
+
 
             return redirect('/user/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
