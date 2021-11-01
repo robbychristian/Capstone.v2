@@ -73,7 +73,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::view('/login', 'dashboard.user.login')->name('login');
         Route::view('/register', 'auth.register')->name('register');
         Route::post('/create', [RegisterController::class, 'create'])->name('create');
-        Route::post('/check', [LoginController::class, 'check'])->name('check');
+        Route::post('/check', [LoginController::class, 'authenticate'])->name('check');
         //Route::get('/email/verify', function () {
         //    return view('auth.verify');
         //})->name('verification.notice');
