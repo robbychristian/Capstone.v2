@@ -97,7 +97,7 @@
                                         <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                                                        document.getElementById('logout-form').submit();">
+                                                                    document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -166,7 +166,7 @@
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                          document.getElementById('logout-form').submit();">
+                                                                      document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -231,8 +231,9 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
 
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                                                                     document.getElementById('logout-form').submit();">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); 
+                                                                                 document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -321,7 +322,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();">
+                                                                                            document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -388,7 +389,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                            document.getElementById('logout-form').submit();">
+                                                                                        document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -501,7 +502,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -567,7 +568,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                 document.getElementById('logout-form').submit();">
+                                                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -671,7 +672,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                     document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -693,6 +694,97 @@
                 <!--IF GUEST-->
             @elseif(!Auth::check())
                 <!--GUEST NAVBAR-->
+                <div class="container-fluid">
+
+
+                    <!-- NAVBAR TOGGLER FOR THE VERTICAL NAVBAR (RESPONSIVE)-->
+                    @auth
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    @endauth
+
+                    @guest
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                class="logo-brand">
+                        </a>
+                    @endguest
+
+                    @auth
+                        <a class="navbar-brand" href="{{ url('user/home') }}">
+                            <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset=""
+                                class="logo-brand">
+                        </a>
+                    @endauth
+
+                    @guest
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    @endguest
+
+                    <!-- MOBILE LOGOUT BUTTON -->
+                    @auth
+                        <div class="navbar-toggler" style="border: none">
+                            <div class="btn-group">
+                                <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="fas fa-user-circle fa-2x"></i></span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @endauth
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item navbar-link">
+                                        <a class="nav-link "
+                                            href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
+
+                                @if (Route::has('register'))
+                                    <li class="nav-item navbar-link">
+                                        <a class="nav-link"
+                                            href="{{ route('user.register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            </ul>
+                        @endguest
+
+                    </div>
+
+                </div>
+
+            @else
                 <div class="container-fluid">
 
 
