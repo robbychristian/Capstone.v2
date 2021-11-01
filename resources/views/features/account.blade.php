@@ -23,10 +23,10 @@
                     <div class="card mb-3 border-0">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $user->profile_pic) }}"
+                                <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                        object-fit: cover;
-                                        height: 300px;"> <!-- must be 375 x 300 px -->
+                                            object-fit: cover;
+                                            height: 300px;"> <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
                                 <div class="card-body d-flex flex-column">
