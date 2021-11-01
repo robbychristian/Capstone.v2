@@ -183,7 +183,7 @@
                         </div>
 
                     </div>
-                @elseif (Auth::user()->user_role === 4 && Auth::user()->email_verified_at != null)
+                @elseif (Auth::user()->user_role === 4)
                     <!-------------------------------------------USER NAVBAR------------------------------------------------------->
 
                     <div class="container-fluid">
