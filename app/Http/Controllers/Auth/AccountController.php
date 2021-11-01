@@ -196,10 +196,10 @@ class AccountController extends Controller
 
     public function checkPass(Request $request)
     {
-        $user_id = DB::table('users')
+        $user = DB::table('users')
             ->where('id', '=', $request->id)
             ->get();
-        if (Hash::check($request->pass, $user_id)) {
+        if (Hash::check($request->pass, $user->password)) {
             return "hahahahaha";
         } else {
             return "huhuhuhuhu";
