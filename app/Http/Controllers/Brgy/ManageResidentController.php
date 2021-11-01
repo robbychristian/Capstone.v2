@@ -105,7 +105,7 @@ class ManageResidentController extends Controller
                     'email_verified_at' => Carbon::now(),
                     'is_blocked' => 0,
                     'is_deactivated' => 0,
-                    'password' => $request['password'],
+                    'password' => $request['pass'],
                 ]);
 
                 $user_profile = UserProfile::create([
