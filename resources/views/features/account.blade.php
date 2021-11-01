@@ -25,8 +25,8 @@
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $user->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                    object-fit: cover;
-                                    height: 300px;"> <!-- must be 375 x 300 px -->
+                                        object-fit: cover;
+                                        height: 300px;"> <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
                                 <div class="card-body d-flex flex-column">
