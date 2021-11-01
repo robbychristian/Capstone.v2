@@ -180,7 +180,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         // Disabling the auto login on register
-        $this->guard()->login($user);
+        //$this->guard()->login($user);
 
         // return $this->registered($request, $user)
         //     ?: redirect($this->redirectPath());
