@@ -131,6 +131,15 @@
                 }
             })
         })
+
+        function onlyNumberKey(evt) {
+
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode < 48 || ASCIICode > 57)
+                return false;
+            return true;
+        }
     </script>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -199,6 +208,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="inputContactNum">Contact Number</label>
                                     <input name="cnum" type="text" class="form-control" id="inputContactNum"
+                                        onkeypress="return onlyNumberKey(event)" maxlength="11"
                                         value="{{ old('cnum') }}">
                                     <small class="text-danger">@error('cnum')
                                             {{ $message }}
