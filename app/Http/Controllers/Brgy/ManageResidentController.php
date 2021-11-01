@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserProfile;
+use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Pagination\Paginator as PaginationPaginator;
 use Illuminate\Support\Facades\Auth;
@@ -101,6 +102,7 @@ class ManageResidentController extends Controller
                     'first_name' => $request['fname'],
                     'last_name' => $request['lname'],
                     'brgy_loc' => $request['brgy'],
+                    'email_verified_at' => Carbon::now(),
                     'is_blocked' => 0,
                     'is_deactivated' => 0,
                     'password' => Hash::make($request['password']),
