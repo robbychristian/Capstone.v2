@@ -188,4 +188,9 @@ class AccountController extends Controller
 
         return $userCreds;
     }
+
+    public function editProfile(Request $request)
+    {
+        return $request;
+    }
 }
