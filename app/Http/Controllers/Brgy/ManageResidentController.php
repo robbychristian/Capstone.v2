@@ -93,27 +93,30 @@ class ManageResidentController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $user = User::create([
-                'user_role' => 4,
-                'email' => $request['email'],
-                'first_name' => $request['fname'],
-                'last_name' => $request['lname'],
-                'brgy_loc' => $request['brgy'],
-                'is_blocked' => 0,
-                'is_deactivated' => 0,
-                'password' => Hash::make($request['password']),
-            ]);
+            if ($request->hasFile('file')) {
+                $file = $request->file('file')->getClientOriginalName();
+                $user = User::create([
+                    'user_role' => 4,
+                    'email' => $request['email'],
+                    'first_name' => $request['fname'],
+                    'last_name' => $request['lname'],
+                    'brgy_loc' => $request['brgy'],
+                    'is_blocked' => 0,
+                    'is_deactivated' => 0,
+                    'password' => Hash::make($request['password']),
+                ]);
 
-            $user_profile = UserProfile::create([
-                'user_email' => $request['email'],
-                'middle_name' => $request['mname'],
-                'home_add' => $request['address'],
-                'contact_no' => $request['cnum'],
-                'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
-                'profile_pic' => 'noimage.jpg',
-            ]);
-
-            return redirect('/brgy_official/manageresident')->with('success', 'User successfully added!');
+                $user_profile = UserProfile::create([
+                    'user_email' => $request['email'],
+                    'middle_name' => $request['mname'],
+                    'home_add' => $request['address'],
+                    'contact_no' => $request['cnum'],
+                    'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
+                    'profile_pic' => 'noimage.jpg',
+                ]);
+                $request->file('file')->storeAs('profile_pics', $user->id . '/' . $file, '');
+                return redirect('/brgy_official/manageresident')->with('success', 'User successfully added!');
+            }
         }
     }
 
