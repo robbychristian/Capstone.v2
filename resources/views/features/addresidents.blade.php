@@ -158,9 +158,11 @@
         </div>
 
         @if (Auth::user()->user_role === 1)
-            <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-5">
+            <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-5"
+                enctype="multipart/form-data">
             @elseif (Auth::user()->user_role === 3)
-                <form action="{{ route('brgy_official.manageresident.store') }}" method="POST" class="mt-5">
+                <form action="{{ route('brgy_official.manageresident.store') }}" method="POST" class="mt-5"
+                    enctype="multipart/form-data">
         @endif
         @csrf
         <div class="form-row">

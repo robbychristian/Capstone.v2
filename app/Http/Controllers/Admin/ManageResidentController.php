@@ -59,7 +59,7 @@ class ManageResidentController extends Controller
             'ybday' => 'required|max:2100|integer',
             'pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:pass',
-            'file' => 'required',
+            'file' => 'required|mimes:jpeg,png,jpg',
             'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field is required!',
