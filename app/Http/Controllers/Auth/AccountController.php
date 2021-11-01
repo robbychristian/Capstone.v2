@@ -200,9 +200,9 @@ class AccountController extends Controller
             ->where('id', '=', $request->id)
             ->get();
         if (Hash::check($request->pass, $user_id)) {
-            return true;
+            return "hahahahaha";
         } else {
-            return false;
+            return "huhuhuhuhu";
         }
     }
 }
