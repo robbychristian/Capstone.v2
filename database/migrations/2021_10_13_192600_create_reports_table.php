@@ -19,6 +19,7 @@ class CreateReportsTable extends Migration
             $table->string('full_name');
             $table->string('title');
             $table->string('description');
+            $table->string('brgy_loc');
             $table->string('status');
             $table->string('loc_lat');
             $table->string('loc_lng');

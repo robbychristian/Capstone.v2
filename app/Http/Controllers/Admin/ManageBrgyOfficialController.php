@@ -54,7 +54,7 @@ class ManageBrgyOfficialController extends Controller
             'pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:pass',
             'file' => 'required',
-            'cbox' => 'required'
+            'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field is required!',
             'mname.required' => 'The middle name field is required!',
@@ -68,7 +68,7 @@ class ManageBrgyOfficialController extends Controller
             'conf_pass.required' => 'The confirm password field is required!',
             'conf_pass.same' => 'Password mismatch!',
             'file.required' => 'An image upload is required',
-            'cbox.required' => 'Agree to terms and conditions',
+            'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
 
         if ($validator->fails()) {

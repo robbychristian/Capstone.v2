@@ -21,6 +21,7 @@ class CreateBrgyOfficialsTable extends Migration
             $table->integer('user_role');
             $table->string('brgy_position');
             $table->string('brgy_loc');
+            $table->string('profile_pic');
             $table->string('contact_no');
             $table->timestamps();
         });
