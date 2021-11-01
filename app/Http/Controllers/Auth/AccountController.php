@@ -191,7 +191,7 @@ class AccountController extends Controller
 
     public function editProfile(Request $request)
     {
-        return $request;
+        return "hahha";
     }
 
     public function checkPass(Request $request)
