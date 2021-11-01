@@ -24,8 +24,8 @@
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                                                                            object-fit: cover;
-                                                                                            height: 300px;">
+                                                                                                object-fit: cover;
+                                                                                                height: 300px;">
                                 <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
@@ -245,7 +245,7 @@
 
                 // Only ASCII character in that range allowed
                 var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                if (ASCIICode < 48 || ASCIICode > 57)
                     return false;
                 return true;
             }
