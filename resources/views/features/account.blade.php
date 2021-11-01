@@ -1,13 +1,9 @@
 @extends('dashboard.admin.home')
 @if (Auth::user()->user_role === 4)
     <script>
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode < 48 || charCode > 57)
-                return false;
-
-            return true;
-        }
+        $('#inputContactNum').keyup(function() {
+            this.value = this.value.replace(/[^0-9\.]/g, '')
+        })
     </script>
     @section('title', '| Account')
     @section('sub-content')
@@ -33,8 +29,8 @@
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                                                                object-fit: cover;
-                                                                                height: 300px;">
+                                                                                    object-fit: cover;
+                                                                                    height: 300px;">
                                 <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
@@ -94,9 +90,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputContactNum">Contact Number</label>
-                            <input type="text" name="cnum" onkeypress="return isNumberKey(e)"
-                                class="form-control @error('cnum') is-invalid @enderror" id="inputContactNum"
-                                value="{{ $profile->contact_no }}">
+                            <input type="text" name="cnum" class="form-control @error('cnum') is-invalid @enderror"
+                                id="inputContactNum" value="{{ $profile->contact_no }}">
                             <small class="text-danger">@error('cnum')
                                     {{ $message }}
                                 @enderror</small>
