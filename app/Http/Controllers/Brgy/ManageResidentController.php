@@ -102,7 +102,7 @@ class ManageResidentController extends Controller
                     'first_name' => $request['fname'],
                     'last_name' => $request['lname'],
                     'brgy_loc' => $request['brgy'],
-                    'email_verified_at' => now(),
+                    'email_verified_at' => Carbon::now(),
                     'is_blocked' => 0,
                     'is_deactivated' => 0,
                     'password' => Hash::make($request['password']),
