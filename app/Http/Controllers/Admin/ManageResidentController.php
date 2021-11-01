@@ -85,6 +85,8 @@ class ManageResidentController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
+
+
             $user = User::create([
                 'user_role' => 4,
                 'email' => $request['email'],

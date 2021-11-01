@@ -76,15 +76,20 @@ class ManageBrgyOfficialController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $brgy_officials = BrgyOfficial::create([
-                'email' => $request['email'],
-                'password' => $request['pass'],
-                'name' => $request['fname'] . ' ' . $request['mname'] . ' ' . $request['lname'],
-                'user_role' => 3,
-                'brgy_position' => $request['brgy_pos'],
-                'brgy_loc' => $request['brgy'],
-                'contact_no' => $request['cnum']
-            ]);
+            if ($request->hasFile('file')) {
+                $file = $request->file('file')->getClientOriginalName();
+                $brgy_officials = BrgyOfficial::create([
+                    'email' => $request['email'],
+                    'password' => $request['pass'],
+                    'name' => $request['fname'] . ' ' . $request['mname'] . ' ' . $request['lname'],
+                    'user_role' => 3,
+                    'brgy_position' => $request['brgy_pos'],
+                    'brgy_loc' => $request['brgy'],
+                    'profile_pic' => $file,
+                    'contact_no' => $request['cnum']
+                ]);
+                $request->file('file')->storeAs('brgy_profile_pic', $request['fname'] . $request['mname'] . $request['lname'] . '/' . $file, '');
+            }
 
             return redirect('/admin/managebrgy_official')->with('success', 'Barangay Official has been added');
         }
