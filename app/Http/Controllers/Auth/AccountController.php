@@ -85,6 +85,7 @@ class AccountController extends Controller
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
             'cnum' => 'required|numeric|size:11',
+            'file' => 'required|mimes:jpeg,png,jpg',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::user()->password)) {
@@ -128,7 +129,14 @@ class AccountController extends Controller
             $profile = UserProfile::where('id', $id)->update([
                 'middle_name' => $request->input('mname'),
                 'contact_no' => $request->input('cnum'),
+                'profile_pic' => $request->input('file'),
             ]);
+
+            if ($request()->hasFile('file')) {
+                $file = $request()->file('file')->getClientOriginalName();
+                $request()->file('file')->storeAs('profile_pics', Auth::user()->id . '/' . $file, '');
+                $profile->update(['profile_pic' => $file]);
+            }
 
             return redirect('/user/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
