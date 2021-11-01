@@ -25,15 +25,15 @@
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                                object-fit: cover;
-                                                height: 300px;"> <!-- must be 375 x 300 px -->
+                                                    object-fit: cover;
+                                                    height: 300px;"> <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
                                 <div class="card-body d-flex flex-column">
                                     <div class="custom-file">
                                         <input name="file" type="file" class="custom-file-input" id="inputGroupFile04"
                                             aria-describedby="inputGroupFileAddon04" value="{{ $profile->profile_pic }}">
-                                        <label class="custom-file-label" for="inputGroupFile04">Upload an image</label>
+                                        <label class="custom-file-label" for="inputGroupFile04"></label>
                                     </div>
                                     <p class="card-text "><small class="text-muted">Accessible formats: jpg, png
                                             only</small></p>
