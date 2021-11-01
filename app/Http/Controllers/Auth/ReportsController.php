@@ -165,52 +165,52 @@ class ReportsController extends Controller
         $loc_lat = array();
         $loc_lng = array();
         $loc_img = array();
-        foreach($request->json()->all() as $item){
+        foreach ($request->json()->all() as $item) {
             array_push($data, $item);
         }
-        foreach($data[0] as $item){
+        foreach ($data[0] as $item) {
             array_push($image, $item);
         }
-        foreach($data[1] as $item){
+        foreach ($data[1] as $item) {
             array_push($user_id, $item);
         }
-        foreach($data[2] as $item){
+        foreach ($data[2] as $item) {
             array_push($full_name, $item);
         }
-        foreach($data[3] as $item){
+        foreach ($data[3] as $item) {
             array_push($title, $item);
         }
-        foreach($data[4] as $item){
+        foreach ($data[4] as $item) {
             array_push($desc, $item);
         }
-        foreach($data[5] as $item){
+        foreach ($data[5] as $item) {
             array_push($stat, $item);
         }
-        foreach($data[6] as $item){
+        foreach ($data[6] as $item) {
             array_push($loc_lat, $item);
         }
-        foreach($data[7] as $item){
+        foreach ($data[7] as $item) {
             array_push($loc_lng, $item);
         }
-        foreach($data[8] as $item){
+        foreach ($data[8] as $item) {
             array_push($loc_img, $item);
         }
         //$request->file($data[0])->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
         //return $data[0];
         //return $request->json()->all();
 
-        if ($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
             return "done";
         } else {
             return "no";
         }
     }
-    
+
     public function uploadImage(Request $request)
     {
         $img = $request->json()->all();
-        if ($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $file = $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
             $report = new Reports;
             $report->user_id = $request->user_id;
