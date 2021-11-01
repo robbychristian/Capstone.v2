@@ -23,6 +23,7 @@ class BrgyOfficialSeeder extends Seeder
             'user_role' => 3,
             'brgy_position' => 'Kagawad',
             'brgy_loc' => 'Barangay Santolan',
+            'profile_pic' => 'noimage.jpg',
             'contact_no' => '09123456789'
         ]);
     }
