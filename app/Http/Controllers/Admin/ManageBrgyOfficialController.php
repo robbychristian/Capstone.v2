@@ -78,6 +78,7 @@ class ManageBrgyOfficialController extends Controller
         } else {
             if ($request->hasFile('file')) {
                 $file = $request->file('file')->getClientOriginalName();
+                $request->file('file')->storeAs('brgy_profile_pic', $request['fname'] . $request['mname'] . $request['lname'] . '/' . $file, '');
                 $brgy_officials = BrgyOfficial::create([
                     'email' => $request['email'],
                     'password' => $request['pass'],
@@ -88,10 +89,10 @@ class ManageBrgyOfficialController extends Controller
                     'profile_pic' => $file,
                     'contact_no' => $request['cnum']
                 ]);
-                $request->file('file')->storeAs('brgy_profile_pic', $request['fname'] . $request['mname'] . $request['lname'] . '/' . $file, '');
+                return redirect('/admin/managebrgy_official')->with('success', 'Barangay Official has been added');
+            } else {
+                dd('waow its wrong');
             }
-
-            return redirect('/admin/managebrgy_official')->with('success', 'Barangay Official has been added');
         }
     }
 
