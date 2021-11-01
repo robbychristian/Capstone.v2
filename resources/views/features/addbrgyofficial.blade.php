@@ -23,7 +23,8 @@
                 <a class="btn btn-primary" href="/admin/managebrgy_official">Back</a>
             </div>
         </div>
-        <form action="{{ route('admin.managebrgy_official.store') }}" method="POST" class="mt-4">
+        <form action="{{ route('admin.managebrgy_official.store') }}" method="POST" enctype="multipart/form-data"
+            class="mt-4">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
