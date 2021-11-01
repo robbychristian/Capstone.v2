@@ -1,12 +1,5 @@
 @extends('dashboard.admin.home')
 @if (Auth::user()->user_role === 4)
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-    <script>
-        $('#inputContactNum').keyup(function() {
-            this.value = this.value.replace(/[^0-9\.]/g, '')
-        })
-    </script>
     @section('title', '| Account')
     @section('sub-content')
 
@@ -31,8 +24,8 @@
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     alt="..." class="img-responsive" style="width: 100%;
-                                                                                        object-fit: cover;
-                                                                                        height: 300px;">
+                                                                                            object-fit: cover;
+                                                                                            height: 300px;">
                                 <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
@@ -92,8 +85,9 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputContactNum">Contact Number</label>
-                            <input type="text" name="cnum" class="form-control @error('cnum') is-invalid @enderror"
-                                id="inputContactNum" value="{{ $profile->contact_no }}">
+                            <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="11" name="cnum"
+                                class="form-control @error('cnum') is-invalid @enderror" id="inputContactNum"
+                                value="{{ $profile->contact_no }}">
                             <small class="text-danger">@error('cnum')
                                     {{ $message }}
                                 @enderror</small>
@@ -246,6 +240,15 @@
                 </div>
             </div>
         </div>
+        <script>
+            function onlyNumberKey(evt) {
 
+                // Only ASCII character in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
+        </script>
     @endsection
 @endif
