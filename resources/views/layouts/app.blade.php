@@ -11,7 +11,7 @@
     <title>KaBisig @yield('title')</title>
 
     <!--- icon -->
-    <link rel = "icon" href = "{{ asset('img/title-website-icon.png') }}"type = "image/png" sizes="16x16" >
+    <link rel="icon" href="{{ asset('img/title-website-icon.png') }}" type="image/png" sizes="16x16">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -96,9 +96,8 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
 
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); 
-                                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                                        document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -166,9 +165,8 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -185,7 +183,7 @@
                         </div>
 
                     </div>
-                @elseif (Auth::user()->user_role === 4)
+                @elseif (Auth::user()->user_role === 4 && Auth::user()->email_verified_at != null)
                     <!-------------------------------------------USER NAVBAR------------------------------------------------------->
 
                     <div class="container-fluid">
@@ -233,9 +231,8 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
 
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); 
-                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                                                     document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -305,12 +302,14 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}"><i
+                                            <a class="nav-link"
+                                                href="{{ route('user.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('user.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link" href="{{ route('user.reports.index') }}"><i
+                                                    class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
@@ -322,7 +321,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -389,7 +388,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                            document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -429,7 +428,9 @@
                                 @else
                                     <div class="side-bar d-xl-none d-md-none d-xs-block">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}"> <i class="fas fa-chart-bar mr-2"></i>Dashboard</a>
+                                            <a class="nav-link"
+                                                href="{{ route('brgy_official.dashboard.index') }}"> <i
+                                                    class="fas fa-chart-bar mr-2"></i>Dashboard</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link"
@@ -464,24 +465,31 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.vulnerabilitymap.index') }}"><i
+                                            <a class="nav-link"
+                                                href="{{ route('brgy_official.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link"
+                                                href="{{ route('brgy_official.reports.index') }}"><i
+                                                    class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>Emergency Alert
+                                            <a class="nav-link" href="#"><i
+                                                    class="fas fa-envelope mr-2"></i>Emergency Alert
                                                 Message</a>
                                         </li>
-                    
+
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.stats.index') }}"> <i class="fas fa-clipboard mr-2"></i>Disaster Statistics</a>
+                                            <a class="nav-link" href="{{ route('brgy_official.stats.index') }}">
+                                                <i class="fas fa-clipboard mr-2"></i>Disaster Statistics</a>
                                         </li>
-                    
+
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}"><i class="fas fa-users mr-2"></i>Manage Resident</a>
+                                            <a class="nav-link"
+                                                href="{{ route('brgy_official.manageresident.index') }}"><i
+                                                    class="fas fa-users mr-2"></i>Manage Resident</a>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">
@@ -493,7 +501,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -559,7 +567,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                 document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -663,7 +671,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                         document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -731,8 +739,7 @@
                                     <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); 
-                                                                                                                                                        document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
 
                                     </a>
