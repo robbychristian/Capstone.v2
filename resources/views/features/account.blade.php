@@ -2,7 +2,16 @@
 @if (Auth::user()->user_role === 4)
     @section('title', '| Account')
     @section('sub-content')
+        <script>
+            function onlyNumberKey(evt) {
 
+                // Only ASCII character in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode < 48 || ASCIICode > 57)
+                    return false;
+                return true;
+            }
+        </script>
         <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
             <h3 class="mb-4">Edit your Account</h3>
             @if (Session::get('success'))
@@ -23,9 +32,10 @@
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                    alt="..." class="img-responsive" style="width: 100%;
-                                                                                                object-fit: cover;
-                                                                                                height: 300px;">
+                                    alt="..." class="img-responsive"
+                                    style="width: 100%;
+                                                                                                                object-fit: cover;
+                                                                                                                height: 300px;">
                                 <!-- must be 375 x 300 px -->
                             </div>
                             <div class="col-md-8 ">
@@ -240,15 +250,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            function onlyNumberKey(evt) {
 
-                // Only ASCII character in that range allowed
-                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode < 48 || ASCIICode > 57)
-                    return false;
-                return true;
-            }
-        </script>
     @endsection
 @endif
