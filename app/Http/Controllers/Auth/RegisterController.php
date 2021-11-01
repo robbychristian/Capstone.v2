@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Auth\Events\Registered;
 
 use Illuminate\Http\data;
@@ -140,8 +141,8 @@ class RegisterController extends Controller
         //    'cbox.accepted' => 'Terms and conditions must be confirmed!',
         //]);
 
-        
-        
+
+
 
         $user = User::create([
             'user_role' => 4,
@@ -154,7 +155,7 @@ class RegisterController extends Controller
             'is_deactivated' => 0,
             'password' => Hash::make($data['pass']),
         ]);
-        
+
         $user_profile = UserProfile::create([
             'user_email' => $data['email'],
             'middle_name' => $data['mname'],
@@ -166,10 +167,10 @@ class RegisterController extends Controller
 
         if (request()->hasFile('file')) {
             $file = request()->file('file')->getClientOriginalName();
-            request()->file('file')->storeAs('profile_pics', $user->id . '/' .$file, '');
+            request()->file('file')->storeAs('profile_pics', $user->id . '/' . $file, '');
             $user_profile->update(['profile_pic' => $file]);
         }
-        
+
         return $user;
     }
     protected function register(Request $request)
@@ -179,7 +180,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         // Disabling the auto login on register
-        // $this->guard()->login($user);
+        $this->guard()->login($user);
 
         // return $this->registered($request, $user)
         //     ?: redirect($this->redirectPath());
