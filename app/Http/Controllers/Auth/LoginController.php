@@ -47,7 +47,7 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials) && Auth::user()->email_verified_at != null) {
             $request->session()->regenerate();
 
             return redirect('user/home');
