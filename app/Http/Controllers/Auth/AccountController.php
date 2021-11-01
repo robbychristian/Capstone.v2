@@ -202,7 +202,7 @@ class AccountController extends Controller
         if (Hash::check($request->pass, $user_pass)) {
             return "hahhahahha";
         } else {
-            return $user_pass;
+            return $user_pass[0];
         }
     }
 }
