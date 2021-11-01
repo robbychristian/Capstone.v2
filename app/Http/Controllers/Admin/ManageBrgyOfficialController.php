@@ -81,7 +81,7 @@ class ManageBrgyOfficialController extends Controller
                 $request->file('file')->storeAs('brgy_profile_pic', $request['fname'] . $request['mname'] . $request['lname'] . '/' . $file, '');
                 $brgy_officials = BrgyOfficial::create([
                     'email' => $request['email'],
-                    'password' => $request['pass'],
+                    'password' => Hash::make($request['pass']),
                     'name' => $request['fname'] . ' ' . $request['mname'] . ' ' . $request['lname'],
                     'user_role' => 3,
                     'brgy_position' => $request['brgy_pos'],
