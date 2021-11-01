@@ -171,16 +171,16 @@ class RegisterController extends Controller
             $user_profile->update(['profile_pic' => $file]);
         }
 
+        event(new Registered($user = $this->create(request()->all())));
         return $user;
     }
     protected function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
 
         // Disabling the auto login on register
-        //$this->guard()->login($user);
+        $this->guard()->login($user);
 
         // return $this->registered($request, $user)
         //     ?: redirect($this->redirectPath());
