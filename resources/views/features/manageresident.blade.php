@@ -21,7 +21,7 @@
         </div>
         <hr>
 
-        @if (count($user) > 0)
+        @if (count($users) > 0)
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead style="background-color: #004f91;">
