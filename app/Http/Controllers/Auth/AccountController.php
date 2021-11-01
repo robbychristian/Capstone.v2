@@ -198,7 +198,7 @@ class AccountController extends Controller
     {
         $user_pass = DB::table('users')
             ->where('id', '=', $request->id)
-            ->get();
+            ->pluck('password');
         if (Hash::check($request->pass, $user_pass)) {
             return $user_pass;
         } else {
