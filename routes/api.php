@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AccountController;
 use App\Http\Controllers\Auth\AnnouncementController;
+use App\Http\Controllers\Auth\EvacuationController;
 use App\Http\Controllers\Auth\ReportsController;
 use App\Http\Controllers\Auth\VulnerabilityMapController;
 use App\Models\Announcement;
@@ -35,5 +36,6 @@ Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);
 Route::get('deletereport/{id}', [ReportsController::class, 'deleteReport']);
 Route::get('vulnerablearea', [VulnerabilityMapController::class, 'fetchLocations']);
+Route::get('evacuationcenters', [EvacuationController::class, 'fetchEvacuation']);
 
 Auth::routes();

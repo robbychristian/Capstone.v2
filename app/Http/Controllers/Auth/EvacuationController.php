@@ -87,4 +87,10 @@ class EvacuationController extends Controller
     {
         //
     }
+
+    public function fetchEvacuation()
+    {
+        $evacuation = EvacuationCenters::all();
+        return $evacuation;
+    }
 }
