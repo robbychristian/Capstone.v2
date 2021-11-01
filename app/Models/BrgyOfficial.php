@@ -25,6 +25,7 @@ class BrgyOfficial extends Authenticatable
         'user_role',
         'brgy_position',
         'brgy_loc',
+        'profile_pic',
         'contact_no',
     ];
 
