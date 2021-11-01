@@ -201,9 +201,9 @@ class AccountController extends Controller
             ->pluck('password');
         $pass = $request->pass;
         if (Hash::check($pass, $user_pass[0])) {
-            return "hahhahahha";
+            return true;
         } else {
-            return $pass;
+            return false;
         }
     }
 }
