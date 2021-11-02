@@ -15,27 +15,49 @@
         </div>
 
         @if (Auth::user()->user_role === 1)
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            <h5 class="card-title">Barangay Dela Paz</h5>
+                            <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
                             </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            <h5 class="card-title">Barangay Dela Paz</h5>
+                            <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
                             </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Barangay Dela Paz</h5>
+                            <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
+                            </p>
+                            <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Barangay Dela Paz</h5>
+                            <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
+                            </p>
+                            <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         @elseif (Auth::user()->user_role === 3)
             <div class="card mt-3" style="position: relative; height:50vh;">
