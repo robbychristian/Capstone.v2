@@ -210,7 +210,6 @@ class ReportsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        $img = $request->json()->all();
         if ($request->hasFile('photo')) {
             $file = $request->file("photo")->storeAs('report_imgs', $request->user_id . '/' . $request->loc_img, '');
             $report = new Reports;
@@ -218,6 +217,7 @@ class ReportsController extends Controller
             $report->full_name = $request->full_name;
             $report->title = $request->title;
             $report->description = $request->description;
+            $report->brgy_loc = $request->brgy_loc;
             $report->status = $request->status;
             $report->loc_lat = $request->loc_lat;
             $report->loc_lng = $request->loc_lng;
