@@ -120,7 +120,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/managebrgy_official', AdminManageBrgy::class);
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
-        Route::get('/dashboard/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
+        Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
         Route::resource('/generate', AdminGenerateReport::class);
     });
 });
