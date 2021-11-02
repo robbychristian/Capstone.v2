@@ -24,7 +24,7 @@
                         <label for="inputBrgy">Barangay</label>
                         <input class="form-control" type="text" value="{{ Auth::user()->brgy_loc }}" name="barangay" readonly>
                     </div>
-                    
+                </div>
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="inputDay">Month</label>
