@@ -30,7 +30,7 @@ Route::get('logincreds/{email}/{pass}', [AccountController::class, 'creds']);
 Route::get("search/{email}", [AccountController::class, 'search']);
 Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);
-Route::get("fetchreport/{id}", [ReportsController::class, 'fetchReport']);
+Route::get("fetchreport/{id}/{brgy}", [ReportsController::class, 'fetchReport']);
 //Route::post('upload/', [ReportsController::class, 'uploadReport']);
 Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);

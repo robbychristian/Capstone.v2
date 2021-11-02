@@ -106,10 +106,11 @@ class ReportsController extends Controller
         return redirect('user/reports');
     }
 
-    public function fetchReport($id)
+    public function fetchReport($id, $brgy)
     {
         $reports = DB::table('reports')
             ->where('user_id', $id)
+            ->where('brgy_loc', $brgy)
             ->get();
         return $reports;
     }
