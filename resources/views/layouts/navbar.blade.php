@@ -147,10 +147,6 @@
                                 class="fas fa-chart-bar mr-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.dashboard.index') }}"> <i
-                                class="fas fa-chart-bar mr-2"></i>Dashboard</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.announcements.index') }}"> <i
                                 class="fas fa-bullhorn mr-2"></i></i>Announcements</a>
                     </li>

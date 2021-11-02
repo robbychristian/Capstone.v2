@@ -15,7 +15,7 @@
                         <h5 class="card-title">Barangay Dela Paz</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
                         </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                        <a href="/admin/dashboard/DelaPaz" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,8 @@
                         <h5 class="card-title">Barangay Manggahan</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Manggahan
                         </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                        <a href="/admin/dashboard/Manggahan" class="btn btn-primary"><i class="fas fa-search"></i> View
+                        </a>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@
                         <h5 class="card-title">Barangay Maybunga</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Maybunga
                         </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                        <a href="/admin/dashboard/Maybunga" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                         <h5 class="card-title">Barangay Rosario</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Rosario
                         </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                        <a href="/admin/dashboard/Rosario" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
                     </div>
                 </div>
             </div>
@@ -59,7 +60,7 @@
                         <h5 class="card-title">Barangay Santolan</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Santolan
                         </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                        <a href="/admin/dashboard/Santolan" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
                     </div>
                 </div>
             </div>
