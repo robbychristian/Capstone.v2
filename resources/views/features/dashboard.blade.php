@@ -29,7 +29,6 @@
                 <canvas id="evacChart"></canvas>
             </div>
         </div>
-        @endif
     </div>
 
     <script>
