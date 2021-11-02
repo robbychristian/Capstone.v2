@@ -42,6 +42,7 @@ class GenerateReportController extends Controller
         $validator = Validator::make($request->all(), [
             'monthOfdisaster' => 'required',
             'yearOfdisaster' => 'required',
+            'barangay' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -51,8 +52,9 @@ class GenerateReportController extends Controller
         } else{
             $monthDisaster =  $request->input('monthOfdisaster');
             $yearDisaster = $request->input('yearOfdisaster');
+            $barangay = $request->input('barangay');
     
-            return Excel::download(new DisasterExport($monthDisaster, $yearDisaster), 'Disaster Report.xlsx');
+            return Excel::download(new DisasterExport($monthDisaster, $yearDisaster, $barangay), 'Disaster Report.xlsx');
         }
        
     }

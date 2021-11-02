@@ -22,7 +22,18 @@
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="inputBrgy">Barangay</label>
+                        @if (Auth::user()->user_role === 3)
                         <input class="form-control" type="text" value="{{ Auth::user()->brgy_loc }}" name="barangay" readonly>
+                        @elseif(Auth::user()->user_role === 1)
+                        <select id="inputBrgy" class="form-control" name="barangay" value="{{ old('barangay') }}">
+                            <option value="">Barangay</option>
+                            <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
+                            <option value='Barangay Manggahan'>Barangay Manggahan</option>
+                            <option value='Barangay Maybunga'>Barangay Maybunga</option>
+                            <option value='Barangay Rosario'>Barangay Rosario</option>
+                            <option value='Barangay Santolan'>Barangay Santolan</option>
+                        </select>
+                        @endif
                     </div>
                 </div>
                 <div class="form-row">
