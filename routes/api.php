@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('logincreds', [AccountController::class, 'creds']);
 Route::get("search/{email}", [AccountController::class, 'search']);
-Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
+Route::post("fetch", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);
 Route::get("fetchreport/{id}/{brgy}", [ReportsController::class, 'fetchReport']);
 //Route::post('upload/', [ReportsController::class, 'uploadReport']);

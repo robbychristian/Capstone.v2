@@ -165,13 +165,13 @@ class AccountController extends Controller
         }
     }
 
-    public function fetchCreds($email)
+    public function fetchCreds(Request $request)
     {
         $userCreds = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
-            ->where('users.email', $email)
-            ->where('user_profiles.user_email', $email)
+            ->where('users.email', $request->email)
+            ->where('user_profiles.user_email', $request->email)
             ->get();
 
         return $userCreds;
