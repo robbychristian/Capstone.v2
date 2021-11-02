@@ -16,7 +16,8 @@
 
         @if (Auth::user()->user_role === 1)
             <div class="row mt-3">
-                <div class="col-sm-6">
+
+                <div class="col-sm-6 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Dela Paz</h5>
@@ -26,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Dela Paz</h5>
@@ -36,7 +37,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+
+
+                <div class="col-sm-6 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Dela Paz</h5>
@@ -46,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Dela Paz</h5>
