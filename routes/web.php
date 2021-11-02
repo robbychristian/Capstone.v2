@@ -120,6 +120,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/managebrgy_official', AdminManageBrgy::class);
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
+        Route::get('/dashboard/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
         Route::resource('/generate', AdminGenerateReport::class);
     });
 });
@@ -148,7 +149,6 @@ Route::prefix('brgy_official')->name('brgy_official.')->group(function () {
         Route::resource('/stats', BrgyStatsReport::class);
         Route::resource('/generate', BrgyGenerateReport::class);
         Route::resource('/dashboard', BrgyDashboard::class);
-        
     });
 });
 
