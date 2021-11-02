@@ -1348,4 +1348,8 @@ class DashboardController extends Controller
     {
         //
     }
+
+    public function showBarangay($brgy){
+        return "hello";
+    }
 }
