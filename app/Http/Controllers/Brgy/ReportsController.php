@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Brgy;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Reports;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ReportsController extends Controller
@@ -16,7 +17,7 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        $reports = Reports::all();
+        $reports = Reports::where('brgy_loc', '=', Auth::user()->brgy_loc)->latest()->paginate(10);
         return view('features.reports', [
             'reports' => $reports
         ]);
