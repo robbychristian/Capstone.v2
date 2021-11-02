@@ -25,8 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('list', [AccountController::class, 'listAPI']);
-Route::get('logincreds/{email}/{pass}', [AccountController::class, 'creds']);
+Route::get('logincreds', [AccountController::class, 'creds']);
 Route::get("search/{email}", [AccountController::class, 'search']);
 Route::get("fetch/{email}", [AccountController::class, 'fetchCreds']);
 Route::get("announcements", [AnnouncementController::class, 'fetchAnnouncements']);

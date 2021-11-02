@@ -150,24 +150,12 @@ class AccountController extends Controller
         //
     }
 
-    public function listAPI()
+    public function creds(Request $request)
     {
-        $users = DB::table('users')
-            ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
-            ->select('users.*', 'user_profiles.*')
-            ->get();
+        $dbPass = User::where('email', $request->email)->value('password');
 
-        $json = $users->toJson(JSON_PRETTY_PRINT);
-
-        return $json;
-    }
-
-    public function creds($email, $pass)
-    {
-        $dbPass = User::where('email', $email)->value('password');
-
-        if (User::where('email', '=', $email)->exists()) {
-            if (Hash::check($pass, $dbPass)) {
+        if (User::where('email', '=', $request->email)->exists()) {
+            if (Hash::check($request->pass, $dbPass)) {
                 return true;
             } else {
                 return false;
