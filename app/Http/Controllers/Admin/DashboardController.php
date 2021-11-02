@@ -1066,7 +1066,7 @@ class DashboardController extends Controller
             ->where('year_disaster', $date)
             ->sum('evacuees');
 
-
+        return $brgy_loc;
         return view('features.dashboard', compact(
             'jan_typhoon_count',
             'jan_flood_count',
