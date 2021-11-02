@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -19,83 +19,102 @@ class DashboardController extends Controller
     {
          // ADD WHERE CLAUSE IN BRGY
          $date = Carbon::now()->format('Y');
+         $barangay = Auth::user()->brgy_loc;
 
          //january
          $jan_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jan_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jan_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jan_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jan_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jan_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
          //February
          $feb_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $feb_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $feb_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $feb_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $feb_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $feb_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
          //March
          $mar_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $mar_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $mar_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $mar_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $mar_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $mar_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -103,26 +122,32 @@ class DashboardController extends Controller
          $apr_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $apr_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $apr_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $apr_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $apr_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $apr_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -130,52 +155,64 @@ class DashboardController extends Controller
          $may_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $may_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $may_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $may_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $may_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $may_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
          //June
          $jun_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jun_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jun_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jun_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jun_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jun_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -183,26 +220,32 @@ class DashboardController extends Controller
          $jul_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jul_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jul_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jul_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jul_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $jul_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -211,26 +254,32 @@ class DashboardController extends Controller
          $aug_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $aug_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $aug_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $aug_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $aug_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $aug_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -238,26 +287,32 @@ class DashboardController extends Controller
          $sept_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $sept_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $sept_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $sept_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $sept_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $sept_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -265,26 +320,32 @@ class DashboardController extends Controller
          $oct_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $oct_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $oct_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $oct_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $oct_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $oct_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -292,26 +353,32 @@ class DashboardController extends Controller
          $nov_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $nov_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $nov_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $nov_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $nov_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $nov_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -319,26 +386,32 @@ class DashboardController extends Controller
          $dec_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $dec_flood_count = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $dec_lpa_count = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $dec_earthquake_count = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $dec_landslide_count = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
          $dec_others_count = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('families_affected');
  
  
@@ -348,26 +421,32 @@ class DashboardController extends Controller
          $jan_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jan_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jan_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jan_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jan_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jan_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -375,52 +454,64 @@ class DashboardController extends Controller
          $feb_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $feb_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $feb_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $feb_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $feb_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $feb_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
          //March
          $mar_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $mar_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $mar_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $mar_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $mar_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $mar_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -429,52 +520,64 @@ class DashboardController extends Controller
          $apr_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $apr_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $apr_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $apr_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $apr_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $apr_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
          //May
          $may_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $may_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $may_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $may_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $may_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $may_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -482,26 +585,32 @@ class DashboardController extends Controller
          $jun_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jun_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jun_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jun_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jun_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jun_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -509,26 +618,32 @@ class DashboardController extends Controller
          $jul_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jul_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jul_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jul_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jul_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $jul_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -537,26 +652,32 @@ class DashboardController extends Controller
          $aug_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $aug_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $aug_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $aug_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $aug_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $aug_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -564,26 +685,32 @@ class DashboardController extends Controller
          $sept_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $sept_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $sept_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $sept_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $sept_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $sept_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -591,26 +718,32 @@ class DashboardController extends Controller
          $oct_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $oct_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $oct_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $oct_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $oct_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $oct_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -618,26 +751,32 @@ class DashboardController extends Controller
          $nov_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $nov_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $nov_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $nov_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $nov_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $nov_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -645,26 +784,32 @@ class DashboardController extends Controller
          $dec_typhoon_count_indiv = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $dec_flood_count_indiv = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $dec_lpa_count_indiv = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $dec_earthquake_count_indiv = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $dec_landslide_count_indiv = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
          $dec_others_count_indiv = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('individuals_affected');
  
  
@@ -674,26 +819,32 @@ class DashboardController extends Controller
          $jan_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jan_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jan_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jan_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jan_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jan_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'January')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -701,26 +852,32 @@ class DashboardController extends Controller
          $feb_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $feb_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $feb_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $feb_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $feb_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $feb_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'February')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
   
  
@@ -728,26 +885,32 @@ class DashboardController extends Controller
          $mar_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $mar_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $mar_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $mar_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $mar_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $mar_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'March')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -756,26 +919,32 @@ class DashboardController extends Controller
          $apr_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $apr_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $apr_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $apr_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $apr_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $apr_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'April')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -783,26 +952,32 @@ class DashboardController extends Controller
          $may_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $may_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $may_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $may_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $may_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $may_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'May')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -810,26 +985,32 @@ class DashboardController extends Controller
          $jun_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jun_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jun_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jun_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jun_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jun_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'June')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -837,26 +1018,32 @@ class DashboardController extends Controller
          $jul_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jul_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jul_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jul_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jul_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $jul_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'July')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -865,26 +1052,32 @@ class DashboardController extends Controller
          $aug_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $aug_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $aug_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $aug_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $aug_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $aug_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'August')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -892,26 +1085,32 @@ class DashboardController extends Controller
          $sept_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $sept_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $sept_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $sept_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $sept_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $sept_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'September')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -919,26 +1118,32 @@ class DashboardController extends Controller
          $oct_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $oct_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $oct_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $oct_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $oct_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $oct_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'October')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -946,26 +1151,32 @@ class DashboardController extends Controller
          $nov_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $nov_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $nov_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $nov_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $nov_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $nov_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'November')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
@@ -973,26 +1184,32 @@ class DashboardController extends Controller
          $dec_typhoon_count_evac = DisasterReport::where('type_disaster', 'Typhoon')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $dec_flood_count_evac = DisasterReport::where('type_disaster', 'Flood')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $dec_lpa_count_evac = DisasterReport::where('type_disaster', 'Low Pressure Area')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $dec_earthquake_count_evac = DisasterReport::where('type_disaster', 'Earthquake')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $dec_landslide_count_evac = DisasterReport::where('type_disaster', 'Landslide')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
          $dec_others_count_evac = DisasterReport::where('type_disaster', 'Others')
              ->where('month_disaster', 'December')
              ->where('year_disaster', $date)
+             ->where('barangay', $barangay)
              ->sum('evacuees');
  
  
