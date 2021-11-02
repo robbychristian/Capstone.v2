@@ -15,10 +15,40 @@
         </div>
 
         @if (Auth::user()->user_role === 1)
+            <div class="card-deck">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal height
+                            action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
             <div class="row mt-3">
 
                 <div class="col-sm-6 mb-3">
-                    <div class="card text-center" style="max-width: 18rem;">
+                    <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Dela Paz</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
@@ -28,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3">
-                    <div class="card text-center" style="max-width: 18rem;">
+                    <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Manggahan</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Manggahan
@@ -40,7 +70,7 @@
 
 
                 <div class="col-sm-6 mb-3">
-                    <div class="card text-center" style="max-width: 18rem;">
+                    <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Maybunga</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Maybunga
@@ -51,7 +81,7 @@
                 </div>
 
                 <div class="col-sm-6 mb-3">
-                    <div class="card text-center" style="max-width: 18rem;">
+                    <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Rosario</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Rosario
@@ -62,7 +92,7 @@
                 </div>
 
                 <div class="col-sm-6 mb-3">
-                    <div class="card text-center" style="max-width: 18rem;">
+                    <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Barangay Santolan</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Santolan
