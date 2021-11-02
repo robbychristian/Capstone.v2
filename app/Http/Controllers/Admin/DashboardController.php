@@ -19,7 +19,6 @@ class DashboardController extends Controller
     {
           // ADD WHERE CLAUSE IN BRGY
           $date = Carbon::now()->format('Y');
-          $brgyDelaPaz = "Barangay Dela Paz";
 
           //january
           $jan_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
@@ -1347,9 +1346,5 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function showBarangay($brgy){
-        return "hello";
     }
 }

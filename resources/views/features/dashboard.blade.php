@@ -23,7 +23,7 @@
                             <h5 class="card-title">Barangay Dela Paz</h5>
                             <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
                             </p>
-                            <a href="/admin/dashboard/{{ $brgyDelaPaz }}" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
+                            <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> View </a>
                         </div>
                     </div>
                 </div>

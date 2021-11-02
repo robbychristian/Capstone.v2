@@ -121,7 +121,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
         Route::resource('/generate', AdminGenerateReport::class);
-        Route::get('/dashboard/{brgy}', AdminDashboard::class, 'showBarangay');
     });
 });
 
