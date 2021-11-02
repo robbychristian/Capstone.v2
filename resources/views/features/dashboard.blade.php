@@ -13,6 +13,29 @@
                     Report</a>
             @endif
         </div>
+
+        @if(Auth::user()->user_role === 1)
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        @elseif (Auth::user()->user_role === 3)
         <div class="card mt-3" style="position: relative; height:50vh;">
             <div class="card-body">
                 <canvas id="myChart"></canvas>
@@ -30,6 +53,7 @@
                 <canvas id="evacChart"></canvas>
             </div>
         </div>
+        @endif
     </div>
 
     <script>
