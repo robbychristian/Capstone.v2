@@ -192,23 +192,23 @@ class AccountController extends Controller
     public function editProfile(Request $request)
     {
         if ($request->hasFile('photo')) {
-            //$fileName = $request->file('photo')->getClientOriginalName();
-            //$request->file('photo')->storeAs('profile_pics', $request->id . '/' . $fileName, '');
-            //DB::table('users')
-            //    ->where('id', $request->id)
-            //    ->update([
-            //        'first_name' => $request->fname,
-            //        'last_name' => $request->lname,
-            //        'password' => Hash::make($request->pass)
-            //    ]);
-            //DB::table('user_profiles')
-            //    ->where('id', $request->id)
-            //    ->update([
-            //        'middle_name' => $request->mname,
-            //        'contact_no' => $request->contactNo,
-            //        'home_add' => $request->homeAdd,
-            //        'profile_pic' => $fileName
-            //    ]);
+            $fileName = $request->file('photo')->getClientOriginalName();
+            $request->file('photo')->storeAs('profile_pics', $request->id . '/' . $fileName, '');
+            DB::table('users')
+                ->where('id', $request->id)
+                ->update([
+                    'first_name' => $request->fname,
+                    'last_name' => $request->lname,
+                    'password' => Hash::make($request->pass)
+                ]);
+            DB::table('user_profiles')
+                ->where('id', $request->id)
+                ->update([
+                    'middle_name' => $request->mname,
+                    'contact_no' => $request->contactNo,
+                    'home_add' => $request->homeAdd,
+                    'profile_pic' => $fileName
+                ]);
             return "hahha";
         } else {
             return "hhuhuhuuh";
