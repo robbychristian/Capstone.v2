@@ -43,12 +43,12 @@
 
     <style>
         #brgyDelaPaz:checked + .button-label {
-            background: #d91e18;
+            background: #3490dc;
   color: #efefef;
         }
 
         #brgyDelaPaz:checked + .button-label:hover {
-            background: #c21b15;
+            background: #3490dc;
   color: #e2e2e2;
         }
 
