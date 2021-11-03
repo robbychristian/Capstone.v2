@@ -76,7 +76,7 @@ $small: 40em;
     }
 }
 
-#barangay:checked + .button-label {
+#barangayOption:checked + .button-label {
     background: $blue;
     color: $light;
 
