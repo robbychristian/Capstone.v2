@@ -43,13 +43,13 @@
 
     <style>
         #brgyDelaPaz:checked + .button-label {
-            background: #3490dc;
-            color: #efefef;
+            background: #d91e18;
+  color: #efefef;
         }
 
         #brgyDelaPaz:checked + .button-label:hover {
-            background: #3490dc;
-            color: #e2e2e2;
+            background: #c21b15;
+  color: #e2e2e2;
         }
 
         #brgyManggahan:checked + .button-label {
