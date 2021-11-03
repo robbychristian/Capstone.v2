@@ -42,12 +42,51 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
-        #barangayOption:checked+.button-label {
+        #brgyDelaPaz:checked+.button-label {
             background: #3490dc;
             color: #efefef;
         }
 
-        #barangayOption:checked+.button-label:hover {
+        #brgyDelaPaz:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgyManggahan:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyManggahan:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgyMaybunga:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyMaybunga:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgySantolan:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgySantolan:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+        #brgyRosario:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyRosario:checked+.button-label:hover {
             background: #3490dc;
             color: #e2e2e2;
         }
