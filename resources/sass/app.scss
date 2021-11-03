@@ -16,6 +16,7 @@ $dark: #292929;
 $light: #efefef;
 $red: #d91e18;
 $orange: #ffa500;
+$blue: #3490dc;
 $small: 40em;
 
 .radio-button-wrap {
@@ -71,6 +72,16 @@ $small: 40em;
 
     &:hover {
         background: darken($orange, 5%);
+        color: darken($light, 5%);
+    }
+}
+
+#barangay:checked + .button-label {
+    background: $blue;
+    color: $light;
+
+    &:hover {
+        background: darken($blue, 5%);
         color: darken($light, 5%);
     }
 }
