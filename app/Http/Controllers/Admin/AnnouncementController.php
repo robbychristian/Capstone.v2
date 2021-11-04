@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
                 'body' => $request->input('message')
             ]);
 
-            return redirect('/admin/announcements')->with('success', 'Announcement has been posted!');;
+            return redirect('/admin/announcements')->with('success', 'Announcement has been posted!');
         }
     }
 
@@ -99,12 +99,27 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $announcement = Announcement::where('id', $id)->update([
-            'title' => $request->input('title'),
-            'body' => $request->input('message')
+        $announcement = Announcement::where('id', $id);
+        
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'message' => 'required',
+        ], $messages = [
+            'title.required' => 'The title field is required!',
+            'message.required' => 'The body field is required!',
         ]);
+        if ($validator->fails()) {
+            return redirect('/admin/announcements/' . $announcement->id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $announcement = Announcement::where('id', $id)->update([
+                'title' => $request->input('title'),
+                'body' => $request->input('message')
+            ]);
 
-        return redirect('/admin/announcements');
+            return redirect('/admin/announcements')->with('success', 'Announcement has been edited!');
+        }
     }
 
     /**
