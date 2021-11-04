@@ -34,7 +34,7 @@
         @endif
         <div class="form-group">
             <label><strong>Message</strong></label>
-            <textarea name="message" id="" cols="30" rows="10" class="form-control" value="{{ old('message') }}"></textarea>
+            <textarea name="message" id="" cols="30" rows="10" class="form-control">{{ old('message') }}</textarea>
             <small class="text-danger">@error('message')
                     {{ $message }}
                 @enderror</small>
