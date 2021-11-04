@@ -109,7 +109,7 @@ class AnnouncementController extends Controller
             'message.required' => 'The body field is required!',
         ]);
         if ($validator->fails()) {
-            return redirect('/admin/announcements/' . $announcement . '/edit')
+            return redirect('/admin/announcements/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
