@@ -13,10 +13,16 @@
         <div class="form-group">
             <label><strong>Title</strong></label>
             <input type="text" name="title" class="form-control" value="{{ $announcement->title }}">
+            <small class="text-danger">@error('title')
+                {{ $message }}
+            @enderror</small>
         </div>
         <div class="form-group">
             <label><strong>Message</strong></label>
             <textarea name="message" id="" cols="30" rows="10" class="form-control">{{ $announcement->body }}</textarea>
+            <small class="text-danger">@error('message')
+                {{ $message }}
+            @enderror</small>
         </div>
         <button class="btn btn-primary float-right ">Post</button>
         </form>
