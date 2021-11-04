@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
                 'body' => $request->input('message')
             ]);
 
-            return redirect('/brgy_official/announcements');
+            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been posted!');
         }
     }
 
