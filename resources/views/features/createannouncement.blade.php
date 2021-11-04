@@ -35,7 +35,7 @@
         <div class="form-group">
             <label><strong>Message</strong></label>
             <textarea name="message" id="" cols="30" rows="10" class="form-control"></textarea>
-            <small class="text-danger">@error('brgy_loc')
+            <small class="text-danger">@error('message')
                     {{ $message }}
                 @enderror</small>
         </div>
