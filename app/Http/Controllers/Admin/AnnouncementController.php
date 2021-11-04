@@ -47,7 +47,7 @@ class AnnouncementController extends Controller
             'body' => 'required',
         ], $messages = [
             'title.required' => 'The title field is required!',
-            'brgy_loc.required' => 'The brgy_loc field is required!',
+            'brgy_loc.required' => 'The recipients field is required!',
             'body.required' => 'The body field is required!',
         ]);
         if ($validator->fails()) {
