@@ -39,7 +39,7 @@
         </div>
 
         @if (Session::get('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-3 mb-3">
                 {{ Session::get('success') }}
             </div>
         @endif

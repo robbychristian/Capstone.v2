@@ -1,7 +1,7 @@
 @extends('dashboard.admin.home')
 @section('title', '| Announcements')
 @section('sub-content')
-<div class="col-xl-10 col-lg-9 col-md-8">
+<div class="col-xl-10 col-lg-9 col-md-8 mt-3">
     <div class="container">
         @if (Auth::user()->user_role === 1)
             <form action="/admin/announcements" method="POST">
