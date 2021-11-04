@@ -99,7 +99,6 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $announcement = Announcement::where('id', $id);
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
