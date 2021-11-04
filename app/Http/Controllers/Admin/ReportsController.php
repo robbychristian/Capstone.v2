@@ -16,7 +16,7 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        $reports = Reports::all();
+        $reports = Reports::latest()->paginate(10);
         return view('features.reports', [
             'reports' => $reports
         ]);
