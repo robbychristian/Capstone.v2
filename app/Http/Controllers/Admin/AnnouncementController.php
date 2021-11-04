@@ -44,11 +44,11 @@ class AnnouncementController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'brgy_loc' => 'required',
-            'body' => 'required',
+            'message' => 'required',
         ], $messages = [
             'title.required' => 'The title field is required!',
             'brgy_loc.required' => 'The recipients field is required!',
-            'body.required' => 'The body field is required!',
+            'message.required' => 'The body field is required!',
         ]);
         if ($validator->fails()) {
             return redirect('/admin/announcements/create')
