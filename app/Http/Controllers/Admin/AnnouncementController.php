@@ -100,7 +100,7 @@ class AnnouncementController extends Controller
     public function update(Request $request, $id)
     {
         $announcement = Announcement::where('id', $id);
-        
+
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'message' => 'required',
@@ -109,7 +109,7 @@ class AnnouncementController extends Controller
             'message.required' => 'The body field is required!',
         ]);
         if ($validator->fails()) {
-            return redirect('/admin/announcements/' . $announcement->id . '/edit')
+            return redirect('/admin/announcements/' . $announcement . '/edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
