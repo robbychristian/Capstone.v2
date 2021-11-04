@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Announcement;
-use Illuminate\Support\Facades\Validator;
 
 class AnnouncementController extends Controller
 {
@@ -41,30 +40,15 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'brgy_loc' => 'required',
-            'message' => 'required',
-        ], $messages = [
-            'title.required' => 'The title field is required!',
-            'brgy_loc.required' => 'The recipients field is required!',
-            'message.required' => 'The body field is required!',
+        $announcement = Announcement::create([
+            'brgy_position' => Auth::user()->brgy_position,
+            'name' => Auth::user()->name,
+            'brgy_loc' => Auth::user()->brgy_loc,
+            'title' => $request->input('title'),
+            'body' => $request->input('message')
         ]);
-        if ($validator->fails()) {
-            return redirect('/brgy_official/announcements/create')
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            $announcement = Announcement::create([
-                'brgy_position' => Auth::user()->brgy_position,
-                'name' => Auth::user()->name,
-                'brgy_loc' => Auth::user()->brgy_loc,
-                'title' => $request->input('title'),
-                'body' => $request->input('message')
-            ]);
 
-            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been posted!');
-        }
+        return redirect('/brgy_official/announcements');
     }
 
     /**
@@ -99,25 +83,12 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'message' => 'required',
-        ], $messages = [
-            'title.required' => 'The title field is required!',
-            'message.required' => 'The body field is required!',
+        $announcement = Announcement::where('id', $id)->update([
+            'title' => $request->input('title'),
+            'body' => $request->input('message')
         ]);
-        if ($validator->fails()) {
-            return redirect('/brgy_official/announcements/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            $announcement = Announcement::where('id', $id)->update([
-                'title' => $request->input('title'),
-                'body' => $request->input('message')
-            ]);
 
-            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been edited!');
-        }
+        return redirect('/brgy_official/announcements');
     }
 
     /**
