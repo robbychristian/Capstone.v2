@@ -98,12 +98,25 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $announcement = Announcement::where('id', $id)->update([
-            'title' => $request->input('title'),
-            'body' => $request->input('message')
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'message' => 'required',
+        ], $messages = [
+            'title.required' => 'The title field is required!',
+            'message.required' => 'The body field is required!',
         ]);
+        if ($validator->fails()) {
+            return redirect('/brgy_official/announcements/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $announcement = Announcement::where('id', $id)->update([
+                'title' => $request->input('title'),
+                'body' => $request->input('message')
+            ]);
 
-        return redirect('/brgy_official/announcements');
+            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been edited!');
+        }
     }
 
     /**
