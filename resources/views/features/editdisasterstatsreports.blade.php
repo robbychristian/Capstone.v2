@@ -281,21 +281,10 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Affected Streets</label>
-
-                        </div>
-
-                        <div class="form-group col-12 col-md-6">
-                            <label for="">Number of Families Affected</label>
-
-                        </div>
-                    </div>
-
                      @foreach ($affectedstreets as $affectedstreet)
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
+                                <label for="">Affected Streets</label>
                                 <input type="text" name="addMoreInputFields[0][street]" class="form-control" value="{{ $affectedstreet->affected_streets }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.street')
                                     {{ $message }}
@@ -303,6 +292,7 @@
                             </div>
 
                             <div class="form-group col-12 col-md-6">
+                                <label for="">Number of Families Affected</label>
                                 <input type="text" name="addMoreInputFields[0][families]" class="form-control"  value="{{ $affectedstreet->number_families_affected }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.families')
                                     {{ $message }}
@@ -315,7 +305,7 @@
                         <div class="form-row">
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Affected Streets</label>
-                                <input type="text" name="addMoreInputFields[0][street]" class="form-control"/>
+                                <input type="text" name="addMoreInputFields[0][street]" class="form-control" placeholder="Affected Streets"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.street')
                                     {{ $message }}
                                 @enderror</small>
@@ -323,7 +313,7 @@
 
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Number of Families Affected</label>
-                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"/>
+                                <input type="text" name="addMoreInputFields[0][families]" class="form-control" placeholder="Number of Families Affected"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.families')
                                     {{ $message }}
                                 @enderror</small>
