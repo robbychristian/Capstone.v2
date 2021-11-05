@@ -49,11 +49,7 @@
                                         {{ $affectedstreet->affected_streets }}
                                     @endforeach
                                 </td>
-                                <td>
-                                    @foreach ($affectedstreets as $affectedstreet)
-                                        {{ $affectedstreet->number_families_affected }}
-                                    @endforeach
-                                </td>
+
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
                                         <button class="btn btn-success">Edit</button>
                                     </a></td>
