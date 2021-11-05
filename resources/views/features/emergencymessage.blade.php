@@ -2,11 +2,22 @@
 @section('title', '| Emergency Alert Message')
 @section('sub-content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
-        <div class="container">
+        <div class="col-sm-12 col-md-8">
+            <h3 class="mb-1">Emergency Alert Message</h3>
+        </div>
 
-            <div class="col-sm-12 col-md-8">
-                <h3 class="mb-1">Emergency Alert Message</h3>
-            </div>
+        <div class="container">
+            @if (Session::get('success'))
+                <div class="alert alert-success mt-3 mb-3">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+
+            @if (Session::get('error'))
+                <div class="alert alert-danger mt-3 mb-3">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
 
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/emergencymessage" method="POST">
@@ -14,24 +25,17 @@
                     <form action="/brgy_official/emergencymessage" method="POST">
             @endif
             @csrf
-            <!--<div class="form-group">
-                <label><strong>Recipients</strong></label>
-                <input type="text" name="recipients" class="form-control" value="{{ old('recipients') }}">
-                <small class="text-danger">@error('recipients')
-                        {{ $message }}
-                    @enderror</small>
-            </div> -->
 
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Recipients</label>
+                <label><strong>Recipients</strong></label>
                 <select class="form-control" id="exampleFormControlSelect1" name="recipients">
                     @foreach ($numbers as $number)
-                    <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
+                        <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
                     @endforeach
                 </select>
                 <small class="text-danger">@error('recipients')
-                    {{ $message }}
-                @enderror</small>
+                        {{ $message }}
+                    @enderror</small>
             </div>
 
             <div class="form-group">

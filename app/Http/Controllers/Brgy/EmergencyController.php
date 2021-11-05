@@ -34,7 +34,7 @@ class EmergencyController extends Controller
             ->join('users', 'user_profiles.user_email', 'users.email')
             ->where('brgy_loc', $brgyloc)
             ->get('contact_no');
-            
+
         return view('features.emergencymessage', [
             'numbers' => $numbers
         ]);
@@ -95,7 +95,7 @@ class EmergencyController extends Controller
             } else if ($result == 0) {
                 return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
             } else {
-                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Error was encountered!');
+                return redirect('/brgy_official/emergencymessage/create')->with('error', 'Error was encountered!');
             }
         }
         //else{
