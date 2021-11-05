@@ -299,6 +299,7 @@
                                     {{ $message }}
                                 @enderror</small>
                             </div>
+                    @endforeach
                             <div class="form-group col-6 col-md-4">
                                 <label for="">Action</label>
                                 <button type="button" name="add" id="dynamic-ar"
@@ -307,7 +308,7 @@
                             </div>
                         </div>
                     </div> 
-                    @endforeach
+                    
 
                     <button type="submit" class="btn btn-primary">Submit Data</button>
                 </form>
