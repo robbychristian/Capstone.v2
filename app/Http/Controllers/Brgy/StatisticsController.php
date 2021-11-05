@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Brgy;
 
 use App\Http\Controllers\Controller;
+use App\Models\DisasterAffectedStreets;
 use App\Models\DisasterReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,13 @@ class StatisticsController extends Controller
     public function index()
     {
         $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->get();
-        return view('features.viewdisasterstatsreports')->with('disasterstats', $disasterstats);
+        $affectedstreets = DB::table('disaster_affected_streets')
+                            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
+                            ->get('affected_streets', 'number_families_affected');
+        return view('features.viewdisasterstatsreports', [
+            'disasterstats' => $disasterstats,
+            'affectedstreets' => $affectedstreets
+        ]);
     }
 
     /**
@@ -130,7 +137,12 @@ class StatisticsController extends Controller
     public function edit($id)
     {
         $disasterstats = DisasterReport::find($id);
-        return view('features.editdisasterstatsreports')->with('disasterstats', $disasterstats);
+        $affectedstreets = DisasterAffectedStreets::find($id);
+        return view('features.editdisasterstatsreports', [
+            'disasterstats' => $disasterstats,
+            'affectedstreets' => $affectedstreets
+
+        ]);
     }
 
     /**

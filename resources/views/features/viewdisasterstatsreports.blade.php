@@ -44,10 +44,14 @@
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
-                                <td>{{ $disaster->evacuees }}</td>
+                                <td>
+                                    @foreach ($affectedstreets as $affectedstreet)
+                                        {{ $disaster->evacuees }}
+                                    @endforeach
+                                </td>
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
-                                    <button class="btn btn-success">Edit</button>
-                                </a></td>
+                                        <button class="btn btn-success">Edit</button>
+                                    </a></td>
                                 <td><button class="btn btn-danger" type="submit">Delete</button></td>
                             </tr>
                         @endforeach
