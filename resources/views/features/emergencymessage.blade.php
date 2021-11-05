@@ -6,7 +6,7 @@
             <h3 class="mb-1">Emergency Alert Message</h3>
         </div>
 
-        <div class="container">
+        <div class="container mt-3">
             @if (Session::get('success'))
                 <div class="alert alert-success mt-3 mb-3">
                     {{ Session::get('success') }}
