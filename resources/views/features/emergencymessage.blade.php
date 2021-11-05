@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label><strong>Message</strong></label>
                 <textarea name="message" id="" cols="30" rows="10" onkeyup="countChar(this)" class="form-control">{{ old('message') }}</textarea>
-                <p class="text-right" id="charNum">85</p>
+                <p class="text-right text-muted" id="charNum">85</p>
                 <small class="text-danger">@error('message')
                         {{ $message }}
                     @enderror</small>
