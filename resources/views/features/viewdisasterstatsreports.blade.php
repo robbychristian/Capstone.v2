@@ -18,6 +18,13 @@
             </div>
         </div>
 
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+
+        @endif
+
         @if (count($disasterstats) > 0)
             <div class="table-responsive mt-3">
                 <table class="table table-hover">
@@ -50,7 +57,13 @@
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
                                         <button class="btn btn-success">Edit</button>
                                     </a></td>
-                                <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                                <td>
+                                    <form action="/brgy_official/stats/{{ $disaster->id }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
 

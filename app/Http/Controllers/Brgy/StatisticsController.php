@@ -239,6 +239,8 @@ class StatisticsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $disaster = DisasterReport::find($id);
+        $disaster->delete();
+        return redirect('/brgy_official/stats/')->with('success', 'The disaster statistical report has been deleted!');
     }
 }
