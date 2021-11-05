@@ -18,7 +18,7 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->latest()->get();
+        $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->get();
         return view('features.viewdisasterstatsreports')->with('disasterstats', $disasterstats);
     }
 
