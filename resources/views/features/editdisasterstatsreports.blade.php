@@ -312,7 +312,7 @@
                                 @enderror</small>
                             </div>
                             <div class="form-group col-6 col-md-4">
-                               <button type = "button" name = "add" id = "dynamic-ar" class="btn btn-outline-danger form-control remove-input-field">Delete </button>
+                               <button type = "button" id = "deleteDiv" class="btn btn-outline-danger form-control remove-input-field">Delete </button>
                             </div>
                         </div>
                     @endforeach
@@ -364,6 +364,10 @@
         });
         $(document).on('click', '.remove-input-field', function() {
             $(this).parents('#parent').remove();
+        });
+
+        $(document).on('click', '.remove-input', function() {
+            $(this).parents('#deleteDiv').remove();
         });
     </script>
 @endsection
