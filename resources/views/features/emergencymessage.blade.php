@@ -29,9 +29,13 @@
             <div class="form-group">
                 <label><strong>Recipients</strong></label>
                 <select class="form-control" id="exampleFormControlSelect1" name="recipients">
+                    @if (count($numbers) > 0)
                     @foreach ($numbers as $number)
                         <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
                     @endforeach
+                    @else
+                        <option value="">There are no registered users. </option>
+                    @endif
                 </select>
                 <small class="text-danger">@error('recipients')
                         {{ $message }}
