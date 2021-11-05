@@ -274,7 +274,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>Total Number of Evacuees</label>
-                            <input type="text" class="form-control" name="evacuees" >
+                            <input type="text" class="form-control" name="evacuees" value="{{ $disasterstats->evacuees }}" >
                             <small class="text-danger">@error('evacuees')
                                     {{ $message }}
                                 @enderror</small>
@@ -286,7 +286,7 @@
                         <div class="form-row">
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Affected Streets</label>
-                                <input type="text" name="addMoreInputFields[0][street]" class="form-control" value="{{ $affectedstreet->affected_street }}"/>
+                                <input type="text" name="addMoreInputFields[0][street]" class="form-control" value="{{ $affectedstreet->affected_streets }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.street')
                                     {{ $message }}
                                 @enderror</small>
@@ -294,7 +294,7 @@
 
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Number of Families Affected</label>
-                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"  value="{{ $affectedstreet->number_families_affected }}/>
+                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"  value="{{ $affectedstreet->number_families_affected }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.families')
                                     {{ $message }}
                                 @enderror</small>
