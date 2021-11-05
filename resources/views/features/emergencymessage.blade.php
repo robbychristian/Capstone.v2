@@ -34,7 +34,7 @@
                         <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
                     @endforeach
                     @else
-                        <option value="">There are no registered users. </option>
+                        <option value="" disabled>There are no registered users. </option>
                     @endif
                 </select>
                 <small class="text-danger">@error('recipients')
