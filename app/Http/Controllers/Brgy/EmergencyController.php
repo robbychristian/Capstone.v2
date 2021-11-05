@@ -73,13 +73,13 @@ class EmergencyController extends Controller
         } else {
             $result = $this->itexmo($number, $message, $apicode, $apipwd);
             if($result == ""){
-                echo "iTexMo: No response from server!!! Please check the METHOD used (CURL or CURL-LESS). If you are using CURL then try CURL-LESS and vice versa.	Please CONTACT US for help. ";	
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');	
             }else if ($result == 0){
-                echo "Message sent";
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
             }else{
-                echo "Error Number " . $result . "was encountered!";
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Error was encountered!');
             }
-            //return redirect('/brgy_official/emergencymessage')->with('success', 'Emergency Alert Message has been sent!');
+            
         }
     }
 
