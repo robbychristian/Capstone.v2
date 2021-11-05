@@ -145,11 +145,11 @@ class StatisticsController extends Controller
         $affectedstreets = DisasterReport::find($id)->affectedStreets;
 
         return $affectedstreets;
-        //return view('features.editdisasterstatsreports', [
-        //    'disasterstats' => $disasterstats,
-        //    'affectedstreets' => $affectedstreets
-//
-        //]);
+        return view('features.editdisasterstatsreports', [
+            'disasterstats' => $disasterstats,
+            'affectedstreets' => $affectedstreets
+
+        ]);
     }
 
     /**

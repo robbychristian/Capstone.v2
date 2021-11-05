@@ -281,12 +281,12 @@
                         </div>
                     </div>
 
-                   
+                   @foreach ($affectedstreets as $affectedstreet)
                     <div id="dynamicAddRemove">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Affected Streets</label>
-                                <input type="text" name="addMoreInputFields[0][street]" class="form-control" />
+                                <input type="text" name="addMoreInputFields[0][street]" class="form-control" value="{{ $affectedstreet->affected_street }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.street')
                                     {{ $message }}
                                 @enderror</small>
@@ -294,7 +294,7 @@
 
                             <div class="form-group col-12 col-md-4">
                                 <label for="">Number of Families Affected</label>
-                                <input type="text" name="addMoreInputFields[0][families]" class="form-control" />
+                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"  value="{{ $affectedstreet->number_families_affected }}/>
                                 <small class="text-danger">@error('addMoreInputFields.*.families')
                                     {{ $message }}
                                 @enderror</small>
@@ -307,6 +307,7 @@
                             </div>
                         </div>
                     </div> 
+                    @endforeach
 
                     <button type="submit" class="btn btn-primary">Submit Data</button>
                 </form>
