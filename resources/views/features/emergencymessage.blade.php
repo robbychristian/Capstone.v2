@@ -3,6 +3,11 @@
 @section('sub-content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="container">
+
+            <div class="col-sm-12 col-md-8">
+                <h3 class="mb-1">Emergency Alert Message</h3>
+            </div>
+
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/emergencymessage" method="POST">
                 @elseif (Auth::user()->user_role === 3)
