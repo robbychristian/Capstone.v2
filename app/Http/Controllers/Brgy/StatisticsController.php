@@ -31,7 +31,7 @@ class StatisticsController extends Controller
         return view('features.viewdisasterstatsreports', [
             'disasterstats' => $disasterstats,
             'affectedstreets' => $affectedstreets,
-            'affectedfam' => $affectedfams
+            'affectedfams' => $affectedfams
         ]);
     }
 
