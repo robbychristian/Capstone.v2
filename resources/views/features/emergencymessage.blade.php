@@ -14,17 +14,30 @@
                     <form action="/brgy_official/emergencymessage" method="POST">
             @endif
             @csrf
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label><strong>Recipients</strong></label>
                 <input type="text" name="recipients" class="form-control" value="{{ old('recipients') }}">
                 <small class="text-danger">@error('recipients')
                         {{ $message }}
                     @enderror</small>
+            </div> -->
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Recipients</label>
+                <select class="form-control" id="exampleFormControlSelect1" >
+                    @foreach ($numbers as $number)
+                    <option value="recipients">{{ $number }}</option>
+                    @endforeach
+                </select>
+                <small class="text-danger">@error('recipients')
+                    {{ $message }}
+                @enderror</small>
             </div>
 
             <div class="form-group">
                 <label><strong>Message</strong></label>
-                <textarea name="message" id="" cols="30" rows="10" onkeyup="countChar(this)" class="form-control">{{ old('message') }}</textarea>
+                <textarea name="message" id="" cols="30" rows="10" onkeyup="countChar(this)"
+                    class="form-control">{{ old('message') }}</textarea>
                 <p class="text-right text-muted" id="charNum">85</p>
                 <small class="text-danger">@error('message')
                         {{ $message }}

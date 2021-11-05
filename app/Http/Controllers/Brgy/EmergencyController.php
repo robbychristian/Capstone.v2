@@ -29,7 +29,14 @@ class EmergencyController extends Controller
      */
     public function create()
     {
-        return view('features.emergencymessage');
+        $brgyloc = Auth::user()->brgy_loc;
+        $numbers = DB::table('user_profiles')
+            ->join('users', 'user_profiles.user_email', 'users.email')
+            ->where('brgy_loc', $brgyloc)
+            ->get('contact_no');
+        return view('features.emergencymessage', [
+            'numbers' => $numbers
+        ]);
     }
 
     function itexmo($number, $message, $apicode, $passwd)
@@ -56,12 +63,14 @@ class EmergencyController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'recipients' => 'required',
             'message' => 'required',
         ], $messages = [
+            'recipients.required' => 'The recipients is required!',
             'message.required' => 'The body field is required!',
         ]);
 
-        //$number = $request->input('recipients');
+        $number = $request->input('recipients');
         $message = $request->input('message');
         $apicode = "TR-CHRIS079696_7PYK4";
         $apipwd = "pdawzaamb7";
@@ -72,24 +81,34 @@ class EmergencyController extends Controller
             ->where('brgy_loc', $brgyloc)
             ->get('contact_no');
 
-        
+
 
         if ($validator->fails()) {
             return redirect('/brgy_official/emergencymessage/create')
                 ->withErrors($validator)
                 ->withInput();
-        }else{
-            foreach ($numbers as $number) {
-                $result = $this->itexmo($number, $message, $apicode, $apipwd);
-                if ($result == "") {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
-                } else if ($result == 0) {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
-                } else {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Error was encountered!');
-                }
+        } else {
+            $result = $this->itexmo($number, $message, $apicode, $apipwd);
+            if ($result == "") {
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
+            } else if ($result == 0) {
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+            } else {
+                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Error was encountered!');
             }
         }
+        //else{
+        //    //foreach ($numbers as $number) {
+        //    //    $result = $this->itexmo($number, $message, $apicode, $apipwd);
+        //    //    if ($result == "") {
+        //    //        return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
+        //    //    } else if ($result == 0) {
+        //    //        return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+        //    //    } else {
+        //    //        return redirect('/brgy_official/emergencymessage/create')->with('success', 'Error was encountered!');
+        //    //    }
+        //    //}
+        //}
         //} else {
         //    $result = $this->itexmo($number, $message, $apicode, $apipwd);
         //    if($result == ""){
