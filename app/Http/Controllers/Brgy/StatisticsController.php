@@ -137,12 +137,14 @@ class StatisticsController extends Controller
     public function edit($id)
     {
         $disasterstats = DisasterReport::find($id);
-        $affectedstreets = DisasterAffectedStreets::find($id);
-        return view('features.editdisasterstatsreports', [
-            'disasterstats' => $disasterstats,
-            'affectedstreets' => $affectedstreets
+        $affectedstreets = DisasterReport::find($id)->affected_streets;
 
-        ]);
+        return $affectedstreets;
+        //return view('features.editdisasterstatsreports', [
+        //    'disasterstats' => $disasterstats,
+        //    'affectedstreets' => $affectedstreets
+//
+        //]);
     }
 
     /**
