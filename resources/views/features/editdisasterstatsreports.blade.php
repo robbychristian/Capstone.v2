@@ -281,33 +281,7 @@
                         </div>
                     </div>
 
-                    <div id="dynamicAddRemove">
-                        <div class="form-row">
-                            <div class="form-group col-12 col-md-4">
-                                <label for="">Affected Streets</label>
-                                <input type="text" name="addMoreInputFields[0][street]" class="form-control"/>
-                                <small class="text-danger">@error('addMoreInputFields.*.street')
-                                    {{ $message }}
-                                @enderror</small>
-                            </div>
-
-                            <div class="form-group col-12 col-md-4">
-                                <label for="">Number of Families Affected</label>
-                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"/>
-                                <small class="text-danger">@error('addMoreInputFields.*.families')
-                                    {{ $message }}
-                                @enderror</small>
-                            </div>
-                            <div class="form-group col-6 col-md-4">
-                                <label for="">Action</label>
-                                <button type="button" name="add" id="dynamic-ar"
-                                    class="btn btn-outline-primary form-control">Add
-                                    Street</button>
-                            </div>
-                        </div>
-                    </div> 
-
-                   @foreach ($affectedstreets as $affectedstreet)
+                    @foreach ($affectedstreets as $affectedstreet)
                     <div id="dynamicAddRemove">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-4">
@@ -325,6 +299,25 @@
                                     {{ $message }}
                                 @enderror</small>
                             </div>
+                        </div>
+                    </div> 
+                    @endforeach
+
+                    <div id="dynamicAddRemove">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-4">
+                                <input type="text" name="addMoreInputFields[0][street]" class="form-control"/>
+                                <small class="text-danger">@error('addMoreInputFields.*.street')
+                                    {{ $message }}
+                                @enderror</small>
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
+                                <input type="text" name="addMoreInputFields[0][families]" class="form-control"/>
+                                <small class="text-danger">@error('addMoreInputFields.*.families')
+                                    {{ $message }}
+                                @enderror</small>
+                            </div>
                             <div class="form-group col-6 col-md-4">
                                 <label for="">Action</label>
                                 <button type="button" name="add" id="dynamic-ar"
@@ -333,7 +326,8 @@
                             </div>
                         </div>
                     </div> 
-                    @endforeach
+
+                   
 
                     <button type="submit" class="btn btn-primary">Submit Data</button>
                 </form>
