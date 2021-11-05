@@ -45,12 +45,12 @@
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>
-                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
+                                    @foreach ($affectedstreets as $affectedstreet)
                                         {{ $affectedstreet->affected_streets }}
                                     @endforeach
                                 </td>
                                 <td>
-                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
+                                    @foreach ($affectedstreets as $affectedstreet)
                                         {{ $affectedstreet->number_families_affected }}
                                     @endforeach
                                 </td>
