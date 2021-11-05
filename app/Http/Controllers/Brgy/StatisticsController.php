@@ -22,8 +22,9 @@ class StatisticsController extends Controller
         $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->get();
         $affectedstreets = DB::table('disaster_affected_streets')
             ->select('disaster_affected_streets.affected_streets')
-            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
-            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id');
+            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
+            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id');
+           
 
         $affectedfams = DB::table('disaster_affected_streets')
             ->select('disaster_affected_streets.number_families_affected')
