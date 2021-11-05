@@ -181,7 +181,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>Emergency Alert
+                        <a class="nav-link" href="{{ route('admin.emergencymessage.create') }}"><i class="fas fa-envelope mr-2"></i>Emergency Alert
                             Message</a>
                     </li>
 
