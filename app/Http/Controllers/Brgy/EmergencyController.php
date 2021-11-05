@@ -69,7 +69,10 @@ class EmergencyController extends Controller
         $apipwd = "pdawzaamb7";
 
         $brgyloc = Auth::user()->brgy_loc;
-        $number = UserProfile::where('brgy_loc', $brgyloc)->get('contact_no');
+        $number = DB::table('user_profiles')
+                    ->join('users', 'user_profiles.user_email', 'users.email')
+                    ->where('brgy_loc', $brgyloc)
+                    ->get('contact_no');
         dd($number);
 
        //if ($validator->fails()) {
