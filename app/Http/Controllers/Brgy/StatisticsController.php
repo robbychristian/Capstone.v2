@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Brgy;
 use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,8 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        return view('features.viewdisasterstatsreports');
+        $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->latest()->get();
+        return view('features.viewdisasterstatsreports')->with('disasterstats', $disasterstats);
     }
 
     /**
@@ -127,7 +129,8 @@ class StatisticsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $disasterstats = DisasterReport::find($id);
+        return view('features.editdisasterstatsreports')->with('disasterstats', $disasterstats);
     }
 
     /**
