@@ -24,14 +24,14 @@ class StatisticsController extends Controller
                             ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
                             ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
                             ->get('affected_streets');
-        $affectedfam = DB::table('disaster_affected_streets')
+        $affectedfams = DB::table('disaster_affected_streets')
                             ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
                             ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
                             ->get('number_families_affected');
         return view('features.viewdisasterstatsreports', [
             'disasterstats' => $disasterstats,
             'affectedstreets' => $affectedstreets,
-            'affectedfam' => $affectedfam
+            'affectedfam' => $affectedfams
         ]);
     }
 
