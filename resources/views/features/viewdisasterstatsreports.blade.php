@@ -31,6 +31,7 @@
                             <th scope="col">Individuals Affected</th>
                             <th scope="col">Evacuees</th>
                             <th scope="col">Streets affected</th>
+                            <th scope="col">Number of Families Affected in Street</th>
                             <th scope="col" colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -43,10 +44,14 @@
                                 <td>{{ $disaster->barangay }}</td>
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
-                                <td>{{ $disaster->individuals_affected }}</td>
                                 <td>
-                                    @foreach ($affectedstreets as $affectedstreet)
-                                        {{ $disaster->evacuees }}
+                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
+                                        {{ $disaster->affected_streets }}
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
+                                        {{ $disaster->number_families_affected }}
                                     @endforeach
                                 </td>
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
