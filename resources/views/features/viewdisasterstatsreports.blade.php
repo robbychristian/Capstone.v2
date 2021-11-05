@@ -26,6 +26,7 @@
                             <th scope="col">Created At</th>
                             <th scope="col">Month of Disaster</th>
                             <th scope="col">Year of Disaster</th>
+                            <th scope="col">Type of Disaster</th>
                             <th scope="col">Barangay</th>
                             <th scope="col">Families Affected</th>
                             <th scope="col">Individuals Affected</th>
@@ -39,6 +40,7 @@
                                 <th scope="row">{{ date('F d, Y', strtotime($disaster->created_at)) }}</th>
                                 <td>{{ $disaster->month_disaster }}</td>
                                 <td>{{ $disaster->year_disaster }}</td>
+                                <td>{{ $disaster->type_disaster }}</td>
                                 <td>{{ $disaster->barangay }}</td>
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
