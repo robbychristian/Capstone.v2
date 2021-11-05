@@ -149,7 +149,6 @@
 
                
                 <form action="/brgy_official/stats/{{ $disasterstats->id }}" method="POST">
-                @endif
                     @csrf
                     @method('PUT')
                     <div class="form-row">
