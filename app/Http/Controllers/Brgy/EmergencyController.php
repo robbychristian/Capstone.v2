@@ -33,10 +33,13 @@ class EmergencyController extends Controller
         $numbers = DB::table('user_profiles')
             ->join('users', 'user_profiles.user_email', 'users.email')
             ->where('brgy_loc', $brgyloc)
-            ->get('contact_no');
-        return view('features.emergencymessage', [
-            'numbers' => $numbers
-        ]);
+            ->get('contact_no')
+            ->toArray();
+
+        return $numbers;
+        //return view('features.emergencymessage', [
+        //    'numbers' => $numbers
+        //]);
     }
 
     function itexmo($number, $message, $apicode, $passwd)
