@@ -19,7 +19,7 @@
         </div>
 
         @if (count($disasterstats) > 0)
-            <div class="table-responsive">
+            <div class="table-responsive mt-3">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -42,6 +42,7 @@
                                 <td>{{ $disaster->year_disaster }}</td>
                                 <td>{{ $disaster->barangay }}</td>
                                 <td>{{ $disaster->families_affected }}</td>
+                                <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->evacuees }}</td>
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
