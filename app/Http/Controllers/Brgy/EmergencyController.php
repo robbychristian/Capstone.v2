@@ -38,10 +38,10 @@ class EmergencyController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'recipient' => 'required',
+            'recipients' => 'required',
             'message' => 'required',
         ], $messages = [
-            'recipient.required' => 'The recipient field is required!',
+            'recipients.required' => 'The recipient field is required!',
             'message.required' => 'The body field is required!',
         ]);
 
