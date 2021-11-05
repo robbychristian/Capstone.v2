@@ -44,7 +44,7 @@
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->evacuees }}</td>
-                                <td><a href="/brgy_official/stats/{{ $disasterstats->id }}/edit">
+                                <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
                                     <button class="btn btn-success">Edit</button>
                                 </a></td>
                                 <td><button class="btn btn-danger" type="submit">Delete</button></td>
