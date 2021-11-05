@@ -30,10 +30,18 @@ class EmergencyController extends Controller
     public function create()
     {
         $brgyloc = Auth::user()->brgy_loc;
+
+        if(Auth::user()->user_role === 3){
         $numbers = DB::table('user_profiles')
             ->join('users', 'user_profiles.user_email', 'users.email')
             ->where('brgy_loc', $brgyloc)
             ->get('contact_no');
+        }else if(Auth::user()->user_role === 1){
+            $numbers = DB::table('user_profiles')
+            ->join('users', 'user_profiles.user_email', 'users.email')
+            ->get('contact_no');
+        }
+
 
         return view('features.emergencymessage', [
             'numbers' => $numbers
