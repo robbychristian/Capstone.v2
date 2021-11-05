@@ -45,13 +45,13 @@
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>
-                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
-                                        {{ $disaster->affected_streets }}
+                                    @foreach ($affectedstreets as $affectedstreet)
+                                        {{ $affectedstreet->affected_streets }}
                                     @endforeach
                                 </td>
                                 <td>
-                                    @foreach ($affectedstreets->affectedStreets as $affectedstreet)
-                                        {{ $disaster->number_families_affected }}
+                                    @foreach ($affectedstreet as $affectedstreet)
+                                        {{ $affectedstreet->number_families_affected }}
                                     @endforeach
                                 </td>
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
