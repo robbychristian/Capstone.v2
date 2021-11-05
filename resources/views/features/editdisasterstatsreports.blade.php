@@ -350,8 +350,5 @@
             $(this).parents('#parent').remove();
         });
 
-        $(document).on('click', '.remove-input', function() {
-            $(this).parents('#deleteDiv').remove();
-        });
     </script>
 @endsection
