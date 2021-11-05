@@ -282,17 +282,14 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-12 col-md-4">
+                        <div class="form-group col-12 col-md-6">
                             <label for="">Affected Streets</label>
 
                         </div>
 
-                        <div class="form-group col-12 col-md-4">
+                        <div class="form-group col-12 col-md-6">
                             <label for="">Number of Families Affected</label>
 
-                        </div>
-                        <div class="form-group col-6 col-md-4">
-                            <label for="">Action</label>
                         </div>
                     </div>
 
