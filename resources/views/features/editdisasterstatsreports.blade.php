@@ -169,7 +169,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="nameOfdisaster" value="{{ old('nameOfdisaster') }}" value="{{ $disasterstats->name_disaster }}">
+                            <input type="text" class="form-control" name="nameOfdisaster" value="{{ $disasterstats->name_disaster }}">
                             <small id="nameOfDisaster" class="form-text text-muted">Indicate if applicable.</small>
                             <small class="text-danger">@error('nameOfdisaster')
                                     {{ $message }}
@@ -179,7 +179,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="inputDay">Date</label>
-                            <select id="month" class="form-control" name="monthOfdisaster" value="{{ old('monthOfdisaster') }}">
+                            <select id="month" class="form-control" name="monthOfdisaster">
                                 <option value="" disabled>Month</option>
                                 <option value='January'>January</option>
                                 <option value='February'>February</option>
@@ -201,7 +201,7 @@
                         <div class="form-group col-md-2">
                             <label for="inputDay" style="color:white"></label>
                             <select id="day"  class="form-control mt-2" id="inputDay" placeholder="Day"
-                            name="dayOfdisaster" value="{{ old('dayOfdisaster') }}">
+                            name="dayOfdisaster">
                                 <option value="">Day</option>
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
@@ -243,7 +243,7 @@
                         <div class="form-group col-md-2">
                             <label for="inputYear" style="color:white"></label>
                             <input type="text" class="form-control mt-2" id="inputYear" placeholder="Year"
-                                name="yearOfdisaster" value="{{ old('yearOfdisaster') }}" value="{{ $disasterstats->year_disaster }}"> 
+                                name="yearOfdisaster" value="{{ $disasterstats->year_disaster }}"> 
                             <small class="text-danger">@error('yearOfdisaster')
                                     {{ $message }}
                                 @enderror</small>
@@ -260,21 +260,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Total Number of Families Affected</label>
-                            <input type="text" class="form-control" name="familiesAffected" value="{{ old('familiesAffected') }}" value="{{ $disasterstats->families_affected }}">
+                            <input type="text" class="form-control" name="familiesAffected"  value="{{ $disasterstats->families_affected }}">
                             <small class="text-danger">@error('familiesAffected')
                                     {{ $message }}
                                 @enderror</small>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Total Number of Individuals Affected</label>
-                            <input type="text" class="form-control" name="individualsAffected" value="{{ old('individualsAffected') }}" value="{{ $disasterstats->individuals_affected }}">
+                            <input type="text" class="form-control" name="individualsAffected"  value="{{ $disasterstats->individuals_affected }}">
                             <small class="text-danger">@error('individualsAffected')
                                     {{ $message }}
                                 @enderror</small>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Total Number of Evacuees</label>
-                            <input type="text" class="form-control" name="evacuees" value="{{ old('evacuees') }}" value="{{ $disasterstats->evacuees }}">
+                            <input type="text" class="form-control" name="evacuees" >
                             <small class="text-danger">@error('evacuees')
                                     {{ $message }}
                                 @enderror</small>
