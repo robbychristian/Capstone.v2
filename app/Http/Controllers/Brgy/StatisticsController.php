@@ -137,7 +137,7 @@ class StatisticsController extends Controller
     public function edit($id)
     {
         $disasterstats = DisasterReport::find($id);
-        $affectedstreets = DisasterReport::find($id)->affected_streets;
+        $affectedstreets = DisasterReport::find($id)->affectedStreets;
 
         return $affectedstreets;
         //return view('features.editdisasterstatsreports', [
