@@ -30,8 +30,6 @@
                             <th scope="col">Families Affected</th>
                             <th scope="col">Individuals Affected</th>
                             <th scope="col">Evacuees</th>
-                            <th scope="col">Streets affected</th>
-                            <th scope="col">Number of Families Affected in Street</th>
                             <th scope="col" colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -45,12 +43,7 @@
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->evacuees }}</td>
-                                <td>
-                                   
-                                </td>
-                                <td>
-                                  
-                                </td>
+
 
                                 <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
                                         <button class="btn btn-success">Edit</button>
