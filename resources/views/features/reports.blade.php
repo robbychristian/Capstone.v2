@@ -13,7 +13,7 @@
                     <thead style="background-color: #004f91;">
                         <tr>
                             @if (Auth::user()->user_role === 1 || Auth::user()->user_role === 3)
-                                <th scope="col">Name</th>
+                                <th scope="col" style="color: white;">Name</th>
                             @endif
                             <th scope="col" style="color: white;">Title</th>
                             <th scope="col" style="color: white;">Image</th>
