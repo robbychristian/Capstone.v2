@@ -298,21 +298,18 @@
 
                      @foreach ($affectedstreets as $affectedstreet)
                         <div class="form-row">
-                            <div class="form-group col-12 col-md-4">
+                            <div class="form-group col-12 col-md-6">
                                 <input type="text" name="addMoreInputFields[0][street]" class="form-control" value="{{ $affectedstreet->affected_streets }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.street')
                                     {{ $message }}
                                 @enderror</small>
                             </div>
 
-                            <div class="form-group col-12 col-md-4">
+                            <div class="form-group col-12 col-md-6">
                                 <input type="text" name="addMoreInputFields[0][families]" class="form-control"  value="{{ $affectedstreet->number_families_affected }}"/>
                                 <small class="text-danger">@error('addMoreInputFields.*.families')
                                     {{ $message }}
                                 @enderror</small>
-                            </div>
-                            <div class="form-group col-6 col-md-4">
-                               <button type = "button" id = "deleteDiv" class="btn btn-outline-danger form-control remove-input">Delete </button>
                             </div>
                         </div>
                     @endforeach
