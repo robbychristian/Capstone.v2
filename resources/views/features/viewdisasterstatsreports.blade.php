@@ -36,7 +36,7 @@
                     <tbody>
                         @foreach ($disasterstats as $disaster)
                             <tr>
-                                <th scope="row">{{ $disaster->created_at }}</th>
+                                <th scope="row">{{ date('F d, Y', strtotime($disaster->created_at)) }}</th>
                                 <td>{{ $disaster->month_disaster }}</td>
                                 <td>{{ $disaster->year_disaster }}</td>
                                 <td>{{ $disaster->barangay }}</td>
