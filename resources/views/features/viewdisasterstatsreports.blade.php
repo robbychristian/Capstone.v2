@@ -44,6 +44,7 @@
                                 <td>{{ $disaster->barangay }}</td>
                                 <td>{{ $disaster->families_affected }}</td>
                                 <td>{{ $disaster->individuals_affected }}</td>
+                                <td>{{ $disaster->evacuees }}</td>
                                 <td>
                                     @foreach ($affectedstreets as $affectedstreet)
                                         {{ $affectedstreet->affected_streets }}
