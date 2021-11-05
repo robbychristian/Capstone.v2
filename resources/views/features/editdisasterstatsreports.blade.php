@@ -312,7 +312,7 @@
                                 @enderror</small>
                             </div>
                             <div class="form-group col-6 col-md-4">
-                               <button type = "button" id = "deleteDiv" class="btn btn-outline-danger form-control remove-input-field">Delete </button>
+                               <button type = "button" id = "deleteDiv" class="btn btn-outline-danger form-control remove-input">Delete </button>
                             </div>
                         </div>
                     @endforeach
