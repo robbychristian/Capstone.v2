@@ -21,17 +21,20 @@ class StatisticsController extends Controller
     {
         $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->get();
         $affectedstreets = DB::table('disaster_affected_streets')
-                            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
-                            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
-                            ->get('affected_streets');
+            ->select('disaster_affected_streets.affected_streets')
+            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
+            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id');
+
         $affectedfams = DB::table('disaster_affected_streets')
-                            ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
-                            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
-                            ->get('number_families_affected');
+            ->select('disaster_affected_streets.number_families_affected')
+            ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
+            ->leftJoin('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id');
+
+
         return view('features.viewdisasterstatsreports', [
             'disasterstats' => $disasterstats,
-            'affectedstreets' => $affectedstreets,
-            'affectedfams' => $affectedfams
+            'affectedfams' => $affectedfams,
+            'affectedstreets' => $affectedstreets
         ]);
     }
 
@@ -52,7 +55,7 @@ class StatisticsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $validator = Validator::make($request->all(), [
             'typeOfdisaster' => 'required',
             'nameOfdisaster' => 'required|max:255',
@@ -149,7 +152,7 @@ class StatisticsController extends Controller
         //return view('features.editdisasterstatsreports', [
         //    'disasterstats' => $disasterstats,
         //    'affectedstreets' => $affectedstreets
-//
+        //
         //]);
     }
 
