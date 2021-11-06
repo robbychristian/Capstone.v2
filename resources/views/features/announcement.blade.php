@@ -38,7 +38,13 @@
             @endif
         </div>
 
-        @if(count($announcements) > 0)
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
+        @if (count($announcements) > 0)
 
             <div class="card w-100 card-announce-custom-bg mt-3">
                 <ul class="list-group list-group-flush">
@@ -71,7 +77,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="v-announcement-date">
-                                                    <form action="/admin/announcements/{{ $announcement->id }}" method="POST">
+                                                    <form action="/admin/announcements/{{ $announcement->id }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('delete')
                                                         <button class="btn btn-danger">Delete</button>
@@ -106,7 +113,7 @@
                     <!-- END OF ANNOUNCEMENT LIST -->
                 </ul>
             </div>
-           
+
             <div class="d-grid gap-2 mt-5 d-md-flex justify-content-md-end">
                 {{ $announcements->links() }}
             </div>

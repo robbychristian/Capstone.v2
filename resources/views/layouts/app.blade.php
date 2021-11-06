@@ -44,12 +44,12 @@
     <style>
         #brgyDelaPaz:checked + .button-label {
             background: #3490dc;
-            color: #efefef;
+  color: #efefef;
         }
 
         #brgyDelaPaz:checked + .button-label:hover {
             background: #3490dc;
-            color: #e2e2e2;
+  color: #e2e2e2;
         }
 
         #brgyManggahan:checked + .button-label {
@@ -534,7 +534,7 @@
                                                     class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i
+                                            <a class="nav-link" href="{{ route('brgy_official.emergencymessage.create') }}"><i
                                                     class="fas fa-envelope mr-2"></i>Emergency Alert
                                                 Message</a>
                                         </li>
@@ -695,29 +695,34 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i
+                                            <a class="nav-link" href="{{ route('admin.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link" href="{{ route('admin.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Emergency
+                                            <a class="nav-link" href="{{ route('admin.emergencymessage.create') }}"><i class="fas fa-edit mr-2"></i>Emergency
                                                 Alert Message</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>User
-                                                Role</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                                href="{{ route('admin.manageresident.index') }}"><i
-                                                    class="fas fa-edit mr-2"></i>Manage Residents</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#"><i class="fas fa-edit mr-2"></i>Manage
-                                                Barangay Officials</a>
+                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu2" data-toggle="collapse"
+                                                data-target="#submenu2"><i class="fas fa-user-tag mr-2"></i> <span
+                                                    class="d-none d-sm-inline">User Role</span></a>
+                                            <div class="collapse" id="submenu2" aria-expanded="false">
+                                                <ul class="flex-column pl-2 nav">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('admin.manageresident.index') }}">Manage Residents</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link ml-3"
+                                                            href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
+                                                            Officials</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                     </div>
                                     <li class="nav-item dropdown d-none d-xl-block d-lg-block d-md-block">

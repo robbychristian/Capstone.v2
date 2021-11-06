@@ -8,20 +8,20 @@
         </div>
 
         @if (count($reports) > 0)
-            <div class="table-responsive">
+            <div class="table-responsive mt-5">
                 <table class="table table-hover">
-                    <thead>
+                    <thead style="background-color: #004f91;">
                         <tr>
                             @if (Auth::user()->user_role === 1 || Auth::user()->user_role === 3)
-                                <th scope="col">Name</th>
+                                <th scope="col" style="color: white;">Name</th>
                             @endif
-                            <th scope="col">Title</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">Timestamp</th>
-                            <th scope="col" colspan="3">Action</th>
+                            <th scope="col" style="color: white;">Title</th>
+                            <th scope="col" style="color: white;">Image</th>
+                            <th scope="col" style="color: white;">Description</th>
+                            <th scope="col" style="color: white;">Status</th>
+                            <th scope="col" style="color: white;">Location</th>
+                            <th scope="col" style="color: white;">Timestamp</th>
+                            <th scope="col" style="color: white;" colspan="3">Action</th>
                         </tr>
                     </thead>
                     <tbody>

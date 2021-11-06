@@ -23,6 +23,6 @@ class DisasterReport extends Model
 
     public function affectedStreets()
     {
-        return $this->hasOne(DisasterAffectedStreets::class, 'disaster_id', 'id');
+        return $this->hasMany(DisasterAffectedStreets::class, 'disaster_id', 'id');
     }
 }
