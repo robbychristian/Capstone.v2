@@ -26,11 +26,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
-            $test = (new MailMessage)
+            return (new MailMessage)
                 ->subject('Verify Email Address')
                 ->line('Click the button below to verify your email address.')
                 ->action('Verify Email Address', $url);
-            return redirect('user/login');
         });
     }
 }
