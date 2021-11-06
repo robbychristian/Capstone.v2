@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AnnouncementController extends Controller
 {
@@ -88,9 +89,12 @@ class AnnouncementController extends Controller
         //
     }
 
-    public function fetchAnnouncements()
+    public function fetchAnnouncements($brgy)
     {
-        $announcements = Announcement::all();
+        $announcements = DB::table('announcements')
+            ->where('brgy_loc', $brgy)
+            ->get();
+
         return $announcements;
     }
 }
