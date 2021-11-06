@@ -34,7 +34,7 @@ Route::get("fetchreport/{id}/{brgy}", [ReportsController::class, 'fetchReport'])
 Route::post("sendreport", [ReportsController::class, 'submitReport']);
 Route::post("uploadimage", [ReportsController::class, 'uploadImage']);
 Route::get('deletereport/{id}', [ReportsController::class, 'deleteReport']);
-Route::get('vulnerablearea', [VulnerabilityMapController::class, 'fetchLocations']);
+Route::get('vulnerablearea/{brgy}', [VulnerabilityMapController::class, 'fetchLocations']);
 Route::get('evacuationcenters', [EvacuationController::class, 'fetchEvacuation']);
 Route::post('updateprofile', [AccountController::class, 'editProfile']);
 Route::post('checkpass', [AccountController::class, 'checkPass']);
