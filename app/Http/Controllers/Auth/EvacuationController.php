@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EvacuationController extends Controller
 {
@@ -88,9 +89,11 @@ class EvacuationController extends Controller
         //
     }
 
-    public function fetchEvacuation()
+    public function fetchEvacuation($brgy)
     {
-        $evacuation = EvacuationCenters::all();
+        $evacuation = DB::table('evacuation_centers')
+            ->where('brgy_loc', $brgy)
+            ->get();
         return $evacuation;
     }
 }
