@@ -73,8 +73,8 @@ class EmergencyController extends Controller
 
         $number = $request->input('recipients');
         $message = $request->input('message');
-        $apicode = "TR-CHRIS079696_7PYK4";
-        $apipwd = "pdawzaamb7";
+        $apicode = "ST-CHRIS079696_15BMB";
+        $apipwd = "{sti)c]m8)";
 
         $brgyloc = Auth::user()->brgy_loc;
         $numbers = DB::table('user_profiles')
