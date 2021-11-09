@@ -1081,10 +1081,11 @@
         <!-- BUTTON FOR THE TRANSLATION -->
 
         <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+            <!--
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" id="pills-eng-tab" data-toggle="pill" href="#pills-eng" role="tab"
                     aria-controls="pills-eng" aria-selected="true">ENG</a>
-            </li>
+            </li> -->
             <!--
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="pills-fil-tab" data-toggle="pill" href="#pills-fil" role="tab"
