@@ -1085,10 +1085,11 @@
                 <a class="nav-link active" id="pills-eng-tab" data-toggle="pill" href="#pills-eng" role="tab"
                     aria-controls="pills-eng" aria-selected="true">ENG</a>
             </li>
+            <!--
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="pills-fil-tab" data-toggle="pill" href="#pills-fil" role="tab"
                     aria-controls="pills-fil" aria-selected="false">FIL</a>
-            </li>
+            </li> -->
         </ul> <!-- END TAG OF BUTTON FOR THE TRANSLATION -->
 
     </div>
