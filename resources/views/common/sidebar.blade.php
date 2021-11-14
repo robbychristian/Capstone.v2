@@ -14,35 +14,58 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <i class="fas fa-fw fa-user-circle"></i>
+            <span>Account</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    <!-- Heading 
     <div class="sidebar-heading">
         Interface
-    </div>
+    </div> -->
+
+
+    <!-- Nav Item - Announcements -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-bullhorn"></i>
+            <span>Announcements</span></a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <span>Protocols</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="">Buttons</a>
-                <a class="collapse-item" href="">Cards</a>
+                <a class="collapse-item" href="">Guidelines</a>
+                <a class="collapse-item" href="">Evacuation Centers</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
+    <!-- Nav Item - Announcements -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-map-marked"></i>
+            <span>Vulnerability Map</span></a>
+    </li>
+
+    <!-- Nav Item - Announcements -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-edit"></i>
+            <span>Reports</span></a>
+    </li>
+
+
+
+    <!-- Nav Item - Utilities Collapse Menu 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
@@ -59,17 +82,17 @@
                 <a class="collapse-item" href="">Other</a>
             </div>
         </div>
-    </li>
+    </li>-->
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    <!-- Heading 
     <div class="sidebar-heading">
         Addons
-    </div>
+    </div>-->
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Nav Item - Pages Collapse Menu 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
@@ -88,7 +111,7 @@
                 <a class="collapse-item" href="">Blank Page</a>
             </div>
         </div>
-    </li>
+    </li>-->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -112,12 +135,12 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    <!-- Sidebar Message -->
+    <!-- Sidebar Message 
     <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
         <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!
         </p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div>
+    </div>-->
 
 </ul>
