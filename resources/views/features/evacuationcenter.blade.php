@@ -106,7 +106,7 @@
         }
     </script>
     <div class="container-fluid" style="color: black;">
-        <h3 class="mb-3">Evacuation Centers and Nearby Hospitals</h3>
+        <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Evacuation Centers</h1>
         @if (Auth::user()->user_role === 1)
             <form class="mb-3">
                 <p class="vul-caption mt-3">Choose the barangay:</p>

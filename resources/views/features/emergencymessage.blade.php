@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="col-sm-12 col-md-8">
-            <h3 class="mb-1">Emergency Alert Message</h3>
+            <h1 class="h3 mb-4 text-gray-800">Emergency Alert Message</h1>
         </div>
 
         <div class="container mt-3">

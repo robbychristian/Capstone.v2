@@ -5,7 +5,7 @@
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="row">
             <div class="col-sm-12 col-md-8">
-                <h3 class="mb-1">Disaster Statistical Reports</h3>
+                <h1 class="h3 mb-4 text-gray-800">Disaster Statistical Reports</h1>
             </div>
 
             <!--ACCESSIBLE ONLY TO BRGY-->

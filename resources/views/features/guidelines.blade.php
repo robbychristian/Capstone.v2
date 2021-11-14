@@ -11,7 +11,7 @@
         <div class="tab-content" id="pills-tabContent">
             <!-- ENGLISH CONTENT -->
             <div class="tab-pane fade show active" id="pills-eng" role="tabpanel" aria-labelledby="pills-eng-tab">
-                <h3 class="mb-3">Disaster Preparedness</h3>
+                <h1 class="h3 mb-4 text-gray-800">Disaster Preparedness</h1>
 
                 <!-- NAVIGATION OF DISASTER -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -992,7 +992,7 @@
             <!-- FILPINO CONTENT -->
 
             <div class="tab-pane fade" id="pills-fil" role="tabpanel" aria-labelledby="pills-fil-tab">
-                <h3 class="mb-3">Paghahanda para sa Kalamidad</h3>
+                <h1 class="h3 mb-4 text-gray-800">Paghahanda para sa Kalamidad</h1>
                 <!-- NAVIGATION OF DISASTER -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">

@@ -8,7 +8,7 @@
             </div>
         @endif
         <div class="row">
-            <div class="mb-4 col-10 h3">Manage Resident</div>
+            <h1 class="h3 mb-4 text-gray-800">Manage Resident</h1>
             <div class="col-2 mb-4">
                 @if (Auth::user()->user_role === 1)
                     <a href="{{ route('admin.manageresident.create') }}">
