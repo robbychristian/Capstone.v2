@@ -158,7 +158,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('admin.guidelines.index') }}">Guidelines</a>
                     <a class="collapse-item" href="{{ route('admin.evacuation.index') }}">Evacuation
-                        Centers</a>
+                        Centers <br> and Hospitals</a>
                 </div>
             </div>
         </li>
@@ -197,6 +197,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('admin.manageresident.index') }}">Manage Resident</a>
                     <a class="collapse-item" href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
+                        <br>
                         Officials</a>
                 </div>
             </div>
