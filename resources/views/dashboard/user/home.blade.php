@@ -26,16 +26,6 @@
                     </div>
                 </div>
             </div>
-        @else
-            <div class="row">
-
-                <!-- Vertical Navbar -->
-                @include('layouts.navbar')
-
-                <!-- Sub-Content (Features)-->
-                @yield('sub-content')
-
-            </div>
         @endif
     </div>
 @endsection
