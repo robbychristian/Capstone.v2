@@ -42,22 +42,22 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="">Guidelines</a>
-                <a class="collapse-item" href="">Evacuation Centers</a>
+                <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
+                <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation Centers</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Announcements -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}">
             <i class="fas fa-fw fa-map-marked"></i>
             <span>Vulnerability Map</span></a>
     </li>
 
-    <!-- Nav Item - Announcements -->
+    <!-- Nav Item - Reports -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('user.reports.index') }}">
             <i class="fas fa-fw fa-edit"></i>
             <span>Reports</span></a>
     </li>

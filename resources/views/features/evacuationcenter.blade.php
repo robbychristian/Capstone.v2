@@ -1,7 +1,7 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Evacuation Centers and Hospitals')
-@section('sub-content')
+@section('content')
 
     <script type="text/javascript">
         function initMap() {
