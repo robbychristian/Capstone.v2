@@ -36,7 +36,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
-                    <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation Centers</a>
+                    <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation
+                        Centers <br> and Hospitals</a>
                 </div>
             </div>
         </li>
@@ -89,7 +90,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
                     <a class="collapse-item" href="{{ route('brgy_official.evacuation.index') }}">Evacuation
-                        Centers</a>
+                        Centers <br> and Hospitals</a>
                 </div>
             </div>
         </li>
