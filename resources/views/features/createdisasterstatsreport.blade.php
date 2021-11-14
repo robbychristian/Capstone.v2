@@ -1,5 +1,4 @@
         @extends('layouts.master')
-
         @section('title', '| Disaster Statistical Report')
     @section('content')
         <script>
@@ -113,7 +112,7 @@
                     } else if (valueSelected == 'January' || valueSelected == 'March' || valueSelected ==
                         'May' ||
                         valueSelected == 'July' || valueSelected == 'September' || valueSelected == 'November'
-                        ) {
+                    ) {
                         $("#day").empty()
                         $.each(day31, function(key, value) {
                             $("#day").append($("<option></option>")
@@ -135,7 +134,7 @@
                 })
             })
         </script>
-        <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+        <div class="container-fluid" style="color: black">
             <h1 class="h3 mb-4 text-gray-800">Create Disaster Assessment</h1>
             <div class="card">
                 <div class="card-body">
@@ -174,7 +173,8 @@
                             <label>Name</label>
                             <input type="text" class="form-control" name="nameOfdisaster"
                                 value="{{ old('nameOfdisaster') }}">
-                            <small id="nameOfDisaster" class="form-text text-muted">Indicate if applicable.</small>
+                            <small id="nameOfDisaster" class="form-text text-muted">Indicate if
+                                applicable.</small>
                             <small class="text-danger">@error('nameOfdisaster')
                                     {{ $message }}
                                 @enderror</small>
@@ -343,9 +343,9 @@
                 $("#dynamicAddRemove").append(
                     '<div class="form-row" id="parent"><div class="form-group col-12 col-md-4"><input type="text" name="addMoreInputFields[' +
                     i +
-                    '][street]" class="form-control" /> <small class="text-danger">    @error('addMoreInputFields.*.street'){{ $message }}@enderror</small></div><div class="form-group col-12 col-md-4"> <input type = "text" name = "addMoreInputFields[' +
+                    '][street]" class="form-control" /> <small class="text-danger">            @error('addMoreInputFields.*.street'){{ $message }}@enderror</small></div><div class="form-group col-12 col-md-4"> <input type = "text" name = "addMoreInputFields[' +
                     i +
-                    '][families]" class = "form-control"/> <small class="text-danger">@error('addMoreInputFields.*.families'){{ $message }}@enderror</small></div> <div class = "form-group col-6 col-md-4" ><button type = "button" name = "add" id = "dynamic-ar" class="btn btn-outline-danger form-control remove-input-field">Delete </button> </div></div>'
+                    '][families]" class = "form-control"/> <small class="text-danger">                    @error('addMoreInputFields.*.families'){{ $message }}@enderror</small></div> <div class = "form-group col-6 col-md-4" ><button type = "button" name = "add" id = "dynamic-ar" class="btn btn-outline-danger form-control remove-input-field">Delete </button> </div></div>'
                 );
             });
             $(document).on('click', '.remove-input-field', function() {
