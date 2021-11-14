@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('img/logo-navbar.png') }}" alt="" srcset="" height="80" width="80">
+            <img src="{{ asset('img/logo-navbar.png') }}" alt="" srcset="" height="70" width="70">
         </div>
         <div class="sidebar-brand-text mx-3">KaBisig</div>
     </a>
