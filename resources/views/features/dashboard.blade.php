@@ -3,7 +3,7 @@
 @section('title', '| Dashboard')
 @section('content')
 
-    <div class="col-xl-10 col-lg-9 col-md-8">
+    <div class="container-fluid" style="color: black;">
 
         <div class="d-grid gap-2  d-lg-flex d-md-flex justify-content-md-end mt-4">
             @if (Auth::user()->user_role === 3)
@@ -421,6 +421,7 @@
                     title: {
                         display: true,
                         text: 'Families Affected per Disaster',
+                        fontSize: 30,
                     }
                 },
                 scales: {
@@ -834,6 +835,7 @@
                     title: {
                         display: true,
                         text: 'Individuals Affected per Disaster',
+                        fontSize: 30,
                     }
                 },
 
@@ -1249,6 +1251,7 @@
                     title: {
                         display: true,
                         text: 'Evacuees per Disaster',
+                        fontSize: 30,
                     }
                 },
                 scales: {
