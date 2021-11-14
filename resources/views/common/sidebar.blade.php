@@ -57,7 +57,7 @@
 
 
     @elseif (Auth::user()->user_role === 3)
-        <!-- Nav Item - Account -->
+        <!-- Nav Item - Dashboard -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}">
                 <i class="fas fa-fw fa-chart-bar"></i>
@@ -129,6 +129,79 @@
                 <i class="fas fa-fw fa-users"></i>
                 <span>Manage Resident</span></a>
         </li>
+
+
+    @elseif (Auth::user()->user_role === 1)
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('admin.dashboard.index') }}">
+                <i class="fas fa-fw fa-chart-bar"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.announcements.index') }}">
+                <i class="fas fa-fw fa-bullhorn"></i>
+                <span>Announcements</span></a>
+        </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-bookmark"></i>
+                <span>Protocols</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.guidelines.index') }}">Guidelines</a>
+                    <a class="collapse-item" href="{{ route('admin.evacuation.index') }}">Evacuation
+                        Centers</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.vulnerabilitymap.index') }}">
+                <i class="fas fa-fw fa-map-marked"></i>
+                <span>Vulnerability Map</span></a>
+        </li>
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.reports.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>Reports</span></a>
+        </li>
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.emergencymessage.create') }}">
+                <i class="fas fa-fw fa-envelope"></i>
+                <span>Emergency Alert
+                    Message</span></a>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-user-tag"></i>
+                <span>User Roles</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.manageresident.index') }}">Manage Resident</a>
+                    <a class="collapse-item" href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
+                        Officials</a>
+                </div>
+            </div>
+        </li>
+
 
     @endif
 
