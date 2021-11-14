@@ -1,9 +1,9 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #004F91">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('img/logo-navbar.png') }}" alt="" srcset="" height="70" width="70">
+            <img src="{{ asset('img/logo-navbar.png') }}" alt="" srcset="" height="60" width="60">
         </div>
         <div class="sidebar-brand-text mx-3">KaBisig</div>
     </a>
