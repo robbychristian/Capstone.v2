@@ -1013,10 +1013,6 @@
                             aria-controls="tsunami" aria-selected="false">Tsunami</a>
                     </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="lupa-tab" data-toggle="tab" href="#lupa" role="tab"
-                            aria-controls="lupa" aria-selected="false">Pagguho ng Lupa</a>
-                    </li>
                 </ul> <!-- END OF NAVIGATION OF DISASTER -->
 
                 <!-- MAIN CONTAINER OF THE CONTENT OF GUIDELINES -->
@@ -1255,6 +1251,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- credits of flood -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><strong>&copy; Republic of the Philippines - Office of Civil
+                                    Defense</strong></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><i><a href="https://mmda.gov.ph/images/FAQ/flood.jpg"
+                                        target="_blank">Tingnan dito</a></i></div>
+                        </div>
+
+                        <!-- end of credits -->
                     </div> <!-- END DIV OF FLOOD CONTENT -->
 
                     <!-- EARTHQUAKE CONTENT -->
@@ -1510,6 +1519,19 @@
                             </div>
                         </div>
 
+                        <!-- credits of flood -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><strong>&copy; Republic of the Philippines - Office of Civil
+                                    Defense</strong></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><i><a href="https://mmda.gov.ph/images/FAQ/Earthquake.jpg"
+                                        target="_blank">Tingnan dito</a></i></div>
+                        </div>
+
+                        <!-- end of credits -->
+
                     </div>
                     <!-- END DIV OF EARTHQUAKE -->
 
@@ -1720,6 +1742,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- credits of flood -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><strong>&copy; Republic of the Philippines - Office of Civil
+                                    Defense</strong></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><i><a href="https://mmda.gov.ph/images/FAQ/Tropical-Cyclone.jpg"
+                                        target="_blank">See source here</a></i></div>
+                        </div>
+
+                        <!-- end of credits -->
                     </div>
 
                     <!-- END DIV OF TROPICAL CYCLONE -->
@@ -1922,6 +1957,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- credits of flood -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><strong>&copy; Republic of the Philippines - Office of Civil
+                                    Defense</strong></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="text-copyright"><i><a href="https://mmda.gov.ph/images/FAQ/Tsunami.jpg"
+                                        target="_blank">See source here</a></i></div>
+                        </div>
+
+                        <!-- end of credits -->
                     </div>
                     <!-- END DIV OF TSUNAMI -->
 
