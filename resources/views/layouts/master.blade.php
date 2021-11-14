@@ -29,9 +29,31 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .card-announce-custom-bg {
+            background-color: #f5f5f5 !important;
+        }
+
+        .v-announcement-title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+
+        .v-announcement-date-title {
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 
-<body id="page-top" style='font-family: "Montserrat", sans-serif;'>
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
