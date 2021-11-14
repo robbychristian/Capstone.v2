@@ -17,7 +17,7 @@
     <div class="container-fluid" style="color: black;">
         <div class="row">
             <div class="col-10">
-                <h1 class="h3 mb-4 text-gray-800">Announcements</h1>
+                <h1 class="h3 mb-4 text-gray-800">Add Barangay Official</h1>
 
             </div>
             <div class="col-2">
