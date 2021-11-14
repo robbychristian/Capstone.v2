@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
             <i class="fas fa-fw fa-user-circle"></i>
             <span>Account</span></a>
     </li>
@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Announcements -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('user.announcements.index') }}">
             <i class="fas fa-fw fa-bullhorn"></i>
             <span>Announcements</span></a>
     </li>
