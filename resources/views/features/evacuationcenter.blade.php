@@ -105,7 +105,7 @@
             }
         }
     </script>
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black;">
         <h3 class="mb-3">Evacuation Centers and Nearby Hospitals</h3>
         @if (Auth::user()->user_role === 1)
             <form class="mb-3">
