@@ -7,18 +7,6 @@
                 {{ Session::get('success') }}
             </div>
         @endif
-        <div class="row">
-            <h1 class="h3 mb-4 text-gray-800">Manage Resident</h1>
-            <div class="col-2 mb-4">
-                @if (Auth::user()->user_role === 1)
-                    <a href="{{ route('admin.manageresident.create') }}">
-                    @elseif (Auth::user()->user_role === 3)
-                        <a href="{{ route('brgy_official.manageresident.create') }}">
-                @endif
-                <button class="btn btn-primary">Add Resident</button>
-                </a>
-            </div>
-        </div>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Manage Resident</h1>
