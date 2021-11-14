@@ -60,12 +60,12 @@
         <!-- Nav Item - Account -->
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}">
-                <i class="fas fa-fw fa-user-circle"></i>
+                <i class="fas fa-fw fa-chart-bar"></i>
                 <span>Dashboard</span></a>
         </li>
 
         <!-- Nav Item - Account -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/brgy_official/account/{{ Auth::user()->id }}/edit">
                 <i class="fas fa-fw fa-user-circle"></i>
                 <span>Account</span></a>
@@ -108,27 +108,27 @@
                 <span>Reports</span></a>
         </li>
 
-                <!-- Nav Item - Reports -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
-                        <i class="fas fa-fw fa-envelope"></i>
-                        <span>Emergency Alert
-                            Message</span></a>
-                </li>
-
-                        <!-- Nav Item - Reports -->
+        <!-- Nav Item - Reports -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
+            <a class="nav-link" href="{{ route('brgy_official.emergencymessage.create') }}">
+                <i class="fas fa-fw fa-envelope"></i>
+                <span>Emergency Alert
+                    Message</span></a>
+        </li>
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.stats.index') }}">
                 <i class="fas fa-fw fa-clipboard"></i>
                 <span>Disaster Statistics</span></a>
         </li>
 
-                <!-- Nav Item - Reports -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
-                        <i class="fas fa-fw fa-users"></i>
-                        <span>Manage Resident</span></a>
-                </li>
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.manageresident.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Manage Resident</span></a>
+        </li>
 
     @endif
 
