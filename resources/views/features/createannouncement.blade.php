@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('title', '| Announcements')
 @section('content')
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
-        <div class="container">
+    <div class="container-fluid" style="color: black;">
+        <h1 class="h3 mb-4 text-gray-800">Create an Announcement</h1>
+        <div class="container-fluid">
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/announcements" method="POST">
                 @elseif (Auth::user()->user_role === 3)
