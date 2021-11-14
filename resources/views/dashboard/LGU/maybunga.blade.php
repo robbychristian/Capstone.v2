@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', '| Barangay Maybunga')
-@section('sub-content')
+@section('content')
 
     <div class="container-fluid" style="color: black;">
 

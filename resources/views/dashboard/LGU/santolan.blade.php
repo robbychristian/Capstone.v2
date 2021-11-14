@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', '| Barangay Santolan')
-@section('sub-content')
+@section('content')
 
     <div class="container-fluid" style="color: black;">
 
