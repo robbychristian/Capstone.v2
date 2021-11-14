@@ -3,7 +3,7 @@
 @section('title', '| Generate Disaster Statistical Report')
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="color: black">
         <div class="card" style="width: 30rem;">
 
             <div class="card-body">
