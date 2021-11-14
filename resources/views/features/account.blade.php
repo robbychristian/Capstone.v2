@@ -1,4 +1,3 @@
-@extends('dashboard.admin.home')
 @extends('layouts.master')
 @if (Auth::user()->user_role === 4)
     @section('title', '| Account')
