@@ -1,10 +1,9 @@
-@extends('dashboard.admin.home')
 @extends('layouts.master')
 
 @section('title', '| Announcements')
 @section('content')
 
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid">
 
         <div class="row">
             <div class="col-sm-12 col-md-8">
