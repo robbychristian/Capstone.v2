@@ -1,12 +1,9 @@
 @extends('layouts.master')
 @section('title', '| Emergency Alert Message')
 @section('content')
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
-        <div class="col-sm-12 col-md-8">
-            <h1 class="h3 mb-4 text-gray-800">Emergency Alert Message</h1>
-        </div>
-
-        <div class="container mt-3">
+    <div class="container-fluid" style="color: black;">
+        <h1 class="h3 mb-4 text-gray-800">Send Emergency Alert Message</h1>
+        <div class="container-fluid">
             @if (Session::get('success'))
                 <div class="alert alert-success mt-3 mb-3">
                     {{ Session::get('success') }}
