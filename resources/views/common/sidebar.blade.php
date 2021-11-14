@@ -11,12 +11,126 @@
     <!-- Divider 
     <hr class="sidebar-divider my-0">-->
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
-            <i class="fas fa-fw fa-user-circle"></i>
-            <span>Account</span></a>
-    </li>
+    @if (Auth::user()->user_role === 4)
+        <!-- Nav Item - Account -->
+        <li class="nav-item active">
+            <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
+                <i class="fas fa-fw fa-user-circle"></i>
+                <span>Account</span></a>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.announcements.index') }}">
+                <i class="fas fa-fw fa-bullhorn"></i>
+                <span>Announcements</span></a>
+        </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-bookmark"></i>
+                <span>Protocols</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
+                    <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation Centers</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}">
+                <i class="fas fa-fw fa-map-marked"></i>
+                <span>Vulnerability Map</span></a>
+        </li>
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.reports.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>Reports</span></a>
+        </li>
+
+
+    @elseif (Auth::user()->user_role === 3)
+        <!-- Nav Item - Account -->
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}">
+                <i class="fas fa-fw fa-user-circle"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Nav Item - Account -->
+        <li class="nav-item active">
+            <a class="nav-link" href="/brgy_official/account/{{ Auth::user()->id }}/edit">
+                <i class="fas fa-fw fa-user-circle"></i>
+                <span>Account</span></a>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.announcements.index') }}">
+                <i class="fas fa-fw fa-bullhorn"></i>
+                <span>Announcements</span></a>
+        </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-bookmark"></i>
+                <span>Protocols</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('brgy_official.guidelines.index') }}">Guidelines</a>
+                    <a class="collapse-item" href="{{ route('brgy_official.evacuation.index') }}">Evacuation
+                        Centers</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.vulnerabilitymap.index') }}">
+                <i class="fas fa-fw fa-map-marked"></i>
+                <span>Vulnerability Map</span></a>
+        </li>
+
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>Reports</span></a>
+        </li>
+
+                <!-- Nav Item - Reports -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
+                        <i class="fas fa-fw fa-envelope"></i>
+                        <span>Emergency Alert
+                            Message</span></a>
+                </li>
+
+                        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
+                <i class="fas fa-fw fa-clipboard"></i>
+                <span>Disaster Statistics</span></a>
+        </li>
+
+                <!-- Nav Item - Reports -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('brgy_official.reports.index') }}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Manage Resident</span></a>
+                </li>
+
+    @endif
 
     <!-- Divider 
     <hr class="sidebar-divider">-->
@@ -25,44 +139,6 @@
     <div class="sidebar-heading">
         Interface
     </div> -->
-
-
-    <!-- Nav Item - Announcements -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.announcements.index') }}">
-            <i class="fas fa-fw fa-bullhorn"></i>
-            <span>Announcements</span></a>
-    </li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-bookmark"></i>
-            <span>Protocols</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
-                <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation Centers</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Announcements -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}">
-            <i class="fas fa-fw fa-map-marked"></i>
-            <span>Vulnerability Map</span></a>
-    </li>
-
-    <!-- Nav Item - Reports -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.reports.index') }}">
-            <i class="fas fa-fw fa-edit"></i>
-            <span>Reports</span></a>
-    </li>
-
 
 
     <!-- Nav Item - Utilities Collapse Menu 
