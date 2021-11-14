@@ -3,7 +3,7 @@
 @section('title', '| Announcements')
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="color: black;">
 
         <div class="row">
             <div class="col-sm-12 col-md-8">
