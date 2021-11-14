@@ -13,7 +13,7 @@
 
     @if (Auth::user()->user_role === 4)
         <!-- Nav Item - Account -->
-        <li class="nav-item active">
+        <li class="nav-item ">
             <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
                 <i class="fas fa-fw fa-user-circle"></i>
                 <span>Account</span></a>
@@ -58,7 +58,7 @@
 
     @elseif (Auth::user()->user_role === 3)
         <!-- Nav Item - Account -->
-        <li class="nav-item active">
+        <li class="nav-item ">
             <a class="nav-link" href="{{ route('brgy_official.dashboard.index') }}">
                 <i class="fas fa-fw fa-chart-bar"></i>
                 <span>Dashboard</span></a>
