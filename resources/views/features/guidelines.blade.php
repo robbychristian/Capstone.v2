@@ -1730,31 +1730,194 @@
                             <div class="row">
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center">BAGO BUMAHA</div>
+                                        <div class="col h4 text-center">BAGO MAGKARON NG TSUNAMI</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">ALAMIN ANG PELIGRO SA INYONG
+                                                    LUGAR.
+                                                </div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-bullhorn fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Alamin kung panganib ng
+                                                    tsunami ang inyong lugar.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-map-marked fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Alamin ang lugar na
+                                                    paglilikasan at ang pinakamabilis at ligtas na daan patungo dito.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-hands-helping fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Makilahok sa mga pagsasanay at
+                                                    paghahanda ng komunidad sa baha.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-seedling fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Magtanim ng mga bakawan at
+                                                    puno sa tabing dagat.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-suitcase fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Ihanda ang GO BAG na
+                                                    naglalalman ng mga pangangailangan ng pamilya.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center">HABANG BUMABAHA</div>
+                                        <div class="col h4 text-center">HABANG MAY TSUNAMI</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">ALAMIN ANG MGA SENYALES NG ISANG
+                                                    PAPARATING NA TSUNAMI
+                                                </div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-chart-line fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Lindol na may sapat na lakas
+                                                    para maramdaman.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-sun fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading"> &nbsp;&nbsp;&nbsp; Biglaang
+                                                    pagbaba o pagtaas ng tubig dagat.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-volume-up fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dagudong ng papalapit na tsunami.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">MANATILI SA MATAAS NG BAKURAN.
+                                                </div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-mountain fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Huwag manatili sa tabing dagat
+                                                    matapos anf malakas na lindol. Agad pumunta sa mataas na lugar.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-camera fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Huwag pumunta sa tabning dagat
+                                                    upang panooring o kuhaan ng larawan ang tsunami.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-xs-12 col-lg-4">
                                     <div class="row mb-3">
-                                        <div class="col h4 text-center">PAGKATAPOS NG BAHA</div>
+                                        <div class="col h4 text-center">PAGKATAPOS NG TSUNAMI</div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col-12 guide-content-heading">MANATILING ALERTO AT MAGINGAT
+                                                    LAGI.</div>
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-door-open fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Lisanin lamang ang evacuation
+                                                    area kapag ligtas na ayon sa kinauukulan.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-search-location fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Lumayo sa dagat hanggang
+                                                    walang abiso ang mga kinauukulan na ligtas na.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-ambulance fa-stack-1x" style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Dalhin sa pinakamalapit na
+                                                    ospital ang mga nasihatan at may karamdaman.</div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Siguraduhing walang bas o
+                                                    nakababad na outlet o kagamitan bago buksan ang linya ng kuryente.</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-2 guide-content-icon text-center"> <span
+                                                        class="fa-stack fa-2x">
+                                                        <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                                        <i class="fas fa-house-damage fa-stack-1x"
+                                                            style="color: white;"></i>
+                                                    </span></div>
+                                                <div class="col-10 guide-content-subheading">Suruin ang bahay kun may mga
+                                                    nasira at ipaayos ang mga ito kung kailangan.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
