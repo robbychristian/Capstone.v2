@@ -29,11 +29,22 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <!-- Sweet Alert -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--Chart JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     <style>
         body {
             font-family: "Montserrat", sans-serif;
         }
+
+        /* Announcements */
 
         .card-announce-custom-bg {
             background-color: #f5f5f5 !important;
@@ -65,6 +76,115 @@
             display: block;
             margin: 0 auto;
             height: 70px;
+        }
+
+        /* Vulnerability Map */
+
+        .radio-button-wrap {
+            position: relative;
+            top: 50%;
+            margin-top: -2.5em;
+        }
+
+        .button-label {
+            display: inline-block;
+            padding: 1em 2em;
+            margin: 0.5em;
+            cursor: pointer;
+            color: #292929;
+            border-radius: 0.25em;
+            background: #efefef;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+            transition: 0.3s;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .button-label h1 {
+            font-size: 1em;
+        }
+
+        .button-label:hover {
+            background: #d6d6d6;
+            color: #101010;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+        }
+
+        .button-label:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+        }
+
+        #degreeHigh:checked+.button-label {
+            background: #d91e18;
+            color: #efefef;
+        }
+
+        #degreeHigh:checked+.button-label:hover {
+            background: #c21b15;
+            color: #e2e2e2;
+        }
+
+        #degreeMedium:checked+.button-label {
+            background: #ffa500;
+            color: #efefef;
+        }
+
+        #degreeMedium:checked+.button-label:hover {
+            background: #e69500;
+            color: #e2e2e2;
+        }
+
+        #brgyDelaPaz:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyDelaPaz:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgyManggahan:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyManggahan:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgyMaybunga:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyMaybunga:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgySantolan:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgySantolan:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        #brgyRosario:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyRosario:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
         }
 
     </style>
