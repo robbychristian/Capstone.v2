@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-sm-12 col-md-8">
-                <h3 class="mb-1">Announcements</h3>
+                <h1 class="h3 mb-4 text-gray-800">Announcements</h1>
 
             </div>
             <!-- Button trigger modal -->
