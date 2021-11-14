@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="container-fluid" style="color: black;">
-        <h1 class="h3 mb-4 text-gray-800">Create an Announcement</h1>
+        <h1 class="h3 mb-4 text-gray-800">Edit Announcement</h1>
         <div class="container-fluid">
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/announcements/{{ $announcement->id }}" method="POST">
