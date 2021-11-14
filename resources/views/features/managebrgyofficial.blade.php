@@ -1,22 +1,19 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Add Barangay Officials')
-@section('sub-content')
-    <div class="col-xl-10 col-log-9 col-md-8 mt-3">
+@section('content')
+    <div class="container-fluid" style="color: black;">
         @if (Session::get('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
             </div>
         @endif
-        <div class="row">
-            <div class="col-10">
-                <div class="h3">Manage Barangay Officials</div>
-            </div>
-            <div class="col-2 mb-4">
-                <a href="{{ route('admin.managebrgy_official.create') }}">
-                    <button class="btn btn-primary">Add Barangay Official</button>
-                </a>
-            </div>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Manage Barangay Officials</h1>
+            <a href="{{ route('admin.managebrgy_official.create') }}"
+                class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
+                Barangay Official</a>
         </div>
 
         <div class="table-responsive">

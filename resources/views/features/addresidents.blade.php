@@ -141,10 +141,11 @@
         }
     </script>
 
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black;">
         <div class="row">
             <div class="col-10">
                 <h1 class="h3 mb-4 text-gray-800">Add Resident</h1>
+
             </div>
             <div class="col-2">
 

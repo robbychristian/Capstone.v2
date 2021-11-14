@@ -1,8 +1,8 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Add Barangay Officials')
 
-@section('sub-content')
+@section('content')
     <script>
         function onlyNumberKey(evt) {
 
@@ -14,10 +14,11 @@
         }
     </script>
 
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black;">
         <div class="row">
             <div class="col-10">
-                <div class="h3">Add Barangay Officials</div>
+                <h1 class="h3 mb-4 text-gray-800">Announcements</h1>
+
             </div>
             <div class="col-2">
                 <a class="btn btn-primary" href="/admin/managebrgy_official">Back</a>
