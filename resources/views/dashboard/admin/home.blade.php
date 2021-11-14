@@ -1,17 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <!--
-        <div class="container-fluid mt-3">
-            <div class="row"> -->
+            <div class="container-fluid mt-3">
+                <div class="row"> -->
 
     <!-- Vertical Navbar 
-                @include('layouts.navbar')-->
+                    @include('layouts.navbar')-->
 
     <!-- Sub-Content (Features)
-                @yield('sub-content')-
+                    @yield('sub-content')-
 
-            </div> 
-        </div>->
+                </div> 
+            </div>->
 
 @endsection
