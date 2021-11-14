@@ -6,7 +6,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Disaster Statistical Reports</h1>
             <a href="{{ route('brgy_official.stats.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Create a
+                    class="fas fa-plus fa-sm text-white-50"></i> Create a
                 Disaster Statistical Reports</a>
         </div>
 
