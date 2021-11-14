@@ -12,7 +12,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>KaBisig @yield('title')</title>
+
+    <!--- icon -->
+    <link rel="icon" href="{{ asset('img/title-website-icon.png') }}" type="image/png" sizes="16x16">
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
