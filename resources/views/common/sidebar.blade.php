@@ -203,6 +203,44 @@
             </div>
         </li>
 
+    @elseif (Auth::user()->user_role === 5)
+        <!-- Nav Item - Barangay -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lgu.brgy_delapaz.index') }}">
+                <i class="fas fa-fw fa-chevron-right"></i>
+                <span>Barangay Dela Paz</span></a>
+        </li>
+
+        <!-- Nav Item - Barangay -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lgu.brgy_manggahan.index') }}">
+                <i class="fas fa-fw fa-chevron-right"></i>
+                <span>Barangay Manggahan</span></a>
+        </li>
+
+        <!-- Nav Item - Barangay -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lgu.brgy_maybunga.index') }}">
+                <i class="fas fa-fw fa-chevron-right"></i>
+                <span>Barangay Maybunga</span></a>
+        </li>
+
+        <!-- Nav Item - Barangay -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lgu.brgy_rosario.index') }}">
+                <i class="fas fa-fw fa-chevron-right"></i>
+                <span>Barangay Rosario</span></a>
+        </li>
+
+        <!-- Nav Item - Barangay -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lgu.brgy_santolan.index') }}">
+                <i class="fas fa-fw fa-chevron-right"></i>
+                <span>Barangay Santolan</span></a>
+        </li>
+
+
+
 
     @endif
 

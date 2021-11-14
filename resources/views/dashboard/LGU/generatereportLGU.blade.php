@@ -1,9 +1,10 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Generate Disaster Statistical Report')
-@section('sub-content')
+@section('content')
 
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black;">
+
         <div class="card" style="width: 30rem;">
 
             <div class="card-body">
@@ -13,7 +14,7 @@
                         {{ Session::get('error') }}
                     </div>
                 @endif
-                    
+
                 <form action="/lgu/generate/{{ $barangay }}/{{ $barangay }}" method="POST">
                     @csrf
 

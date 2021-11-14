@@ -1,14 +1,14 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Barangay Dela Paz')
-@section('sub-content')
+@section('content')
 
-    <div class="col-xl-10 col-lg-9 col-md-8">
+    <div class="container-fluid" style="color: black;">
 
         <div class="d-grid gap-2  d-lg-flex d-md-flex justify-content-md-end mt-4">
             <a class="btn btn-primary" href="/lgu/generate/{{ $barangay }}" role="button">Generate Report</a>
         </div>
-        <h3>{{ $barangay }}</h3>
+        <h1 class="h3 mb-0 text-gray-800">{{ $barangay }}</h1>
         <div class="card mt-3" style="position: relative; height:50vh;">
             <div class="card-body">
                 <canvas id="myChart"></canvas>
