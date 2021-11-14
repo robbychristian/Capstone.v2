@@ -14,7 +14,7 @@
 
             <div class="col-sm-6 mb-3">
                 <div class="card text-center">
-                    <div class="card-body">
+                    <div class="card-body border-bottom-primary border-left-primary">
                         <h5 class="card-title">Barangay Dela Paz</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
                         </p>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-sm-6 mb-3">
                 <div class="card text-center">
-                    <div class="card-body">
+                    <div class="card-body border-bottom-primary border-left-primary">
                         <h5 class="card-title">Barangay Manggahan</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Manggahan
                         </p>
@@ -39,7 +39,7 @@
 
             <div class="col-sm-6 mb-3">
                 <div class="card text-center">
-                    <div class="card-body">
+                    <div class="card-bodyborder-bottom-primary border-left-primary">
                         <h5 class="card-title">Barangay Maybunga</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Maybunga
                         </p>
@@ -51,7 +51,7 @@
 
             <div class="col-sm-6 mb-3">
                 <div class="card text-center">
-                    <div class="card-body">
+                    <div class="card-bodyborder-bottom-primary border-left-primary">
                         <h5 class="card-title">Barangay Rosario</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Rosario
                         </p>
@@ -63,7 +63,7 @@
 
             <div class="col-sm-6 mb-3">
                 <div class="card text-center">
-                    <div class="card-body">
+                    <div class="card-bodyborder-bottom-primary border-left-primary">
                         <h5 class="card-title">Barangay Santolan</h5>
                         <p class="card-text">View the Disaster Statistics Report of Barangay Santolan
                         </p>
