@@ -2,7 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon">
             <img src="{{ URL::asset('img/Logo-blue-cropped.png') }}" alt="" srcset="" class="logo-brand">
         </div>
         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
