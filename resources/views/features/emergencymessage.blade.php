@@ -1,6 +1,6 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 @section('title', '| Emergency Alert Message')
-@section('sub-content')
+@section('content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="col-sm-12 col-md-8">
             <h3 class="mb-1">Emergency Alert Message</h3>
@@ -30,9 +30,9 @@
                 <label><strong>Recipients</strong></label>
                 <select class="form-control" id="exampleFormControlSelect1" name="recipients">
                     @if (count($numbers) > 0)
-                    @foreach ($numbers as $number)
-                        <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
-                    @endforeach
+                        @foreach ($numbers as $number)
+                            <option value="{{ $number->contact_no }}">{{ $number->contact_no }}</option>
+                        @endforeach
                     @else
                         <option value="" disabled>There are no registered users. </option>
                     @endif

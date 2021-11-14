@@ -147,9 +147,9 @@
 @if (Auth::user()->user_role === 3)
 
     @section('title', '| Account')
-    @section('sub-content')
+    @section('content')
 
-        <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+        <div class="container-fluid" style="color: black;">
             <h3 class="mb-4">Edit your Account</h3>
             <div class="card">
                 <div class="card-body">

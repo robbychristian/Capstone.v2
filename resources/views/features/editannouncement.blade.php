@@ -1,6 +1,5 @@
-@extends('dashboard.admin.home')
-@section('title', '| Announcements')
-@section('sub-content')
+@extends('layouts.master')
+@section('content')
 <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
     <div class="container">
         @if (Auth::user()->user_role === 1)

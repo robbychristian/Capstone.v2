@@ -1,7 +1,7 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Generate Disaster Statistical Report')
-@section('sub-content')
+@section('content')
 
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         <div class="card" style="width: 30rem;">

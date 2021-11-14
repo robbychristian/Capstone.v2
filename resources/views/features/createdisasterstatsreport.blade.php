@@ -1,7 +1,7 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 
 @section('title', '| Disaster Statistical Report')
-@section('sub-content')
+@section('content')
 <script>
     $(document).ready(function() {
 

@@ -1,7 +1,7 @@
-@extends('dashboard.admin.home')
 
+@extends('layouts.master')
 @section('title', '| Add Residents')
-@section('sub-content')
+@section('content')
     <script>
         $(document).ready(function() {
 

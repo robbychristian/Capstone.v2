@@ -1,6 +1,6 @@
-@extends('dashboard.admin.home')
+@extends('layouts.master')
 @section('title', '| Manage Resident')
-@section('sub-content')
+@section('content')
     <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
         @if (Session::get('success'))
             <div class="alert alert-success">
