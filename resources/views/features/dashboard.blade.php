@@ -5,11 +5,11 @@
 
     <div class="container-fluid" style="color: black;">
 
-        <div class="d-grid gap-2  d-lg-flex d-md-flex justify-content-md-end mt-4">
-            @if (Auth::user()->user_role === 3)
-                <a class="btn btn-primary" href="{{ route('brgy_official.generate.index') }}" role="button">Generate
-                    Report</a>
-            @endif
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="{{ route('brgy_official.generate.index') }}"
+                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
 
         <div class="card mt-3" style="position: relative; height:50vh;">
