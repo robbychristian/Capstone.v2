@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Manage Resident')
 @section('content')
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black">
         @if (Session::get('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -18,6 +18,18 @@
                 <button class="btn btn-primary">Add Resident</button>
                 </a>
             </div>
+        </div>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Manage Resident</h1>
+            @if (Auth::user()->user_role === 1)
+                <a href="{{ route('admin.manageresident.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>Add Resident</a>
+            @elseif (Auth::user()->user_role === 3)
+                <a href="{{ route('brgy_official.manageresident.create') }}"
+                    class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
+                    Resident</a>
+            @endif
         </div>
         <hr>
 
