@@ -178,3 +178,8 @@ Route::prefix('lgu')->name('lgu.')->group(function () {
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+
+
+Route::get('/sample', function () {
+    return view('layouts.master');
+});
