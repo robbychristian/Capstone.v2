@@ -3,12 +3,13 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
+            <img src="{{ asset('img/logo-navbar.png') }}" alt="" srcset="">
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">KaBisig</div>
     </a>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <!-- Divider 
+    <hr class="sidebar-divider my-0">-->
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
@@ -17,8 +18,8 @@
             <span>Account</span></a>
     </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- Divider 
+    <hr class="sidebar-divider">-->
 
     <!-- Heading 
     <div class="sidebar-heading">
