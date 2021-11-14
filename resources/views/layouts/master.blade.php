@@ -49,6 +49,24 @@
             font-weight: bold;
         }
 
+        /*GUIDELINES*/
+
+        .guide-content-heading {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #004f91;
+        }
+
+        .icon-background {
+            color: #004f91;
+        }
+
+        .duck-cover-hold-icon {
+            display: block;
+            margin: 0 auto;
+            height: 70px;
+        }
+
     </style>
 
 </head>
