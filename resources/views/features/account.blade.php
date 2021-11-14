@@ -12,7 +12,7 @@
                 return true;
             }
         </script>
-        <div class="container">
+        <div class="container-fluid">
             <h3 class="mb-4">Edit your Account</h3>
             @if (Session::get('success'))
                 <div class="alert alert-success">
