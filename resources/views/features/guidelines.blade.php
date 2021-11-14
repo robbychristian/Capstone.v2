@@ -2,7 +2,7 @@
 @section('title', '| Guidelines')
 @section('content')
 
-    <div class="col-xl-10 col-lg-9 col-md-8 mt-3">
+    <div class="container-fluid" style="color: black;">
 
 
 
@@ -389,7 +389,8 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-door-closed fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-door-closed fa-stack-1x"
+                                                            style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay indoors and stay tuned
                                                     for
@@ -514,7 +515,8 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-charging-station fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-charging-station fa-stack-1x"
+                                                            style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Check for damages in water and
                                                     electrical lines, and gas or LPG leaks.</div>
@@ -630,7 +632,8 @@
                                                 <div class="col-2 guide-content-icon text-center"> <span
                                                         class="fa-stack fa-2x">
                                                         <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                                        <i class="fas fa-door-closed fa-stack-1x" style="color: white;"></i>
+                                                        <i class="fas fa-door-closed fa-stack-1x"
+                                                            style="color: white;"></i>
                                                     </span></div>
                                                 <div class="col-10 guide-content-subheading">Stay calm. Stay indoors and
                                                     tune
@@ -1081,15 +1084,15 @@
 
         <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <!--
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="pills-eng-tab" data-toggle="pill" href="#pills-eng" role="tab"
-                    aria-controls="pills-eng" aria-selected="true">ENG</a>
-            </li> -->
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="pills-eng-tab" data-toggle="pill" href="#pills-eng" role="tab"
+                        aria-controls="pills-eng" aria-selected="true">ENG</a>
+                </li> -->
             <!--
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="pills-fil-tab" data-toggle="pill" href="#pills-fil" role="tab"
-                    aria-controls="pills-fil" aria-selected="false">FIL</a>
-            </li> -->
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-fil-tab" data-toggle="pill" href="#pills-fil" role="tab"
+                        aria-controls="pills-fil" aria-selected="false">FIL</a>
+                </li> -->
         </ul> <!-- END TAG OF BUTTON FOR THE TRANSLATION -->
 
     </div>
