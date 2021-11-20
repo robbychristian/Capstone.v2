@@ -23,10 +23,10 @@ class CreateUserProfilesTable extends Migration
             $table->string('profile_pic');
             $table->timestamps();
             $table->foreign('user_email')
-                    ->references('email')
-                    ->on('users')
-                    ->onDelete('cascade')
-                    ->onUpdate(('cascade'));
+                ->references('email')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
         });
     }
 

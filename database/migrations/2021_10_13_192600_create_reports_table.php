@@ -25,6 +25,11 @@ class CreateReportsTable extends Migration
             $table->string('loc_lng');
             $table->string('loc_img');
             $table->timestamps();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
         });
     }
 

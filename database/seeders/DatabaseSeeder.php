@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(BrgyOfficialSeeder::class);
         $this->call(LGUSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(EvacuationCenterSeeder::class);
-        $this->call(ReportSeeder::class);
     }
 }

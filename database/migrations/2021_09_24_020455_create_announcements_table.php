@@ -15,12 +15,24 @@ class CreateAnnouncementsTable extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
+            $table->integer('brgy_id')->nullable();
+            $table->integer('admin_id')->nullable();
             $table->string('brgy_position');
             $table->string('name');
             $table->string('brgy_loc');
             $table->string('title');
             $table->string('body');
             $table->timestamps();
+            $table->foreign('brgy_id')
+                ->references('id')
+                ->on('brgy_officials')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
             //$table->foreign('brgy_position')
             //        ->references('brgy_position')
             //        ->on('brgy_officials')
