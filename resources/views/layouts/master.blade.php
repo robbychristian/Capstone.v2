@@ -191,6 +191,67 @@
             color: #e2e2e2;
         }
 
+        #typhoon:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #typhoon:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
+        #flood:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #flood:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
+        #lpa:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #lpa:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
+        #earthquake:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #earthquake:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
+        #landslide:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #landslide:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
+
+        #others:checked+.button-label {
+            background: #38c172;
+            color: #efefef;
+        }
+
+        #others:checked+.button-label:hover {
+            background: #38c172;
+            color: #e2e2e2;
+        }
+
     </style>
 
 </head>
