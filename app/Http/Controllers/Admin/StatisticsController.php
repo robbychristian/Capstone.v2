@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DisasterReport;
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
@@ -14,7 +15,10 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        return view('features.viewdisasterstatsreports');
+        $disasterstats = DisasterReport::latest()->paginate(10);
+        return view('features.viewdisasterstatsreports', [
+            'disasterstats' => $disasterstats,
+        ]);
     }
 
     /**
