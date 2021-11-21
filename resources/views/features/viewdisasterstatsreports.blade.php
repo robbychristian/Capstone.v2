@@ -88,7 +88,7 @@
         @else
             <div class="card mt-3">
                 <div class="card-body" style="font-weight: 400; font-size: 1rem;">
-                    There are disaster statistical reports to show.
+                    There are no disaster statistical reports to show.
                 </div>
             </div>
         @endif
