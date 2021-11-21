@@ -186,6 +186,13 @@
                     Message</span></a>
         </li>
 
+        <!-- Nav Item - Reports -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.stats.index') }}">
+                <i class="fas fa-fw fa-clipboard"></i>
+                <span>Disaster Statistics</span></a>
+        </li>
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
