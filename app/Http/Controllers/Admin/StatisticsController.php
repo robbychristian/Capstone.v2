@@ -28,7 +28,7 @@ class StatisticsController extends Controller
      */
     public function create()
     {
-        //
+        return view('features.createdisasterstatsreport');
     }
 
     /**
