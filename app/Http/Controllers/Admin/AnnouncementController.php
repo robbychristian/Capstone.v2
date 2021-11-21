@@ -118,7 +118,7 @@ class AnnouncementController extends Controller
                 'body' => $request->input('message')
             ]);
 
-            return redirect('/admin/announcements')->with('success', 'Announcement has been edited!');
+            return redirect('/admin/announcements')->with('success', 'The announcement has been edited!');
         }
     }
 
@@ -131,6 +131,6 @@ class AnnouncementController extends Controller
     public function destroy(Announcement $announcement)
     {
         $announcement->delete();
-        return redirect('/admin/announcements');
+        return redirect('/admin/announcements')->with('success', 'The announcement has been deleted!');
     }
 }
