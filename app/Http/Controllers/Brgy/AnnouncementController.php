@@ -55,6 +55,7 @@ class AnnouncementController extends Controller
                 ->withInput();
         } else {
             $announcement = Announcement::create([
+                'brgy_id' => Auth::user()->id,
                 'brgy_position' => Auth::user()->brgy_position,
                 'name' => Auth::user()->name,
                 'brgy_loc' => Auth::user()->brgy_loc,
