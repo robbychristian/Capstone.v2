@@ -54,17 +54,31 @@
                                 <td>{{ $disaster->individuals_affected }}</td>
                                 <td>{{ $disaster->evacuees }}</td>
 
+                                @if (Auth::user()->user_role === 3)
+                                    <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
+                                            <button class="btn btn-success">Edit</button>
+                                        </a></td>
+                                    <td>
+                                        <form action="/brgy_official/stats/{{ $disaster->id }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
 
-                                <td><a href="/brgy_official/stats/{{ $disaster->id }}/edit">
-                                        <button class="btn btn-success">Edit</button>
-                                    </a></td>
-                                <td>
-                                    <form action="/brgy_official/stats/{{ $disaster->id }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
+                                @elseif (Auth::user()->user_role === 1)
+                                    <td><a href="/admin/stats/{{ $disaster->id }}/edit">
+                                            <button class="btn btn-success">Edit</button>
+                                        </a></td>
+                                    <td>
+                                        <form action="/admin/stats/{{ $disaster->id }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                @endif
+
                             </tr>
                         @endforeach
 
