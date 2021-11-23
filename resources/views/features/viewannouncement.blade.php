@@ -15,11 +15,11 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="d-flex flex-row align-items-center">
-                            <div class="col-4">
+                            <div class="col-2">
                                 <i class="fas fa-user-circle fa-4x" style="color: #DEDEDE"></i>
                             </div>
 
-                            <div class="col-8">
+                            <div class="col-10">
                                 <div class="d-flex flex-column bd-highlight mb-3">
                                     <h2 class="card-title">{{ $announcement->title }}</h2>
                                     <div class="p-2 bd-highlight">{{ $announcement->name }}</div>
@@ -29,20 +29,20 @@
                             </div>
                         </div>
                         <!--
-                            <div class="row">
-                                <div class="col">
-                                    <div class="col"><i class="fas fa-user-circle fa-4x" style="color: #DEDEDE"></i>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="col"><i class="fas fa-user-circle fa-4x" style="color: #DEDEDE"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="d-flex flex-column bd-highlight mb-3">
-                                        <h2 class="card-title">{{ $announcement->title }}</h2>
-                                        <div class="p-2 bd-highlight">{{ $announcement->name }}</div>
-                                        <div class="p-2 bd-highlight">
-                                            {{ date('M d, Y \a\t h:m a', strtotime($announcement->created_at)) }}</div>
+                                    <div class="col">
+                                        <div class="d-flex flex-column bd-highlight mb-3">
+                                            <h2 class="card-title">{{ $announcement->title }}</h2>
+                                            <div class="p-2 bd-highlight">{{ $announcement->name }}</div>
+                                            <div class="p-2 bd-highlight">
+                                                {{ date('M d, Y \a\t h:m a', strtotime($announcement->created_at)) }}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div> -->
+                                </div> -->
                     </div>
 
 
