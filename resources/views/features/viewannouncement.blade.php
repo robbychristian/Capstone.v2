@@ -15,9 +15,13 @@
                 <div class="card-body">
 
                     <div class="d-flex flex-column  mb-3">
-                        <h2 class="card-title">{{ $announcement->title }}</h2>
-                        <div class=" bd-highlight">Issued by: {{ $announcement->name }}</div>
-                        <div class=" bd-highlight">
+                        <h2 class="card-title">
+                            <div class="badge badge-primary text-wrap">
+                                {{ $announcement->title }}
+                            </div>
+                        </h2>
+                        <div class=" bd-highlight text-muted">Issued by: {{ $announcement->name }}</div>
+                        <div class=" bd-highlight text-muted">
                             {{ date('M d, Y \a\t h:m a', strtotime($announcement->created_at)) }}</div>
                     </div>
                     <p class="card-text">{{ $announcement->body }}</p>
