@@ -59,7 +59,7 @@
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-title"><a href="#">{{ $announcement->title }}</a></div>
                                         <div class="v-announcement-message">
-                                            {{ str_limit($announcement->body), $limit = 150, $end = '...' }}
+                                            {{ \Illuminate\Support\Str::limit($announcement->body, 120, '...') }}
                                         </div>
                                     </div>
                                 </div>
