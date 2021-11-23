@@ -58,7 +58,7 @@
                                 <div class="col-sm-8 col-md-6 col-lg-8 col-xl-9">
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-title"><a
-                                                href="/user/announcements/{{ $announcement->id }}/show">{{ $announcement->title }}</a>
+                                                href="/user/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
                                         </div>
                                         <div class="v-announcement-message">
                                             {{ \Illuminate\Support\Str::limit($announcement->body, 140, '...') }}
