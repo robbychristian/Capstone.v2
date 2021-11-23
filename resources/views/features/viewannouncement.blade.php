@@ -13,10 +13,12 @@
             <div class="card border-light mb-3">
                 <div class="card-header"></div>
                 <div class="card-body">
-                  <h5 class="card-title">{{ $announcement->title }}</h5>
-                  <p class="card-text">{{ $announcement->body }}</p>
+
+                    <h1 class="display-4">{{ $announcement->title }}</h1>
+
+                    <p class="card-text">{{ $announcement->body }}</p>
                 </div>
-              </div>
+            </div>
 
         </div>
 
