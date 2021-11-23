@@ -57,8 +57,19 @@
                                 </div>
                                 <div class="col-sm-8 col-md-6 col-lg-8 col-xl-9">
                                     <div class="d-flex flex-column">
-                                        <div class="v-announcement-title"><a
-                                                href="/user/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
+                                        <div class="v-announcement-title">
+                                            @if (Auth::user()->user_role === 4)
+                                                <a
+                                                    href="/user/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
+                                            @elseif (Auth::user()->user_role === 3)
+                                                <a
+                                                    href="/brgy_official/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
+
+                                            @elseif (Auth::user()->user_role === 1)
+                                                <a
+                                                    href="/admin/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
+                                            @endif
+
                                         </div>
                                         <div class="v-announcement-message">
                                             {{ \Illuminate\Support\Str::limit($announcement->body, 140, '...') }}
