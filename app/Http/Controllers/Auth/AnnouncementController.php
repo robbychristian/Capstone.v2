@@ -52,7 +52,9 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('features.viewannouncement', [
+            'announcement' => Announcement::findOrFail($id),
+        ]);
     }
 
     /**
