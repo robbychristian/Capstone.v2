@@ -58,7 +58,8 @@
                                 <div class="col-sm-8 col-md-6 col-lg-8 col-xl-9">
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-title"><a href="#">{{ $announcement->title }}</a></div>
-                                        <div class="v-announcement-message">{{ str_limit($announcement->body), 90 }}
+                                        <div class="v-announcement-message">
+                                            {{ str_limit($announcement->body), $limit = 150, $end = '...' }}
                                         </div>
                                     </div>
                                 </div>
