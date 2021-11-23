@@ -16,8 +16,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <div class="col-sm-2 col-md-3 col-lg-2 col-xl-1"><i class="fas fa-user-circle fa-4x"
-                                        style="color: #DEDEDE"></i>
+                                <div class="col"><i class="fas fa-user-circle fa-4x" style="color: #DEDEDE"></i>
                                 </div>
                             </div>
                             <div class="col">
