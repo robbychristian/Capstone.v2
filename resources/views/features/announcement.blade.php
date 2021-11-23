@@ -67,7 +67,7 @@
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-date-title">Posted on:</div>
                                         <div class="v-announcement-date">
-                                            {{ date('M d, Y at h:m a', strtotime($announcement->created_at)) }}</div>
+                                            {{ date('M d, Y "at" h:m a', strtotime($announcement->created_at)) }}</div>
                                     </div>
                                     @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                                         @if (Auth::user()->user_role === 1)
