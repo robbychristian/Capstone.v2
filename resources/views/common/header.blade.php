@@ -16,7 +16,7 @@
             ->get('profile_pic');
         request()
             ->session()
-            ->put('profile_pic', $profile_pic);
+            ->put($profile_pic);
         ?>
 
         <!-- Nav Item - User Information -->
@@ -39,7 +39,7 @@
                                 '/' .
                                 request()->session()->get('profile_pic'),
                         ) }}">
-                    <h4>{{ request()->session()->get('profile_pic', 'default') }}</h4>
+                    <h4>{{ request()->session()->get('profile_pic') }}</h4>
                 @endif
             </a>
             <!-- Dropdown - User Information -->
