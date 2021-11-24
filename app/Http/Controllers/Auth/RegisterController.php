@@ -98,6 +98,7 @@ class RegisterController extends Controller
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match password!',
             'file.required' => 'An image upload is required',
+            'file.mimes' => 'The file must be a in a type of jpg, jpeg, png',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
     }
