@@ -63,6 +63,7 @@ class ManageBrgyOfficialController extends Controller
             'brgy_pos.required' => 'The barangay position field is required!',
             'brgy.required' => 'The barangay field is required!',
             'cnum.required' => 'The contact number field must not be empty!',
+            'cnum.unique' => 'The contact number  has already been taken!',
             'pass.required' => 'The password field is required!',
             'pass.min' => 'Password must be at least 8 characters',
             'conf_pass.required' => 'The confirm password field is required!',
