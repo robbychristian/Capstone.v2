@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'cnum' => 'required|max:255|unique:user_profiles,contact_no',
             'pass' => 'required|min:8',
             'cpass' => 'required|min:8|same:pass',
-            'file' => 'required',
+            'file' => 'required|mimes:jpeg,png,jpg',
             'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
