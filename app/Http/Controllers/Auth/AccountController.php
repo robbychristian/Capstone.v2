@@ -84,7 +84,7 @@ class AccountController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'cnum' => 'required|max:255|unique:user_profiles,contact_no',
+            'cnum' => 'required|max:255',
             'file' => 'mimes:jpeg,png,jpg',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
