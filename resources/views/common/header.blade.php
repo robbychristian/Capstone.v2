@@ -33,7 +33,7 @@
                     <img class="img-profile rounded-circle"
                         src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . Auth::user()->id . '/') }}">
 
-                    <?php echo $profile_pic; ?>
+                    <?php echo gettype($profile_pic); ?>
                 @endif
             </a>
             <!-- Dropdown - User Information -->
