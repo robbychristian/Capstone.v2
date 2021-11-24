@@ -32,7 +32,13 @@
                 @endif
 
                 @if (Auth::user()->user_role === 4)
-                    <img class="img-profile rounded-circle" src="{{ request()->session()->get('profile_pic') }}">
+                    <img class="img-profile rounded-circle"
+                        src="{{ URL::asset(
+    'KabisigGit/storage/app/public/profile_pics/' .
+        $user->id .
+        '/' .
+        request()->session()->get('profile_pic'),
+) }}">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
