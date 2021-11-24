@@ -153,7 +153,7 @@
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 required">
                                     <label for="inputfName">First Name</label>
                                     <input name="fname" type="text" class="form-control" id="inputfName"
                                         value="{{ old('fname') }}">
@@ -161,7 +161,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 required">
                                     <label for="inputmName">Middle Name</label>
                                     <input name="mname" type="text" class="form-control" id="inputmName"
                                         value="{{ old('mname') }}">
@@ -170,7 +170,7 @@
                                         @enderror</small>
                                 </div>
 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 required">
                                     <label for="inputlName">Last Name</label>
                                     <input name="lname" type="text" class="form-control" id="inputlName"
                                         value="{{ old('lname') }}">
@@ -180,7 +180,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-8 required">
                                     <label for="inputAddress">Home Address</label>
                                     <input name="home_add" type="text" class="form-control" id="inputAddress"
                                         value="{{ old('home_add') }}">
@@ -188,7 +188,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 required">
                                     <label for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
                                         <option selected disabled>Choose your barangay</option>
@@ -205,7 +205,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 required">
                                     <label for="inputContactNum">Contact Number</label>
                                     <input name="cnum" type="text" class="form-control" id="inputContactNum"
                                         onkeypress="return onlyNumberKey(event)" maxlength="11"
@@ -214,7 +214,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2 required">
                                     <label for="inputBday">Birthday</label>
                                     <select name="mbday" id="mbday" class="form-control" value="{{ old('mbday') }}">
                                         <option selected disabled>Month</option>
@@ -235,7 +235,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
                                         <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
@@ -246,7 +246,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
                                         <label for="inputBday" style="color:white"></label>
                                     </div>
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="inputEmail">Email</label>
                                 <input name="email" type="email" class="form-control" id="inputEmail"
                                     value="{{ old('email') }}">
@@ -268,7 +268,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 required">
                                     <label for="inputPassword">Password</label>
                                     <input name="pass" type="password" class="form-control" id="inputPassword">
                                     <small class="text-muted">Must be 8 and above characters long.</small>
@@ -276,7 +276,7 @@
                                             {{ $message }}
                                         @enderror</small>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 required">
                                     <label for="inputConfpw">Confirm Password</label>
                                     <input name="cpass" type="password" class="form-control" id="inputConfpw">
                                     <small class="text-danger">@error('cpass')
@@ -285,7 +285,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label for="inputUpload">Upload your Profle Picture</label>
                                 <input name="file" class="form-control" type="file" id="formFile">
                                 <small class="text-muted">Accessible formats: jpg, png, jpeg,
@@ -297,7 +297,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group form-check">
+                            <div class="form-group form-check required">
                                 <input name="cbox" type="checkbox" class="form-check-input" id="checkbox">
                                 <label class="form-check-label" for="exampleCheck1">I have read and agree to the <span
                                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
