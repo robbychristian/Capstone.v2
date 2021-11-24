@@ -54,7 +54,7 @@ class ManageResidentController extends Controller
             'lname' => 'required|max:255',
             'email' => 'required|email|unique:users',
             'address' => 'required|max:255',
-            'cnum' => 'required|max:255|unique:user_profile,contact_no',
+            'cnum' => 'required|max:255|unique:user_profiles,contact_no',
             'mbday' => 'required',
             'dbday' => 'required|max:31|integer',
             'ybday' => 'required|max:2100|integer',
