@@ -90,7 +90,7 @@ class ManageBrgyOfficialController extends Controller
                     'contact_no' => $request['cnum']
                 ]);
                 $request->file('file')->storeAs('brgy_profile_pic', $brgy_officials->id . '/' . $file, '');
-                return redirect('/admin/managebrgy_official')->with('success', 'Barangay Official has been added');
+                return redirect('/admin/managebrgy_official')->with('success', 'Barangay Official has been added!');
             } else {
                 dd('waow its wrong');
             }
