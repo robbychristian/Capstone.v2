@@ -76,11 +76,12 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
             'email' => 'required|email|unique:users',
+            'cnum' => 'required|max:255|unique:brgy_officials,contact_no',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::user()->password)) {
@@ -94,24 +95,27 @@ class AccountController extends Controller
             'fname.required' => 'The first name field must not be empty!',
             'mname.required' => 'The middle name field must not be empty!',
             'lname.required' => 'The last name field must not be empty!',
+            'cnum.required' => 'The contact number field must not be empty!',
+            'cnum.unique' => 'The contact number  has already been taken!',
             'curr_pass.required' => 'The current password field must not be empty!',
             'new_pass.required' => 'The new password field must not be empty!',
             'conf_pass.required' => 'The confirm password field must not be empty!',
             'conf_pass.same' => 'Confirm password should match new password!',
         ]);
 
-        if($validator->fails()) {
-            return redirect('/brgy_official/account/'.Auth::user()->id.'/edit')
-                            ->withErrors($validator)
-                            ->withInput();
+        if ($validator->fails()) {
+            return redirect('/brgy_official/account/' . Auth::user()->id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
         } else {
             $user = BrgyOfficial::where('id', $id)->update([
-                'name' => $request->input('fname').' '.$request->input('mname').' '.$request->input('lname'),
+                'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
                 'email' => $request->input('email'),
+                'contact_no' => $request->input('cnum'),
                 'password' => Hash::make($request->input('new_pass'))
             ]);
-    
-            return redirect('/brgy_official/account/'.Auth::user()->id.'/edit')->with('success', 'Your account has been successfully updated!');
+
+            return redirect('/brgy_official/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
     }
 
