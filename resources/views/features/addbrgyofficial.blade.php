@@ -106,7 +106,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputPassword">Password</label>
                     <input name="pass" type="password" class="form-control" id="inputPassword">
-                    <small class="text-muted">Must be 8-20 characters long.</small>
+                    <small class="text-muted">Must be 8 and above characters long.</small>
                     <small class="text-danger">@error('pass')
                             {{ $message }}
                         @enderror</small>
