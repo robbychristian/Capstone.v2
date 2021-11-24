@@ -23,8 +23,7 @@
                 @endif
 
                 @if (Auth::user()->user_role === 4)
-                    <img class="img-profile rounded-circle"
-                        src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}">
+                    <img class="img-profile rounded-circle">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
