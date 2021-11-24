@@ -16,7 +16,7 @@
             ->where('id', Auth::user()->id)
             //->get('profile_pic');
             ->first();
-        session('profile_pic', $profile_pic);
+        //session('profile_pic', $profile_pic);
         ?>
 
         <!-- Nav Item - User Information -->
@@ -34,7 +34,7 @@
                 @if (Auth::user()->user_role === 4)
                     <img class="img-profile rounded-circle"
                         src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . Auth::user()->id . '/' . session('profile_pic')) }}">
-                    <h4>{{ session('profile_pic') }}</h4>
+                    <h4>{{ $profile_pic }}</h4>
                 @endif
             </a>
             <!-- Dropdown - User Information -->
