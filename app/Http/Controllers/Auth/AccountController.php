@@ -102,6 +102,7 @@ class AccountController extends Controller
             'lname.required' => 'The last name field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
             'cnum.unique' => 'The contact number  has already been taken!',
+            'file.mimes' => 'The file must be a in a type of jpg, jpeg, png',
             'curr_pass.required' => 'The current password field must not be empty!',
             'new_pass.required' => 'The new password field must not be empty!',
             'conf_pass.required' => 'The confirm password field must not be empty!',
