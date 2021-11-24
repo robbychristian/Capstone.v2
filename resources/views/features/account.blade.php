@@ -210,7 +210,7 @@
 
                         </div>
 
-                        <div class="form">
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputContactNum">Position</label>
                                 <input type="text" name="position" class="form-control" id="inputContactNum"
