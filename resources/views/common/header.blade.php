@@ -22,7 +22,10 @@
                         {{ Auth::user()->last_name }}</span>
                 @endif
 
-                <img class="img-profile rounded-circle" src="{{ asset('admin/img/undraw_profile.svg') }}">
+                @if (Auth::user()->user_role === 4)
+                    <img class="img-profile rounded-circle"
+                        src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}">
+                @endif
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
