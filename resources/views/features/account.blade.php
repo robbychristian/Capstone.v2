@@ -190,7 +190,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail">Email Address</label>
                                 <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
                                     id="inputEmail" value="{{ Auth::user()->email }}" disabled>
@@ -198,12 +198,25 @@
                                         {{ $message }}
                                     @enderror</small>
                             </div>
-                            <div class="form-group col-md-4">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputContact">Email Address</label>
+                                <input type="text" name="cnum" class="form-control @error('cnum') is-invalid @enderror"
+                                    id="inputContact" value="{{ Auth::user()->contact_no }}">
+                                <small class="text-danger">@error('cnum')
+                                        {{ $message }}
+                                    @enderror</small>
+                            </div>
+
+                        </div>
+
+                        <div class="form">
+                            <div class="form-group col-md-6">
                                 <label for="inputContactNum">Position</label>
                                 <input type="text" name="position" class="form-control" id="inputContactNum"
                                     value="{{ Auth::user()->brgy_position }}" disabled>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputContactNum">Barangay</label>
                                 <input type="text" name="brgy" class="form-control" id="inputContactNum"
                                     value="{{ Auth::user()->brgy_loc }}" disabled>
