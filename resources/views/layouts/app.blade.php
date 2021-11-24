@@ -42,53 +42,59 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
-        #brgyDelaPaz:checked + .button-label {
-            background: #3490dc;
-  color: #efefef;
-        }
-
-        #brgyDelaPaz:checked + .button-label:hover {
-            background: #3490dc;
-  color: #e2e2e2;
-        }
-
-        #brgyManggahan:checked + .button-label {
+        #brgyDelaPaz:checked+.button-label {
             background: #3490dc;
             color: #efefef;
         }
 
-        #brgyManggahan:checked + .button-label:hover {
+        #brgyDelaPaz:checked+.button-label:hover {
             background: #3490dc;
             color: #e2e2e2;
         }
 
-        #brgyMaybunga:checked + .button-label {
+        #brgyManggahan:checked+.button-label {
             background: #3490dc;
             color: #efefef;
         }
 
-        #brgyMaybunga:checked + .button-label:hover {
+        #brgyManggahan:checked+.button-label:hover {
             background: #3490dc;
             color: #e2e2e2;
         }
 
-        #brgySantolan:checked + .button-label {
+        #brgyMaybunga:checked+.button-label {
             background: #3490dc;
             color: #efefef;
         }
 
-        #brgySantolan:checked + .button-label:hover {
+        #brgyMaybunga:checked+.button-label:hover {
             background: #3490dc;
             color: #e2e2e2;
         }
-        #brgyRosario:checked + .button-label {
+
+        #brgySantolan:checked+.button-label {
             background: #3490dc;
             color: #efefef;
         }
 
-        #brgyRosario:checked + .button-label:hover {
+        #brgySantolan:checked+.button-label:hover {
             background: #3490dc;
             color: #e2e2e2;
+        }
+
+        #brgyRosario:checked+.button-label {
+            background: #3490dc;
+            color: #efefef;
+        }
+
+        #brgyRosario:checked+.button-label:hover {
+            background: #3490dc;
+            color: #e2e2e2;
+        }
+
+        .form-group.required .control-label:after {
+            content: "*";
+            color: red;
         }
 
     </style>
@@ -150,7 +156,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                                document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -220,7 +226,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                              document.getElementById('logout-form').submit();">
+                                                                                                                  document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -287,7 +293,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -379,7 +385,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                        document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -446,7 +452,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                    document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -534,7 +540,8 @@
                                                     class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('brgy_official.emergencymessage.create') }}"><i
+                                            <a class="nav-link"
+                                                href="{{ route('brgy_official.emergencymessage.create') }}"><i
                                                     class="fas fa-envelope mr-2"></i>Emergency Alert
                                                 Message</a>
                                         </li>
@@ -559,7 +566,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -625,7 +632,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 
-                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
 
                                         </a>
@@ -695,30 +702,37 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.vulnerabilitymap.index') }}"><i
+                                            <a class="nav-link"
+                                                href="{{ route('admin.vulnerabilitymap.index') }}"><i
                                                     class="fas fa-map-marked mr-2"></i>Vulnerability
                                                 Map</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.reports.index') }}"><i class="fas fa-edit mr-2"></i>Reports</a>
+                                            <a class="nav-link" href="{{ route('admin.reports.index') }}"><i
+                                                    class="fas fa-edit mr-2"></i>Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('admin.emergencymessage.create') }}"><i class="fas fa-edit mr-2"></i>Emergency
+                                            <a class="nav-link"
+                                                href="{{ route('admin.emergencymessage.create') }}"><i
+                                                    class="fas fa-edit mr-2"></i>Emergency
                                                 Alert Message</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu2" data-toggle="collapse"
-                                                data-target="#submenu2"><i class="fas fa-user-tag mr-2"></i> <span
+                                            <a class="nav-link collapsed text-truncate submenu" href="#submenu2"
+                                                data-toggle="collapse" data-target="#submenu2"><i
+                                                    class="fas fa-user-tag mr-2"></i> <span
                                                     class="d-none d-sm-inline">User Role</span></a>
                                             <div class="collapse" id="submenu2" aria-expanded="false">
                                                 <ul class="flex-column pl-2 nav">
                                                     <li class="nav-item">
                                                         <a class="nav-link ml-3"
-                                                            href="{{ route('admin.manageresident.index') }}">Manage Residents</a>
+                                                            href="{{ route('admin.manageresident.index') }}">Manage
+                                                            Residents</a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link ml-3"
-                                                            href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
+                                                            href="{{ route('admin.managebrgy_official.index') }}">Manage
+                                                            Barangay
                                                             Officials</a>
                                                     </li>
                                                 </ul>
@@ -734,7 +748,7 @@
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
 
