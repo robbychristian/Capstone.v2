@@ -150,6 +150,7 @@
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Create your account</h3>
                         <hr>
 
+                        <small class="text-muted mb-2">Fields marked with an * are required</small>
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
