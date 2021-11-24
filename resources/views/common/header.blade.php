@@ -10,6 +10,15 @@
 
         <div class="topbar-divider d-none d-sm-block"></div>
 
+        <?php
+        $profile_pic = DB::table('user_profiles')
+            ->where('id', Auth::user()->id)
+            ->get('profile_pic');
+        request()
+            ->session()
+            ->put('profile_pic', $profile_pic);
+        ?>
+
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
@@ -23,7 +32,7 @@
                 @endif
 
                 @if (Auth::user()->user_role === 4)
-                    <img class="img-profile rounded-circle">
+                    <img class="img-profile rounded-circle" src="{{ request()->session()->get('profile_pic') }}">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
