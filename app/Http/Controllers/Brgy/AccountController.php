@@ -80,7 +80,7 @@ class AccountController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'cnum' => 'required|max:255',
+            'cnum' => 'required|max:255|unique:brgy_officials,contact_no',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::user()->password)) {
@@ -95,7 +95,7 @@ class AccountController extends Controller
             'mname.required' => 'The middle name field must not be empty!',
             'lname.required' => 'The last name field must not be empty!',
             'cnum.required' => 'The contact number field must not be empty!',
-            //'cnum.unique' => 'The contact number  has already been taken!',
+            'cnum.unique' => 'The contact number  has already been taken!',
             'curr_pass.required' => 'The current password field must not be empty!',
             'new_pass.required' => 'The new password field must not be empty!',
             'conf_pass.required' => 'The confirm password field must not be empty!',
