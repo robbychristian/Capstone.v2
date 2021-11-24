@@ -34,6 +34,12 @@
                     <img class="img-profile rounded-circle"
                         src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . Auth::user()->id . '/' . $profile_pic->profile_pic) }}">
                 @endif
+
+                @if (Auth::user()->user_role === 1)
+
+                    <img class="img-profile rounded-circle" src="{{ URL::asset('img/undraw_profile_pic_ic5t.png') }}">
+
+                @endif
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
