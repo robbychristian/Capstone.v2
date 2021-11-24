@@ -86,7 +86,7 @@ class ManageResidentController extends Controller
             'pass.min' => 'Password must be at least 8 characters',
             'conf_pass.required' => 'The confirm password field is required!',
             'conf_pass.same' => 'Password mismatch!',
-            'file.required' => 'An image upload is required',
+            'file.required' => 'An image upload is required!',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
 
