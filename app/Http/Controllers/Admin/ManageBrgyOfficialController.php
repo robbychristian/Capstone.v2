@@ -50,7 +50,7 @@ class ManageBrgyOfficialController extends Controller
             'email' => 'required|email|unique:brgy_officials',
             'brgy_pos' => 'required',
             'brgy' => 'required',
-            'cnum' => 'required|max:255|unique:brgy_officials',
+            'cnum' => 'required|max:255|unique:brgy_officials,contact_no',
             'pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:pass',
             'file' => 'required|mimes:jpeg,png,jpg',
