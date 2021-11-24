@@ -12,11 +12,10 @@
 
         <?php
         $profile_pic = DB::table('user_profiles')
-            ->select('profile_pic')
+            //->select('profile_pic')
             ->where('id', Auth::user()->id)
-            //->get('profile_pic');
-            ->first();
-        session('profile_pic', $profile_pic);
+            ->get('profile_pic');
+        //->first();
         ?>
 
         <!-- Nav Item - User Information -->
