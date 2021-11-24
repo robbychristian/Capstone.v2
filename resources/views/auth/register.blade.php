@@ -237,7 +237,7 @@
                                 </div>
                                 <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
-                                        <label class="control-label" for="inputBday" style="color:white">asdasd</label>
+                                        <label for="inputBday" style="color:white">asdasd</label>
                                     </div>
                                     <select name="dbday" id="dbday" class="form-control" value="{{ old('dbday') }}">
                                         <option selected disabled>Day</option>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
-                                        <label class="control-label" for="inputBday" style="color:white"></label>
+                                        <label for="inputBday" style="color:white"></label>
                                     </div>
                                     <input name="ybday" type="text" class="form-control mt-2" id="inputBday"
                                         placeholder="Year" value="{{ old('ybday') }}">
@@ -299,8 +299,8 @@
 
                             <div class="form-group form-check required">
                                 <input name="cbox" type="checkbox" class="form-check-input" id="checkbox">
-                                <label class="form-check-label control-label" for="exampleCheck1">I have read and agree to the <span
-                                        style="text-decoration: underline; color: blue; cursor: pointer;">terms and
+                                <label class="form-check-label control-label" for="exampleCheck1">I have read and agree to
+                                    the <span style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                                         conditions
                                     </span></label>
                                 <small class="text-danger">@error('cbox')

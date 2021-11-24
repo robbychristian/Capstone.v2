@@ -250,7 +250,7 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="d-none d-xl-block d-lg-block d-md-block">
-                    <label class="control-label" for="inputBday" style="color:white">asdasd</label>
+                    <label for="inputBday" style="color:white">asdasd</label>
                 </div>
                 <select name="dbday" id="dbday" class="form-control" value="{{ old('dbday') }}">
                     <option selected disabled>Day</option>
@@ -261,7 +261,7 @@
             </div>
             <div class="form-group col-md-2">
                 <div class="d-none d-xl-block d-lg-block d-md-block">
-                    <label class="control-label" for="inputBday" style="color:white"></label>
+                    <label for="inputBday" style="color:white"></label>
                 </div>
                 <input name="ybday" type="text" class="form-control mt-2" id="inputBday" placeholder="Year"
                     value="{{ old('ybday') }}">
