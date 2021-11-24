@@ -14,7 +14,7 @@
         $profile_pic = DB::table('user_profiles')
             //->select('profile_pic')
             ->where('id', Auth::user()->id)
-            ->get('profile_pic');
+            ->get();
         //->first();
         ?>
 
