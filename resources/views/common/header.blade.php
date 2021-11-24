@@ -16,6 +16,12 @@
             ->where('id', Auth::user()->id)
             //->get('profile_pic');
             ->first();
+
+        $profile_pic_brgy = DB::table('brgy_officials')
+            ->select('profile_pic')
+            ->where('id', Auth::user()->id)
+            //->get('profile_pic');
+            ->first();
         ?>
 
         <!-- Nav Item - User Information -->
@@ -28,17 +34,24 @@
                 @elseif (Auth::user()->user_role === 4)
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->first_name }}
                         {{ Auth::user()->last_name }}</span>
-                @endif
-
-                @if (Auth::user()->user_role === 4)
                     <img class="img-profile rounded-circle"
                         src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . Auth::user()->id . '/' . $profile_pic->profile_pic) }}">
                 @endif
-
+                
+                <!-- admin -->
                 @if (Auth::user()->user_role === 1)
-
                     <img class="img-profile rounded-circle" src="{{ URL::asset('img/undraw_profile_pic_ic5t.png') }}">
+                @endif
 
+                <!-- brgy_official -->
+                @if (Auth::user()->user_role === 3)
+                <img class="img-profile rounded-circle"
+                    src="{{ URL::asset('KabisigGit/storage/app/public/brgy_officials/' . Auth::user()->id . '/' . $profile_pic_brgy->profile_pic) }}">
+   
+                @endif
+
+                @if (Auth::user()->user_role === 3 && Auth::user()->id === 1)
+                    <img class="img-profile rounded-circle" src="{{ URL::asset('img/undraw_profile_pic_ic5t.png') }}">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
