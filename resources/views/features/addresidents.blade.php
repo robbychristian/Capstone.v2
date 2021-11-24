@@ -283,6 +283,7 @@
             <div class="form-group col-md-6">
                 <label for="inputPassword">Password</label>
                 <input name="pass" type="password" class="form-control" id="inputPassword">
+                <small class="text-muted">Must be 8-20 characters long.</small>
                 <small class="text-danger">@error('pass')
                         {{ $message }}
                     @enderror</small>
@@ -299,6 +300,8 @@
         <div class="form-group">
             <label for="inputUpload">Upload your Profle Picture</label>
             <input name="file" class="form-control" type="file" id="formFile">
+            <small class="text-muted">Accessible formats: jpg, png, jpeg,
+                only</small>
             @error('file')
                 <small class="text-danger">
                     {{ $message }}
