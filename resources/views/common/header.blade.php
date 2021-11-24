@@ -46,7 +46,7 @@
                 <!-- brgy_official -->
                 @if (Auth::user()->user_role === 3)
                     <img class="img-profile rounded-circle"
-                        src="{{ URL::asset('KabisigGit/storage/app/public/brgy_officials/' . Auth::user()->id . '/' . $profile_pic_brgy->profile_pic) }}">
+                        src="{{ URL::asset('KabisigGit/storage/app/public/brgy_profile_pic/' . Auth::user()->id . '/' . $profile_pic_brgy->profile_pic) }}">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
