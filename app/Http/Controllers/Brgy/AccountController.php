@@ -80,7 +80,6 @@ class AccountController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'email' => 'required|email|unique:users',
             'cnum' => 'required|max:255',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
