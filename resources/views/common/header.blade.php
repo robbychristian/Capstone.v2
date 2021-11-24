@@ -15,7 +15,7 @@
             ->select('profile_pic')
             ->where('id', Auth::user()->id)
             //->get('profile_pic');
-            ->get();
+            ->first();
         ?>
 
         <!-- Nav Item - User Information -->
