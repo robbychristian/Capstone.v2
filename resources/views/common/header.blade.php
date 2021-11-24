@@ -39,7 +39,7 @@
                                 '/' .
                                 request()->session()->get('profile_pic'),
                         ) }}">
-                    <h4>{{ request()->session()->get('profile_pic') }}</h4>
+                    <h4>{{ request()->session()->get('profile_pic', 'default') }}</h4>
                 @endif
             </a>
             <!-- Dropdown - User Information -->
