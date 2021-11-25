@@ -140,6 +140,7 @@
             <div class="form-group form-check required">
                 <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label control-label" for="exampleCheck1">I have read and agree to the <span
+                        data-toggle="modal" data-target="#exampleModal"
                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                         conditions
                     </span></label>
@@ -150,6 +151,112 @@
 
             <button name="" type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body text-gray-900" style="text-align: justify">
+                    <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
+                        KABISIG DIGITAL PRIVACY POLICY
+                    </div>
+                    <div class="1-paragraph text-center">
+                        This informs you of our policies regarding the collection, use and disclosure of Personal
+                        Information we
+                        receive from users.
+                        We use your Personal Information only for providing and improving the application. By using the
+                        application, you agree to the collection and use of information in accordance with this policy.
+                    </div>
+
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Information Collection And Use</strong><br>
+                            While using our application, we may ask you to provide us with certain personally identifiable
+                            information that can be used to contact or identify you. Personally identifiable information may
+                            include, but is not limited to your name, email address, contact number, birthday, residence
+                            (barangay)
+                            and your profile picture.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Security</strong><br>
+                            The security of your Personal Information is important to us, but remember that no method of
+                            transmission over the Internet, or method of electronic storage, is 100% secure. While we strive
+                            to use
+                            commercially acceptable means to protect your Personal Information, we cannot guarantee its
+                            absolute
+                            security.
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
+                        KABISIG TERMS OF USE
+                    </div>
+                    <div class="1-paragraph text-center">
+                        <strong class="mt-2">PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THE
+                            APPLICATION. </strong><br> <br>
+                        Your access to and use of the Service is conditioned on your acceptance of and compliance
+                        with these
+                        Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                        By accessing or using the Service you agree to be bound by these Terms. If you disagree with
+                        any
+                        part of
+                        the terms then you may not access the Service.
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Report</strong><br>
+                            KaBisig allows you to submit, store, share and otherwise make available certain information,
+                            text,
+                            graphics or images. You are responsible for any information you share. Any type of fraud or sham
+                            in submitting reports
+                            will be
+                            immediately blocked in submitting reports. Falsifying information especially with regards to
+                            disasters
+                            will only make things worse.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Links To Other Web Sites</strong><br>
+                            Our Service may contain links to third-party web sites or services that are not owned or
+                            controlled by
+                            admins of KaBisig.
+                            The administrator of KaBisig has no control over, and assumes no responsibility for, the
+                            content,
+                            privacy policies, or practices of any third party web sites or services. You further acknowledge
+                            and
+                            agree that the administrator of KaBisig shall not be responsible or liable, directly or
+                            indirectly, for
+                            any damage or loss caused or alleged to be caused by or in connection with use of or reliance on
+                            any
+                            such content, goods or services available on or through any such web sites or services.
+                        </li>
+                        <li class="list-group-item"> <strong>Changes</strong><br>
+                            We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If
+                            there’s a
+                            revision, we will try to provide at least 30 days notice prior to any new terms taking effect.
+                            What
+                            constitutes a material change will be determined at our sole discretion.
+                        </li>
+                        <li class="list-group-item"> <strong>Contact Us</strong><br>
+                            If you have any questions about these Terms and Privacy Policy, please contact us.
+                        </li>
+
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
     </div>
 
 
