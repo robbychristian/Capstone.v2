@@ -220,7 +220,7 @@ class StatisticsController extends Controller
                 //    'number_families_affected' => $values['families'],
                 //]);
 
-                dd($values);
+                return $values;
             };
 
 
