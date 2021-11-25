@@ -348,7 +348,7 @@
                     <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
                         KABISIG DIGITAL PRIVACY POLICY
                     </div>
-                    <div class="1-paragraph">
+                    <div class="1-paragraph text-center">
                         This informs you of our policies regarding the collection, use and disclosure of Personal
                         Information we
                         receive from users. <br> <br>
