@@ -335,7 +335,7 @@
     <!-- Footer -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade mb-3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -383,14 +383,14 @@
                     </div>
                     <div class="1-paragraph">
                         <strong class="mt-2">PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THE
-                            APPLICATION. <strong><br> <br>
-                                Your access to and use of the Service is conditioned on your acceptance of and compliance
-                                with these
-                                Terms. These Terms apply to all visitors, users and others who access or use the Service.
-                                By accessing or using the Service you agree to be bound by these Terms. If you disagree with
-                                any
-                                part of
-                                the terms then you may not access the Service.
+                            APPLICATION. </strong><br> <br>
+                        Your access to and use of the Service is conditioned on your acceptance of and compliance
+                        with these
+                        Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                        By accessing or using the Service you agree to be bound by these Terms. If you disagree with
+                        any
+                        part of
+                        the terms then you may not access the Service.
                     </div>
 
                     <ul class="list-group list-group-flush">
