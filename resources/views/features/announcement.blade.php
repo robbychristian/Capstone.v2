@@ -80,7 +80,7 @@
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-date-title">Posted on:</div>
                                         <div class="v-announcement-date">
-                                            {{ date('M d, Y \a\t h:i:s A', strtotime($announcement->created_at)) }}</div>
+                                            {{ date('M d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</div>
                                     </div>
                                     @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                                         @if (Auth::user()->user_role === 1)
