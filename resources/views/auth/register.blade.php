@@ -351,7 +351,7 @@
                     <div class="1-paragraph text-center">
                         This informs you of our policies regarding the collection, use and disclosure of Personal
                         Information we
-                        receive from users. <br> <br>
+                        receive from users.
                         We use your Personal Information only for providing and improving the application. By using the
                         application, you agree to the collection and use of information in accordance with this policy.
                     </div>
@@ -399,10 +399,11 @@
                             KaBisig allows you to submit, store, share and otherwise make available certain information,
                             text,
                             graphics or images. You are responsible for any information you share. Any type of fraud or sham
+                            in submitting reports
                             will be
-                            immediately blocked in accessing the system. Falsifying information especially with regards to
+                            immediately blocked in submitting reports. Falsifying information especially with regards to
                             disasters
-                            will only make the things worse.
+                            will only make things worse.
                         </li>
                         <li class="list-group-item">
                             <strong>Links To Other Web Sites</strong><br>
