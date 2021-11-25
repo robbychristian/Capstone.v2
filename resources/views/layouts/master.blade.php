@@ -252,6 +252,11 @@
             color: #e2e2e2;
         }
 
+        .form-group.required .control-label:after {
+            content: "*";
+            color: red;
+        }
+
     </style>
 
 </head>

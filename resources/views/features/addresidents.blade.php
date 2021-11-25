@@ -157,6 +157,9 @@
             </div>
         </div>
 
+        <div class="text-muted mb-5">Fields marked with an <span class="text-danger" style="font-size: 1rem">*</span> are
+            required.</div>
+
         @if (Auth::user()->user_role === 1)
             <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-5"
                 enctype="multipart/form-data">
@@ -166,14 +169,14 @@
         @endif
         @csrf
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 required">
                 <label class="control-label" for="inputfName">First Name</label>
                 <input name="fname" type="text" class="form-control" id="inputfName" value={{ old('fname') }}>
                 <small class="text-danger">@error('fname')
                         {{ $message }}
                     @enderror</small>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 required">
                 <label class="control-label" for="inputmName">Middle Name</label>
                 <input name="mname" type="text" class="form-control" id="inputmName" value={{ old('mname') }}>
                 <small class="text-danger">@error('mname')
@@ -181,7 +184,7 @@
                     @enderror</small>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 required">
                 <label class="control-label" for="inputlName">Last Name</label>
                 <input name="lname" type="text" class="form-control" id="inputlName" value={{ old('lname') }}>
                 <small class="text-danger">@error('lname')
@@ -190,14 +193,14 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-8 required">
                 <label class="control-label" for="inputAddress">Home Address</label>
                 <input name="address" type="text" class="form-control" id="inputAddress" value={{ old('address') }}>
                 <small class="text-danger">@error('address')
                         {{ $message }}
                     @enderror</small>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-4 required">
                 <label class="control-label" for="inputBrgy">Barangay</label>
                 @if (Auth::user()->user_role === 1)
                     <select name="brgy" id="inputBrgy" class="form-control">
@@ -219,7 +222,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 required">
                 <label class="control-label" for="inputContactNum">Contact Number</label>
                 <input name="cnum" type="text" class="form-control" id="inputContactNum"
                     onkeypress="return onlyNumberKey(event)" maxlength="11" value={{ old('cnum') }}>
@@ -227,7 +230,7 @@
                         {{ $message }}
                     @enderror</small>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-2 required">
                 <label class="control-label" for="inputBday">Birthday</label>
                 <select name="mbday" id="mbday" class="form-control" value="{{ old('mbday') }}">
                     <option selected disabled>Month</option>
@@ -271,7 +274,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group required">
             <label class="control-label" for="inputEmail">Email</label>
             <input name="email" type="email" class="form-control" id="inputEmail" value={{ old('email') }}>
             <small class="text-danger">@error('email')
@@ -280,7 +283,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 required">
                 <label class="control-label" for="inputPassword">Password</label>
                 <input name="pass" type="password" class="form-control" id="inputPassword">
                 <small class="text-muted">Must be 8 and above characters long.</small>
@@ -288,7 +291,7 @@
                         {{ $message }}
                     @enderror</small>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 required">
                 <label class="control-label" for="inputConfpw">Confirm Password</label>
                 <input name="conf_pass" type="password" class="form-control" id="inputConfpw">
                 <small class="text-danger">@error('conf_pass')
@@ -297,7 +300,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group required">
             <label class="control-label" for="inputUpload">Upload your Profle Picture</label>
             <input name="file" class="form-control" type="file" id="formFile">
             <small class="text-muted">Accessible formats: jpg, png, jpeg,
@@ -309,7 +312,7 @@
             @enderror
         </div>
 
-        <div class="form-group form-check">
+        <div class="form-group form-check required">
             <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label control-label" for="exampleCheck1">I have read and agree to the <span
                     style="text-decoration: underline; color: blue; cursor: pointer;">terms and

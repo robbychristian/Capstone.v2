@@ -24,27 +24,32 @@
                 <a class="btn btn-primary" href="/admin/managebrgy_official">Back</a>
             </div>
         </div>
+
+        <div class="text-muted mb-5">Fields marked with an <span class="text-danger" style="font-size: 1rem">*</span> are
+            required.</div>
+
+
         <form action="{{ route('admin.managebrgy_official.store') }}" method="POST" enctype="multipart/form-data"
             class="mt-4">
             @csrf
             <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputfName">First Name</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputfName">First Name</label>
                     <input name="fname" type="text" class="form-control" id="inputfName" value={{ old('fname') }}>
                     <small class="text-danger">@error('fname')
                             {{ $message }}
                         @enderror</small>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputmName">Middle Name</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputmName">Middle Name</label>
                     <input name="mname" type="text" class="form-control" id="inputmName" value={{ old('mname') }}>
                     <small class="text-danger">@error('mname')
                             {{ $message }}
                         @enderror</small>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="inputlName">Last Name</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputlName">Last Name</label>
                     <input name="lname" type="text" class="form-control" id="inputlName" value={{ old('lname') }}>
                     <small class="text-danger">@error('lname')
                             {{ $message }}
@@ -52,8 +57,8 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputAddress">Barangay Position</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputAddress">Barangay Position</label>
                     <select name="brgy_pos" id="" class="form-control">
                         <option value="">Position</option>
                         <option value="Kagawad">Kagawad</option>
@@ -65,8 +70,8 @@
                             {{ $message }}
                         @enderror</small>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputBrgy">Barangay</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputBrgy">Barangay</label>
                     @if (Auth::user()->user_role === 1)
                         <select name="brgy" id="inputBrgy" class="form-control">
                             <option value="">Barangay</option>
@@ -84,8 +89,8 @@
                             value="{{ Auth::user()->brgy_loc }}" readonly>
                     @endif
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputContactNum">Contact Number</label>
+                <div class="form-group col-md-4 required">
+                    <label class="control-label" for="inputContactNum">Contact Number</label>
                     <input name="cnum" type="text" class="form-control" id="inputContactNum"
                         onkeypress="return onlyNumberKey(event)" maxlength="11" value={{ old('cnum') }}>
                     <small class="text-danger">@error('cnum')
@@ -94,8 +99,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="inputEmail">Email</label>
+            <div class="form-group required">
+                <label class="control-label" for="inputEmail">Email</label>
                 <input name="email" type="email" class="form-control" id="inputEmail" value={{ old('email') }}>
                 <small class="text-danger">@error('email')
                         {{ $message }}
@@ -103,16 +108,16 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPassword">Password</label>
+                <div class="form-group col-md-6 required">
+                    <label class="control-label" for="inputPassword">Password</label>
                     <input name="pass" type="password" class="form-control" id="inputPassword">
                     <small class="text-muted">Must be 8 and above characters long.</small>
                     <small class="text-danger">@error('pass')
                             {{ $message }}
                         @enderror</small>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputConfpw">Confirm Password</label>
+                <div class="form-group col-md-6 required">
+                    <label class="control-label" for="inputConfpw">Confirm Password</label>
                     <input name="conf_pass" type="password" class="form-control" id="inputConfpw">
                     <small class="text-danger">@error('conf_pass')
                             {{ $message }}
@@ -120,8 +125,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="inputUpload">Upload your Profle Picture</label>
+            <div class="form-group required">
+                <label class="control-label" for="inputUpload">Upload your Profle Picture</label>
                 <input name="file" class="form-control" type="file" id="formFile">
                 <small class="text-muted">Accessible formats: jpg, png, jpeg,
                     only</small>
@@ -132,9 +137,9 @@
                 @enderror
             </div>
 
-            <div class="form-group form-check">
+            <div class="form-group form-check required">
                 <input name="cbox" type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">I have read and agree to the <span
+                <label class="form-check-label control-label" for="exampleCheck1">I have read and agree to the <span
                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                         conditions
                     </span></label>
