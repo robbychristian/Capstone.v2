@@ -209,16 +209,18 @@ class StatisticsController extends Controller
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
-                $disaster = DisasterAffectedStreets::where('disaster_id', $id)->update([
-                    'affected_streets' => $values['street'],
-                    'number_families_affected' => $values['families'],
-                ]);
+                //$disaster = DisasterAffectedStreets::where('disaster_id', $id)->update([
+                //    'affected_streets' => $values['street'],
+                //    'number_families_affected' => $values['families'],
+                //]);
 
                 //DB::table('disaster_affected_streets')->update([
                 //    'disaster_id' => $id,
                 //    'affected_streets' => $values['street'],
                 //    'number_families_affected' => $values['families'],
                 //]);
+
+                dd($values);
             };
 
 
