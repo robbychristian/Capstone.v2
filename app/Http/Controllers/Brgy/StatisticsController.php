@@ -20,14 +20,14 @@ class StatisticsController extends Controller
     public function index()
     {
         $disasterstats = DisasterReport::where('barangay', '=', Auth::user()->brgy_loc)->get();
-       //$affectedstreets = DB::table('disaster_affected_streets')
-       //                    ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
-       //                    ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
-       //                    ->get('affected_streets');
-       //        $affectedstreets = DB::table('disaster_affected_streets')
-       //                    ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
-       //                    ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
-       //                    ->get('affected_streets');
+        //$affectedstreets = DB::table('disaster_affected_streets')
+        //                    ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
+        //                    ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
+        //                    ->get('affected_streets');
+        //        $affectedstreets = DB::table('disaster_affected_streets')
+        //                    ->join('disaster_reports', 'disaster_affected_streets.disaster_id', 'disaster_reports.id')
+        //                    ->where('disaster_affected_streets.disaster_id', 'disaster_reports.id')
+        //                    ->get('affected_streets');
         return view('features.viewdisasterstatsreports', [
             'disasterstats' => $disasterstats,
             //'affectedstreets' => $affectedstreets
@@ -51,7 +51,7 @@ class StatisticsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $validator = Validator::make($request->all(), [
             'typeOfdisaster' => 'required',
             'nameOfdisaster' => 'required|max:255',
@@ -218,15 +218,20 @@ class StatisticsController extends Controller
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
-                DB::table('disaster_affected_streets')->update([
-                    'disaster_id' => $id,
+                $disaster = DisasterAffectedStreets::where('disaster_id', $id)->update([
                     'affected_streets' => $values['street'],
                     'number_families_affected' => $values['families'],
                 ]);
+
+                //DB::table('disaster_affected_streets')->update([
+                //    'disaster_id' => $id,
+                //    'affected_streets' => $values['street'],
+                //    'number_families_affected' => $values['families'],
+                //]);
             };
 
 
-            return redirect('/brgy_official/stats/' )
+            return redirect('/brgy_official/stats/')
                 ->with('success', 'Disaster Report Saved!');
         }
     }

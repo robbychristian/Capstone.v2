@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
+use App\Models\DisasterAffectedStreets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -208,11 +209,16 @@ class StatisticsController extends Controller
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
-                DB::table('disaster_affected_streets')->update([
-                    'disaster_id' => $id,
+                $disaster = DisasterAffectedStreets::where('disaster_id', $id)->update([
                     'affected_streets' => $values['street'],
                     'number_families_affected' => $values['families'],
                 ]);
+
+                //DB::table('disaster_affected_streets')->update([
+                //    'disaster_id' => $id,
+                //    'affected_streets' => $values['street'],
+                //    'number_families_affected' => $values['families'],
+                //]);
             };
 
 
