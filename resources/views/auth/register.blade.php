@@ -344,7 +344,7 @@
                     </button>
                 </div>
 
-                <div class="modal-body color-">
+                <div class="modal-body text-gray-900" style="text-align: justify">
                     <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
                         KABISIG DIGITAL PRIVACY POLICY
                     </div>
