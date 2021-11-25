@@ -116,7 +116,8 @@ class AccountController extends Controller
                 $user = BrgyOfficial::where('id', $id)->update([
                     'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
                     'contact_no' => $request->input('cnum'),
-                    'password' => Hash::make($request->input('new_pass'))
+                    'password' => Hash::make($request->input('new_pass')),
+                    'profile_pic' => $file,
                 ]);
             }
 
