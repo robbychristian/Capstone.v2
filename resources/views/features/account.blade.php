@@ -228,7 +228,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputContact">Email Address</label>
+                                <label for="inputContact">Contact Number</label>
                                 <input type="text" name="cnum" class="form-control @error('cnum') is-invalid @enderror"
                                     id="inputContact" value="{{ Auth::user()->contact_no }}">
                                 <small class="text-danger">@error('cnum')
