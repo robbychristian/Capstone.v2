@@ -220,7 +220,7 @@ class StatisticsController extends Controller
                 //    'number_families_affected' => $values['families'],
                 //]);
 
-                var_dump($values);
+                echo var_dump($values);
             };
 
 
