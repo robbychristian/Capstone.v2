@@ -159,9 +159,36 @@
                             {{ Session::get('success') }}
                         </div>
                     @endif
-                    <form action="/brgy_official/account/{{ $brgy_official->id }}" method="POST">
+                    <form action="/brgy_official/account/{{ $brgy_official->id }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        <h5 class="mb-3">Profile Picture</h5>
+                        <div class="card mb-3 border-0">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/brgy_profile_pic/' . $brgy_official->id . '/' . $brgy_official->profile_pic) }}"
+                                        alt="..." class="img-responsive"
+                                        style="width: 100%; object-fit: cover; height: 300px;">
+                                    <!-- must be 375 x 300 px -->
+                                </div>
+                                <div class="col-md-8 ">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="form-group">
+                                            <input name="file" class="form-control" type="file" id="formFile">
+                                            @error('file')
+                                                <small class="text-danger">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
+                                        </div>
+                                        <p class="card-text "><small class="text-muted">Accessible formats: jpg, png
+                                                only</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputfName">First Name</label>
