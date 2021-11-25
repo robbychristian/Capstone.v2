@@ -87,51 +87,7 @@
                                             onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
                                             View Map
                                         </button></td>
-                                    <td>{{ $report->created_at }}</td>
-                                    <!---
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div class="col-2">
-                                                                                    @if (Auth::user()->user_role === 4)
-                                                                                        <form action="/user/reports/{{ $report->id }}" method="POST">
-                                                @elseif (Auth::user()->user_role === 1)
-                                                                                            <form action="/admin/reports/{{ $report->id }}" method="POST">
-                                                    @elseif (Auth::user()->user_role === 3)
-                                                                                                <form action="/brgy_official/reports/{{ $report->id }}"
-                                                                                                    method="POST">
-                                                                                    @endif
-                                                                                    @csrf
-                                                                                    @method("DELETE")
-                                                                                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                                                    </form>
-                                                                                </div>
-                                                                                <div class="col-2" style="margin-top: -1.5px">
-                                                                                    @if (Auth::user()->user_role === 1)
-                                                                                        <form action="/admin/reports/pending/{{ $report->id }}" method="POST">
-                                                @elseif (Auth::user()->user_role === 3)
-                                                                                            <form action="/brgy_official/reports/pending/{{ $report->id }}"
-                                                                                                method="POST">
-                                                                                    @endif
-                                                                                    @csrf
-                                                                                    @method("POST")
-                                                                                    <button class="btn btn-warning"><i class="fas fa-clock"></i></i></button>
-                                                                                    </form>
-                                                                                </div>
-                                                                                <div class="col-2">
-                                                                                    @if (Auth::user()->user_role === 1)
-                                                                                        <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
-                                                @elseif (Auth::user()->user_role === 3)
-                                                                                            <form action="/brgy_official/reports/confirm/{{ $report->id }}"
-                                                                                                method="POST">
-                                                                                    @endif
-                                                                                    @csrf
-                                                                                    @method("POST")
-                                                                                    <button class="btn btn-success"><i class="fas fa-check"></i></button>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td> -->
-
+                                    <td> {{ date('M d, Y \a\t h:m a', strtotime($report->created_at)) }}</td>
                                     <td>
                                         @if (Auth::user()->user_role === 1)
                                             <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
