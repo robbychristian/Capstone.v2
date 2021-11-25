@@ -190,22 +190,22 @@ class StatisticsController extends Controller
                 ->withInput();
         } else {
 
-            DisasterReport::where('id', $id)->update([
-                'type_disaster' => $request->input('typeOfdisaster'),
-                'name_disaster' => $request->input('nameOfdisaster'),
-                'month_disaster' => $request->input('monthOfdisaster'),
-                'day_disaster' =>  $request->input('dayOfdisaster'),
-                'year_disaster' => $request->input('yearOfdisaster'),
-                'barangay' => $request->input('barangay'),
-                'families_affected' => $request->input('familiesAffected'),
-                'individuals_affected' => $request->input('individualsAffected'),
-                'evacuees' => $request->input('evacuees')
-            ]);
-
-            $id = DB::table('disaster_reports')
-                ->where('month_disaster', $request->input('monthOfdisaster'))
-                ->where('day_disaster', $request->input('dayOfdisaster'))
-                ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
+            //DisasterReport::where('id', $id)->update([
+            //    'type_disaster' => $request->input('typeOfdisaster'),
+            //    'name_disaster' => $request->input('nameOfdisaster'),
+            //    'month_disaster' => $request->input('monthOfdisaster'),
+            //    'day_disaster' =>  $request->input('dayOfdisaster'),
+            //    'year_disaster' => $request->input('yearOfdisaster'),
+            //    'barangay' => $request->input('barangay'),
+            //    'families_affected' => $request->input('familiesAffected'),
+            //    'individuals_affected' => $request->input('individualsAffected'),
+            //    'evacuees' => $request->input('evacuees')
+            //]);
+            //
+            //$id = DB::table('disaster_reports')
+            //    ->where('month_disaster', $request->input('monthOfdisaster'))
+            //    ->where('day_disaster', $request->input('dayOfdisaster'))
+            //    ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
@@ -220,7 +220,7 @@ class StatisticsController extends Controller
                 //    'number_families_affected' => $values['families'],
                 //]);
 
-                echo var_dump($values);
+                echo print_r($values);
             };
 
 
