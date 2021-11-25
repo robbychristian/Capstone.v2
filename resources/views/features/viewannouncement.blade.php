@@ -18,7 +18,7 @@
                         <h2 class="card-title">{{ $announcement->title }}</h2>
                         <small class=" bd-highlight text-muted">Issued by: {{ $announcement->name }}</small>
                         <small class=" bd-highlight text-muted">
-                            {{ date('F m, Y \a\t h:i:s A', strtotime($announcement->created_at)) }}</small>
+                            {{ date('F d, Y \a\t h:i:s A', strtotime($announcement->created_at)) }}</small>
                     </div>
                     <p class="card-text">{{ $announcement->body }}</p>
 
