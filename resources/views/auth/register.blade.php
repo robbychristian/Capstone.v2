@@ -335,7 +335,7 @@
     <!-- Footer -->
 
     <!-- Modal -->
-    <div class="modal fade mb-3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -381,7 +381,7 @@
                     <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
                         KABISIG TERMS OF USE
                     </div>
-                    <div class="1-paragraph">
+                    <div class="1-paragraph text-center">
                         <strong class="mt-2">PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THE
                             APPLICATION. </strong><br> <br>
                         Your access to and use of the Service is conditioned on your acceptance of and compliance
