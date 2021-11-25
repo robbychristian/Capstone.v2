@@ -80,7 +80,7 @@ class AccountController extends Controller
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'cnum' => 'required|max:255|unique:brgy_officials,contact_no',
+            'cnum' => 'required|max:255',
             'curr_pass' => [
                 'required', function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::user()->password)) {
@@ -90,6 +90,7 @@ class AccountController extends Controller
             ],
             'new_pass' => 'required|min:8',
             'conf_pass' => 'required|min:8|same:new_pass',
+            'file' => 'mimes:jpeg,png,jpg',
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
             'mname.required' => 'The middle name field must not be empty!',
@@ -100,6 +101,7 @@ class AccountController extends Controller
             'new_pass.required' => 'The new password field must not be empty!',
             'conf_pass.required' => 'The confirm password field must not be empty!',
             'conf_pass.same' => 'Confirm password should match new password!',
+            'file.mimes' => 'The file must be a in a type of jpg, jpeg, png',
         ]);
 
         if ($validator->fails()) {
@@ -107,12 +109,18 @@ class AccountController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $user = BrgyOfficial::where('id', $id)->update([
-                'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
-                'email' => $request->input('email'),
-                'contact_no' => $request->input('cnum'),
-                'password' => Hash::make($request->input('new_pass'))
-            ]);
+            if ($request->hasFile('file')) {
+                $file = $request->file('file')->getClientOriginalName();
+                $request->file('file')->storeAs('brgy_profile_pic', Auth::user()->id . '/' . $file, '');
+
+                $user = BrgyOfficial::where('id', $id)->update([
+                    'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
+                    'email' => $request->input('email'),
+                    'contact_no' => $request->input('cnum'),
+                    'password' => Hash::make($request->input('new_pass'))
+                ]);
+            }
+
 
             return redirect('/brgy_official/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
