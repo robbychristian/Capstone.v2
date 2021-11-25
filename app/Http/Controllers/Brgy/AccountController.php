@@ -109,23 +109,20 @@ class AccountController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-
             if ($request->hasFile('file')) {
                 $file = $request->file('file')->getClientOriginalName();
-                dd($file);
+                $request->file('file')->storeAs('brgy_profile_pic', Auth::user()->id . '/' . $file, '');
+
+                $user = BrgyOfficial::where('id', $id)->update([
+                    'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
+                    'contact_no' => $request->input('cnum'),
+                    'password' => Hash::make($request->input('new_pass')),
+                    'profile_pic' => $file,
+                ]);
             }
-            //    $request->file('file')->storeAs('brgy_profile_pic', Auth::user()->id . '/' . $file, '');
-
-            //    $user = BrgyOfficial::where('id', $id)->update([
-            //        'name' => $request->input('fname') . ' ' . $request->input('mname') . ' ' . $request->input('lname'),
-            //        'contact_no' => $request->input('cnum'),
-            //        'password' => Hash::make($request->input('new_pass')),
-            //        'profile_pic' => $file,
-            //    ]);
-            //}
 
 
-            //return redirect('/brgy_official/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
+            return redirect('/brgy_official/account/' . Auth::user()->id . '/edit')->with('success', 'Your account has been successfully updated!');
         }
     }
 
