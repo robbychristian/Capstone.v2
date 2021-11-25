@@ -344,8 +344,8 @@
                     </button>
                 </div>
 
-                <div class="modal-body">
-                    <div class="terms-title text-center">
+                <div class="modal-body color-">
+                    <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
                         KABISIG DIGITAL PRIVACY POLICY
                     </div>
                     <div class="1-paragraph">
@@ -378,7 +378,7 @@
                     </ul>
                     <hr>
 
-                    <div class="terms-title text-center">
+                    <div class="terms-title text-center font-weight-bold" style="font-size: 1.3rem;">
                         KABISIG TERMS OF USE
                     </div>
                     <div class="1-paragraph">
