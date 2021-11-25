@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
-use App\Models\DisasterAffectedStreets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -190,37 +189,30 @@ class StatisticsController extends Controller
                 ->withInput();
         } else {
 
-            //DisasterReport::where('id', $id)->update([
-            //    'type_disaster' => $request->input('typeOfdisaster'),
-            //    'name_disaster' => $request->input('nameOfdisaster'),
-            //    'month_disaster' => $request->input('monthOfdisaster'),
-            //    'day_disaster' =>  $request->input('dayOfdisaster'),
-            //    'year_disaster' => $request->input('yearOfdisaster'),
-            //    'barangay' => $request->input('barangay'),
-            //    'families_affected' => $request->input('familiesAffected'),
-            //    'individuals_affected' => $request->input('individualsAffected'),
-            //    'evacuees' => $request->input('evacuees')
-            //]);
-            //
-            //$id = DB::table('disaster_reports')
-            //    ->where('month_disaster', $request->input('monthOfdisaster'))
-            //    ->where('day_disaster', $request->input('dayOfdisaster'))
-            //    ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
+            DisasterReport::where('id', $id)->update([
+                'type_disaster' => $request->input('typeOfdisaster'),
+                'name_disaster' => $request->input('nameOfdisaster'),
+                'month_disaster' => $request->input('monthOfdisaster'),
+                'day_disaster' =>  $request->input('dayOfdisaster'),
+                'year_disaster' => $request->input('yearOfdisaster'),
+                'barangay' => $request->input('barangay'),
+                'families_affected' => $request->input('familiesAffected'),
+                'individuals_affected' => $request->input('individualsAffected'),
+                'evacuees' => $request->input('evacuees')
+            ]);
+
+            $id = DB::table('disaster_reports')
+                ->where('month_disaster', $request->input('monthOfdisaster'))
+                ->where('day_disaster', $request->input('dayOfdisaster'))
+                ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
-                //$disaster = DisasterAffectedStreets::where('disaster_id', $id)->update([
-                //    'affected_streets' => $values['street'],
-                //    'number_families_affected' => $values['families'],
-                //]);
-
-                //DB::table('disaster_affected_streets')->update([
-                //    'disaster_id' => $id,
-                //    'affected_streets' => $values['street'],
-                //    'number_families_affected' => $values['families'],
-                //]);
-
-                echo print_r($values);
+                DB::table('disaster_affected_streets')->update([
+                    'disaster_id' => $id,
+                    'affected_streets' => $values['street'],
+                    'number_families_affected' => $values['families'],
+                ]);
             };
 
 
