@@ -95,6 +95,7 @@ class AnnouncementController extends Controller
     {
         $announcements = DB::table('announcements')
             ->where('brgy_loc', $brgy)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return $announcements;
