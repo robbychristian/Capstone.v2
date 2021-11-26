@@ -14,7 +14,7 @@ class EvacuationCenterSeeder extends Seeder
      */
     public function run()
     {
-        //BARANGAY SANTOLAN
+        //BARANGAY SANTOLAN 5
         DB::table('evacuation_centers')->insert([
             'brgy_loc' => 'Barangay Santolan',
             'lat' => '14.612163189054954',
@@ -39,7 +39,14 @@ class EvacuationCenterSeeder extends Seeder
             'lng' => '121.08636442213766'
         ]);
 
-        //BARANGAY DELA PAZ
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Santolan',
+            'lat' => '14.6213444',
+            'lng' => ' 121.0829739'
+        ]);
+
+
+        //BARANGAY DELA PAZ 4
 
         DB::table('evacuation_centers')->insert([
             'brgy_loc' => 'Barangay Dela Paz',
@@ -53,8 +60,20 @@ class EvacuationCenterSeeder extends Seeder
             'lng' => '121.092296416'
         ]);
 
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Dela Paz',
+            'lat' => '14.6147514',
+            'lng' => '121.0953941'
+        ]);
 
-        //BARANGAY MANGGAHAN
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Dela Paz',
+            'lat' => '14.61432',
+            'lng' => '121.09517'
+        ]);
+
+
+        //BARANGAY MANGGAHAN 4
 
         DB::table('evacuation_centers')->insert([
             'brgy_loc' => 'Barangay Manggahan',
@@ -68,7 +87,21 @@ class EvacuationCenterSeeder extends Seeder
             'lng' => '121.092152854'
         ]);
 
-        //BARANGAY MAYBUNGA
+
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Manggahan',
+            'lat' => '14.595450',
+            'lng' => '121.095660'
+        ]);
+
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Manggahan',
+            'lat' => '14.609',
+            'lng' => '121.10674'
+        ]);
+
+
+        //BARANGAY MAYBUNGA 4
 
         DB::table('evacuation_centers')->insert([
             'brgy_loc' => 'Barangay Maybunga',
@@ -88,7 +121,13 @@ class EvacuationCenterSeeder extends Seeder
             'lng' => '121.0862173'
         ]);
 
-        //BARANGAY ROSARIO
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Maybunga',
+            'lat' => '14.577324',
+            'lng' => '121.081957'
+        ]);
+
+        //BARANGAY ROSARIO 4
 
         DB::table('evacuation_centers')->insert([
             'brgy_loc' => 'Barangay Rosario',
@@ -100,6 +139,18 @@ class EvacuationCenterSeeder extends Seeder
             'brgy_loc' => 'Barangay Rosario',
             'lat' => '14.590134',
             'lng' => '121.084774'
+        ]);
+
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Rosario',
+            'lat' => '  14.58628',
+            'lng' => '121.08437 '
+        ]);
+
+        DB::table('evacuation_centers')->insert([
+            'brgy_loc' => 'Barangay Rosario',
+            'lat' => '14.58862',
+            'lng' => '121.08864'
         ]);
     }
 }
