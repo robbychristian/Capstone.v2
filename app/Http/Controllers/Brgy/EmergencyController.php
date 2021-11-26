@@ -89,7 +89,7 @@ class EmergencyController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $result = $this->itexmo($number, $message, $apicode, $apipwd);
+            $result = $this->itexmo($number, $final_message, $apicode, $apipwd);
             if ($result == "") {
                 return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
             } else if ($result == 0) {
