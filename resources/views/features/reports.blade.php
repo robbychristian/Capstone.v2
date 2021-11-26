@@ -52,7 +52,7 @@
                                             onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
                                             View Map
                                         </button></td>
-                                    <td> {{ date('M d, Y \a\t h:m a', strtotime($report->created_at)) }}</td>
+                                    <td> {{ date('F d, Y \a\t h:i:s A', strtotime($report->created_at)) }}</td>
                                     <td>
                                         <form action="/user/reports/{{ $report->id }}" method="POST">
                                             @csrf
@@ -87,7 +87,7 @@
                                             onclick="initMap({{ $report->loc_lat }}, {{ $report->loc_lng }})">
                                             View Map
                                         </button></td>
-                                    <td> {{ date('M d, Y \a\t h:m a', strtotime($report->created_at)) }}</td>
+                                    <td> {{ date('F d, Y \a\t h:i:s A', strtotime($report->created_at)) }}</td>
                                     <td>
                                         @if (Auth::user()->user_role === 1)
                                             <form action="/admin/reports/confirm/{{ $report->id }}" method="POST">
