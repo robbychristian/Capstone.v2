@@ -79,7 +79,7 @@ class EmergencyController extends Controller
         //    ->join('users', 'user_profiles.user_email', 'users.email')
         //    ->where('brgy_loc', $brgyloc)
         //    ->get('contact_no');
-
+        $final_message = $message . "\n" . "This message is sent through kabisigapp.com. Stay safe!";
 
 
         if ($validator->fails()) {
@@ -87,7 +87,7 @@ class EmergencyController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $result = $this->itexmo($number, $message, $apicode, $apipwd);
+            $result = $this->itexmo($number, $final_message, $apicode, $apipwd);
             if ($result == "") {
                 return redirect('/admin/emergencymessage/create')->with('success', 'Something went wrong!');
             } else if ($result == 0) {

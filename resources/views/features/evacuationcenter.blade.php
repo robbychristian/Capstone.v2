@@ -59,7 +59,7 @@
 
             var markers = [
                 @foreach ($coordinates as $coordinate)
-                    ["{{ floatval($coordinate->lat) }}","{{ floatval($coordinate->lng) }}"],
+                    ["{{ $coordinate->lat }}","{{ $coordinate->lng }}"],
                 
                 @endforeach
             ];
@@ -106,7 +106,7 @@
         }
     </script>
     <div class="container-fluid" style="color: black;">
-        <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Evacuation Centers</h1>
+        <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
         @if (Auth::user()->user_role === 1)
             <form class="mb-3">
                 <p class="vul-caption mt-3">Choose the barangay:</p>
