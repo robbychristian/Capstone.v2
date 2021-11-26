@@ -16,6 +16,7 @@
                             <th scope="col" style="color: white;">Title</th>
                             <th scope="col" style="color: white;">Image</th>
                             <th scope="col" style="color: white;">Description</th>
+                            <th scope="col" style="color: white;">Barangay</th>
                             <th scope="col" style="color: white;">Status</th>
                             <th scope="col" style="color: white;">Location</th>
                             <th scope="col" style="color: white;">Timestamp</th>
@@ -70,6 +71,7 @@
                                             View Image
                                         </button></td>
                                     <td>{{ $report->description }}</td>
+                                    <td>{{ $report->brgy_loc }}</td>
                                     <td>
                                         @if ($report->status == 'Report Pending')
                                             <span class="badge badge-warning" style="font-size: 1rem;">

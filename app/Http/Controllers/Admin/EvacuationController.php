@@ -15,7 +15,7 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $coordinates = EvacuationCenters::where('brgy_loc', '=', 'Barangay Santolan')->get();
+        $coordinates = EvacuationCenters::all();
         return view('features.evacuationcenter', [
             "coordinates" => $coordinates
         ]);
