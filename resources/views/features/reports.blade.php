@@ -16,7 +16,7 @@
                             <th scope="col" style="color: white;">Title</th>
                             <th scope="col" style="color: white;">Image</th>
                             <th scope="col" style="color: white;">Description</th>
-                            @if (Auth::user()->user_role === 1)
+                            @if (Auth::user()->user_role === 1 || Auth::user()->user_role === 3)
                                 <th scope="col" style="color: white;">Barangay</th>
                             @endif
                             <th scope="col" style="color: white;">Status</th>
