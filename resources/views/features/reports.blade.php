@@ -16,7 +16,9 @@
                             <th scope="col" style="color: white;">Title</th>
                             <th scope="col" style="color: white;">Image</th>
                             <th scope="col" style="color: white;">Description</th>
-                            <th scope="col" style="color: white;">Barangay</th>
+                            @if (Auth::user()->user_role === 1)
+                                <th scope="col" style="color: white;">Barangay</th>
+                            @endif
                             <th scope="col" style="color: white;">Status</th>
                             <th scope="col" style="color: white;">Location</th>
                             <th scope="col" style="color: white;">Timestamp</th>
