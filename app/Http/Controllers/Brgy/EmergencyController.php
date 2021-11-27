@@ -64,38 +64,41 @@ class EmergencyController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'recipients' => 'required',
+            //'recipients' => 'required',
             'message' => 'required',
         ], $messages = [
-            'recipients.required' => 'The recipients is required!',
+            //'recipients.required' => 'The recipients is required!',
             'message.required' => 'The body field is required!',
         ]);
 
-        $number = $request->input('recipients');
-        $message = $request->input('message');
-        $apicode = "ST-CHRIS079696_15BMB";
-        $apipwd = "{sti)c]m8)";
+        $allNumbers = DB::table('user_profiles')
+            ->pluck('contact_no');
+        foreach ($allNumbers as $number) {
+            $message = $request->input('message');
+            $apicode = "ST-CHRIS079696_15BMB";
+            $apipwd = "{sti)c]m8)";
 
-        $brgyloc = Auth::user()->brgy_loc;
-        $numbers = DB::table('user_profiles')
-            ->join('users', 'user_profiles.user_email', 'users.email')
-            ->where('brgy_loc', $brgyloc)
-            ->get('contact_no');
-        $final_message = $message . "\n" . "This message is sent through kabisigapp.com. Stay safe!";
+            $brgyloc = Auth::user()->brgy_loc;
+            $numbers = DB::table('user_profiles')
+                ->join('users', 'user_profiles.user_email', 'users.email')
+                ->where('brgy_loc', $brgyloc)
+                ->get('contact_no');
+            $final_message = $message . "\n" . "This message is sent through kabisigapp.com. Stay safe!";
 
 
-        if ($validator->fails()) {
-            return redirect('/brgy_official/emergencymessage/create')
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            $result = $this->itexmo($number, $message, $apicode, $apipwd);
-            if ($result == "") {
-                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
-            } else if ($result == 0) {
-                return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+            if ($validator->fails()) {
+                return redirect('/brgy_official/emergencymessage/create')
+                    ->withErrors($validator)
+                    ->withInput();
             } else {
-                return redirect('/brgy_official/emergencymessage/create')->with('error', 'Error was encountered!');
+                $result = $this->itexmo($number, $message, $apicode, $apipwd);
+                if ($result == "") {
+                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
+                } else if ($result == 0) {
+                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+                } else {
+                    return redirect('/brgy_official/emergencymessage/create')->with('error', 'Error was encountered!');
+                }
             }
         }
         //else{
