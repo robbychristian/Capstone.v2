@@ -31,7 +31,7 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="flood" role="tabpanel" aria-labelledby="flood-tab">
                 <div class="card-deck">
-                    <div class="card">
+                    <div class="card bg-transparent">
                         <div class="card-body">
                             <h5 class="card-title">BEFORE</h5>
                             <ul class="list-group list-group-flush">
@@ -41,7 +41,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card bg-transparent">
                         <div class="card-body">
                             <h5 class="card-title">DURING</h5>
                             <ul class="list-group list-group-flush">
@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card bg-transparent">
                         <div class="card-body">
                             <h5 class="card-title">AFTER</h5>
                             <ul class="list-group list-group-flush">
