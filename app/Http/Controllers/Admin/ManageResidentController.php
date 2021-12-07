@@ -195,6 +195,8 @@ class ManageResidentController extends Controller
         $oldUserRole = DB::table('users')
             ->where('id', $id)
             ->pluck('user_role')->toArray();
+        $userRole = implode($oldUserRole);
+
         //$newUserRole = DB::table('users')
         //    ->where('id', $id)
         //    ->update(['user_role' => $oldUserRole + 1]);
