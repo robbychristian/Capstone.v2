@@ -200,6 +200,6 @@ class ManageResidentController extends Controller
         //$newUserRole = DB::table('users')
         //    ->where('id', $id)
         //    ->update(['user_role' => $oldUserRole + 1]);
-        dd($oldUserRole);
+        print_r($userRole);
     }
 }
