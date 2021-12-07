@@ -31,7 +31,7 @@
                 @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
 
-                @elseif (Auth::user()->user_role === 4)
+                @elseif (Auth::user()->user_role >= 2)
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->first_name }}
                         {{ Auth::user()->last_name }}</span>
                     <img class="img-profile rounded-circle"
