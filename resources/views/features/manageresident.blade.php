@@ -122,6 +122,13 @@
                                             </form>
                                         </td>
                                     @endif
+                                    <td>
+                                        <form action="/admin/manageresident/promote/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Promote</button>
+                                        </form>
+                                    </td>
                                 @endif
 
 
