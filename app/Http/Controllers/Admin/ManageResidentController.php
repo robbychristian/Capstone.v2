@@ -24,7 +24,7 @@ class ManageResidentController extends Controller
         $users = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
-            ->where('users.user_role', 4)
+            ->where('users.user_role', 2)
             ->get();
         return view('features.manageresident', [
             'users' => $users
