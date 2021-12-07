@@ -22,7 +22,7 @@ class ManageBrgyOfficialController extends Controller
         $brgy_officials = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
-            ->where('user.user_role', '>=', '3')
+            ->where('users.user_role', '>=', '3')
             ->get();
         return view('features.managebrgyofficial', [
             'brgy_officials' => $brgy_officials
