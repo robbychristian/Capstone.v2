@@ -19,7 +19,9 @@ class ManageBrgyOfficialController extends Controller
      */
     public function index()
     {
-        $brgy_officials = BrgyOfficial::all();
+        $brgy_officials = DB::table('users')
+            ->where('user_role', '>=', 3)
+            ->get();
         return view('features.managebrgyofficial', [
             'brgy_officials' => $brgy_officials
         ]);
@@ -142,5 +144,15 @@ class ManageBrgyOfficialController extends Controller
         $brgyofficial = BrgyOfficial::find($id);
         $brgyofficial->delete();
         return redirect('admin/managebrgy_official/');
+    }
+    public function decrementRole($id)
+    {
+        $oldUserRole = DB::table('users')
+            ->where('id', $id)
+            ->pluck('user_role');
+        $newUserRole = DB::table('users')
+            ->where('id', $id)
+            ->update(['user_role' => $oldUserRole++]);
+        return redirect('admin/manageresident')->with('Success', "The user has been demoted!");
     }
 }

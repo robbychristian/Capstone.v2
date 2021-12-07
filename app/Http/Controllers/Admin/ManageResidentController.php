@@ -24,6 +24,7 @@ class ManageResidentController extends Controller
         $users = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
+            ->where('users.user_role', 4)
             ->get();
         return view('features.manageresident', [
             'users' => $users
@@ -188,5 +189,15 @@ class ManageResidentController extends Controller
             ->where('id', $id)
             ->update(['is_deactivated' => false]);
         return redirect('admin/manageresident');
+    }
+    public function incrementRole($id)
+    {
+        $oldUserRole = DB::table('users')
+            ->where('id', $id)
+            ->pluck('user_role');
+        $newUserRole = DB::table('users')
+            ->where('id', $id)
+            ->update(['user_role' => $oldUserRole++]);
+        return redirect('admin/manageresident')->with('Success', "The user has been promoted!");
     }
 }
