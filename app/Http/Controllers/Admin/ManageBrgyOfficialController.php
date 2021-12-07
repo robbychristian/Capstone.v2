@@ -20,7 +20,9 @@ class ManageBrgyOfficialController extends Controller
     public function index()
     {
         $brgy_officials = DB::table('users')
-            ->where('user_role', '>=', 3)
+            ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+            ->select('users.*', 'user_profiles.*')
+            ->where('user.user_role', '>=', '3')
             ->get();
         return view('features.managebrgyofficial', [
             'brgy_officials' => $brgy_officials
@@ -149,10 +151,12 @@ class ManageBrgyOfficialController extends Controller
     {
         $oldUserRole = DB::table('users')
             ->where('id', $id)
-            ->pluck('user_role');
+            ->pluck('user_role')->toArray();
+        $userRole = implode($oldUserRole);
+
         $newUserRole = DB::table('users')
             ->where('id', $id)
-            ->update(['user_role' => $oldUserRole++]);
-        return redirect('admin/manageresident')->with('Success', "The user has been demoted!");
+            ->update(['user_role' => $userRole - 1]);
+        return redirect('admin/manageresident')->with('Success', 'User has been demoted');
     }
 }

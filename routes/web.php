@@ -118,7 +118,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/manageresident/unblock/{manageresident}', [AdminManageResident::class, 'unblock'])->name('manageresident.unblock');
         Route::post('/manageresident/deactivate/{manageresident}', [AdminManageResident::class, 'deactivate'])->name('manageresident.deactivate');
         Route::post('/manageresident/activate/{manageresident}', [AdminManageResident::class, 'activate'])->name('manageresident.activate');
-        Route::post('/manageresident/promote/{manageresident}', [AdminManageResident::class, 'incrementRole'])->name('manageresident.activate');
+        Route::post('/manageresident/promote/{manageresident}', [AdminManageResident::class, 'incrementRole'])->name('manageresident.promote');
+        Route::post('/manageresident/demote/{manageresident}', [AdminManageResident::class, 'decrementRole'])->name('manageresident.demote');
         Route::resource('/manageresident', AdminManageResident::class);
         Route::resource('/managebrgy_official', AdminManageBrgy::class);
         Route::resource('/stats', AdminStatsReport::class);

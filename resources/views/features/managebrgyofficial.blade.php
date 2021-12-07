@@ -31,16 +31,21 @@
                 <tbody>
                     @foreach ($brgy_officials as $brgy_official)
                         <tr>
-                            <td>{{ $brgy_official->name }}</td>
+                            <td>{{ $brgy_official->first_name }} {{ $brgy_official->middle_name }}
+                                {{ $brgy_official->last_name }}</td>
                             <td>{{ $brgy_official->email }}</td>
                             <td>{{ $brgy_official->contact_no }}</td>
                             <td>{{ $brgy_official->brgy_loc }}</td>
-                            <td>{{ $brgy_official->brgy_position }}</td>
                             <td>
                                 <form action="/admin/managebrgy_official/{{ $brgy_official->id }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">Delete</button>
+                                </form>
+                                <form action="/admin/managebrgy_official/demote/{{ $brgy_official->id }}" method="POST">
+                                    @csrf
+                                    @method('post')
+                                    <button class="btn btn-danger">Demote</button>
                                 </form>
                             </td>
                         </tr>
