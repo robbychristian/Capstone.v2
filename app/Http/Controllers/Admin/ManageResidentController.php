@@ -197,7 +197,7 @@ class ManageResidentController extends Controller
             ->pluck('user_role');
         $newUserRole = DB::table('users')
             ->where('id', $id)
-            ->update(['user_role' => $oldUserRole++]);
+            ->update(['user_role' => $oldUserRole + 1]);
         return redirect('admin/manageresident')->with('Success', "The user has been promoted!");
     }
 }
