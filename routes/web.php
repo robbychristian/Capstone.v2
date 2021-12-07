@@ -121,7 +121,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/manageresident/promote/{manageresident}', [AdminManageResident::class, 'incrementRole'])->name('manageresident.promote');
         Route::resource('/manageresident', AdminManageResident::class);
         Route::resource('/managebrgy_official', AdminManageBrgy::class);
-        Route::post('/managebrgy_official/demote/{managebarangay}', [AdminManageResident::class, 'decrementRole'])->name('manageresident.demote');
+        Route::post('/managebrgy_official/demote/{managebarangay}', [AdminManageBrgy::class, 'decrementRole'])->name('manageresident.demote');
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
         Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
