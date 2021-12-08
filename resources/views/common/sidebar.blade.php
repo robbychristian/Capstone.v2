@@ -11,7 +11,7 @@
     <!-- Divider 
     <hr class="sidebar-divider my-0">-->
 
-    @if (Auth::user()->user_role >= 2)
+    @if (Auth::user()->user_role == 2)
         <!-- Nav Item - Account -->
         <li class="nav-item ">
             <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
