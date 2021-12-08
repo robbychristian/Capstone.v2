@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('user_role');
             $table->boolean('is_blocked');
+            $table->boolean('is_valid');
             $table->boolean('is_deactivated');
             $table->rememberToken();
             $table->timestamps();

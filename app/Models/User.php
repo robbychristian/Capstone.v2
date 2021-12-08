@@ -28,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'user_role',
         'brgy_loc',
         'is_blocked',
+        'is_valid',
         'is_deactivated',
     ];
 
