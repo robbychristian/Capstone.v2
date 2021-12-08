@@ -448,7 +448,7 @@
                                         <span><i class="fas fa-user-circle fa-2x"></i></span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <h6 class="dropdown-header">{{ Auth::user()->full_name }}</h6>
+                                        <h6 class="dropdown-header">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }}</h6>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); 

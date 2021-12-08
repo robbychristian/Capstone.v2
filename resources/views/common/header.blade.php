@@ -28,7 +28,7 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
+                @if (Auth::user()->user_role === 1)
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
 
                 @elseif (Auth::user()->user_role >= 2)
@@ -41,12 +41,6 @@
                 <!-- admin -->
                 @if (Auth::user()->user_role === 1)
                     <img class="img-profile rounded-circle" src="{{ URL::asset('img/undraw_profile_pic_ic5t.png') }}">
-                @endif
-
-                <!-- brgy_official -->
-                @if (Auth::user()->user_role === 3)
-                    <img class="img-profile rounded-circle"
-                        src="{{ URL::asset('KabisigGit/storage/app/public/brgy_profile_pic/' . Auth::user()->id . '/' . $profile_pic_brgy->profile_pic) }}">
                 @endif
             </a>
             <!-- Dropdown - User Information -->
