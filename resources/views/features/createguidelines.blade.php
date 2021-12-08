@@ -29,9 +29,9 @@
                 <label><strong>Time of Disaster</strong></label>
                 <select name="time" class="form-control" value="{{ old('time') }}">
                     <option value="">Time</option>
-                    <option value="before">Before</option>
-                    <option value="during">During</option>
-                    <option value="after">After</option>
+                    <option value="Before">Before</option>
+                    <option value="During">During</option>
+                    <option value="After">After</option>
                 </select>
                 <small class="text-danger">@error('time')
                         {{ $message }}

@@ -49,7 +49,7 @@
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'Before')
                                             <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
+                                                    class="fas fa-3x fa-angle-double-right mr-2"
                                                     style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
