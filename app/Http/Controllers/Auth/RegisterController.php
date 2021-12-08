@@ -80,7 +80,8 @@ class RegisterController extends Controller
             'cnum' => 'required|max:255|unique:user_profiles,contact_no',
             'pass' => 'required|min:8',
             'cpass' => 'required|min:8|same:pass',
-            'file' => 'required|mimes:jpeg,png,jpg',
+            'validID' => 'mimes:jpeg,png,jpg',
+            'file' => 'mimes:jpeg,png,jpg',
             'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field must not be empty!',
@@ -97,7 +98,7 @@ class RegisterController extends Controller
             'pass.required' => 'The password field must not be empty!',
             'cpass.required' => 'The confirm password field must not be empty!',
             'cpass.same' => 'Confirm password should match password!',
-            'file.required' => 'An image upload is required',
+            'validID.mimes' => 'The file must be a in a type of jpg, jpeg, png',
             'file.mimes' => 'The file must be a in a type of jpg, jpeg, png',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
@@ -164,13 +165,22 @@ class RegisterController extends Controller
             'home_add' => $data['home_add'],
             'contact_no' => $data['cnum'],
             'birth_day' => $data['mbday'] . '/' . $data['dbday'] . '/' . $data['ybday'],
-            'profile_pic' => "noimage.jpg",
+            'valid_id' => NULL,
+            'profile_pic' => NULL,
         ]);
 
         if (request()->hasFile('file')) {
             $file = request()->file('file')->getClientOriginalName();
             request()->file('file')->storeAs('profile_pics', $user->id . '/' . $file, '');
             $user_profile->update(['profile_pic' => $file]);
+        } else {
+            $user_profile->update(['profile_pic' => 'no_image.jpg']);
+        }
+
+        if (request()->hasFile('validID')) {
+            $validID = request()->file('validID')->getClientOriginalName();
+            request()->file('validID')->storeAs('valid_id', $user->id . '/' . $validID, '');
+            $user_profile->update(['valid_id' => $validID]);
         }
 
         return $user;

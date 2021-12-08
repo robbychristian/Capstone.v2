@@ -16,6 +16,7 @@ class UserProfile extends Model
         'middle_name',
         'contact_no',
         'birth_day',
+        'valid_id',
         'profile_pic'
     ];
 

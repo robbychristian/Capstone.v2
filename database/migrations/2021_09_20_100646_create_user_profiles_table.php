@@ -20,7 +20,8 @@ class CreateUserProfilesTable extends Migration
             $table->string('home_add');
             $table->string('contact_no');
             $table->string('birth_day');
-            $table->string('profile_pic');
+            $table->string('valid_id')->nullable();
+            $table->string('profile_pic')->nullable();
             $table->timestamps();
             $table->foreign('user_email')
                 ->references('email')

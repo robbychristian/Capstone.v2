@@ -48,7 +48,7 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'Before')
-                                            <span class="badge badge-pill badge-info">Info</span>
+
 
                                             <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
                                         @endif

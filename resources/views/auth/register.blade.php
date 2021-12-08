@@ -288,7 +288,19 @@
                                 </div>
                             </div>
 
-                            <div class="form-group required">
+                            <div class="form-group">
+                                <label class="control-label" for="inputUpload">Upload your Valid ID</label>
+                                <input name="validID" class="form-control" type="file" id="formFile">
+                                <small class="text-muted">Accessible formats: jpg, png, jpeg,
+                                    only</small>
+                                @error('validID')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label" for="inputUpload">Upload your Profle Picture</label>
                                 <input name="file" class="form-control" type="file" id="formFile">
                                 <small class="text-muted">Accessible formats: jpg, png, jpeg,
@@ -299,6 +311,7 @@
                                     </small>
                                 @enderror
                             </div>
+
 
                             <div class="form-group form-check required">
                                 <input name="cbox" type="checkbox" class="form-check-input" id="checkbox">
