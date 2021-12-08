@@ -94,6 +94,17 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::resource('/guidelines', UserGuidelines::class);
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);
         Route::resource('/reports', UserReports::class);
+        Route::post('/reports/confirm/{id}', [BrgyReports::class, 'confirmReport']);
+        Route::post('/reports/pending/{id}', [BrgyReports::class, 'pendingReport']);
+        Route::post('/manageresident/block/{manageresident}', [BrgyManageResident::class, 'block'])->name('manageresident.block');
+        Route::post('/manageresident/unblock/{manageresident}', [BrgyManageResident::class, 'unblock'])->name('manageresident.unblock');
+        Route::post('/manageresident/deactivate/{manageresident}', [BrgyManageResident::class, 'deactivate'])->name('manageresident.deactivate');
+        Route::post('/manageresident/activate/{manageresident}', [BrgyManageResident::class, 'activate'])->name('manageresident.activate');
+        Route::resource('/manageresident', BrgyManageResident::class);
+        Route::resource('/stats', BrgyStatsReport::class);
+        Route::resource('/generate', BrgyGenerateReport::class);
+        Route::resource('/dashboard', BrgyDashboard::class);
+        Route::resource('/emergencymessage', BrgyEmergency::class);
     });
 });
 
