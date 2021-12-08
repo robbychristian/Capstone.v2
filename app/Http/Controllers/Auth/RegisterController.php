@@ -156,6 +156,7 @@ class RegisterController extends Controller
             'brgy_loc' => $data['brgy'],
             'is_blocked' => 0,
             'is_deactivated' => 0,
+            'is_valid' => 0,
             'password' => Hash::make($data['pass']),
         ]);
 
