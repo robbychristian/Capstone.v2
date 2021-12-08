@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class AnnouncementController extends Controller
 {
@@ -30,7 +31,12 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('features.createannouncement');
+        $allBrgys = DB::table('barangays')
+            ->get();
+
+        return view('features.createannouncement', [
+            'barangays' => $allBrgys
+        ]);
     }
 
     /**
