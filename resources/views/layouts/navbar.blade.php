@@ -56,7 +56,7 @@
         </nav>
     </div>
     <!--==========================================================================BRGY SIDE NAVBAR===============================================================================-->
-@elseif (Auth::user()->user_role === 3)
+@elseif (Auth::user()->user_role >= 3)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sideNavBar"
@@ -210,7 +210,7 @@
         </nav>
     </div>
 
-    <!--==========================================================================LGU SIDE NAVBAR===============================================================================-->
+    <!--==========================================================================LGU SIDE NAVBAR===============================================================================
 @elseif (Auth::user()->user_role === 5)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -250,5 +250,6 @@
             </div>
         </nav>
     </div>
+    -->
 
 @endif
