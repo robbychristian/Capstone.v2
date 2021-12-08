@@ -30,6 +30,7 @@
                             <th scope="col" style="color: white;">Email</th>
                             <th scope="col" style="color: white;">Contact Number</th>
                             <th scope="col" style="color: white;">Barangay Location</th>
+                            <th scope="col" style="color: white;">Account Status</th>
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,17 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->contact_no }}</td>
                                 <td>{{ $user->brgy_loc }}</td>
+                                <td>
+                                    @if ($user->is_valid === 0)
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-danger">Not Validated</button>
+                                        </form>
+                                    @endif
+                                </td>
+
+
 
                                 @if (Auth::user()->user_role === 3)
                                     <!--IF BRGY OFFICIAL-->
@@ -86,6 +98,13 @@
 
                                 @if (Auth::user()->user_role === 1)
                                     <!--IF ADMIN-->
+                                    <td>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="btn btn-info ">Verify</button>
+                                        </form>
+                                    </td>
                                     @if ($user->is_blocked == true)
                                         <td>
                                             <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
@@ -129,6 +148,7 @@
                                             <button class="btn btn-info ">Promote</button>
                                         </form>
                                     </td>
+
                                 @endif
 
 
