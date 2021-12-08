@@ -31,7 +31,7 @@
                             <th scope="col" style="color: white;">Contact Number</th>
                             <th scope="col" style="color: white;">Barangay Location</th>
                             <th scope="col" style="color: white;">Submitted Valid ID</th>
-                            <th scope="col" colspan='2' style="color: white;">Account Status</th>
+                            <th scope="col" style="color: white;">Account Status</th>
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
                     </thead>
@@ -46,17 +46,19 @@
                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#id{{ $user->id }}">
                                         View Valid ID
-                                    </button></td>
-                                <td>
-
+                                    </button>
                                     @if ($user->is_valid === 0)
                                         <div class="badge badge-danger text-wrap" style="width: 6rem;">
                                             Not Validated
                                         </div>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($user->is_valid === 0)
                                         <form action="" method="POST">
                                             @csrf
                                             @method('POST')
-                                            <button class="btn btn-danger">Not Validated</button>
+                                            <button class="btn btn-success">Validate</button>
                                         </form>
                                     @endif
                                 </td>
@@ -65,6 +67,7 @@
 
                                 @if (Auth::user()->user_role === 3)
                                     <!--IF BRGY OFFICIAL-->
+
                                     @if ($user->is_blocked == true)
                                         <td>
                                             <form action="/brgy_official/manageresident/unblock/{{ $user->id }}"
