@@ -47,14 +47,12 @@
                                         data-target="#id{{ $user->id }}">
                                         View Valid ID
                                     </button>
-                                    @if ($user->is_valid === 0)
-                                        <div class="badge badge-danger text-wrap" style="width: 7rem;">
-                                            Not Validated
-                                        </div>
-                                    @endif
                                 </td>
                                 <td>
                                     @if ($user->is_valid === 0)
+                                        <div class="badge badge-danger text-wrap" style="width: 6rem;">
+                                            Not Validated
+                                        </div>
                                         <form action="" method="POST">
                                             @csrf
                                             @method('POST')
