@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label><strong>Recipients</strong></label>
                     <select name="brgy_loc" class="form-control" value="{{ old('brgy_loc') }}">
-                        <option value="">Barangay</option>
+                        <option value="">All Announcements</option>
                         <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
                         <option value='Barangay Manggahan'>Barangay Manggahan</option>
                         <option value='Barangay Maybunga'>Barangay Maybunga</option>
