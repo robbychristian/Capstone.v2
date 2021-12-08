@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Guidelines;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class GuidelinesController extends Controller
 {
@@ -24,7 +27,7 @@ class GuidelinesController extends Controller
      */
     public function create()
     {
-        //
+        return view('features.createguidelines');
     }
 
     /**
@@ -35,7 +38,29 @@ class GuidelinesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'disaster' => 'required',
+            'time' => 'required',
+            'guideline' => 'required',
+        ], $messages = [
+            'disaster.required' => 'The disaster field is required!',
+            'time.required' => 'The time field is required!',
+            'guideline.required' => 'The guideline field is required!',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/admin/guidelines/create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $announcement = Guidelines::create([
+                'disaster' => $request->input('disaster'),
+                'time' => $request->input('time'),
+                'guideline' => $request->input('guideline')
+            ]);
+
+            return redirect('/admin/guidelines')->with('success', 'Guideline has been posted!');
+        }
     }
 
     /**

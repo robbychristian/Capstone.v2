@@ -126,7 +126,7 @@
                                         <form action="/admin/manageresident/promote/{{ $user->id }}" method="POST">
                                             @csrf
                                             @method('POST')
-                                            <button class="btn btn-danger">Promote</button>
+                                            <button class="btn btn-info ">Promote</button>
                                         </form>
                                     </td>
                                 @endif
