@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label><strong>Recipients</strong></label>
                     <select name="brgy_loc" class="form-control" value="{{ old('brgy_loc') }}">
-                        <option value='1'>All Announcements</option>
+                        <option value="">All Announcements</option>
                         @foreach ($barangays as $barangay)
                             <option value='{{ $barangay->brgy_loc }}'>{{ $barangay->brgy_loc }}</option>
                         @endforeach
