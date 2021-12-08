@@ -44,7 +44,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">BEFORE</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'Before')
@@ -60,7 +60,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">DURING</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'During')
@@ -76,7 +76,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">AFTER</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'After')
@@ -98,7 +98,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">BEFORE</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'Before')
@@ -114,7 +114,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">DURING</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'During')
@@ -130,7 +130,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">AFTER</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'After')
@@ -152,7 +152,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">BEFORE</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'Before')
@@ -168,7 +168,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">DURING</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'During')
@@ -184,7 +184,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">AFTER</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'After')
@@ -206,7 +206,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">BEFORE</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'Before')
@@ -222,7 +222,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">DURING</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'During')
@@ -238,7 +238,7 @@
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
                             <h5 class="card-title text-center h4">AFTER</h5>
-                            <ul class="list-group list-group-flush bg-transparent">
+                            <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'After')
