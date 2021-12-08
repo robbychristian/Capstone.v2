@@ -36,8 +36,51 @@
                     aria-controls="tsunami" aria-selected="false">Tsunami</a>
             </div>
         </nav>
+
+        <!-- FLOOD -->
         <div class="tab-content mt-3" id="nav-tabContent">
             <div class="tab-pane fade show active" id="flood" role="tabpanel" aria-labelledby="flood-tab">
+                <div class="card-deck">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                @foreach ($guidelines as $guideline)
+                                    @if ($guideline->disaster == 'Flood')
+                                        @if ($guideline->time == 'Before')
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                        @endif
+                                    @endif
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">DURING</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EARTHQUAKE -->
+            <div class="tab-pane fade" id="earthquake" role="tabpanel" aria-labelledby="earthquake-tab">
                 <div class="card-deck">
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
@@ -68,13 +111,74 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="earthquake" role="tabpanel" aria-labelledby="earthquake-tab">Earthquake</div>
+
+            <!-- TROPICAL CYCLONE -->
             <div class="tab-pane fade" id="tropical-cyclone" role="tabpanel" aria-labelledby="tropical-cyclone-tab">
-                Tropical Cyclone</div>
-            <div class="tab-pane fade" id="tsunami" role="tabpanel" aria-labelledby="tsunami-tab">Tsunami</div>
+                <div class="card-deck">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">DURING</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TSUNAMI -->
+            <div class="tab-pane fade" id="tsunami" role="tabpanel" aria-labelledby="tsunami-tab">
+                <div class="card-deck">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">DURING</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-
     </div>
-
-
 @endsection
