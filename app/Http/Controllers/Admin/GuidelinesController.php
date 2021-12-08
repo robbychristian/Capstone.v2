@@ -53,7 +53,7 @@ class GuidelinesController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $announcement = Guidelines::create([
+            $guideline = Guidelines::create([
                 'disaster' => $request->input('disaster'),
                 'time' => $request->input('time'),
                 'guideline' => $request->input('guideline')

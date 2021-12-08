@@ -9,7 +9,7 @@ class Guidelines extends Model
 {
     use HasFactory;
 
-    protected $table = 'announcements';
+    protected $table = 'guidelines';
 
     protected $fillable = [
         'disaster',
