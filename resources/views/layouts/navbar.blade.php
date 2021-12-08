@@ -3,7 +3,7 @@
 <!---------------------->
 
 <!--==========================================================================USER SIDE NAVBAR===============================================================================-->
-@if (Auth::user()->user_role === 4)
+@if (Auth::user()->user_role === 2)
     <div class="d-none d-md-block d-lg-block d-xl-block col-xl-2 col-lg-3 col-md-4">
         <nav class="navbar navbar-expand-md navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sideNavBar"
