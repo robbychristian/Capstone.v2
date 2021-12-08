@@ -8,10 +8,12 @@
             <h1 class="h3 mb-0 text-gray-800">Disaster Preparedness</h1>
 
             @if (Auth::user()->user_role === 3)
-                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                <a href="{{ route('user.guidelines.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>
                     Add Guidelines </a>
             @elseif (Auth::user()->user_role === 1)
-                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                <a href="{{ route('admin.guidelines.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>
                     Add Guidelines</a>
             @endif
         </div>
@@ -35,7 +37,8 @@
                         <div class="card-body">
                             <h5 class="card-title text-center h4">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent">
-                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2" style="color: #004F91"></i>An item</li>
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
                             </ul>
                         </div>
                     </div>
@@ -43,7 +46,8 @@
                         <div class="card-body">
                             <h5 class="card-title text-center h4">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent">
-                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2" style="color: #004F91"></i>An item</li>
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +55,8 @@
                         <div class="card-body">
                             <h5 class="card-title text-center h4">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent">
-                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2" style="color: #004F91"></i>An item</li>
+                                <li class="list-group-item bg-transparent"><i class="fas fa-angle-double-right mr-2"
+                                        style="color: #004F91"></i>An item</li>
                             </ul>
                         </div>
                     </div>

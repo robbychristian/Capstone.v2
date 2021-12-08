@@ -14,6 +14,7 @@
             <div class="form-group">
                 <label><strong>Disaster</strong></label>
                 <select name="disaster" class="form-control" value="{{ old('disaster') }}">
+                    <option value="">Disaster</option>
                     <option value="Flood">Flood</option>
                     <option value="Earthquake">Earthquake</option>
                     <option value="Tropical Cyclone">Tropical Cyclone</option>
@@ -27,6 +28,7 @@
             <div class="form-group">
                 <label><strong>Time of Disaster</strong></label>
                 <select name="time" class="form-control" value="{{ old('time') }}">
+                    <option value="">Time</option>
                     <option value="before">Before</option>
                     <option value="during">During</option>
                     <option value="after">After</option>
