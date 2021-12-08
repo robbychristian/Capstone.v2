@@ -50,7 +50,7 @@
                                         @if ($guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -67,7 +67,7 @@
                                         @if ($guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -84,7 +84,7 @@
                                         @if ($guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -107,7 +107,7 @@
                                         @if ($guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -124,7 +124,7 @@
                                         @if ($guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -141,7 +141,7 @@
                                         @if ($guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -164,7 +164,7 @@
                                         @if ($guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -181,7 +181,7 @@
                                         @if ($guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -198,7 +198,7 @@
                                         @if ($guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -221,7 +221,7 @@
                                         @if ($guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -238,7 +238,7 @@
                                         @if ($guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
@@ -255,7 +255,7 @@
                                         @if ($guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent->iteration }}</span>{{ $guideline->guideline }}
+                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
                                             </li>
                                         @endif
                                     @endif
