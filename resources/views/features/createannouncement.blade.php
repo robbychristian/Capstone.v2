@@ -6,8 +6,8 @@
         <div class="container-fluid">
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/announcements" method="POST">
-                @elseif (Auth::user()->user_role === 3)
-                    <form action="/brgy_official/announcements" method="POST">
+                @elseif (Auth::user()->user_role >= 3)
+                    <form action="/user/announcements" method="POST">
             @endif
             @csrf
             <div class="form-group">
