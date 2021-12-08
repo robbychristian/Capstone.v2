@@ -25,7 +25,8 @@ class AnnouncementController extends Controller
         $announcements = DB::table('announcements')
             ->where('brgy_loc', Auth::user()->brgy_loc)
             ->orWhere('brgy_loc', 'all')
-            ->get();
+            ->latest()
+            ->paginate(10);
         return view('features.announcement', [
             'announcements' => $announcements
         ]);
