@@ -12,7 +12,7 @@
             </div>
             <!-- Button trigger modal -->
 
-            @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
+            @if (Auth::user()->user_role >= 3 || Auth::user()->user_role === 1)
                 <!--ACCESSIBLE ONLY TO ADMIN/BRGY-->
                 <div class="col-sm-12 col-md-4">
                     <div class="row"></div>
@@ -25,8 +25,8 @@
                                 </button>
                             </a>
 
-                        @elseif(Auth::user()->user_role === 3)
-                            <a href="{{ route('brgy_official.announcements.create') }}">
+                        @elseif(Auth::user()->user_role >= 3)
+                            <a href="{{ route('user.announcements.create') }}">
                                 <button type="button" class="btn btn-primary me-md-2" data-toggle="modal"
                                     data-target="#exampleModal">
                                     <span class="mr-2"><i class="fas fa-plus fa-1x"></i></span>Create Announcement
@@ -58,12 +58,10 @@
                                 <div class="col-sm-8 col-md-6 col-lg-8 col-xl-9">
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-title">
-                                            @if (Auth::user()->user_role === 4)
+                                            @if (Auth::user()->user_role === 4 || Auth::user()->user_role >= 3)
                                                 <a
                                                     href="/user/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
-                                            @elseif (Auth::user()->user_role === 3)
-                                                <a
-                                                    href="/brgy_official/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
+
 
                                             @elseif (Auth::user()->user_role === 1)
                                                 <a
@@ -82,7 +80,7 @@
                                         <div class="v-announcement-date">
                                             {{ date('M d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</div>
                                     </div>
-                                    @if (Auth::user()->user_role === 3 || Auth::user()->user_role === 1)
+                                    @if (Auth::user()->user_role >= 3 || Auth::user()->user_role === 1)
                                         @if (Auth::user()->user_role === 1)
                                             <div class="d-flex flex-row">
                                                 <div class="v-announcement-date-title mr-2">
@@ -102,12 +100,12 @@
                                         @elseif(Auth::user()->user_role === 3)
                                             <div class="d-flex flex-row">
                                                 <div class="v-announcement-date-title mr-2">
-                                                    <a href="/brgy_official/announcements/{{ $announcement->id }}/edit">
+                                                    <a href="/user/announcements/{{ $announcement->id }}/edit">
                                                         <button class="btn btn-success">Edit</button>
                                                     </a>
                                                 </div>
                                                 <div class="v-announcement-date">
-                                                    <form action="/brgy_official/announcements/{{ $announcement->id }}"
+                                                    <form action="/user/announcements/{{ $announcement->id }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('delete')

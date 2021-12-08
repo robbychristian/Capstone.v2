@@ -107,7 +107,7 @@
                             <label for="inputCurrentPw">Current Password</label>
                             <input type="password" name="curr_pass"
                                 class="form-control @error('curr_pass') is-invalid @enderror" id="inputCurrentPw">
-                            <small class="text-muted">Must be 8 and above characters long.</small>
+
                             <small class="text-danger">@error('curr_pass')
                                     {{ $message }}
                                 @enderror</small>
@@ -116,6 +116,7 @@
                             <label for="inputNewPw">New Password</label>
                             <input type="password" name="new_pass"
                                 class="form-control  @error('new_pass') is-invalid @enderror" id="inputNewPw">
+                            <small class="text-muted">Must be 8 and above characters long.</small>
                             <small class="text-danger">@error('new_pass')
                                     {{ $message }}
                                 @enderror</small>

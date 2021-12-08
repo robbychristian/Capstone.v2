@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
                 'body' => $request->input('message')
             ]);
 
-            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been posted!');
+            return redirect('/user/announcements')->with('success', 'Announcement has been posted!');
         }
     }
 
@@ -109,7 +109,7 @@ class AnnouncementController extends Controller
             'message.required' => 'The body field is required!',
         ]);
         if ($validator->fails()) {
-            return redirect('/brgy_official/announcements/' . $id . '/edit')
+            return redirect('/user/announcements/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
@@ -118,7 +118,7 @@ class AnnouncementController extends Controller
                 'body' => $request->input('message')
             ]);
 
-            return redirect('/brgy_official/announcements')->with('success', 'Announcement has been edited!');
+            return redirect('/user/announcements')->with('success', 'Announcement has been edited!');
         }
     }
 
@@ -132,6 +132,6 @@ class AnnouncementController extends Controller
     {
         $announcement->delete();
 
-        return redirect('/brgy_official/announcements');
+        return redirect('/user/announcements');
     }
 }

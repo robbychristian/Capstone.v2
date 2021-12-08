@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Announcement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AnnouncementController extends Controller
 {
@@ -30,7 +31,9 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        //barangay official
+
+        return view('features.createannouncement');
     }
 
     /**
@@ -41,7 +44,30 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'message' => 'required',
+        ], $messages = [
+            'title.required' => 'The title field is required!',
+            'message.required' => 'The body field is required!',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/brgy_official/announcements/create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $announcement = Announcement::create([
+                'brgy_id' => Auth::user()->id,
+                'brgy_position' => Auth::user()->brgy_position,
+                'name' => Auth::user()->name,
+                'brgy_loc' => Auth::user()->brgy_loc,
+                'title' => $request->input('title'),
+                'body' => $request->input('message')
+            ]);
+
+            return redirect('/user/announcements')->with('success', 'Announcement has been posted!');
+        }
     }
 
     /**
@@ -65,7 +91,8 @@ class AnnouncementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $announcement = Announcement::find($id);
+        return view('features.editannouncement')->with('announcement', $announcement);
     }
 
     /**
@@ -77,7 +104,25 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'message' => 'required',
+        ], $messages = [
+            'title.required' => 'The title field is required!',
+            'message.required' => 'The body field is required!',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/user/announcements/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $announcement = Announcement::where('id', $id)->update([
+                'title' => $request->input('title'),
+                'body' => $request->input('message')
+            ]);
+
+            return redirect('/user/announcements')->with('success', 'Announcement has been edited!');
+        }
     }
 
     /**
@@ -86,9 +131,11 @@ class AnnouncementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Announcement $announcement)
     {
-        //
+        $announcement->delete();
+
+        return redirect('/user/announcements');
     }
 
     public function fetchAnnouncements($brgy)
