@@ -53,13 +53,12 @@ class AnnouncementController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/brgy_official/announcements/create')
+            return redirect('/user/announcements/create')
                 ->withErrors($validator)
                 ->withInput();
         } else {
             $announcement = Announcement::create([
                 'brgy_id' => Auth::user()->id,
-                'brgy_position' => Auth::user()->brgy_position,
                 'name' => Auth::user()->name,
                 'brgy_loc' => Auth::user()->brgy_loc,
                 'title' => $request->input('title'),
