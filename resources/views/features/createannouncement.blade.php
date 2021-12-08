@@ -21,12 +21,10 @@
                 <div class="form-group">
                     <label><strong>Recipients</strong></label>
                     <select name="brgy_loc" class="form-control" value="{{ old('brgy_loc') }}">
-                        <option value="">All Announcements</option>
-                        <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
-                        <option value='Barangay Manggahan'>Barangay Manggahan</option>
-                        <option value='Barangay Maybunga'>Barangay Maybunga</option>
-                        <option value='Barangay Rosario'>Barangay Rosario</option>
-                        <option value='Barangay Santolan'>Barangay Santolan</option>
+                        <option value='1'>All Announcements</option>
+                        @foreach ($barangays as $barangay)
+                            <option value='{{ $barangay->brgy_loc }}'>{{ $barangay->brgy_loc }}</option>
+                        @endforeach
                     </select>
                     <small class="text-danger">@error('brgy_loc')
                             {{ $message }}
