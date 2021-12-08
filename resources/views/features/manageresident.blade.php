@@ -31,7 +31,7 @@
                             <th scope="col" style="color: white;">Contact Number</th>
                             <th scope="col" style="color: white;">Barangay Location</th>
                             <th scope="col" style="color: white;">Submitted Valid ID</th>
-                            <th scope="col" style="color: white;">Account Status</th>
+                            <th scope="col" colspan='2' style="color: white;">Account Status</th>
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
                     </thead>
@@ -48,7 +48,11 @@
                                         View Valid ID
                                     </button></td>
                                 <td>
+
                                     @if ($user->is_valid === 0)
+                                        <div class="badge badge-danger text-wrap" style="width: 6rem;">
+                                            Not Validated
+                                        </div>
                                         <form action="" method="POST">
                                             @csrf
                                             @method('POST')
