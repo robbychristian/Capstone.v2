@@ -150,7 +150,7 @@
                         <h3 class="font-weight-bold mb-3" style="color:  #004F91">Create your account</h3>
                         <hr>
 
-                        <div class="text-muted mb-5">Fields marked with an <span class="text-danger"
+                        <div class="text-muted mb-2">Fields marked with an <span class="text-danger"
                                 style="font-size: 1rem">*</span> are
                             required.</div>
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
