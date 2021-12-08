@@ -48,10 +48,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'Before')
+                                            <span class="badge badge-pill badge-info">Info</span>
 
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -65,10 +64,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'During')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -82,10 +80,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'After')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -105,10 +102,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'Before')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -122,10 +118,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'During')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -139,10 +134,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'After')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -162,10 +156,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'Before')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -179,10 +172,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'During')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -196,10 +188,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'After')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -219,10 +210,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'Before')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -236,10 +226,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'During')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -253,10 +242,9 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'After')
-
-                                            <li class="list-group-item bg-transparent"> <span
-                                                    class="badge badge-pill badge-info">{{ $loop->parent }}</span>{{ $guideline->guideline }}
-                                            </li>
+                                            <li class="list-group-item bg-transparent"><i
+                                                    class="fas fa-angle-double-right mr-2"
+                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
                                         @endif
                                     @endif
                                 @endforeach
