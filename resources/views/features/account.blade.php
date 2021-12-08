@@ -1,30 +1,28 @@
 @extends('layouts.master')
-@if (Auth::user()->user_role === 4)
-    @section('title', '| Account')
-    @section('content')
-        <script>
-            function onlyNumberKey(evt) {
+@section('title', '| Account')
+@section('content')
+    <script>
+        function onlyNumberKey(evt) {
 
-                // Only ASCII character in that range allowed
-                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode < 48 || ASCIICode > 57)
-                    return false;
-                return true;
-            }
-        </script>
-        <div class="container-fluid" style="color: black;">
-            <h1 class="h3 mb-4 text-gray-800">Edit Your Account</h1>
-            @if (Session::get('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                </div>
-            @endif
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode < 48 || ASCIICode > 57)
+                return false;
+            return true;
+        }
+    </script>
+    <div class="container-fluid" style="color: black;">
+        <h1 class="h3 mb-4 text-gray-800">Edit Your Account</h1>
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
 
-            <div class="card">
-                <div class="card-body">
-                    @if (Auth::user()->user_role === 4)
-                        <form action="/user/account/{{ $user->id }}" method="POST" enctype="multipart/form-data">
-                    @endif
+        <div class="card">
+            <div class="card-body">
+
+                <form action="/user/account/{{ $user->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <h5 class="mb-3">Profile Picture</h5>
@@ -136,10 +134,9 @@
                         <button class="btn btn-primary" type="submit">Submit</button>
 
                     </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
 
-    @endsection
-@endif
+@endsection
