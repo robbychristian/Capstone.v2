@@ -48,8 +48,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'Before')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -63,8 +65,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'During')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -78,8 +82,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'After')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -99,8 +105,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'Before')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -114,8 +122,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'During')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -129,8 +139,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'After')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -150,8 +162,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'Before')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -165,8 +179,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'During')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -180,8 +196,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'After')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -201,8 +219,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'Before')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -216,8 +236,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'During')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -231,8 +253,10 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'After')
-                                            <span class="badge badge-pill badge-info">{{ $loop->iteration }}</span>
-                                            <li class="list-group-item bg-transparent">{{ $guideline->guideline }}</li>
+
+                                            <li class="list-group-item bg-transparent"> <span
+                                                    class="badge badge-pill badge-info">{{ $loop->count }}</span>{{ $guideline->guideline }}
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
