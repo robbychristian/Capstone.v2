@@ -48,7 +48,7 @@
                                         View Valid ID
                                     </button>
                                     @if ($user->is_valid === 0)
-                                        <div class="badge badge-danger text-wrap" style="width: 6rem;">
+                                        <div class="badge badge-danger text-wrap" style="width: 7rem;">
                                             Not Validated
                                         </div>
                                     @endif
