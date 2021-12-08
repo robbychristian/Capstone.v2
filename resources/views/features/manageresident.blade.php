@@ -30,8 +30,8 @@
                             <th scope="col" style="color: white;">Email</th>
                             <th scope="col" style="color: white;">Contact Number</th>
                             <th scope="col" style="color: white;">Barangay Location</th>
-                            <th scope="col" style="color: white;">Submitted Valid ID</th>
-                            <th scope="col" colspan='2' style="color: white;">Account Status</th>
+                            <th scope="col" colspan='2' style="color: white;">Submitted Valid ID</th>
+                            <th scope="col" style="color: white;">Account Status</th>
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
                     </thead>
@@ -47,19 +47,28 @@
                                         data-target="#id{{ $user->id }}">
                                         View Valid ID
                                     </button>
-                                </td>
-                                <td>
                                     @if ($user->is_valid === 0)
                                         <div class="badge badge-danger text-wrap" style="width: 6rem;">
                                             Not Validated
                                         </div>
+                                    @endif
+                                </td>
+
+                                @if ($user->is_valid === 0)
+                                    <td>
+                                        <div class="badge badge-danger text-wrap" style="width: 6rem;">
+                                            Not Validated
+                                        </div>
+                                    </td>
+                                    <td>
                                         <form action="" method="POST">
                                             @csrf
                                             @method('POST')
                                             <button class="btn btn-success">Validate</button>
                                         </form>
-                                    @endif
-                                </td>
+                                    </td>
+                                @endif
+
 
 
 
