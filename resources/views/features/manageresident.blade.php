@@ -30,6 +30,7 @@
                             <th scope="col" style="color: white;">Email</th>
                             <th scope="col" style="color: white;">Contact Number</th>
                             <th scope="col" style="color: white;">Barangay Location</th>
+                            <th scope="col" style="color: white;">Submitted Valid ID</th>
                             <th scope="col" style="color: white;">Account Status</th>
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
@@ -42,6 +43,10 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->contact_no }}</td>
                                 <td>{{ $user->brgy_loc }}</td>
+                                <td> <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#id{{ $user->id }}">
+                                        View Valid ID
+                                    </button></td>
                                 <td>
                                     @if ($user->is_valid === 0)
                                         <form action="" method="POST">
@@ -98,13 +103,7 @@
 
                                 @if (Auth::user()->user_role === 1)
                                     <!--IF ADMIN-->
-                                    <td>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <button class="btn btn-info ">Verify</button>
-                                        </form>
-                                    </td>
+
                                     @if ($user->is_blocked == true)
                                         <td>
                                             <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
@@ -153,6 +152,26 @@
 
 
                             </tr>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="id{{ $user->id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: center;">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="img-fluid rounded mx-auto d-block"
+                                                src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $user->valid_id) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         @endforeach
 
                     </tbody>
@@ -175,5 +194,7 @@
 
 
     </div>
+
+
 
 @endsection
