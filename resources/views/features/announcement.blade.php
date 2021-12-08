@@ -58,7 +58,7 @@
                                 <div class="col-sm-8 col-md-6 col-lg-8 col-xl-9">
                                     <div class="d-flex flex-column">
                                         <div class="v-announcement-title">
-                                            @if (Auth::user()->user_role === 4 || Auth::user()->user_role >= 3)
+                                            @if (Auth::user()->user_role >= 2)
                                                 <a
                                                     href="/user/announcements/{{ $announcement->id }}">{{ $announcement->title }}</a>
 
