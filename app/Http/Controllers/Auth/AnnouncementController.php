@@ -34,7 +34,9 @@ class AnnouncementController extends Controller
         $allBrgys = DB::table('barangays')
             ->get();
 
-        return view('features.createannouncement')->with('barangays', $allBrgys);
+        return view('features.createannouncement', [
+            'barangays' => $allBrgys
+        ]);
     }
 
     /**
