@@ -17,7 +17,6 @@ class CreateAnnouncementsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('brgy_id')->nullable();
             $table->unsignedBigInteger('admin_id')->nullable();
-            $table->boolean('is_all')->nullable();
             $table->string('name');
             $table->string('brgy_loc');
             $table->string('title');
