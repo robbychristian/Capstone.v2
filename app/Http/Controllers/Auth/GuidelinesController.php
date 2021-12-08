@@ -18,7 +18,10 @@ class GuidelinesController extends Controller
      */
     public function index()
     {
-        return view('features.guidelines');
+        $guideline = Guidelines::all();
+        return view('features.guidelines', [
+            'guidelines' => $guideline
+        ]);
     }
 
     /**

@@ -18,6 +18,12 @@
             @endif
         </div>
 
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" id="flood-tab" data-toggle="tab" href="#flood" role="tab" aria-controls="flood"
