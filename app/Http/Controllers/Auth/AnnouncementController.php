@@ -18,10 +18,14 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::where('brgy_loc', '=', Auth::user()->brgy_loc)
-            ->where('brgy_loc', '=', 'all')
-            ->latest()
-            ->paginate(10);
+        // $announcements = Announcement::where('brgy_loc', '=', Auth::user()->brgy_loc)
+        //     ->where('brgy_loc', '=', 'all')
+        //     ->latest()
+        //     ->paginate(10);
+        $announcements = DB::table('announcements')
+            ->where('brgy_loc', Auth::user()->brgy_loc)
+            ->where('brgy_loc', 'all')
+            ->get();
         return view('features.announcement', [
             'announcements' => $announcements
         ]);
