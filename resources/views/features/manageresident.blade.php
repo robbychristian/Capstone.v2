@@ -57,7 +57,7 @@
                                         <form action="" method="POST">
                                             @csrf
                                             @method('POST')
-                                            <button class="btn btn-success btn-sm">Validate</button>
+                                            <button class="btn btn-success">Validate</button>
                                         </form>
                                     </td>
                                 @endif
