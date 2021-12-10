@@ -51,7 +51,7 @@
 
                                 @if ($user->is_valid === 0)
                                     <td>
-                                        <h2><span class="badge badge-secondary">Not Validated</span></h2>
+                                        <h4><span class="badge badge-danger">Not Validated</span></h4>
                                     </td>
                                     <td>
                                         <form action="" method="POST">
