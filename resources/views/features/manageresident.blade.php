@@ -35,7 +35,7 @@
                             <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="color: black">
                         @foreach ($users as $user)
                             <tr>
                                 <td> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
@@ -51,7 +51,7 @@
 
                                 @if ($user->is_valid === 0)
                                     <td>
-                                        <h4><span class="badge badge-danger">Not Validated</span></h4>
+                                        <h5><span class="badge badge-danger">Not Validated</span></h5>
                                     </td>
                                     <td>
                                         <form action="" method="POST">
