@@ -6,7 +6,7 @@
         function initMap() {
             @if (Auth::user()->user_role == 1)
                 var options = {
-                zoom: 16,
+                zoom: 13,
                 center: {
                 lat: 14.5764,
                 lng: 121.0851
