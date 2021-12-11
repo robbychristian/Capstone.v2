@@ -120,7 +120,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::view('/create', 'dashboard.admin.register_brgy')->name('register_brgy');
         Route::resource('/announcements', AdminAnnouncement::class);
-        Route::get('/announcements/pending', [AdminAnnouncement::class, 'openPending'])->name('announcements.pending');
+        Route::resource('/pending', AdminPendingAnnouncements::class);
         //Route::view('/announcements/pending', 'features.pendingannouncements')->name('announcement.pending');
         //Route::resource('/announcements/pending', AdminPendingAnnouncements::class);
         Route::post('/announcements/approve/{id}', [AdminAnnouncement::class, 'approve'])->name('announcement.approve');
