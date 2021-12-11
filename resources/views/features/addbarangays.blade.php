@@ -3,25 +3,27 @@
 @section('title', '| Add Barangays')
 
 @section('content')
+    <div class="container-fluid" style="color: black;">
+        <form>
+            <div class="form-group required">
+                <label class="control-label">Name of Barangay</label>
+                <input type="text" class="form-control">
+                <small class="form-text text-muted">Make sure to put the correct name of the barangay</small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="control-label">Latitude</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Longitude</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-    <form>
-        <div class="form-group required">
-            <label class="control-label">Name of Barangay</label>
-            <input type="text" class="form-control">
-            <small class="form-text text-muted">Make sure to put the correct name of the barangay</small>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="control-label">Latitude</label>
-                <input class="form-control" type="text" placeholder="Readonly input here..." readonly>
-            </div>
-            <div class="form-group col-md-6">
-                <label class="control-label">Longitude</label>
-                <input class="form-control" type="text" placeholder="Readonly input here..." readonly>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        </form>
+    </div>
 
     <script type="text/javascript">
         function initMap() {
