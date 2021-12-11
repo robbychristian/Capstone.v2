@@ -39,8 +39,8 @@
             //
             //}
 
-            for (var i = 0; i < storedLocations.length; i++) {
-                var data = storedLocations[i]
+            for (var i = 0; i < markers.length; i++) {
+                var data = markers[i]
                 var location = new google.maps.LatLng(data[0], data[1]);
                 var marker = new google.maps.Marker({
                     position: location,
