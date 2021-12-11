@@ -26,7 +26,7 @@
                             </a>
 
                             <a href="{{ route('admin.pendingannouncements.index') }}">
-                                <button type="button" class="btn btn-warning me-md-2" data-toggle="modal"
+                                <button type="button" class="btn btn-warning me-md-2 ml-3" data-toggle="modal"
                                     data-target="#exampleModal">
                                     <span class="mr-2"><i
                                             class="fas fa-exclamation-triangle fa-1x"></i></span>Pending Announcements
