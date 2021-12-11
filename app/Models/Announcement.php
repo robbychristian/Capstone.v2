@@ -16,6 +16,7 @@ class Announcement extends Model
     protected $fillable = [
         'brgy_id',
         'admin_id',
+        'approved',
         'brgy_position',
         'name',
         'brgy_loc',

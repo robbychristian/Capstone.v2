@@ -16,5 +16,6 @@ class EvacuationCenters extends Model
         'lng',
         'phone_no',
         'capacity',
+        'nearest_landmark',
     ];
 }
