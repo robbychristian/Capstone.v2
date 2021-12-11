@@ -36,53 +36,6 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('map'), options);
-
-            //var markers = [
-            //foreach ($coordinates as $coordinate)
-            // ["{{ $coordinate->lat }}","{{ $coordinate->lng }}"],
-            //
-            // endforeach
-            //];
-
-            //function newLocation(newLat, newLng) {
-            //    map.setCenter({
-            //        lat: newLat,
-            //        lng: newLng
-            //    });
-            //}
-            ////Setting Location with jQuery
-            //$(document).ready(function() {
-            //    $("#brgyDelaPaz").on('click', function() {
-            //        newLocation(14.6137, 121.0960);
-            //    });
-            //
-            //    $("#brgyManggahan").on('click', function() {
-            //        newLocation(14.601887, 121.093698);
-            //    });
-            //
-            //    $("#brgyMaybunga").on('click', function() {
-            //        newLocation(14.5763, 121.0850);
-            //    });
-            //
-            //    $("#brgySantolan").on('click', function() {
-            //        newLocation(14.6131, 121.0880);
-            //    });
-            //
-            //    $("#brgyRosario").on('click', function() {
-            //        newLocation(14.5885, 121.0891);
-            //    });
-            //});
-
-
-            //for (var i = 0; i < markers.length; i++) {
-            //    var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
-            //    var marker = new google.maps.Marker({
-            //        position: location,
-            //        map: map
-            //    });
-            //
-            //
-            //}
         }
     </script>
     <div class="container-fluid" style="color: black;">
