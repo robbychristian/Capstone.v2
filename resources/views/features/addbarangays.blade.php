@@ -66,7 +66,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Barangay</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody style="color:black">
