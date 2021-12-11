@@ -66,7 +66,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Barangay</th>
                         <th scope="col">Status</th>
-                        <th scope="col" colspan="2">Action</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody style="color:black">
@@ -87,6 +87,8 @@
                                     @method('POST')
                                     <button class="btn btn-success">Add Barangay</button>
                                 </form>
+                            </td>
+                            <td>
                                 <form action="" method="POST">
                                     @csrf
                                     @method('POST')
