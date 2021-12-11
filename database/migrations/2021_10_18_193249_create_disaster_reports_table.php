@@ -24,6 +24,7 @@ class CreateDisasterReportsTable extends Migration
             $table->integer('families_affected');
             $table->integer('individuals_affected');
             $table->integer('evacuees');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

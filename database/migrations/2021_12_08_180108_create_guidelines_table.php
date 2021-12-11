@@ -18,6 +18,7 @@ class CreateGuidelinesTable extends Migration
             $table->string('disaster');
             $table->string('time');
             $table->string('guideline');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -22,6 +22,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('brgy_id')
                 ->references('id')
                 ->on('brgy_officials')

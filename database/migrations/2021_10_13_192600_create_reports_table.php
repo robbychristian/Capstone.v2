@@ -25,6 +25,7 @@ class CreateReportsTable extends Migration
             $table->string('loc_lng');
             $table->string('loc_img');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
