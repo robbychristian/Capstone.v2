@@ -25,7 +25,7 @@
                                 </button>
                             </a>
 
-                            <a href="{{ route('admin.pending.index') }}">
+                            <a href="{{ route('admin.announcement.pending') }}}">
                                 <button type="button" class="btn btn-warning me-md-2 ml-3" data-toggle="modal"
                                     data-target="#exampleModal">
                                     <span class="mr-2"><i

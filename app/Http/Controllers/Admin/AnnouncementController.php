@@ -159,7 +159,7 @@ class AnnouncementController extends Controller
         return redirect('/admin/announcements')->with('success', 'The announcement has been disapproved!');
     }
 
-    public function viewPending()
+    public function openPending()
     {
         $announcements = Announcement::latest()->paginate(10);
         return view('features.pendingannouncement', [
