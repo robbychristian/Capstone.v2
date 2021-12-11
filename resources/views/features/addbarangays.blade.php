@@ -93,7 +93,7 @@
                             <td>
                                 <form action="/admin/managebarangay/deletebarangay/{{ $barangay->id }}" method="POST">
                                     @csrf
-                                    @method('delete')
+                                    @method('post')
                                     <button class="btn btn-warning">Archive</button>
                                 </form>
                             </td>
