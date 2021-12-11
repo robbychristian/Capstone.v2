@@ -24,8 +24,8 @@
                 @endforeach
             ];
 
-            var is_added_marker = "https://kabisigapp.com/img/2190994_direction_gps_green_location_map_icon.png"
-            var is_not_added_marker = "https://kabisigapp.com/img/1891013_direction_gps_location_map_marker_icon.png"
+            var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
+            var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
 
             var infoWindow = new google.maps.InfoWindow();
 
