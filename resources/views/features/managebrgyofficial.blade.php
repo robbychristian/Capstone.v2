@@ -58,7 +58,7 @@
         @else
             <div class="card mt-3">
                 <div class="card-body" style="font-weight: 400; font-size: 1rem;">
-                    There are no registered users.
+                    There are no registered barangay officials yet.
                 </div>
             </div>
         @endif
