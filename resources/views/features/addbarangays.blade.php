@@ -36,7 +36,7 @@
                     position: location,
                     map: map,
                     label: data[4],
-                    //icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
+                    icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
                     html: '<h3>' + data[2] + '</h3> ' +
                         '<button type="button" class="btn btn-success btn-sm btn-block">Add</button>' +
                         '<button type="button" class="btn btn-warning btn-sm btn-block">Archive</button>'
