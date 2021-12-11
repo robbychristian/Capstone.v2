@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barangay;
 use Illuminate\Http\Request;
 
 class ManageBarangay extends Controller
@@ -23,7 +24,10 @@ class ManageBarangay extends Controller
      */
     public function create()
     {
-        return view('features.addbarangays');
+        $barangays = Barangay::all();
+        return view('features.addbarangays', [
+            'barangays' => $barangays
+        ]);
     }
 
     /**

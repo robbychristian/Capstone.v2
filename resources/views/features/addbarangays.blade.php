@@ -1,29 +1,6 @@
 @extends('layouts.master')
-
 @section('title', '| Add Barangays')
-
 @section('content')
-    <div class="container-fluid" style="color: black;">
-        <form>
-            <div class="form-group required">
-                <label class="control-label">Name of Barangay</label>
-                <input type="text" class="form-control">
-                <small class="form-text text-muted">Make sure to put the correct name of the barangay</small>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label class="control-label">Latitude</label>
-                    <input class="form-control" type="text" readonly>
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="control-label">Longitude</label>
-                    <input class="form-control" type="text" readonly>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-    </div>
 
     <script type="text/javascript">
         function initMap() {
@@ -38,6 +15,51 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('map'), options);
+
+            var markers = [
+                @foreach ($barangays as $barangay)
+                    ["{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}", "{{ $barangay->brgy_loc }}",
+                    "{{ $barangay->is_added }}", "{{ $barangay->id }}"],
+                
+                @endforeach
+            ];
+
+            var is_added_marker = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+            var is_not_added_marker = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+
+            //for (var i = 0; i < markers.length; i++) {
+            //    var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
+            //    var marker = new google.maps.Marker({
+            //        position: location,
+            //        map: map,
+            //        icon: marker[3] == "1" ? is_added_marker : is_not_added_marker,
+            //        l
+            //    });
+            //
+            //
+            //}
+
+            for (var i = 0; i < storedLocations.length; i++) {
+                var data = storedLocations[i]
+                var location = new google.maps.LatLng(data[0], data[1]);
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    label: data[4],
+                    icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
+                    html: '<h3>' + data[2] + '</h3> ' +
+                        '<button type="button" class="btn btn-success btn-sm btn-block">Add</button>' +
+                        '<button type="button" class="btn btn-warning btn-sm btn-block">Archive</button>'
+                });
+
+                (function(marker, data) {
+                    google.maps.event.addListener(marker, "click", function(e) {
+                        infoWindow.setContent(marker.html);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+
+            }
         }
     </script>
     <div class="container-fluid" style="color: black;">

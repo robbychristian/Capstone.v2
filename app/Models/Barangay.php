@@ -19,6 +19,7 @@ class Barangay extends Model
     protected $fillable = [
         'brgy_loc',
         'brgy_lng',
-        'brgy_lat'
+        'brgy_lat',
+        'is_added'
     ];
 }
