@@ -53,7 +53,7 @@
         }
     </script>
     <div class="container-fluid" style="color: black;">
-
+        <h1 class="h3 mb-0 text-gray-800">Manage Barangays</h1>
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div id="map" style="height: 600px; width: 100%;"></div>
