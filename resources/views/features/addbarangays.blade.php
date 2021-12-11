@@ -84,14 +84,14 @@
                                 @endif
                             </td>
                             <td>
-                                <form action="admin/managebarangay/addbarangay/{{ $barangay->id }}" method="POST">
+                                <form action="/admin/managebarangay/addbarangay/{{ $barangay->id }}" method="POST">
                                     @csrf
                                     @method('POST')
                                     <button class="btn btn-success">Add Barangay</button>
                                 </form>
                             </td>
                             <td>
-                                <form action="admin/managebarangay/deletebarangay/{{ $barangay->id }}" method="POST">
+                                <form action="/admin/managebarangay/deletebarangay/{{ $barangay->id }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-warning">Archive</button>
