@@ -24,6 +24,9 @@
                 @endforeach
             ];
 
+            var is_added_marker = "https://kabisigapp.com/img/2190994_direction_gps_green_location_map_icon.png"
+            var is_not_added_marker = "https://kabisigapp.com/img/1891013_direction_gps_location_map_marker_icon.png"
+
             var infoWindow = new google.maps.InfoWindow();
 
             for (var i = 0; i < markers.length; i++) {
@@ -32,12 +35,7 @@
                 var marker = new google.maps.Marker({
                     position: location,
                     map: map,
-                    label: {
-                        text: "\ue530", // codepoint from https://fonts.google.com/icons
-                        fontFamily: "Material Icons",
-                        color: "#ffffff",
-                        fontSize: "18px",
-                    },
+                    label: data[4],
                     //icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
                     html: '<h3>' + data[2] + '</h3> ' +
                         '<button type="button" class="btn btn-success btn-sm btn-block">Add</button>' +
