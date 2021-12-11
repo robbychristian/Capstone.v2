@@ -62,23 +62,23 @@
         <div class="table-responsive mt-5">
             <table class="table table-hover">
                 <thead style="background-color: #004f91;">
-                    <tr>
-                        <th scope="col" style="color:white;">#</th>
-                        <th scope="col" style="color:white;">Barangay</th>
-                        <th scope="col" style="color:white;">Status</th>
-                        <th scope="col" style="color:white;" colspan="2">Action</th>
+                    <tr style="color:white; text-align:center">
+                        <th scope="col">#</th>
+                        <th scope="col">Barangay</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="color:black">
                     @foreach ($barangays as $barangay)
                         <tr>
                             <th scope="row">{{ $barangay->id }}</th>
                             <td>{{ $barangay->brgy_loc }}</td>
                             <td>
                                 @if ($barangay->is_added === 0)
-                                    <h4> <span class="badge badge-secondary">Not Added</span></h4>
+                                    <h4> <span class="badge badge-danger">Not Added</span></h4>
                                 @else
-                                    <h4> <span class="badge badge-secondary">Added</span></h4>
+                                    <h4> <span class="badge badge-success">Added</span></h4>
                                 @endif
                             </td>
                             <td>
@@ -92,7 +92,7 @@
                                 <form action="" method="POST">
                                     @csrf
                                     @method('POST')
-                                    <button class="btn btn-warninh">Archive</button>
+                                    <button class="btn btn-warning">Archive</button>
                                 </form>
                             </td>
                         </tr>
