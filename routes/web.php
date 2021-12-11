@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\EmergencyController as AdminEmergency;
 use App\Http\Controllers\Admin\EvacuationController as AdminEvacuation;
 use App\Http\Controllers\Admin\GenerateReportController as AdminGenerateReport;
 use App\Http\Controllers\Admin\GuidelinesController as AdminGuidelines;
+use App\Http\Controllers\Admin\ManageBarangay as AdminManageBarangayLocations;
 use App\Http\Controllers\Admin\ManageResidentController as AdminManageResident;
 use App\Http\Controllers\Admin\ManageBrgyOfficialController as AdminManageBrgy;
 use App\Http\Controllers\Admin\PendingAnnouncements as AdminPendingAnnouncements;
@@ -145,6 +146,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
         Route::resource('/generate', AdminGenerateReport::class);
         Route::resource('/emergencymessage', AdminEmergency::class);
+        Route::resource('/managebarangay', AdminManageBarangayLocations::class);
     });
 });
 

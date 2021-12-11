@@ -198,7 +198,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-user-tag"></i>
-                <span>User Roles</span>
+                <span>Users Management</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
@@ -207,6 +207,8 @@
                     <a class="collapse-item" href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
                         <br>
                         Officials</a>
+                    <a class="collapse-item" href="{{ route('admin.managebarangay.create') }}">Manage Barangays
+                        <br></a>
                 </div>
             </div>
         </li>
