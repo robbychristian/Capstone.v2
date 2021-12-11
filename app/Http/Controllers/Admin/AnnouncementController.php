@@ -32,6 +32,7 @@ class AnnouncementController extends Controller
     public function create()
     {
         $allBrgys = DB::table('barangays')
+            ->where('is_added', 1)
             ->get();
 
         return view('features.createannouncement', [
