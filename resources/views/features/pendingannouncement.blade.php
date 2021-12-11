@@ -8,7 +8,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <h3>Title</h3>
-                    <div class="text-muted">
+                    <div class="text-muted d-flex flex-column">
                         <p>Issued To:</p>
                         <p>Issued By:</p>
                         <p>Date Issued:</p>
@@ -25,13 +25,13 @@
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">Approved</span>
+                            <span class="text">Approve</span>
                         </button>
                         <button class="btn btn-danger btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-times"></i>
                             </span>
-                            <span class="text">Disapproved</span>
+                            <span class="text">Disapprove</span>
                         </button>
                     </div>
 

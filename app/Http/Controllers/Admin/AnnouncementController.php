@@ -66,7 +66,8 @@ class AnnouncementController extends Controller
                 'name' => Auth::user()->name,
                 'brgy_loc' =>  $request->input('brgy_loc'),
                 'title' => $request->input('title'),
-                'body' => $request->input('message')
+                'body' => $request->input('message'),
+                'approved' => 1,
             ]);
 
             return redirect('/admin/announcements')->with('success', 'Announcement has been posted!');
@@ -139,5 +140,22 @@ class AnnouncementController extends Controller
     {
         $announcement->delete();
         return redirect('/admin/announcements')->with('success', 'The announcement has been deleted!');
+    }
+
+    public function approve($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->update(['approved' => 1, 'updated_at' => now()]);
+
+        return redirect('/admin/announcements')->with('success', 'The announcement has been approved!');
+    }
+
+    public function disapprove($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->delete();
+        return redirect('/admin/announcements')->with('success', 'The announcement has been disapproved!');
     }
 }

@@ -21,7 +21,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('brgy_loc');
             $table->string('title');
             $table->string('body');
-            $table->string('approved');
+            $table->boolean('approved');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('brgy_id')
