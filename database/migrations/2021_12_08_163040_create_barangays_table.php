@@ -18,6 +18,7 @@ class CreateBarangaysTable extends Migration
             $table->string('brgy_loc');
             $table->string('brgy_lng');
             $table->string('brgy_lat');
+            $table->boolean('is_added');
             $table->softDeletes();
             $table->timestamps();
         });
