@@ -32,7 +32,12 @@
                 var marker = new google.maps.Marker({
                     position: location,
                     map: map,
-                    label: data[4],
+                    label: {
+                        text: "\ue530", // codepoint from https://fonts.google.com/icons
+                        fontFamily: "Material Icons",
+                        color: "#ffffff",
+                        fontSize: "18px",
+                    },
                     //icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
                     html: '<h3>' + data[2] + '</h3> ' +
                         '<button type="button" class="btn btn-success btn-sm btn-block">Add</button>' +
