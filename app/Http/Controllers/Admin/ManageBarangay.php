@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ManageBarangay extends Controller
 {
@@ -84,5 +85,21 @@ class ManageBarangay extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addBarangay($id)
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 1]);
+        return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
+    }
+
+    public function deleteBarangay($id)
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 0]);
+        return redirect('admin/managebarangay/create')->with('success', 'Barangay removed!');
     }
 }

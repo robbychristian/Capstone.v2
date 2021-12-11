@@ -147,6 +147,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/generate', AdminGenerateReport::class);
         Route::resource('/emergencymessage', AdminEmergency::class);
         Route::resource('/managebarangay', AdminManageBarangayLocations::class);
+        Route::post('/managebarangay/addbarangay/{id}', [AdminManageBarangayLocations::class, 'addBarangay']);
+        Route::post('/managebarangay/deletebarangay/{id}', [AdminManageBarangayLocations::class, 'deleteBarangay']);
     });
 });
 
