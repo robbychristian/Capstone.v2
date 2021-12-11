@@ -24,20 +24,7 @@
                 @endforeach
             ];
 
-            var is_added_marker = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-            var is_not_added_marker = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-
-            //for (var i = 0; i < markers.length; i++) {
-            //    var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
-            //    var marker = new google.maps.Marker({
-            //        position: location,
-            //        map: map,
-            //        icon: marker[3] == "1" ? is_added_marker : is_not_added_marker,
-            //        l
-            //    });
-            //
-            //
-            //}
+            var infoWindow = new google.maps.InfoWindow();
 
             for (var i = 0; i < markers.length; i++) {
                 var data = markers[i]
