@@ -123,7 +123,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         //Route::resource('/pending', AdminPendingAnnouncements::class);
         //Route::view('/announcements/pending', 'features.pendingannouncements')->name('announcement.pending');
         //Route::resource('/announcements/pending', AdminPendingAnnouncements::class);
-        Route::get('/announcements/pendingannouncements', [AdminAnnouncement::class, 'openPending'])->name('announcements.pending');
+        Route::get('/announcements/pendingannouncements', [AdminAnnouncement::class, 'openPending']);
         Route::post('/announcements/approve/{id}', [AdminAnnouncement::class, 'approve'])->name('announcement.approve');
         Route::post('/announcements/disapprove/{id}', [AdminAnnouncement::class, 'disapprove'])->name('announcement.disapprove');
         Route::resource('/evacuation', AdminEvacuation::class);
