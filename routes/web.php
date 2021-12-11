@@ -35,6 +35,7 @@ use App\Http\Controllers\Admin\GenerateReportController as AdminGenerateReport;
 use App\Http\Controllers\Admin\GuidelinesController as AdminGuidelines;
 use App\Http\Controllers\Admin\ManageResidentController as AdminManageResident;
 use App\Http\Controllers\Admin\ManageBrgyOfficialController as AdminManageBrgy;
+use App\Http\Controllers\Admin\PendingAnnouncements as AdminPendingAnnouncements;
 use App\Http\Controllers\Admin\VulnerabilityMapController as AdminVulnerabilityMap;
 use App\Http\Controllers\Admin\ReportsController as AdminReports;
 use App\Http\Controllers\Admin\StatisticsController as AdminStatsReport;
@@ -138,6 +139,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
         Route::resource('/generate', AdminGenerateReport::class);
         Route::resource('/emergencymessage', AdminEmergency::class);
+        Route::resource('/pendingannouncements', AdminPendingAnnouncements::class);
     });
 });
 

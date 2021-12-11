@@ -25,12 +25,27 @@
                                 </button>
                             </a>
 
+                            <a href="{{ route('admin.pendingannouncements.index') }}"
+                                class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                <span class="text">Pending Announcements</span>
+                            </a>
+
                         @elseif(Auth::user()->user_role >= 3)
                             <a href="{{ route('user.announcements.create') }}">
                                 <button type="button" class="btn btn-primary me-md-2" data-toggle="modal"
                                     data-target="#exampleModal">
                                     <span class="mr-2"><i class="fas fa-plus fa-1x"></i></span>Create Announcement
                                 </button>
+                            </a>
+
+                            <a href="#" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                <span class="text">Pending Announcements</span>
                             </a>
                         @endif
                     </div>
