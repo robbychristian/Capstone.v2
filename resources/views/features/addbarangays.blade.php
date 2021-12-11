@@ -62,7 +62,7 @@
         <div class="table-responsive mt-5">
             <table class="table table-hover">
                 <thead style="background-color: #004f91;">
-                    <tr style="color:white; text-align:center">
+                    <tr style="color:white;">
                         <th scope="col">#</th>
                         <th scope="col">Barangay</th>
                         <th scope="col">Status</th>
