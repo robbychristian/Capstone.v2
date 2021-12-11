@@ -25,7 +25,7 @@
                         </button>
                         <button class="btn btn-danger btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas times"></i>
+                                <i class="fas fa-times"></i>
                             </span>
                             <span class="text">Disapproved</span>
                         </button>
