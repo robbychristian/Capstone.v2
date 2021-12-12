@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PendingAnnouncements extends Controller
 {
@@ -85,5 +86,21 @@ class PendingAnnouncements extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function approve($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->update(['approved' => 1, 'updated_at' => now()]);
+
+        return redirect('/admin/announcements')->with('success', 'The announcement has been approved!');
+    }
+
+    public function disapprove($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->delete();
+        return redirect('/admin/announcements')->with('success', 'The announcement has been disapproved!');
     }
 }
