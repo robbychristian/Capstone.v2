@@ -20,7 +20,7 @@ class AnnouncementController extends Controller
     {
         //$announcements = Announcement::latest()->paginate(10);
         $announcements = DB::table('announcements')
-            ->where('is_approved', 1)
+            ->where('approved', 1)
             ->latest()
             ->paginate(10);
         return view('features.announcement', [
