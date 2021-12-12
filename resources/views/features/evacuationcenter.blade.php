@@ -121,7 +121,7 @@
             <form class="mb-3">
                 <p class="vul-caption mt-3">Choose the barangay:</p>
                 <div class="radio-button-wrap mt-2">
-                    <input type="radio" name="brgy_loc" id="brgyDelaPaz" value="Barangay Dela Paz" hidden>
+                    <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Dela Paz" hidden>
                     <label for="brgyDelaPaz" class="button-label">Barangay Dela Paz</label>
 
                     <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Manggahan" hidden>
