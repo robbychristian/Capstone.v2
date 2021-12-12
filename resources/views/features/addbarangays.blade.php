@@ -39,9 +39,15 @@
                     icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
                     html: '<h5>' + data[2] + '</h5> ' +
                         '<div class="d-grid gap-2 d-md-flex justify-content-md-center">' +
+                        '<form action="/admin/managebarangay/addbarangay/' + data[4] + '" method="POST">' +
                         '<button class="btn btn-success mr-3" type="button">Add</button>' +
+                        '</form>' +
+                        '<form action="/admin/managebarangay/deletebarangay/' + data[4] + '" method="POST">' +
                         '<button class="btn btn-warning" type="button">Archive</button>' +
+                        '</form>' +
                         '</div>'
+
+
                 });
 
                 (function(marker, data) {
