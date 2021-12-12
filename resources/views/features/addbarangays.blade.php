@@ -38,21 +38,27 @@
                     label: data[4],
                     icon: data[3] == "1" ? is_added_marker : is_not_added_marker,
                     html: '<h5>' + data[2] + '</h5> ' +
-                        '<div class="d-grid gap-2 d-md-flex justify-content-md-center">' +
+                        @if (data[3] === 1)
+                            '<h6><span class="badge badge-success">Added</span></h6>' +
+                        @else
+                            '<h6><span class="badge badge-danger">Not Added</span></h6>' +
+                        @endif
 
-                        '<form action="/admin/managebarangay/addbarangay/' + data[4] + '" method="POST">' +
-                        '@csrf' +
-                        '@method("POST")' +
-                        '<button class="btn btn-success mr-3">Add</button>' +
-                        '</form>' +
+                    '<div class="d-grid gap-2 d-md-flex justify-content-md-center">' +
 
-                        '<form action="/admin/managebarangay/deletebarangay/' + data[4] + '" method="POST">' +
-                        '@csrf' +
-                        '@method("POST")' +
-                        '<button class="btn btn-warning">Archive</button>' +
-                        '</form>' +
+                    '<form action="/admin/managebarangay/addbarangay/' + data[4] + '" method="POST">' +
+                    '@csrf' +
+                    '@method("POST")' +
+                    '<button class="btn btn-success mr-3">Add</button>' +
+                    '</form>' +
 
-                        '</div>'
+                    '<form action="/admin/managebarangay/deletebarangay/' + data[4] + '" method="POST">' +
+                    '@csrf' +
+                    '@method("POST")' +
+                    '<button class="btn btn-warning">Archive</button>' +
+                    '</form>' +
+
+                    '</div>'
 
 
                 });
