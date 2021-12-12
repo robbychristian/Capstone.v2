@@ -12,7 +12,7 @@
                         <div class="text-muted d-flex flex-column">
                             <p>Issued To: {{ $announcement->brgy_loc }}</p>
                             <p>Issued By: {{ $announcement->name }}</p>
-                            <p>Date Issued: {{ $announcement->created_at }}</p>
+                            <p>Date Issued: {{ date('M d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</p>
                         </div>
                         <p>{{ $announcement->body }}</p>
 
