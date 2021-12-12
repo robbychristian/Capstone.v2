@@ -18,7 +18,11 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::latest()->paginate(10);
+        //$announcements = Announcement::latest()->paginate(10);
+        $announcements = DB::table('announcements')
+            ->where('is_approved', 1)
+            ->latest()
+            ->paginate(10);
         return view('features.announcement', [
             'announcements' => $announcements
         ]);
