@@ -8,7 +8,7 @@
             <ul class="list-group list-group-flush">
                 @foreach ($announcements as $announcement)
                     <li class="list-group-item">
-                        <h3>{{ $announcement->title }}</h3>
+                        <h4>{{ $announcement->title }}</h4>
                         <div class="text-muted d-flex flex-column">
                             <p>Issued To: {{ $announcement->brgy_loc }}</p>
                             <p>Issued By: {{ $announcement->name }}</p>
