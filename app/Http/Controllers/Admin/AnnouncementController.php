@@ -21,6 +21,7 @@ class AnnouncementController extends Controller
         //$announcements = Announcement::latest()->paginate(10);
         $announcements = DB::table('announcements')
             ->where('approved', 1)
+            ->orWhere('deleted_at', null)
             ->latest()
             ->paginate(10);
         return view('features.announcement', [
