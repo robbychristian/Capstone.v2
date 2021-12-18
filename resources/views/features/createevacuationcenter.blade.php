@@ -13,12 +13,12 @@
         }
     </script>
 
-    <div class="container-fluid" style="color: black;">
+    <div class="container-fluid mb-5" style="color: black;">
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
 
         <div class="card" style="width: 30rem;">
             <div class="card-body">
-                <form action="{{ route('admin.evacuation.store') }}" method="POST">
+                <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                     @csrf
                     <div class="form-group">
                         <label>Location</label>
@@ -72,10 +72,10 @@
 
                     <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
                         <label class="btn btn-success">
-                            <input type="radio" name="availability" id="option1"> Available
+                            <input type="radio" name="availability" value="Available"> Available
                         </label>
                         <label class="btn btn-danger">
-                            <input type="radio" name="availability" id="option2"> Not Available
+                            <input type="radio" name="availability" value="Not Available"> Not Available
                         </label>
 
 
