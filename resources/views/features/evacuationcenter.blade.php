@@ -84,7 +84,7 @@
                 var location = new google.maps.LatLng(data[0], data[1]);
                 var marker = new google.maps.Marker({
                     position: location,
-                    map: map
+                    map: map,
                     label: data[3],
                     icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                 });
