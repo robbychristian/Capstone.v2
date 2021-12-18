@@ -71,7 +71,7 @@
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longtitude }}", "{{ $evacuationcenter->is_approved }}", 
+                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}", "{{ $evacuationcenter->is_approved }}", 
                     "{{ $evacuationcenter->id }}"],
                 @endforeach
             ];
@@ -85,8 +85,8 @@
                 var marker = new google.maps.Marker({
                     position: location,
                     map: map,
-                    //label: data[3],
-                    //icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                    label: data[3],
+                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                 });
 
             }
