@@ -85,7 +85,7 @@
         }
     </script>
 
-    <div class="container-fluid mb-5" style="color: black;">
+    <div class="container-fluid mb-5" style="color: black;" style="height: auto;">
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
         <div class="card">
             <div class="card-body">
@@ -193,7 +193,7 @@
 
                         </form>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8" style="height: auto;">
+                    <div class="col-sm-12 col-md-6 col-lg-8">
                         <div id="map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
