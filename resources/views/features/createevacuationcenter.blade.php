@@ -64,6 +64,24 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('map'), options);
+
+            // creates a draggable marker to the given coords
+            var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(14.6131, 121.0880),
+                draggable: true
+            });
+            // adds a listener to the marker
+            // gets the coords when drag event ends
+            // then updates the input with the new coords
+            google.maps.event.addListener(vMarker, 'dragend', function(evt) {
+                $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
+                $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
+                map.panTo(evt.latLng);
+            });
+            // centers the map on markers coords
+            map.setCenter(vMarker.position);
+            // adds the marker on the map
+            vMarker.setMap(map);
         }
     </script>
 
@@ -72,7 +90,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                             @csrf
                             <div class="form-group">
@@ -86,7 +104,7 @@
 
                             <div class="form-group">
                                 <label>Latitude</label>
-                                <input type="text" class="form-control" name="evac_latitude"
+                                <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
                                     value="{{ old('evac_latitude') }}" readonly>
 
                                 <small class="text-danger">@error('evac_latitude')
@@ -96,7 +114,7 @@
 
                             <div class="form-group">
                                 <label>Longitude</label>
-                                <input type="text" class="form-control" name="evac_longitude"
+                                <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
                                     value="{{ old('evac_longitude') }}" readonly>
                                 <small class="text-danger">@error('evac_longitude')
                                         {{ $message }}
@@ -178,17 +196,18 @@
 
                         </form>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
                         <div id="map" style="height: 600px; width: 100%;"></div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
 
 
     </div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
+    </script>
 
 @endsection
