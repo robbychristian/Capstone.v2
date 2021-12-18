@@ -18,7 +18,7 @@
 
         <div class="card" style="width: 30rem;">
             <div class="card-body">
-                <form>
+                <form action="{{ route('admin.evacuation.store') }}">
                     <div class="form-group">
                         <label>Location</label>
                         <input type="text" class="form-control" name="evac_name">
@@ -63,14 +63,15 @@
 
                     <div class="form-group">
                         <label>Availability</label>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-success">
-                                <input type="radio" name="availability" id="option1"> Available
-                            </label>
-                            <label class="btn btn-danger">
-                                <input type="radio" name="availability" id="option2"> Not Available
-                            </label>
-                        </div>
+                    </div>
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-success">
+                            <input type="radio" name="availability" id="option1"> Available
+                        </label>
+                        <label class="btn btn-danger">
+                            <input type="radio" name="availability" id="option2"> Not Available
+                        </label>
 
                         <small class="text-danger">@error('availability')
                                 {{ $message }}
