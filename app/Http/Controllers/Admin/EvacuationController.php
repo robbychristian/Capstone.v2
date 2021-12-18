@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class EvacuationController extends Controller
 {
@@ -29,7 +32,10 @@ class EvacuationController extends Controller
      */
     public function create()
     {
-        $barangays = Barangay::where('is_added', '1');
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+
         return view('features.createevacuationcenter', [
             'barangays' => $barangays
         ]);
@@ -43,7 +49,35 @@ class EvacuationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'evac_name' => 'required',
+            'brgy_loc' => 'required',
+            'phone_no' => 'required',
+            'capacity' => 'required',
+            'availability' => 'required',
+        ], $messages = [
+            'evac_name.required' => 'The location field is required!',
+            'brgy_loc.required' => 'The barangay field is required!',
+            'phone_no.required' => 'The contact number field is required!',
+            'capacity.required' => 'The capacity field is required!',
+            'availability.required' => 'The availability field is required!',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/admin/evacuation/create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+           //$announcement = EvacuationCenters::create([
+           //    'admin_id' => 1,
+           //    'name' => Auth::user()->name,
+           //    'brgy_loc' =>  $request->input('brgy_loc'),
+           //    'title' => $request->input('title'),
+           //    'body' => $request->input('message'),
+           //    'approved' => 1,
+           //]);
+
+           //return redirect('/admin/evacuation')->with('success', 'Announcement has been posted!');
+        }
     }
 
     /**
