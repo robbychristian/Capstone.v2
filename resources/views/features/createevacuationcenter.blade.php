@@ -3,6 +3,10 @@
 @section('content')
 
     <script>
+        $(function() {
+            $('[data-toggle="popover"]').popover()
+        })
+
         function onlyNumberKey(evt) {
 
             // Only ASCII character in that range allowed
@@ -108,11 +112,13 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Latitude</label>
-                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
-                                        data-placement="right" data-trigger="click hover"
-                                        title="The latitude changes based on the position of the marker on the map.">
+
+                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
+                                        data-toggle="popover" data-placement="right"
+                                        data-content="The latitude changes based on the position of the marker on the map.">
                                         <i class="fas fa-info-circle"></i>
                                     </button>
+
                                 </div>
                                 <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
                                     value="{{ old('evac_latitude') }}" readonly>
@@ -126,9 +132,9 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Longitude</label>
-                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
-                                        data-placement="right" data-trigger="click hover" 
-                                        title="The longitude changes based on the position of the marker on the map.">
+                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
+                                        data-toggle="popover" data-placement="right"
+                                        data-content="The longitude changes based on the position of the marker on the map.">
                                         <i class="fas fa-info-circle"></i>
                                     </button>
                                 </div>
