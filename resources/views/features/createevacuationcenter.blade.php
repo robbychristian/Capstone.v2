@@ -94,7 +94,7 @@
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                             @csrf
                             <div class="form-group">
-                                <label>Complete Address</label>
+                                <label>Location</label>
                                 <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
 
                                 <small class="text-danger">@error('evac_name')
@@ -124,10 +124,10 @@
                             <div class="form-group">
                                 <label>Nearest Landmark</label>
                                 <input name="nearest_landmark" type="text" class="form-control"
-                                    value={{ old('landmark') }}>
+                                    value={{ old('nearest_landmark') }}>
                                 <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
                                     center.</small>
-                                <small class="text-danger">@error('landmark')
+                                <small class="text-danger">@error('nearest_landmark')
                                         {{ $message }}
                                     @enderror</small>
                             </div>

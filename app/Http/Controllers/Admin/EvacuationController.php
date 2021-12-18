@@ -61,7 +61,9 @@ class EvacuationController extends Controller
             'availability' => 'required',
         ], $messages = [
             'evac_name.required' => 'The location field is required!',
-            'nearest_landmark.required' => 'The location field is required!',
+            'evac_latitude.required' => 'The latitude field is required!',
+            'evac_longitude.required' => 'The longitude field is required!',
+            'nearest_landmark.required' => 'The nearest_landmark field is required!',
             'brgy_loc.required' => 'The barangay field is required!',
             'phone_no.required' => 'The contact number field is required!',
             'capacity.required' => 'The capacity field is required!',

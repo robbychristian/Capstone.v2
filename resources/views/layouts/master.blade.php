@@ -69,6 +69,7 @@
         /* SM BREAK POINT */
         @media (max-width: 575.98px) {
             #evac_map {
+                margin-top: 2rem;
                 height: 600px !important;
             }
         }
