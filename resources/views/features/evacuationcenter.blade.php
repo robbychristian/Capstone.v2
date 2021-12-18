@@ -70,23 +70,7 @@
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
-            // creates a draggable marker to the given coords
-            var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(14.6131, 121.0880),
-                draggable: true
-            });
-            // adds a listener to the marker
-            // gets the coords when drag event ends
-            // then updates the input with the new coords
-            google.maps.event.addListener(vMarker, 'dragend', function(evt) {
-                $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
-                $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
-                map.panTo(evt.latLng);
-            });
-            // centers the map on markers coords
-            map.setCenter(vMarker.position);
-            // adds the marker on the map
-            vMarker.setMap(map);
+
         }
     </script>
 
@@ -96,16 +80,43 @@
             <div class="card-body">
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                        @foreach ($evacuationcenters as $evacuationcenter)
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $evacuationcenter->$evac_name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}</h6>
+                                    <p class="card-text">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Nearest Landmark:
+                                            {{ $evacuationcenter->nearest_landmark }}</li>
+                                        <li class="list-group-item">Contact Number: {{ $evacuationcenter->phone_no }}</li>
+                                        <li class="list-group-item">Capacity: {{ $evacuationcenter->capacity }}</li>
+                                        @if ($evacuationcenter->availability === 'Available')
+                                            <li class="list-group-item"><span
+                                                    class="badge badge-success">{{ $evacuationcenter->availability }}</span>
+                                            </li>
+                                        @else
+                                            <li class="list-group-item"><span
+                                                    class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
+                                            </li>
+                                        @endif
+
+                                        @if ($evacuationcenter->is_approved === 1)
+                                            <li class="list-group-item text-success">Status:
+                                                Approved</li>
+                                        @else
+                                            <li class="list-group-item text-danger">Status:
+                                                Not Yet Approved</li>
+                                        @endif
+
+
+                                    </ul>
+                                    </p>
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link">Delete</a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <div id="evac_map" style="height:100%; width: 100%;"></div>

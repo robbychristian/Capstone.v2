@@ -20,9 +20,9 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $coordinates = EvacuationCenters::all();
+        $evacuationcenters = EvacuationCenters::all();
         return view('features.evacuationcenter', [
-            "coordinates" => $coordinates
+            "evacuationcenters" => $evacuationcenters
         ]);
     }
 
