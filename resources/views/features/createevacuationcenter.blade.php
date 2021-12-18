@@ -197,7 +197,7 @@
                         </form>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
-                        <div id="map" style="width: 100%;"></div>
+                        <div id="map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
             </div>
