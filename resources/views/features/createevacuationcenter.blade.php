@@ -78,9 +78,9 @@
                             @enderror</small>
                     </div>
 
-                    <div class="d-grid gap-2 mt-5">
-                        <button class="btn btn-primary" type="submit">Add Evacuation Center</button>
-                        <a class="btn btn-secondary" href="{{ route('admin.evacuation.index') }}" role="button">Cancel</a>
+                    <div class="mt-5">
+                        <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
+                        <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}" role="button">Cancel</a>
                     </div>
 
                 </form>
