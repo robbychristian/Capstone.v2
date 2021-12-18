@@ -91,7 +91,7 @@
             <div class="card-body">
                 <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
                         to zoom in the map for accuracy of the position. </em></div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                             @csrf
