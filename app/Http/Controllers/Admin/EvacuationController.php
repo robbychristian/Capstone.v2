@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barangay;
 use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,10 @@ class EvacuationController extends Controller
      */
     public function create()
     {
-        return view('features.createevacuationcenter');
+        $barangays = Barangay::where('is_added', '1');
+        return view('features.createevacuationcenter', [
+            'barangays' => $barangays
+        ]);
     }
 
     /**
