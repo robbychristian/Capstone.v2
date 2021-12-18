@@ -106,38 +106,6 @@
         }
     </script>
     <div class="container-fluid" style="color: black;">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
-
-            @if (Auth::user()->user_role === 3)
-                <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-                    Add Evacuation Centers or Hospitals</a>
-            @elseif (Auth::user()->user_role === 1)
-                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-                    Add Evacuation Centers or Hospitals</a>
-            @endif
-        </div>
-        @if (Auth::user()->user_role === 1)
-            <form class="mb-3">
-                <p class="vul-caption mt-3">Choose the barangay:</p>
-                <div class="radio-button-wrap mt-2">
-                    <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Dela Paz" hidden>
-                    <label for="brgyDelaPaz" class="button-label">Barangay Dela Paz</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Manggahan" hidden>
-                    <label for="brgyManggahan" class="button-label">Barangay Manggahan</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyMaybunga" value="Barangay Maybunga" hidden>
-                    <label for="brgyMaybunga" class="button-label">Barangay Maybunga</label>
-
-                    <input type="radio" name="brgy_loc" id="brgySantolan" value="Barangay Santolan" hidden>
-                    <label for="brgySantolan" class="button-label">Barangay Santolan</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyRosario" value="Barangay Rosario" hidden>
-                    <label for="brgyRosario" class="button-label">Barangay Rosario</label>
-                </div>
-            </form>
-        @endif
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div id="map" style="height: 600px; width: 100%;"></div>
