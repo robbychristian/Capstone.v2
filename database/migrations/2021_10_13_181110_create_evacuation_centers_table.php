@@ -20,6 +20,7 @@ class CreateEvacuationCentersTable extends Migration
             $table->string('phone_no');
             $table->string('capacity');
             $table->string('availability');
+            $table->boolean('is_approved');
             $table->softDeletes();
             $table->timestamps();
         });

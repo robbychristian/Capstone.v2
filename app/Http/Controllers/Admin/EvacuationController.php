@@ -67,16 +67,17 @@ class EvacuationController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-           //$announcement = EvacuationCenters::create([
-           //    'admin_id' => 1,
-           //    'name' => Auth::user()->name,
-           //    'brgy_loc' =>  $request->input('brgy_loc'),
-           //    'title' => $request->input('title'),
-           //    'body' => $request->input('message'),
-           //    'approved' => 1,
-           //]);
+           $evacuationcenters = EvacuationCenters::create([
+              'added_by' => $request->input('added_by'),
+              'evac_name' => $request->input('evac_name'),
+              'brgy_loc' => $request->input('brgy_loc'),
+              'phone_no' => $request->input('phone_no'),
+              'capacity' => $request->input('capacity'),
+              'availability' => $request->input('availability'),
+              'is_approved' => 1,
+           ]);
 
-           //return redirect('/admin/evacuation')->with('success', 'Announcement has been posted!');
+           return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been added!');
         }
     }
 
