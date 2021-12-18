@@ -18,7 +18,7 @@
 
         <div class="card" style="width: 30rem;">
             <div class="card-body">
-                <form action="{{ route('admin.evacuation.store') }}">
+                <form action="{{ route('admin.evacuation.store') }}" method="POST">
                     <div class="form-group">
                         <label>Location</label>
                         <input type="text" class="form-control" name="evac_name">
@@ -65,7 +65,7 @@
                         <label>Availability</label>
                     </div>
 
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
                         <label class="btn btn-success">
                             <input type="radio" name="availability" id="option1"> Available
                         </label>
@@ -78,7 +78,11 @@
                             @enderror</small>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Add Evacuation Center</button>
+                        <a class="btn btn-secondary" href="{{ route('admin.evacuation.index') }}" role="button">Cancel</a>
+                    </div>
+
                 </form>
             </div>
         </div>
