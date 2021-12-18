@@ -64,6 +64,15 @@
             font-weight: bold;
         }
 
+        /* Evacuation Center */
+
+        /* SM BREAK POINT */
+        @media (max-width: 575.98px) {
+            #evac_map {
+                height: 600px;
+            }
+        }
+
         /*GUIDELINES*/
 
         .guide-content-heading {

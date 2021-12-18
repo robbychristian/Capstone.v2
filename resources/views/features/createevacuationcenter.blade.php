@@ -63,7 +63,7 @@
                 }
             @endif
 
-            var map = new google.maps.Map(document.getElementById('map'), options);
+            var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
             // creates a draggable marker to the given coords
             var vMarker = new google.maps.Marker({
@@ -85,7 +85,7 @@
         }
     </script>
 
-    <div class="container-fluid mb-5" style="color: black;" style="height: auto;">
+    <div class="container-fluid mb-5" style="color: black;">
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
         <div class="card">
             <div class="card-body">
@@ -194,7 +194,7 @@
                         </form>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
-                        <div id="map" style="height:100%; width: 100%;"></div>
+                        <div id="evac_map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
             </div>
