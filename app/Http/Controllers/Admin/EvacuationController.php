@@ -52,6 +52,8 @@ class EvacuationController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'evac_name' => 'required',
+            'evac_latitude' => 'required',
+            'evac_longitude' => 'required',
             'nearest_landmark' => 'required',
             'brgy_loc' => 'required',
             'phone_no' => 'required',
@@ -73,6 +75,8 @@ class EvacuationController extends Controller
            $evacuationcenters = EvacuationCenters::create([
               'added_by' => Auth::user()->name,
               'evac_name' => $request->input('evac_name'),
+              'evac_latitude' => $request->input('evac_latitude'),
+              'evac_longitude' => $request->input('evac_longitude'),
               'nearest_landmark' => $request->input('nearest_landmark'),
               'brgy_loc' => $request->input('brgy_loc'),
               'phone_no' => $request->input('phone_no'),

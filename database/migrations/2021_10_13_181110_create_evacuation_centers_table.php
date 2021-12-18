@@ -17,6 +17,8 @@ class CreateEvacuationCentersTable extends Migration
             $table->id();
             $table->string('added_by');
             $table->string('evac_name');
+            $table->string('evac_latitude');
+            $table->string('evac_longitude');
             $table->string('nearest_landmark');
             $table->string('brgy_loc');
             $table->string('phone_no');

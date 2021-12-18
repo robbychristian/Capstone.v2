@@ -12,6 +12,8 @@ class EvacuationCenters extends Model
     protected $fillable = [
         'added_by',
         'evac_name',
+        'evac_latitude',
+        'evac_longitude',
         'nearest_landmark',
         'brgy_loc',
         'phone_no',

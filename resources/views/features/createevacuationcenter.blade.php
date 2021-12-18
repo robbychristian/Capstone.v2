@@ -30,9 +30,26 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Latitude</label>
+                        <input type="text" class="form-control" name="evac_latitude" value="{{ old('evac_latitude') }}" readonly>
+
+                        <small class="text-danger">@error('evac_latitude')
+                                {{ $message }}
+                            @enderror</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Longitude</label>
+                        <input type="text" class="form-control" name="evac_longitude" value="{{ old('evac_longitude') }}" readonly>
+                        <small class="text-danger">@error('evac_longitude')
+                                {{ $message }}
+                            @enderror</small>
+                    </div>
+
+                    <div class="form-group">
                         <label>Nearest Landmark</label>
                         <input name="nearest_landmark" type="text" class="form-control" value={{ old('landmark') }}>
-                        <small class="form-text text-muted">Indicate the nearby location in the specified evacuation
+                        <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
                             center.</small>
                         <small class="text-danger">@error('landmark')
                                 {{ $message }}
