@@ -71,7 +71,8 @@
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}", "{{ $evacuationcenter->is_approved }}", 
+                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
+                    "{{ $evacuationcenter->is_approved }}",
                     "{{ $evacuationcenter->id }}"],
                 @endforeach
             ];
@@ -94,7 +95,19 @@
     </script>
 
     <div class="container-fluid mb-5" style="color: black;">
-        <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
+
+            @if (Auth::user()->user_role >= 3)
+                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                    Add Evacuation Centers or Nearby Hospitals</a>
+            @elseif (Auth::user()->user_role === 1)
+                <a href="{{ route('admin.generate.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>
+                    Add Evacuation Centers or Nearby Hospitals</a>
+            @endif
+        </div>
+
         <div class="card">
             <div class="card-body">
                 <div class="row mt-3">
