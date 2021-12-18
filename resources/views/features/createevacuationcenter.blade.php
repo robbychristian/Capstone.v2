@@ -90,7 +90,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                             @csrf
                             <div class="form-group">
@@ -196,8 +196,8 @@
 
                         </form>
                     </div>
-                    <div class="col-sm-12 col-md-8 col-lg-8">
-                        <div id="map" style="height: 600px; width: 100%;"></div>
+                    <div class="col-sm-12 col-md-6 col-lg-8">
+                        <div id="map" style="width: 100%;"></div>
                     </div>
                 </div>
             </div>
