@@ -102,24 +102,43 @@
                                     @enderror</small>
                             </div>
 
-                            <div class="form-group">
-                                <label>Latitude</label>
-                                <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
-                                    value="{{ old('evac_latitude') }}" readonly>
+                            <div class="d-flex flex-row">
+                                <div class="form-group">
+                                    <label>Latitude</label>
+                                    <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
+                                        value="{{ old('evac_latitude') }}" readonly>
 
-                                <small class="text-danger">@error('evac_latitude')
-                                        {{ $message }}
-                                    @enderror</small>
+                                    <small class="text-danger">@error('evac_latitude')
+                                            {{ $message }}
+                                        @enderror</small>
+                                </div>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                                    title="The latitude changes based on the position of the marker on the map.">
+                                    <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </span>
                             </div>
 
-                            <div class="form-group">
-                                <label>Longitude</label>
-                                <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
-                                    value="{{ old('evac_longitude') }}" readonly>
-                                <small class="text-danger">@error('evac_longitude')
-                                        {{ $message }}
-                                    @enderror</small>
+                            <div class="d-flex flex-row">
+                                <div class="form-group">
+                                    <label>Longitude</label>
+                                    <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
+                                        value="{{ old('evac_longitude') }}" readonly>
+                                    <small class="text-danger">@error('evac_longitude')
+                                            {{ $message }}
+                                        @enderror</small>
+                                </div>
+
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                                    title="The longitude changes based on the position of the marker on the map.">
+                                    <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </span>
                             </div>
+
+
 
                             <div class="form-group">
                                 <label>Nearest Landmark</label>
@@ -194,6 +213,12 @@
                         </form>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
+
+                        <div class="alert alert-warning" role="alert">
+                            <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
+                                    to zoom in the map for accuracy of the position. </em></div>
+                        </div>
+
                         <div id="evac_map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
