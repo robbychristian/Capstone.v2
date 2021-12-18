@@ -16,7 +16,7 @@
     <div class="container-fluid" style="color: black;">
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
         <div class="container-fluid">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 30rem;">
                 <div class="card-body">
                     <form>
                         <div class="form-group">
@@ -45,7 +45,6 @@
 
                         <div class="form-group">
                             <label>Contact Number</label>
-                            <input type="text" class="form-control" name="phone_no">
                             <input name="phone_no" type="text" class="form-control"
                                 onkeypress="return onlyNumberKey(event)" maxlength="11" value={{ old('phone_no') }}>
                         </div>
