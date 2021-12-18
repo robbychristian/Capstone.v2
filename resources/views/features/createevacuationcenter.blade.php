@@ -19,6 +19,7 @@
         <div class="card" style="width: 30rem;">
             <div class="card-body">
                 <form action="{{ route('admin.evacuation.store') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label>Location</label>
                         <input type="text" class="form-control" name="evac_name">
