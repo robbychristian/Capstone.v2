@@ -71,21 +71,26 @@
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longtitude }}"],
+                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longtitude }}", "{{ $evacuationcenter->is_approved }}", 
+                    "{{ $evacuationcenter->id }}"],
                 @endforeach
             ];
 
+            var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
+            var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
+
             for (var i = 0; i < markers.length; i++) {
-                var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
+                var data = markers[i]
+                var location = new google.maps.LatLng(data[0], data[1]);
                 var marker = new google.maps.Marker({
                     position: location,
                     map: map
+                    label: data[3],
+                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                 });
 
-                var map = new google.maps.Map(document.getElementById('evac_map'), options);
-
-
             }
+        }
     </script>
 
     <div class="container-fluid mb-5" style="color: black;">
@@ -126,8 +131,6 @@
 
                                     </ul>
                                     </p>
-                                    <a href="#" class="card-link">Edit</a>
-                                    <a href="#" class="card-link">Delete</a>
                                 </div>
                             </div>
                         @endforeach
