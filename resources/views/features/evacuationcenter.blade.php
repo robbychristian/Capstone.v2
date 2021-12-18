@@ -69,9 +69,23 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
+            var markers = [
+                @foreach ($evacuationcenters as $evacuationcenter)
+                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longtitude }}"],
+                @endforeach
+            ];
+
+            for (var i = 0; i < markers.length; i++) {
+                var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+
+                var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
 
-        }
+            }
     </script>
 
     <div class="container-fluid mb-5" style="color: black;">
@@ -83,7 +97,7 @@
                         @foreach ($evacuationcenters as $evacuationcenter)
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $evacuationcenter->$evac_name }}</h5>
+                                    <h5 class="card-title">{{ $evacuationcenter->evac_name }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}</h6>
                                     <p class="card-text">
                                     <ul class="list-group list-group-flush">
