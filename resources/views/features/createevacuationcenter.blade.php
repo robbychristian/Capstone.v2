@@ -22,7 +22,11 @@
                     @csrf
                     <div class="form-group">
                         <label>Location</label>
-                        <input type="text" class="form-control" name="evac_name">
+                        <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
+
+                        <small class="text-danger">@error('evac_name')
+                            {{ $message }}
+                        @enderror</small>
                     </div>
 
                     <div class="form-group">
@@ -74,14 +78,16 @@
                             <input type="radio" name="availability" id="option2"> Not Available
                         </label>
 
-                        <small class="text-danger">@error('availability')
-                                {{ $message }}
-                            @enderror</small>
+
                     </div>
+                    <small class="text-danger">@error('availability')
+                            {{ $message }}
+                        @enderror</small>
 
                     <div class="mt-5">
                         <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
-                        <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}" role="button">Cancel</a>
+                        <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
+                            role="button">Cancel</a>
                     </div>
 
                 </form>
