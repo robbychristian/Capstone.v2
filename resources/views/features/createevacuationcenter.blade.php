@@ -89,6 +89,8 @@
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
         <div class="card">
             <div class="card-body">
+                <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
+                        to zoom in the map for accuracy of the position. </em></div>
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
@@ -108,8 +110,8 @@
                                     <label>Latitude</label>
                                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
                                         title="The latitude changes based on the position of the marker on the map.">
-                                        <button class="btn btn-primary" style="pointer-events: none;" type="button"
-                                            disabled>
+                                        <button class="ml-3 btn btn-info btn-circle btn-sm" style="pointer-events: none;"
+                                            type="button" disabled>
                                             <i class="fas fa-info-circle"></i>
                                         </button>
                                     </span>
@@ -129,8 +131,8 @@
                                     <label>Longitude</label>
                                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
                                         title="The longitude changes based on the position of the marker on the map.">
-                                        <button class="btn btn-primary" style="pointer-events: none;" type="button"
-                                            disabled>
+                                        <button class="ml-3 btn btn-info btn-circle btn-sm" style="pointer-events: none;"
+                                            type="button" disabled>
                                             <i class="fas fa-info-circle"></i>
                                         </button>
                                     </span>
@@ -219,10 +221,6 @@
                         </form>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
-
-                        <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
-                                to zoom in the map for accuracy of the position. </em></div>
-
                         <div id="evac_map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
