@@ -3,7 +3,20 @@
 @section('title', '| Evacuation Centers and Hospitals')
 @section('content')
 
-    <script type="text/javascript">
+    <script>
+        $(function() {
+            $('[data-toggle="popover"]').popover()
+        })
+
+        function onlyNumberKey(evt) {
+
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode < 48 || ASCIICode > 57)
+                return false;
+            return true;
+        }
+
         function initMap() {
             @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
                 var options = {
@@ -55,94 +68,53 @@
                 }
             @endif
 
-            var map = new google.maps.Map(document.getElementById('map'), options);
+            var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
-            var markers = [
-                @foreach ($coordinates as $coordinate)
-                    ["{{ $coordinate->lat }}","{{ $coordinate->lng }}"],
-                
-                @endforeach
-            ];
-
-            function newLocation(newLat, newLng) {
-                map.setCenter({
-                    lat: newLat,
-                    lng: newLng
-                });
-            }
-            //Setting Location with jQuery
-            $(document).ready(function() {
-                $("#brgyDelaPaz").on('click', function() {
-                    newLocation(14.6137, 121.0960);
-                });
-
-                $("#brgyManggahan").on('click', function() {
-                    newLocation(14.601887, 121.093698);
-                });
-
-                $("#brgyMaybunga").on('click', function() {
-                    newLocation(14.5763, 121.0850);
-                });
-
-                $("#brgySantolan").on('click', function() {
-                    newLocation(14.6131, 121.0880);
-                });
-
-                $("#brgyRosario").on('click', function() {
-                    newLocation(14.5885, 121.0891);
-                });
+            // creates a draggable marker to the given coords
+            var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(14.6131, 121.0880),
+                draggable: true
             });
-
-
-            for (var i = 0; i < markers.length; i++) {
-                var location = new google.maps.LatLng(markers[i][0], markers[i][1]);
-                var marker = new google.maps.Marker({
-                    position: location,
-                    map: map
-                });
-
-
-            }
+            // adds a listener to the marker
+            // gets the coords when drag event ends
+            // then updates the input with the new coords
+            google.maps.event.addListener(vMarker, 'dragend', function(evt) {
+                $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
+                $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
+                map.panTo(evt.latLng);
+            });
+            // centers the map on markers coords
+            map.setCenter(vMarker.position);
+            // adds the marker on the map
+            vMarker.setMap(map);
         }
     </script>
-    <div class="container-fluid" style="color: black;">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
 
-            @if (Auth::user()->user_role === 3)
-                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-                    Add Evacuation Centers or Hospitals</a>
-            @elseif (Auth::user()->user_role === 1)
-                <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-                    Add Evacuation Centers or Hospitals</a>
-            @endif
-        </div>
-        @if (Auth::user()->user_role === 1)
-            <form class="mb-3">
-                <p class="vul-caption mt-3">Choose the barangay:</p>
-                <div class="radio-button-wrap mt-2">
-                    <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Dela Paz" hidden>
-                    <label for="brgyDelaPaz" class="button-label">Barangay Dela Paz</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyManggahan" value="Barangay Manggahan" hidden>
-                    <label for="brgyManggahan" class="button-label">Barangay Manggahan</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyMaybunga" value="Barangay Maybunga" hidden>
-                    <label for="brgyMaybunga" class="button-label">Barangay Maybunga</label>
-
-                    <input type="radio" name="brgy_loc" id="brgySantolan" value="Barangay Santolan" hidden>
-                    <label for="brgySantolan" class="button-label">Barangay Santolan</label>
-
-                    <input type="radio" name="brgy_loc" id="brgyRosario" value="Barangay Rosario" hidden>
-                    <label for="brgyRosario" class="button-label">Barangay Rosario</label>
-                </div>
-            </form>
-        @endif
-        <div class="card shadow-card mb-3 mt-3">
+    <div class="container-fluid mb-5" style="color: black;">
+        <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
+        <div class="card">
             <div class="card-body">
-                <div id="map" style="height: 600px; width: 100%;"></div>
+                <div class="row mt-3">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-8">
+                        <div id="evac_map" style="height:100%; width: 100%;"></div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 
     <script async defer

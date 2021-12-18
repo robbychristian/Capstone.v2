@@ -90,7 +90,7 @@
     </script>
 
     <div class="container-fluid mb-5" style="color: black;">
-        <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center</h1>
+        <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center or Nearby Hospitals</h1>
         <div class="card">
             <div class="card-body">
                 <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
