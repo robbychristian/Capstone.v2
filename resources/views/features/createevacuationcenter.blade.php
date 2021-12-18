@@ -108,9 +108,10 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Latitude</label>
-                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
-                                        data-placement="right"
-                                        title="The latitude changes based on the position of the marker on the map.">
+
+                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
+                                        data-toggle="popover" data-placement="right"
+                                        data-content="The latitude changes based on the position of the marker on the map.">
                                         <i class="fas fa-info-circle"></i>
                                     </button>
                                 </div>
@@ -126,9 +127,10 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Longitude</label>
-                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
-                                        data-placement="right"
-                                        title="The longitude changes based on the position of the marker on the map.">
+
+                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
+                                        data-toggle="popover" data-placement="right"
+                                        data-content="The longitude changes based on the position of the marker on the map.">
                                         <i class="fas fa-info-circle"></i>
                                     </button>
                                 </div>
