@@ -21,12 +21,22 @@
                 <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                     @csrf
                     <div class="form-group">
-                        <label>Location</label>
+                        <label>Complete Address</label>
                         <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
 
                         <small class="text-danger">@error('evac_name')
-                            {{ $message }}
-                        @enderror</small>
+                                {{ $message }}
+                            @enderror</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nearest Landmark</label>
+                        <input name="nearest_landmark" type="text" class="form-control" value={{ old('landmark') }}>
+                        <small class="form-text text-muted">Indicate the nearby location in the specified evacuation
+                            center.</small>
+                        <small class="text-danger">@error('landmark')
+                                {{ $message }}
+                            @enderror</small>
                     </div>
 
                     <div class="form-group">
@@ -50,8 +60,7 @@
 
                     <div class="form-group">
                         <label>Contact Number</label>
-                        <input name="phone_no" type="text" class="form-control" onkeypress="return onlyNumberKey(event)"
-                            maxlength="11" value={{ old('phone_no') }}>
+                        <input name="phone_no" type="text" class="form-control" value={{ old('phone_no') }}>
                         <small class="text-danger">@error('phone_no')
                                 {{ $message }}
                             @enderror</small>
@@ -77,12 +86,13 @@
                         <label class="btn btn-danger">
                             <input type="radio" name="availability" value="Not Available"> Not Available
                         </label>
-
-
                     </div>
                     <small class="text-danger">@error('availability')
                             {{ $message }}
                         @enderror</small>
+
+
+
 
                     <div class="mt-5">
                         <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>

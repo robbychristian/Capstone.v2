@@ -10,12 +10,14 @@ class EvacuationCenters extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'added_by',
         'evac_name',
+        'nearest_landmark',
         'brgy_loc',
-        'lat',
-        'lng',
         'phone_no',
         'capacity',
-        'nearest_landmark',
+        'availability',
+        'is_approved',
+        
     ];
 }

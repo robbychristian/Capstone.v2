@@ -15,7 +15,9 @@ class CreateEvacuationCentersTable extends Migration
     {
         Schema::create('evacuation_centers', function (Blueprint $table) {
             $table->id();
+            $table->string('added_by');
             $table->string('evac_name');
+            $table->string('nearest_landmark');
             $table->string('brgy_loc');
             $table->string('phone_no');
             $table->string('capacity');

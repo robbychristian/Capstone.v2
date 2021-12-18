@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use App\Models\EvacuationCenters;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,12 +52,14 @@ class EvacuationController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'evac_name' => 'required',
+            'nearest_landmark' => 'required',
             'brgy_loc' => 'required',
             'phone_no' => 'required',
             'capacity' => 'required',
             'availability' => 'required',
         ], $messages = [
             'evac_name.required' => 'The location field is required!',
+            'nearest_landmark.required' => 'The location field is required!',
             'brgy_loc.required' => 'The barangay field is required!',
             'phone_no.required' => 'The contact number field is required!',
             'capacity.required' => 'The capacity field is required!',
@@ -68,8 +71,9 @@ class EvacuationController extends Controller
                 ->withInput();
         } else {
            $evacuationcenters = EvacuationCenters::create([
-              'added_by' => $request->input('added_by'),
+              'added_by' => Auth::user()->name,
               'evac_name' => $request->input('evac_name'),
+              'nearest_landmark' => $request->input('nearest_landmark'),
               'brgy_loc' => $request->input('brgy_loc'),
               'phone_no' => $request->input('phone_no'),
               'capacity' => $request->input('capacity'),
