@@ -90,7 +90,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
                             @csrf
                             <div class="form-group">
@@ -185,9 +185,6 @@
                                     {{ $message }}
                                 @enderror</small>
 
-
-
-
                             <div class="mt-5">
                                 <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
                                 <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
@@ -196,7 +193,7 @@
 
                         </form>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8">
+                    <div class="col-12 col-md-6 col-lg-8">
                         <div id="map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
