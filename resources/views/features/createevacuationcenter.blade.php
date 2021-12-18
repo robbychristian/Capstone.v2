@@ -108,13 +108,11 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Latitude</label>
-                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
+                                        data-placement="right"
                                         title="The latitude changes based on the position of the marker on the map.">
-                                        <button class="ml-3 btn btn-info btn-circle btn-sm" style="pointer-events: none;"
-                                            type="button" disabled>
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                    </span>
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
                                 </div>
                                 <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
                                     value="{{ old('evac_latitude') }}" readonly>
@@ -125,17 +123,14 @@
                             </div>
 
 
-
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Longitude</label>
-                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                                    <button type="button" class="ml-3 btn btn-info btn-circle btn-sm" data-toggle="tooltip"
+                                        data-placement="right"
                                         title="The longitude changes based on the position of the marker on the map.">
-                                        <button class="ml-3 btn btn-info btn-circle btn-sm" style="pointer-events: none;"
-                                            type="button" disabled>
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                    </span>
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
                                 </div>
                                 <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
                                     value="{{ old('evac_longitude') }}" readonly>
@@ -143,10 +138,6 @@
                                         {{ $message }}
                                     @enderror</small>
                             </div>
-
-
-
-
 
                             <div class="form-group">
                                 <label>Nearest Landmark</label>
