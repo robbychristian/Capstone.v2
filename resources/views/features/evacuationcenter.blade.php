@@ -108,6 +108,12 @@
             @endif
         </div>
 
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
         <div class="card">
             <div class="card-body">
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
@@ -159,7 +165,8 @@
                                             </ul>
                                             </p>
 
-                                            <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit" class="card-link">Edit</a>
+                                            <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit"
+                                                class="card-link">Edit</a>
                                             <a href="#" class="card-link">Delete</a>
                                         </div>
                                     </div>

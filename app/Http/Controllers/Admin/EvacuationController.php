@@ -129,7 +129,45 @@ class EvacuationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'evac_name' => 'required',
+            'evac_latitude' => 'required',
+            'evac_longitude' => 'required',
+            'nearest_landmark' => 'required',
+            'brgy_loc' => 'required',
+            'phone_no' => 'required',
+            'capacity' => 'required',
+            'availability' => 'required',
+        ], $messages = [
+            'evac_name.required' => 'The location field is required!',
+            'evac_latitude.required' => 'The latitude field is required!',
+            'evac_longitude.required' => 'The longitude field is required!',
+            'nearest_landmark.required' => 'The nearest_landmark field is required!',
+            'brgy_loc.required' => 'The barangay field is required!',
+            'phone_no.required' => 'The contact number field is required!',
+            'capacity.required' => 'The capacity field is required!',
+            'availability.required' => 'The availability field is required!',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/admin/evacuation/'. $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $evacuationcenters = EvacuationCenters::where('id', $id)->update([
+                //'added_by' => Auth::user()->name,
+                'evac_name' => $request->input('evac_name'),
+                'evac_latitude' => $request->input('evac_latitude'),
+                'evac_longitude' => $request->input('evac_longitude'),
+                'nearest_landmark' => $request->input('nearest_landmark'),
+                'brgy_loc' => $request->input('brgy_loc'),
+                'phone_no' => $request->input('phone_no'),
+                'capacity' => $request->input('capacity'),
+                'availability' => $request->input('availability'),
+                //'is_approved' => 1,
+            ]);
+
+            return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been edited!');
+        }
     }
 
     /**

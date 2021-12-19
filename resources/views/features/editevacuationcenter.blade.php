@@ -103,6 +103,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <form action="/admin/evacuation/{{ $evacuationcenter->id }}" method="POST" style="color: black;">
                             @csrf
+                            @method('PUT')
                             <div class="form-group">
                                 <label>Location</label>
                                 <input type="text" class="form-control" name="evac_name"
@@ -228,7 +229,7 @@
 
                             <div class="mt-5">
                                 <button class="btn btn-primary btn-block" type="submit">Save</button>
-                                <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.create') }}"
+                                <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
                                     role="button">Cancel</a>
                             </div>
 
