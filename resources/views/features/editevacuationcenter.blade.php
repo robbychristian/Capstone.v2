@@ -101,7 +101,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>Location</label>
-                                <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
+                                <input type="text" class="form-control" name="evac_name" value="{{ $evacuationcenter->evac_name }}">
 
                                 <small class="text-danger">@error('evac_name')
                                         {{ $message }}
@@ -121,7 +121,7 @@
 
                                 </div>
                                 <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
-                                    value="{{ old('evac_latitude') }}" readonly>
+                                    value="{{ $evacuationcenter->evac_latitude }}" readonly>
 
                                 <small class="text-danger">@error('evac_latitude')
                                         {{ $message }}
@@ -139,7 +139,7 @@
                                     </button>
                                 </div>
                                 <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
-                                    value="{{ old('evac_longitude') }}" readonly>
+                                    value="{{ $evacuationcenter->evac_longitude }}" readonly>
                                 <small class="text-danger">@error('evac_longitude')
                                         {{ $message }}
                                     @enderror</small>
@@ -148,7 +148,7 @@
                             <div class="form-group">
                                 <label>Nearest Landmark</label>
                                 <input name="nearest_landmark" type="text" class="form-control"
-                                    value={{ old('nearest_landmark') }}>
+                                    value="{{ $evacuationcenter->nearest_landmark }}">
                                 <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
                                     center.</small>
                                 <small class="text-danger">@error('nearest_landmark')
@@ -159,10 +159,9 @@
                             <div class="form-group">
                                 <label>Barangay</label>
                                 @if (Auth::user()->user_role === 1)
-                                    <select name="brgy_loc" class="form-control" value="{{ old('brgy_loc') }}">
+                                    <select name="brgy_loc" class="form-control">
                                         @foreach ($barangays as $barangay)
-                                            <option disabled hidden selected>Select Barangay</option>
-                                            <option value='{{ $barangay->brgy_loc }}'>{{ $barangay->brgy_loc }}
+                                            <option value='{{ $evacuationcenter->brgy_loc }}' {{ $barangay->brgy_loc === $evacuationcenter->brgy_loc ? 'selected' : "" }}>{{ $evacuationcenter->brgy_loc }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -170,7 +169,7 @@
 
                                 @if (Auth::user()->user_role >= 3)
                                     <input class="form-control" type="text" name="brgy_loc"
-                                        value="{{ Auth::user()->brgy_loc }}" readonly>
+                                        value="{{ $evacuationcenter->brgy_loc }}" readonly>
                                 @endif
                                 <small class="text-danger">@error('brgy_loc')
                                         {{ $message }}
@@ -179,7 +178,7 @@
 
                             <div class="form-group">
                                 <label>Contact Number</label>
-                                <input name="phone_no" type="text" class="form-control" value={{ old('phone_no') }}>
+                                <input name="phone_no" type="text" class="form-control" value="{{ $evacuationcenter->phone_no }}">
                                 <small class="text-danger">@error('phone_no')
                                         {{ $message }}
                                     @enderror</small>
@@ -188,7 +187,7 @@
                             <div class="form-group">
                                 <label>Capacity</label>
                                 <input name="capacity" type="text" class="form-control"
-                                    onkeypress="return onlyNumberKey(event)" value={{ old('capacity') }}>
+                                    onkeypress="return onlyNumberKey(event)" value="{{ $evacuationcenter->capacity }}">
                                 <small class="text-danger">@error('capacity')
                                         {{ $message }}
                                     @enderror</small>
@@ -200,10 +199,10 @@
 
                             <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
                                 <label class="btn btn-success">
-                                    <input type="radio" name="availability" value="Available"> Available
+                                    <input type="radio" name="availability" value="Available" {{ $evacuationcenter->availability == "Available" ? "checked" : ""}}> Available
                                 </label>
                                 <label class="btn btn-danger">
-                                    <input type="radio" name="availability" value="Not Available"> Not Available
+                                    <input type="radio" name="availability" value="Not Available" {{ $evacuationcenter->availability == "Not Available" ? "checked" : ""}}> Not Available
                                 </label>
                             </div>
                             <small class="text-danger">@error('availability')
@@ -211,7 +210,7 @@
                                 @enderror</small>
 
                             <div class="mt-5">
-                                <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
+                                <button class="btn btn-primary btn-block" type="submit">Save</button>
                                 <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
                                     role="button">Cancel</a>
                             </div>

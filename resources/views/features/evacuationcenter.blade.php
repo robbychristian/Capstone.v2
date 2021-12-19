@@ -139,12 +139,12 @@
                                             <p class="card-text">
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item"><i
-                                                        class="fas fa-directions mr-2 color"></i><strong>Nearest Landmark:</strong>
+                                                        class="fas fa-directions mr-2 color"></i>Nearest Landmark:
                                                     {{ $evacuationcenter->nearest_landmark }}</li>
                                                 <li class="list-group-item"><i
-                                                        class="fas fa-phone-square-alt mr-2 color"></i> <strong>Contact Number:</strong>
+                                                        class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
                                                     {{ $evacuationcenter->phone_no }}</li>
-                                                <li class="list-group-item"><i class="fas fa-users mr-2 color"></i><strong>Capacity:</strong>
+                                                <li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity:
                                                     {{ $evacuationcenter->capacity }}
                                                 </li>
                                                 @if ($evacuationcenter->availability === 'Available')
@@ -159,7 +159,7 @@
                                             </ul>
                                             </p>
 
-                                            <a href="#" class="card-link">Edit</a>
+                                            <a href="{{ route('admin.evacuation.edit') }}" class="card-link">Edit</a>
                                             <a href="#" class="card-link">Delete</a>
                                         </div>
                                     </div>

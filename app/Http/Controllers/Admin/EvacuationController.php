@@ -74,20 +74,20 @@ class EvacuationController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-           $evacuationcenters = EvacuationCenters::create([
-              'added_by' => Auth::user()->name,
-              'evac_name' => $request->input('evac_name'),
-              'evac_latitude' => $request->input('evac_latitude'),
-              'evac_longitude' => $request->input('evac_longitude'),
-              'nearest_landmark' => $request->input('nearest_landmark'),
-              'brgy_loc' => $request->input('brgy_loc'),
-              'phone_no' => $request->input('phone_no'),
-              'capacity' => $request->input('capacity'),
-              'availability' => $request->input('availability'),
-              'is_approved' => 1,
-           ]);
+            $evacuationcenters = EvacuationCenters::create([
+                'added_by' => Auth::user()->name,
+                'evac_name' => $request->input('evac_name'),
+                'evac_latitude' => $request->input('evac_latitude'),
+                'evac_longitude' => $request->input('evac_longitude'),
+                'nearest_landmark' => $request->input('nearest_landmark'),
+                'brgy_loc' => $request->input('brgy_loc'),
+                'phone_no' => $request->input('phone_no'),
+                'capacity' => $request->input('capacity'),
+                'availability' => $request->input('availability'),
+                'is_approved' => 1,
+            ]);
 
-           return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been added!');
+            return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been added!');
         }
     }
 
@@ -110,7 +110,14 @@ class EvacuationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+        $evacuationcenter = EvacuationCenters::find($id);
+        return view('features.editevacuationcenter', [
+            'barangays' => $barangays,
+            'evacuationcenter' => $evacuationcenter
+        ]);
     }
 
     /**
