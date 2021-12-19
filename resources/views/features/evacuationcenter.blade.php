@@ -128,6 +128,9 @@
                                 @foreach ($evacuationcenters as $evacuationcenter)
                                     <div class="card mb-2">
                                         <div class="card-body">
+                                            @if ($evacuationcenter->is_approved === 0)
+                                                <h5><span class="badge badge-danger">Not yet Approved</span></h5>
+                                            @endif
                                             <h5 class="card-title"><span
                                                     class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}
                                             </h5>
@@ -135,11 +138,14 @@
                                             </h6>
                                             <p class="card-text">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><i class="fas fa-directions mr-3"></i>Nearest Landmark:
+                                                <li class="list-group-item"><i
+                                                        class="fas fa-directions mr-2 color"></i>Nearest Landmark:
                                                     {{ $evacuationcenter->nearest_landmark }}</li>
-                                                <li class="list-group-item"><i class="fas fa-phone-square-alt mr-3"></i> Contact Number:
+                                                <li class="list-group-item"><i
+                                                        class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
                                                     {{ $evacuationcenter->phone_no }}</li>
-                                                <li class="list-group-item"><i class="fas fa-users mr-3"></i>Capacity: {{ $evacuationcenter->capacity }}
+                                                <li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity:
+                                                    {{ $evacuationcenter->capacity }}
                                                 </li>
                                                 @if ($evacuationcenter->availability === 'Available')
                                                     <li class="list-group-item"><span
@@ -150,16 +156,6 @@
                                                             class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
                                                     </li>
                                                 @endif
-
-                                                @if ($evacuationcenter->is_approved === 1)
-                                                    <li class="list-group-item text-success">Status:
-                                                        Approved</li>
-                                                @else
-                                                    <li class="list-group-item text-danger">Status:
-                                                        Not Yet Approved</li>
-                                                @endif
-
-
                                             </ul>
                                             </p>
                                         </div>
