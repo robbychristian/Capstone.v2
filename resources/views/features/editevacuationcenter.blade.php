@@ -76,10 +76,15 @@
 
 
             // creates a draggable marker to the given coords
-            var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(coordinates[0][0], coordinates[0][1]),
-                draggable: true
-            });
+
+            for (var i = 0; i < coordinates.length; i++) {
+                var vMarker = new google.maps.Marker({
+                    position: new google.maps.LatLng(coordinates[0][0], coordinates[0][1]),
+                    draggable: true
+                });
+
+            }
+
             // adds a listener to the marker
             // gets the coords when drag event ends
             // then updates the input with the new coords
@@ -222,8 +227,8 @@
                                 </div>
 
                                 <small class="text-danger">@error('availability')
-                                    {{ $message }}
-                                @enderror</small>
+                                        {{ $message }}
+                                    @enderror</small>
                             </div>
 
 
