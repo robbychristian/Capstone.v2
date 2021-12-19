@@ -172,7 +172,14 @@
 
                                                 <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit"
                                                     class="card-link">Edit</a>
-                                                <a href="#" class="card-link">Delete</a>
+                                                <form action="/admin/evacuation/{{ $evacuationcenter->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="{{ route('admin.evacuation.index') }}"
+                                                        class="card-link">Delete</a>
+                                                </form>
+
                                             </div>
                                         </div>
                                     @endforeach

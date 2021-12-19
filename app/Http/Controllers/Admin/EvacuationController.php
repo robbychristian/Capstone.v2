@@ -20,7 +20,7 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $evacuationcenters = EvacuationCenters::latest()->paginate(2);
+        $evacuationcenters = EvacuationCenters::all()->paginate(2);
         return view('features.evacuationcenter', [
             "evacuationcenters" => $evacuationcenters
         ]);
