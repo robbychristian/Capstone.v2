@@ -164,7 +164,7 @@
                                         @foreach ($barangays as $barangay)
                                             <option value='{{ $evacuationcenter->brgy_loc }}'
                                                 {{ $barangay->brgy_loc === $evacuationcenter->brgy_loc ? 'selected' : '' }}>
-                                                {{ $evacuationcenter->brgy_loc }}
+                                                {{ $barangay->brgy_loc }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -199,19 +199,34 @@
 
                             <div class="form-group">
                                 <label>Availability</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="availability" id="" value="Available"
+                                        {{ $evacuationcenter->availability == 'Available' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="">
+                                        Available
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="availability" id=""
+                                        value="Not Available"
+                                        {{ $evacuationcenter->availability == 'Not Available' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="">
+                                        Not Available
+                                    </label>
+                                </div>
                             </div>
-
-                            <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
-                                <label class="btn btn-success">
-                                    <input type="radio" name="availability" value="Available"
-                                        {{ $evacuationcenter->availability == 'Available' ? 'checked' : '' }}> Available
-                                </label>
-                                <label class="btn btn-danger">
-                                    <input type="radio" name="availability" value="Not Available"
-                                        {{ $evacuationcenter->availability == 'Not Available' ? 'checked' : '' }}> Not
-                                    Available
-                                </label>
-                            </div>
+                            <!--
+                                <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
+                                    <label class="btn btn-success">
+                                        <input type="radio" name="availability" value="Available"
+                                            {{ $evacuationcenter->availability == 'Available' ? 'checked' : '' }}> Available
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" name="availability" value="Not Available"
+                                            {{ $evacuationcenter->availability == 'Not Available' ? 'checked' : '' }}> Not
+                                        Available
+                                    </label>
+                                </div> -->
                             <small class="text-danger">@error('availability')
                                     {{ $message }}
                                 @enderror</small>
