@@ -196,19 +196,25 @@
 
                             <div class="form-group">
                                 <label>Availability</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="availability" id=""
+                                        value="Available">
+                                    <label class="form-check-label" for="">
+                                        Available
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="availability" id=""
+                                        value="Not Available">
+                                    <label class="form-check-label" for="">
+                                        Not Available
+                                    </label>
+                                </div>
+                                <small class="text-danger">@error('availability')
+                                        {{ $message }}
+                                    @enderror</small>
                             </div>
 
-                            <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
-                                <label class="btn btn-success">
-                                    <input type="radio" name="availability" value="Available"> Available
-                                </label>
-                                <label class="btn btn-danger">
-                                    <input type="radio" name="availability" value="Not Available"> Not Available
-                                </label>
-                            </div>
-                            <small class="text-danger">@error('availability')
-                                    {{ $message }}
-                                @enderror</small>
 
                             <div class="mt-5">
                                 <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>

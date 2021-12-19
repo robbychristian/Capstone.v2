@@ -68,7 +68,12 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
-            var coordinates = ["{{ $evacuationcenter->evac_latitude }}", "{{ $evacuationcenter->evac_longitude }}"]
+            var coordinates = [
+                @foreach ($evacuationcenter as $evacuationcenters)
+                    "{{ $evacuationcenters->evac_latitude }}", "{{ $evacuationcenters->evac_longitude }}"
+                @endforeach
+            ];
+
 
             // creates a draggable marker to the given coords
             var vMarker = new google.maps.Marker({
@@ -215,26 +220,17 @@
                                         Not Available
                                     </label>
                                 </div>
-                            </div>
-                            <!--
-                                <div class="btn-group btn-group-toggle" style="margin-top: -5px" data-toggle="buttons">
-                                    <label class="btn btn-success">
-                                        <input type="radio" name="availability" value="Available"
-                                            {{ $evacuationcenter->availability == 'Available' ? 'checked' : '' }}> Available
-                                    </label>
-                                    <label class="btn btn-danger">
-                                        <input type="radio" name="availability" value="Not Available"
-                                            {{ $evacuationcenter->availability == 'Not Available' ? 'checked' : '' }}> Not
-                                        Available
-                                    </label>
-                                </div> -->
-                            <small class="text-danger">@error('availability')
+
+                                <small class="text-danger">@error('availability')
                                     {{ $message }}
                                 @enderror</small>
+                            </div>
+
+
 
                             <div class="mt-5">
                                 <button class="btn btn-primary btn-block" type="submit">Save</button>
-                                <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
+                                <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.create') }}"
                                     role="button">Cancel</a>
                             </div>
 
