@@ -20,7 +20,7 @@ class EvacuationController extends Controller
      */
     public function index()
     {
-        $evacuationcenters = EvacuationCenters::all();
+        $evacuationcenters = EvacuationCenters::latest()->paginate(2);
         return view('features.evacuationcenter', [
             "evacuationcenters" => $evacuationcenters
         ]);
@@ -178,6 +178,8 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $evacuationcenter = EvacuationCenters::find($id);
+        $evacuationcenter->delete();
+        return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been deleted!');
     }
 }
