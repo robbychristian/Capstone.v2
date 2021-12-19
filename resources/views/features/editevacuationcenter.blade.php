@@ -68,23 +68,16 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
-            var coordinates = [
-                @foreach ($evacuationcenter as $evacuationcenters)
-                    "{{ $evacuationcenters->evac_latitude }}", "{{ $evacuationcenters->evac_longitude }}"
-                @endforeach
-            ];
 
 
+            var evac_latitude = document.getElementById("evac_latitude").value;
+            var evac_longitude = document.getElementById("evac_longitude").value;
             // creates a draggable marker to the given coords
 
-            for (var i = 0; i < coordinates.length; i++) {
-                var vMarker = new google.maps.Marker({
-                    position: new google.maps.LatLng(coordinates[0][0], coordinates[0][1]),
-                    draggable: true
-                });
-
-            }
-
+            var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(evac_latitude, evac_longitude),
+                draggable: true
+            });
             // adds a listener to the marker
             // gets the coords when drag event ends
             // then updates the input with the new coords
