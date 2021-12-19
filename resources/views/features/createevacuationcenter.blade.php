@@ -159,10 +159,10 @@
                             <div class="form-group">
                                 <label>Barangay</label>
                                 @if (Auth::user()->user_role === 1)
-                                    <select name="brgy_loc" class="form-control" value="{{ old('brgy_loc') }}">
+                                    <select name="brgy_loc" class="form-control">
                                         @foreach ($barangays as $barangay)
                                             <option disabled hidden selected>Select Barangay</option>
-                                            <option value='{{ $barangay->brgy_loc }}'>{{ $barangay->brgy_loc }}
+                                            <option value='{{ $barangay->brgy_loc }}' {{ old('brgy_loc') == $barangay->brgy_loc ? "selected" : "" }}>{{ $barangay->brgy_loc }}
                                             </option>
                                         @endforeach
                                     </select>
