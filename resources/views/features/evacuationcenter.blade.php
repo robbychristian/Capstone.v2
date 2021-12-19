@@ -113,9 +113,9 @@
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         @foreach ($evacuationcenters as $evacuationcenter)
-                            <div class="card">
+                            <div class="card mb-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $evacuationcenter->evac_name }}</h5>
+                                    <h5 class="card-title"><span class="badge badge-primary">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}</h6>
                                     <p class="card-text">
                                     <ul class="list-group list-group-flush">
