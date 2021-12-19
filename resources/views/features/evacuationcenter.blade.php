@@ -98,18 +98,19 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
 
-            @if (Auth::user()->user_role === 1 || Auth::user()->user_role >= 3)
-                @if (Auth::user()->user_role >= 3)
-                    <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i
-                            class="fas fa-plus fa-sm text-white-50"></i>
-                        Add Location</a>
-                @elseif (Auth::user()->user_role === 1)
-                    <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
-                            class="fas fa-plus fa-sm text-white-50"></i>
-                        Add Location</a>
-                @endif
+            @if (Auth::user()->user_role >= 3)
+                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                    Add Evacuation Centers or Nearby Hospitals</a>
+            @elseif (Auth::user()->user_role === 1)
+                <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>
+                    Add Evacuation Centers or Nearby Hospitals</a>
+            @endif
+        </div>
 
-                <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
                             aria-controls="pills-map" aria-selected="true"><i class="far fa-map"></i></a>
@@ -118,19 +119,15 @@
                         <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
                             aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
                     </li>
+
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
                         ...</div>
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">...
                     </div>
+                   
                 </div>
-            @endif
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         @foreach ($evacuationcenters as $evacuationcenter)
