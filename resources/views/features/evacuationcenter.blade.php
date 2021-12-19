@@ -135,11 +135,11 @@
                                             </h6>
                                             <p class="card-text">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Nearest Landmark:
+                                                <li class="list-group-item"><i class="fas fa-directions mr-3"></i>Nearest Landmark:
                                                     {{ $evacuationcenter->nearest_landmark }}</li>
-                                                <li class="list-group-item">Contact Number:
+                                                <li class="list-group-item"><i class="fas fa-phone-square-alt mr-3"></i> Contact Number:
                                                     {{ $evacuationcenter->phone_no }}</li>
-                                                <li class="list-group-item">Capacity: {{ $evacuationcenter->capacity }}
+                                                <li class="list-group-item"><i class="fas fa-users mr-3"></i>Capacity: {{ $evacuationcenter->capacity }}
                                                 </li>
                                                 @if ($evacuationcenter->availability === 'Available')
                                                     <li class="list-group-item"><span
@@ -177,6 +177,48 @@
                     </div>
 
                 </div>
+
+
+                @if (Auth::user()->user_role === 2)
+                    <div class="row mt-3">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            @foreach ($evacuationcenters as $evacuationcenter)
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span
+                                                class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}
+                                        </h6>
+                                        <p class="card-text">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Nearest Landmark:
+                                                {{ $evacuationcenter->nearest_landmark }}</li>
+                                            <li class="list-group-item">Contact Number:
+                                                {{ $evacuationcenter->phone_no }}</li>
+                                            <li class="list-group-item">Capacity: {{ $evacuationcenter->capacity }}
+                                            </li>
+                                            @if ($evacuationcenter->availability === 'Available')
+                                                <li class="list-group-item"><span
+                                                        class="badge badge-success">{{ $evacuationcenter->availability }}</span>
+                                                </li>
+                                            @else
+                                                <li class="list-group-item"><span
+                                                        class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-8">
+                            <div id="evac_map" style="height:100%; width: 100%;"></div>
+                        </div>
+                    </div>
+
+                @endif
 
             </div>
         </div>
