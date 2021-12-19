@@ -57,6 +57,10 @@
             background-color: white;
         }
 
+        .color {
+            color: #004f91;
+        }
+
         /* Announcements */
 
         .card-announce-custom-bg {
