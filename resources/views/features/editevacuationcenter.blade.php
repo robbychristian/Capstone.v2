@@ -167,8 +167,8 @@
                                 @if (Auth::user()->user_role === 1)
                                     <select name="brgy_loc" class="form-control">
                                         @foreach ($barangays as $barangay)
-                                            <option value='{{ $evacuationcenter->brgy_loc }}'
-                                                {{ $barangay->brgy_loc === $evacuationcenter->brgy_loc ? 'selected' : '' }}>
+                                            <option value='{{ $barangay->brgy_loc }}'
+                                                {{ $evacuationcenter->brgy_loc == $barangay->brgy_loc ? 'selected' : '' }}>
                                                 {{ $barangay->brgy_loc }}
                                             </option>
                                         @endforeach
