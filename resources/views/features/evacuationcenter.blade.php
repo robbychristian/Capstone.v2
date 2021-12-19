@@ -159,7 +159,7 @@
                                             </ul>
                                             </p>
 
-                                            <a href="{{ route('admin.evacuation.edit') }}" class="card-link">Edit</a>
+                                            <a href="/admin/evacuation/{{ $evacuationcenter->id }}" class="card-link">Edit</a>
                                             <a href="#" class="card-link">Delete</a>
                                         </div>
                                     </div>
