@@ -68,10 +68,11 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
+            var coordinates = ["{{ $evacuationcenter->evac_latitude }}", "{{ $evacuationcenter->evac_longitude }}"]
 
             // creates a draggable marker to the given coords
             var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(14.6131, 121.0880),
+                position: new google.maps.LatLng(coordinates[0][0], coordinates[0][1]),
                 draggable: true
             });
             // adds a listener to the marker
