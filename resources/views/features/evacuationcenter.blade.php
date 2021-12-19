@@ -110,7 +110,7 @@
 
         <div class="card">
             <div class="card-body">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
                             aria-controls="pills-map" aria-selected="true"><i class="far fa-map"></i></a>
@@ -123,55 +123,61 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                        ...</div>
+                        <div class="row mt-3">
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                @foreach ($evacuationcenters as $evacuationcenter)
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><span
+                                                    class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}
+                                            </h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}
+                                            </h6>
+                                            <p class="card-text">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Nearest Landmark:
+                                                    {{ $evacuationcenter->nearest_landmark }}</li>
+                                                <li class="list-group-item">Contact Number:
+                                                    {{ $evacuationcenter->phone_no }}</li>
+                                                <li class="list-group-item">Capacity: {{ $evacuationcenter->capacity }}
+                                                </li>
+                                                @if ($evacuationcenter->availability === 'Available')
+                                                    <li class="list-group-item"><span
+                                                            class="badge badge-success">{{ $evacuationcenter->availability }}</span>
+                                                    </li>
+                                                @else
+                                                    <li class="list-group-item"><span
+                                                            class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
+                                                    </li>
+                                                @endif
+
+                                                @if ($evacuationcenter->is_approved === 1)
+                                                    <li class="list-group-item text-success">Status:
+                                                        Approved</li>
+                                                @else
+                                                    <li class="list-group-item text-danger">Status:
+                                                        Not Yet Approved</li>
+                                                @endif
+
+
+                                            </ul>
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-8">
+                                <div id="evac_map" style="height:100%; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">...
                     </div>
-                   
+
                 </div>
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-6 col-lg-4">
-                        @foreach ($evacuationcenters as $evacuationcenter)
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <h5 class="card-title"><span
-                                            class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}
-                                    </h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}</h6>
-                                    <p class="card-text">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Nearest Landmark:
-                                            {{ $evacuationcenter->nearest_landmark }}</li>
-                                        <li class="list-group-item">Contact Number: {{ $evacuationcenter->phone_no }}</li>
-                                        <li class="list-group-item">Capacity: {{ $evacuationcenter->capacity }}</li>
-                                        @if ($evacuationcenter->availability === 'Available')
-                                            <li class="list-group-item"><span
-                                                    class="badge badge-success">{{ $evacuationcenter->availability }}</span>
-                                            </li>
-                                        @else
-                                            <li class="list-group-item"><span
-                                                    class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
-                                            </li>
-                                        @endif
 
-                                        @if ($evacuationcenter->is_approved === 1)
-                                            <li class="list-group-item text-success">Status:
-                                                Approved</li>
-                                        @else
-                                            <li class="list-group-item text-danger">Status:
-                                                Not Yet Approved</li>
-                                        @endif
-
-
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8">
-                        <div id="evac_map" style="height:100%; width: 100%;"></div>
-                    </div>
-                </div>
             </div>
         </div>
 
