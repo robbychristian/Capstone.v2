@@ -132,19 +132,19 @@
                                                 <h5><span class="badge badge-danger">Not yet Approved</span></h5>
                                             @endif
                                             <h5 class="card-title"><span
-                                                    class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span>{{ $evacuationcenter->evac_name }}
+                                                    class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span><strong>{{ $evacuationcenter->evac_name }}</strong>
                                             </h5>
                                             <h6 class="card-subtitle mb-2 text-muted">{{ $evacuationcenter->brgy_loc }}
                                             </h6>
                                             <p class="card-text">
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item"><i
-                                                        class="fas fa-directions mr-2 color"></i>Nearest Landmark:
+                                                        class="fas fa-directions mr-2 color"></i><strong>Nearest Landmark:</strong>
                                                     {{ $evacuationcenter->nearest_landmark }}</li>
                                                 <li class="list-group-item"><i
-                                                        class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
+                                                        class="fas fa-phone-square-alt mr-2 color"></i> <strong>Contact Number:</strong>
                                                     {{ $evacuationcenter->phone_no }}</li>
-                                                <li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity:
+                                                <li class="list-group-item"><i class="fas fa-users mr-2 color"></i><strong>Capacity:</strong>
                                                     {{ $evacuationcenter->capacity }}
                                                 </li>
                                                 @if ($evacuationcenter->availability === 'Available')
@@ -158,6 +158,9 @@
                                                 @endif
                                             </ul>
                                             </p>
+
+                                            <a href="#" class="card-link">Edit</a>
+                                            <a href="#" class="card-link">Delete</a>
                                         </div>
                                     </div>
                                 @endforeach
