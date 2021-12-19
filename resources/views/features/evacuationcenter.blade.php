@@ -172,12 +172,14 @@
 
                                                 <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit"
                                                     class="card-link">Edit</a>
-                                                <form action="/admin/evacuation/{{ $evacuationcenter->id }}"
-                                                    method="POST">
+
+                                                <a href="/admin/evacuation/{{ $evacuationcenter->id }}" class="card-link"
+                                                    onclick="event.preventDefault();document.getElementById('delete-evac').submit()">Delete</a>
+
+                                                <form id="delete-evac"action="/admin/evacuation/{{ $evacuationcenter->id }}"
+                                                    method="POST" class="hidden">
                                                     @csrf
-                                                    @method('delete')
-                                                    <a href="{{ route('admin.evacuation.index') }}"
-                                                        class="card-link">Delete</a>
+                                                    @method('DELETE')
                                                 </form>
 
                                             </div>
