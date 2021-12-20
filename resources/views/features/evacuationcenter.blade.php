@@ -120,15 +120,16 @@
 
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="far fa-caret-square-down"></i></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false"><i class="fas fa-search-location"></i></a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
+                            <h6 class="dropdown-header">Select Barangay</h6>
+                            @foreach ($barangays as $barangay)
+                                <a class="dropdown-item" href="#">{{ $barangay->brgy_loc }}</a>
+                            @endforeach
+
                         </div>
-                      </li>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
                             aria-controls="pills-map" aria-selected="true"><i class="far fa-map"></i></a>
@@ -213,7 +214,7 @@
                                         </div>
                                     @endforeach
 
-                                    <div class="d-grid gap-2 mt-3 d-md-flex justify-content-md-center">
+                                    <div class="d-grid gap-2 mt-3 d-md-flex justify-content-center">
                                         {{ $evacuationcenters->links() }}
                                     </div>
 
