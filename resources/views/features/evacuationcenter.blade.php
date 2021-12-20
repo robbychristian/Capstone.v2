@@ -226,11 +226,23 @@
 
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    {{ $dataTable->table() }}
-                                </div>
-                            </div>
+                            <table class="table table-bordered data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Added By</th>
+                                        <th>Evacuation Name</th>
+                                        <th>Nearest Landmark</th>
+                                        <th>Barangay Location</th>
+                                        <th>Phone Number</th>
+                                        <th>Capacity</th>
+                                        <th>Availability</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
@@ -287,5 +299,28 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
+
+<script type="text/javascript">
+    $(function () {
+      
+      var table = $('.data-table').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ route('admin.evacuation.index') }}",
+          columns: [
+              {data: 'id', name: 'id'},
+              {data: 'added_by', name: 'added_by'},
+              {data: 'evac_name', name: 'evac_name'},
+              {data: 'nearest_landmark', name: 'nearest_landmark'},
+              {data: 'brgy_loc', name: 'brgy_loc'},
+              {data: 'phone_no', name: 'phone_no'},
+              {data: 'capacity', name: 'capacity'},
+              {data: 'availability', name: 'availability'},
+              {data: 'action', name: 'action', orderable: false, searchable: false},
+          ]
+      });
+      
+    });
+</script>
 
 @endsection

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\EvacuationCentersDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use App\Models\EvacuationCenters;
@@ -10,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use DataTables;
 
 class EvacuationController extends Controller
 {
@@ -18,8 +18,23 @@ class EvacuationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(EvacuationCentersDataTable $dataTable)
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = EvacuationCenters::all();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
+                    $btn = $btn . '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
+                    $btn = $btn . '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        
         $barangays = DB::table('barangays')
             ->where('is_added', 1)
             ->get();
@@ -27,7 +42,6 @@ class EvacuationController extends Controller
         return view('features.evacuationcenter', [
             'evacuationcenters' => $evacuationcenters,
             'barangays' => $barangays,
-            'dataTable' => $dataTable
         ]);
     }
 
