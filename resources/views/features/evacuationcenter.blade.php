@@ -300,27 +300,53 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
 
-<script type="text/javascript">
-    $(function () {
-      
-      var table = $('.data-table').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: "{{ route('admin.evacuation.index') }}",
-          columns: [
-              {data: 'id', name: 'id'},
-              {data: 'added_by', name: 'added_by'},
-              {data: 'evac_name', name: 'evac_name'},
-              {data: 'nearest_landmark', name: 'nearest_landmark'},
-              {data: 'brgy_loc', name: 'brgy_loc'},
-              {data: 'phone_no', name: 'phone_no'},
-              {data: 'capacity', name: 'capacity'},
-              {data: 'availability', name: 'availability'},
-              {data: 'action', name: 'action', orderable: false, searchable: false},
-          ]
-      });
-      
-    });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.evacuation.index') }}",
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'added_by',
+                        name: 'added_by'
+                    },
+                    {
+                        data: 'evac_name',
+                        name: 'evac_name'
+                    },
+                    {
+                        data: 'nearest_landmark',
+                        name: 'nearest_landmark'
+                    },
+                    {
+                        data: 'brgy_loc',
+                        name: 'brgy_loc'
+                    },
+                    {
+                        data: 'phone_no',
+                        name: 'phone_no'
+                    },
+                    {
+                        data: 'capacity',
+                        name: 'capacity'
+                    },
+                    {
+                        data: 'availability',
+                        name: 'availability'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+        });
+    </script>
 
 @endsection
