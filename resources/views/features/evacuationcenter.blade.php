@@ -170,16 +170,25 @@
                                                 </ul>
                                                 </p>
 
+                                                <a href="/admin/evacuation/approve/{{ $evacuationcenter->id }}"
+                                                    class="card-link" onclick="event.preventDefault();document.getElementById('approve-evac').submit()">Approve</a>
+
                                                 <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit"
                                                     class="card-link">Edit</a>
 
                                                 <a href="/admin/evacuation/{{ $evacuationcenter->id }}" class="card-link"
                                                     onclick="event.preventDefault();document.getElementById('delete-evac').submit()">Delete</a>
 
-                                                <form id="delete-evac"action="/admin/evacuation/{{ $evacuationcenter->id }}"
+                                                <form id="delete-evac" action="/admin/evacuation/{{ $evacuationcenter->id }}"
                                                     method="POST" class="hidden">
                                                     @csrf
                                                     @method('DELETE')
+                                                </form>
+                                                
+                                                <form id="approve-evac" action="{{ route('admin.evacuation.approve') }}"
+                                                    method="POST" class="hidden">
+                                                    @csrf
+                                                    @method('POST')
                                                 </form>
 
                                             </div>

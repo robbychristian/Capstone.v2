@@ -87,7 +87,7 @@ class EvacuationController extends Controller
                 'is_approved' => 1,
             ]);
 
-            return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been added!');
+            return redirect('/admin/evacuation')->with('success', 'The evacuation center has been added!');
         }
     }
 
@@ -166,7 +166,7 @@ class EvacuationController extends Controller
                 //'is_approved' => 1,
             ]);
 
-            return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been edited!');
+            return redirect('/admin/evacuation')->with('success', 'The evacuation center has been edited!');
         }
     }
 
@@ -180,6 +180,15 @@ class EvacuationController extends Controller
     {
         $evacuationcenter = EvacuationCenters::find($id);
         $evacuationcenter->delete();
-        return redirect('/admin/evacuation')->with('success', 'Evacuation Center has been deleted!');
+        return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
+    }
+
+    public function approve($id)
+    {
+        $pendingEvacuationCenter = DB::table('evacauation_centers')
+            ->where('id', $id)
+            ->update(['is_approved' => 1, 'updated_at' => now()]);
+
+        return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
 }

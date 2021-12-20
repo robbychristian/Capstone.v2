@@ -128,6 +128,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/announcements/approve/{id}', [AdminAnnouncement::class, 'approve'])->name('announcement.approve');
         Route::post('/announcements/disapprove/{id}', [AdminAnnouncement::class, 'disapprove'])->name('announcement.disapprove');
         Route::resource('/evacuation', AdminEvacuation::class);
+        Route::post('/evacuation/approve/{id}', [AdminEvacuation::class,'approve'])->name('evacuation.approve');
         Route::resource('/guidelines', AdminGuidelines::class);
         Route::resource('/vulnerabilitymap', AdminVulnerabilityMap::class);
         Route::resource('/reports', AdminReports::class);
