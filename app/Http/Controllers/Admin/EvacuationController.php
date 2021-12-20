@@ -39,6 +39,7 @@ class EvacuationController extends Controller
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Approve</a>
                     <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
+                    <button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId" style="background-color:transparent;">Delete</button>
                     <a class="dropdown-item" href="#" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</a>
                     </div>
                     </div>'
