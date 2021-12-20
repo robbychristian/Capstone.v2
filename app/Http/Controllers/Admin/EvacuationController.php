@@ -20,9 +20,13 @@ class EvacuationController extends Controller
      */
     public function index()
     {
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
         $evacuationcenters = EvacuationCenters::paginate(2);
         return view('features.evacuationcenter', [
-            "evacuationcenters" => $evacuationcenters
+            "evacuationcenters" => $evacuationcenters,
+            'barangays' => $barangays
         ]);
     }
 
@@ -149,7 +153,7 @@ class EvacuationController extends Controller
             'availability.required' => 'The availability field is required!',
         ]);
         if ($validator->fails()) {
-            return redirect('/admin/evacuation/'. $id . '/edit')
+            return redirect('/admin/evacuation/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
