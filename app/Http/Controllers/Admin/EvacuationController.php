@@ -32,7 +32,7 @@ class EvacuationController extends Controller
                     //
                     //return $btn;
 
-                    return '<div class="dropdown">
+                    return '<div class="dropdown" style="text-align:center;">
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
