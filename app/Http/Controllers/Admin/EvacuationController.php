@@ -25,17 +25,28 @@ class EvacuationController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="approve btn btn-info btn-sm mb-2">Approve</a>';
-                    $btn = $btn .'<a href="javascript:void(0)" class="view btn btn-info btn-sm mb-2">View</a>';
-                    $btn = $btn . '<a href="" class="edit btn btn-primary btn-sm mb-2">Edit</a>';
-                    $btn = $btn . '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm mb-2">Delete</a>';
+                    //$btn = '<a href="javascript:void(0)" class="approve btn btn-info btn-sm mb-2">Approve</a>';
+                    //$btn = $btn .'<a href="javascript:void(0)" class="view btn btn-info btn-sm mb-2">View</a>';
+                    //$btn = $btn . '<a href="" class="edit btn btn-primary btn-sm mb-2">Edit</a>';
+                    //$btn = $btn . '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm mb-2">Delete</a>';
+                    //
+                    //return $btn;
 
-                    return $btn;
+                    return '<div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Approve</a>
+                      <a class="dropdown-item" href="#">Edit</a>
+                      <a class="dropdown-item" href="#">Delete</a>
+                    </div>
+                  </div>';
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        
+
         $barangays = DB::table('barangays')
             ->where('is_added', 1)
             ->get();
