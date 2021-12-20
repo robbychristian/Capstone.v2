@@ -25,9 +25,9 @@ class EvacuationController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm">View</a>';
-                    $btn = $btn . '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
-                    $btn = $btn . '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm">Delete</a>';
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-info btn-sm mb-2">View</a>';
+                    $btn = $btn . '<a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit" class="edit btn btn-primary btn-sm mb-2">Edit</a>';
+                    $btn = $btn . '<a href="javascript:void(0)" class="edit btn btn-danger btn-sm mb-2">Delete</a>';
 
                     return $btn;
                 })
