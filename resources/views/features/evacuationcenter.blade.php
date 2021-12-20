@@ -114,7 +114,7 @@
             </div>
         @endif
 
-        <div class="card">
+        <div class="card shadow">
             <div class="card-body">
 
 
@@ -225,25 +225,25 @@
 
 
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
-
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Added By</th>
-                                    <th>Evacuation Name</th>
-                                    <th>Nearest Landmark</th>
-                                    <th>Barangay Location</th>
-                                    <th>Phone Number</th>
-                                    <th>Capacity</th>
-                                    <th>Availability</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-
+                        <div class="table-responsive">
+                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Added By</th>
+                                        <th>Evacuation Name</th>
+                                        <th>Nearest Landmark</th>
+                                        <th>Barangay Location</th>
+                                        <th>Phone Number</th>
+                                        <th>Capacity</th>
+                                        <th>Availability</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </div>
