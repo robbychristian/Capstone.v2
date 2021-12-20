@@ -122,7 +122,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-expanded="false"><i class="fas fa-search-location"></i></a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu dropdown-menu-right">
                             <h6 class="dropdown-header">Select Barangay</h6>
                             @foreach ($barangays as $barangay)
                                 <a class="dropdown-item" href="#">{{ $barangay->brgy_loc }}</a>
