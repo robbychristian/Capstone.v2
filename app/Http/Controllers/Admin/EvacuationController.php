@@ -185,7 +185,7 @@ class EvacuationController extends Controller
 
     public function approve($id)
     {
-        $pendingEvacuationCenter = DB::table('evacauation_centers')
+        $pendingEvacuationCenter = DB::table('evacuation_centers')
             ->where('id', $id)
             ->update(['is_approved' => 1, 'updated_at' => now()]);
 
