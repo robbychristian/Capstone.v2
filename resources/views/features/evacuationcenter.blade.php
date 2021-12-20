@@ -378,22 +378,21 @@
 
 
             $('body').on('click', '.deleteEvac', function() {
-                if (confirm("Delete Record?") == true) {
-                    var id = $(this).data('id');
-
-                    // ajax
+                var evac_id = $(this).data("id");
+                var result = confirm("Are You sure want to delete !");
+                if (result) {
                     $.ajax({
-                        type: "POST",
-                        url: "{{ url('/evacuation/delete/') }}",
-                        data: {
-                            id: id
+                        type: "DELETE",
+                        url: "{{ route('admin.evacuation.destroy') }}" + '/' + evac_id,
+                        success: function(data) {
+                            table.draw();
                         },
-                        dataType: 'json',
-                        success: function(res) {
-                            var oTable = $('#dataTable').dataTable();
-                            oTable.fnDraw(false);
+                        error: function(data) {
+                            console.log('Error:', data);
                         }
                     });
+                } else {
+                    return false;
                 }
             });
 

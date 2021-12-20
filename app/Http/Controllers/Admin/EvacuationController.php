@@ -39,19 +39,18 @@ class EvacuationController extends Controller
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Approve</a>
                     <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                    <a class="dropdown-item" href="javascript:void(0);" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" data-original-title="Delete"
-                    id="getDeleteId" class="deleteEvac">Delete</a>
+                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="deleteEvac">Delete</a>
                     </div>
                     </div>'
-                    //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    //<i class="fas fa-ellipsis-v"></i></button>
-                    //<div class="dropdown-menu dropdown-menu-right">
-                    //<button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
-                    //<a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
-                    //<button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
-                    //</div>
-                    //</div>
-                  ;
+                        //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        //<i class="fas fa-ellipsis-v"></i></button>
+                        //<div class="dropdown-menu dropdown-menu-right">
+                        //<button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
+                        //<a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
+                        //<button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
+                        //</div>
+                        //</div>
+                    ;
                 })
 
                 ->addColumn('is_approved', function ($row) {
@@ -235,9 +234,11 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        $evacuationcenter = new EvacuationCenters;
-        $evacuationcenter->deleteData($id);
+        EvacuationCenters::find($id)->delete();
         return response()->json(['success' => 'The evacuation center has been deleted!']);
+        //$evacuationcenter = new EvacuationCenters;
+        //$evacuationcenter->deleteData($id);
+        //return response()->json(['success' => 'The evacuation center has been deleted!']);
         //$evacuationcenter = EvacuationCenters::find($id);
         //$evacuationcenter->delete();
         //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
