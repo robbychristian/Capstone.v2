@@ -67,6 +67,7 @@
             overflow-x: hidden;
             font-family: "Montserrat", sans-serif;
             background-color: white;
+            color: #000000 !important;
         }
 
         .color {
