@@ -225,7 +225,7 @@
 
 
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                        <div class="container">
+                        <div class="container-fluid table-responsive" style="color: black;">
                             <table class="table table-bordered data-table">
                                 <thead>
                                     <tr>
