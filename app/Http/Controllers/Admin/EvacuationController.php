@@ -32,44 +32,29 @@ class EvacuationController extends Controller
                     //
                     //return $btn;
 
-                    return '<div class="dropdown" style="text-align:center;">
-                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.approve', $row->id) . ' onclick="event.preventDefault();document.getElementById("delete-evac").submit()>Approve</a>
-                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.destroy', $row->id) . '  onclick="event.preventDefault();document.getElementById("delete-evac").submit()">Delete</a>
+                    return '<div class="btn-group"> <button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                    <button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
+                    <button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="editBtn">Edit</button>
+                    <button type="button" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" class="btn btn-danger btn-sm" id="getDeleteId">Delete</button>
                     </div>
-                  </div>
-
-                  <form id="delete-evac"
-                  action=' . \URL::route('admin.evacuation.destroy', $row->id) . ' method="POST"
-                  class="hidden">
-                  @csrf
-                  @method("DELETE")
-                  </form>
-                  
-                <form id="approve-evac"
-                action=' . \URL::route('admin.evacuation.approve', $row->id) . '
-                method="POST" class="hidden">
-                @csrf
-                @method("POST")
-                </form>
+                    </div>
                   ';
                 })
 
-                ->addColumn('is_approved', function($row){
-                    if ($row->is_approved == '1'){
+                ->addColumn('is_approved', function ($row) {
+                    if ($row->is_approved == '1') {
                         return '<label class="badge badge-success">Approved</label>';
-                    }else{
+                    } else {
                         return '<label class="badge badge-danger">Not yet Approved</label>';
                     }
                 })
 
-                ->addColumn('availability', function($row){
-                    if ($row->is_approved == 'Available'){
+                ->addColumn('availability', function ($row) {
+                    if ($row->availability == 'Available') {
                         return '<label class="badge badge-success">Available</label>';
-                    }else{
+                    } else {
                         return '<label class="badge badge-danger">Not Available</label>';
                     }
                 })
@@ -239,9 +224,12 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        $evacuationcenter = EvacuationCenters::find($id);
-        $evacuationcenter->delete();
-        return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
+        $evacuationcenter = new EvacuationCenters;
+        $evacuationcenter->deleteData($id);
+        return response()->json(['success' => 'The evacuation center has been deleted!']);
+        //$evacuationcenter = EvacuationCenters::find($id);
+        //$evacuationcenter->delete();
+        //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
     }
 
     public function approve($id)
@@ -251,5 +239,12 @@ class EvacuationController extends Controller
             ->update(['is_approved' => 1, 'updated_at' => now()]);
 
         return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
+    }
+
+    public function deleteEvacuationCenter($id)
+    {
+        $evacuationcenter = new EvacuationCenters;
+        $evacuationcenter->deleteData($id);
+        return response()->json(['success' => 'The evacuation center has been deleted!']);
     }
 }

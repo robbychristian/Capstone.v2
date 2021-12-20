@@ -22,4 +22,9 @@ class EvacuationCenters extends Model
         'is_approved',
         
     ];
+
+    public function deleteData($id)
+    {
+        return static::find($id)->delete();
+    }
 }

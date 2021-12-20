@@ -297,6 +297,28 @@
 
     </div>
 
+
+    <!-- Delete EvacuationCenter Modal -->
+    <div class="modal" id="DeleteEvacuationCenterModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h4>Are you sure want to delete this Evacuation Center?</h4>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="SubmitDeleteEvacuationCenterForm">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
@@ -351,6 +373,32 @@
                     },
                 ],
 
+            });
+
+
+            // Delete article Ajax request.
+            var deleteID;
+            $('body').on('click', '#getDeleteId', function() {
+                deleteID = $(this).data('id');
+            })
+            $('#SubmitDeleteEvacuationCenterForm').click(function(e) {
+                e.preventDefault();
+                var id = deleteID;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "evacuation/" + id,
+                    method: 'DELETE',
+                    success: function(result) {
+                        setInterval(function() {
+                            $('.datatable').DataTable().ajax.reload();
+                            $('#DeleteEvacuationCenterModal').hide();
+                        }, 1000);
+                    }
+                });
             });
 
         });
