@@ -185,7 +185,7 @@
                                                     @method('DELETE')
                                                 </form>
                                                 
-                                                <form id="approve-evac" action="{{ route('admin.evacuation.approve') }}"
+                                                <form id="approve-evac" action="/admin/evacuation/approve/{{ $evacuationcenter->id }}"
                                                     method="POST" class="hidden">
                                                     @csrf
                                                     @method('POST')
