@@ -119,17 +119,6 @@
 
 
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-expanded="false"><i class="fas fa-search-location"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <h6 class="dropdown-header">Select Barangay</h6>
-                            @foreach ($barangays as $barangay)
-                                <a class="dropdown-item" href="#">{{ $barangay->brgy_loc }}</a>
-                            @endforeach
-
-                        </div>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
                             aria-controls="pills-map" aria-selected="true"><i class="far fa-map"></i></a>
