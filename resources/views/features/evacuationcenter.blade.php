@@ -390,7 +390,7 @@
                     }
                 });
                 $.ajax({
-                    url: "evacuation/" + id,
+                    url: "admin/evacuation/" + id,
                     method: 'DELETE',
                     success: function(result) {
                         setInterval(function() {
