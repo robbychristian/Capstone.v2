@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\EvacuationCentersDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use App\Models\EvacuationCenters;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-
 class EvacuationController extends Controller
 {
     /**
@@ -18,15 +18,16 @@ class EvacuationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EvacuationCentersDataTable $dataTable)
     {
         $barangays = DB::table('barangays')
             ->where('is_added', 1)
             ->get();
         $evacuationcenters = EvacuationCenters::paginate(2);
         return view('features.evacuationcenter', [
-            "evacuationcenters" => $evacuationcenters,
-            'barangays' => $barangays
+            'evacuationcenters' => $evacuationcenters,
+            'barangays' => $barangays,
+            'dataTable' => $dataTable
         ]);
     }
 

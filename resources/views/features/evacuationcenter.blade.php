@@ -224,7 +224,14 @@
                     </div>
 
 
-                    <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">...
+                    <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ $dataTable->table() }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
