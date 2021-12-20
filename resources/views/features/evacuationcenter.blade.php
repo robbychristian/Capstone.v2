@@ -354,7 +354,7 @@
             });
 
 
-            $('.approve tbody').on('click', 'button', function() {
+            $('.data-table approve').on('click', 'button', function() {
                 var data = table.row($(this).parents('tr')).data();
                 alert(data[0]);
             });
