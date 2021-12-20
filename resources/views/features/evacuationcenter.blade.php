@@ -344,13 +344,19 @@
                         orderable: false,
                         searchable: false
                     },
-                ]
+                ],
+
+                columnDefs: [{
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button>Click!</button>"
+                }]
             });
 
 
-            $('.approve').on('click', 'button', function() {
+            $('.approve tbody').on('click', 'button', function() {
                 var data = table.row($(this).parents('tr')).data();
-                alert('hello');
+                alert(data[0]);
             });
 
 
