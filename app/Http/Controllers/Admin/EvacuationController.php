@@ -33,13 +33,12 @@ class EvacuationController extends Controller
                     //return $btn;
 
                     return '<div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Approve</a>
-                      <a class="dropdown-item" href="#">Edit</a>
-                      <a class="dropdown-item" href="#">Delete</a>
+                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href='.\URL::route('admin.evacuation.approve', $row->id).'>Approve</a>
+                      <a class="dropdown-item" href='.\URL::route('admin.evacuation.edit', $row->id).'>Edit</a>
+                      <a class="dropdown-item" href='.\URL::route('admin.evacuation.delete', $row->id).'>Delete</a>
                     </div>
                   </div>';
                 })
