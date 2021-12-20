@@ -377,29 +377,24 @@
             });
 
 
-            // Delete article Ajax request.
-            var deleteID;
-            $('body').on('click', '#getDeleteId', function() {
-                deleteID = $(this).data('id');
-            })
-            $('#SubmitDeleteEvacuationCenterForm').click(function(e) {
-                e.preventDefault();
-                var id = deleteID;
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: "admin/evacuation/" + id,
-                    method: 'DELETE',
-                    success: function(result) {
-                        setInterval(function() {
-                            $('.datatable').DataTable().ajax.reload();
-                            $('#DeleteEvacuationCenterModal').hide();
-                        }, 1000);
-                    }
-                });
+            $('body').on('click', '.deleteEvac', function() {
+                if (confirm("Delete Record?") == true) {
+                    var id = $(this).data('id');
+
+                    // ajax
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ url('delete-book') }}",
+                        data: {
+                            id: id
+                        },
+                        dataType: 'json',
+                        success: function(res) {
+                            var oTable = $('#dataTable').dataTable();
+                            oTable.fnDraw(false);
+                        }
+                    });
+                }
             });
 
         });

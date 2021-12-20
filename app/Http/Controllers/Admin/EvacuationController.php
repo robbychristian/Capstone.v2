@@ -39,8 +39,8 @@ class EvacuationController extends Controller
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Approve</a>
                     <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                    <button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId" style="background-color:transparent;">Delete</button>
-                    <a class="dropdown-item" href="#" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</a>
+                    <a class="dropdown-item" href="javascript:void(0);" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" data-original-title="Delete"
+                    id="getDeleteId" class="deleteEvac">Delete</a>
                     </div>
                     </div>'
                     //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -257,5 +257,6 @@ class EvacuationController extends Controller
         $evacuationcenter = new EvacuationCenters;
         $evacuationcenter->deleteData($id);
         return response()->json(['success' => 'The evacuation center has been deleted!']);
+        return redirect('/admin/evacuation');
     }
 }
