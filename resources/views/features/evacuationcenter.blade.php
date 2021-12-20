@@ -225,25 +225,25 @@
 
 
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
-                        <div class="table-responsive" style="color: black;">
-                            <table class="table table-bordered data-table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Added By</th>
-                                        <th>Evacuation Name</th>
-                                        <th>Nearest Landmark</th>
-                                        <th>Barangay Location</th>
-                                        <th>Phone Number</th>
-                                        <th>Capacity</th>
-                                        <th>Availability</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
+
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Added By</th>
+                                    <th>Evacuation Name</th>
+                                    <th>Nearest Landmark</th>
+                                    <th>Barangay Location</th>
+                                    <th>Phone Number</th>
+                                    <th>Capacity</th>
+                                    <th>Availability</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
                     </div>
 
                 </div>
