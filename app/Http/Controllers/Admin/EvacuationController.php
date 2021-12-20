@@ -32,12 +32,12 @@ class EvacuationController extends Controller
                     //
                     //return $btn;
 
-                    return '<div class="btn-group"> <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    return '<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v"></i></button>
                     <div class="dropdown-menu dropdown-menu-right">
                     <button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
-                    <a href='.\URL::route('admin.evacuation.edit', $row->id).' class="dropdown-item">Edit</a>
-                    <button type="button" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
+                    <a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
+                    <button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
                     </div>
                     </div>
                   ';

@@ -134,9 +134,6 @@
                         @if (count($evacuationcenters) > 0)
                             <div class="row mt-3">
                                 <div class="col-sm-12 col-md-6 col-lg-4">
-
-
-
                                     @foreach ($evacuationcenters as $evacuationcenter)
                                         <div class="card mb-2">
                                             <div class="card-body">
