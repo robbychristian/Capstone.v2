@@ -346,6 +346,14 @@
                     },
                 ]
             });
+
+
+            $('.approve').on('click', 'button', function() {
+                var data = table.row($(this).parents('tr')).data();
+                alert('hello');
+            });
+
+
         });
     </script>
 
