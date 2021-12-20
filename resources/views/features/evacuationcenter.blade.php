@@ -131,9 +131,10 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                        <div class="row mt-3">
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                @if (count($evacuationcenters) > 0)
+                        @if (count($evacuationcenters) > 0)
+                            <div class="row mt-3">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+
 
 
                                     @foreach ($evacuationcenters as $evacuationcenter)
@@ -207,20 +208,23 @@
                                         {{ $evacuationcenters->links() }}
                                     </div>
 
-                                @else
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            There are no evacuation centers added yet.
-                                        </div>
-                                    </div>
-                                @endif
+
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-8">
+                                    <div id="evac_map" style="height:100%; width: 100%;"></div>
+                                </div>
+
 
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-8">
-                                <div id="evac_map" style="height:100%; width: 100%;"></div>
+
+                        @else
+                            <div class="card">
+                                <div class="card-body">
+                                    There are no evacuation centers added yet.
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
 
 
