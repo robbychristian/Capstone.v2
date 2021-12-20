@@ -384,7 +384,7 @@
                     // ajax
                     $.ajax({
                         type: "POST",
-                        url: "{{ url('delete-book') }}",
+                        url: "{{ url('/evacuation/delete/') }}",
                         data: {
                             id: id
                         },
