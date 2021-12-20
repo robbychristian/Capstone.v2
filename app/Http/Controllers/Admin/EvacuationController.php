@@ -36,13 +36,44 @@ class EvacuationController extends Controller
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="">Approve</a>
-                      <a class="dropdown-item" href='.\URL::route('admin.evacuation.edit', $row->id).'>Edit</a>
-                      <a class="dropdown-item" href="">Delete</a>
+                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.approve', $row->id) . ' onclick="event.preventDefault();document.getElementById("delete-evac").submit()>Approve</a>
+                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
+                      <a class="dropdown-item" href=' . \URL::route('admin.evacuation.delete', $row->id) . '  onclick="event.preventDefault();document.getElementById("delete-evac").submit()">Delete</a>
                     </div>
-                  </div>';
+                  </div>
+
+                  <form id="delete-evac"
+                  action=' . \URL::route('admin.evacuation.delete', $row->id) . ' method="POST"
+                  class="hidden">
+                  @csrf
+                  @method("DELETE")
+                  </form>
+                  
+                <form id="approve-evac"
+                action=' . \URL::route('admin.evacuation.approve', $row->id) . '
+                method="POST" class="hidden">
+                @csrf
+                @method("POST")
+                </form>
+                  ';
                 })
-                ->rawColumns(['action'])
+
+                ->addColumn('is_approved', function($row){
+                    if ($row->is_approved == '1'){
+                        return '<label class="badge badge-success">Approved</label>';
+                    }else{
+                        return '<label class="badge badge-danger">Not yet Approved</label>';
+                    }
+                })
+
+                ->addColumn('availability', function($row){
+                    if ($row->is_approved == 'Available'){
+                        return '<label class="badge badge-success">Available</label>';
+                    }else{
+                        return '<label class="badge badge-danger">Not Available</label>';
+                    }
+                })
+                ->rawColumns(['action', 'is_approved', 'availability'])
                 ->make(true);
         }
 

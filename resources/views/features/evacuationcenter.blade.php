@@ -236,7 +236,8 @@
                                         <th>Barangay Location</th>
                                         <th>Phone Number</th>
                                         <th>Capacity</th>
-                                        <th>Availability</th>
+                                        <th>Status</th>
+                                        <th>Approved</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -337,6 +338,10 @@
                     {
                         data: 'availability',
                         name: 'availability'
+                    },
+                    {
+                        data: 'is_approved',
+                        name: 'is_approved'
                     },
                     {
                         data: 'action',
