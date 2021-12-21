@@ -370,7 +370,7 @@
                                 }
                             });
                         } else {
-                            swal("Your imaginary file is safe!");
+                            swal("No changes were made!");
                         }
                     });
 
@@ -402,8 +402,8 @@
                             });
 
                             $.ajax({
-                                url: "https://kabisigapp.com/admin/evacuation/approve" + evacuation_id,
-                                type: 'DELETE',
+                                url: "https://kabisigapp.com/admin/evacuation/approve/" + evacuation_id,
+                                type: 'PUT',
                                 dataType: 'JSON',
                                 data: {
                                     "id": evacuation_id
