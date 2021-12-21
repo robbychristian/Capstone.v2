@@ -15,6 +15,8 @@ class CreateEvacuationCentersTable extends Migration
     {
         Schema::create('evacuation_centers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brgy_id')->nullable();
+            $table->unsignedBigInteger('admin_id')->nullable();
             $table->string('added_by');
             $table->string('evac_name');
             $table->string('evac_latitude');
@@ -27,6 +29,17 @@ class CreateEvacuationCentersTable extends Migration
             $table->boolean('is_approved');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('brgy_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
         });
     }
 

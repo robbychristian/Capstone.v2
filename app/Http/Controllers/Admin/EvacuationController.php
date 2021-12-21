@@ -139,6 +139,7 @@ class EvacuationController extends Controller
                 ->withInput();
         } else {
             $evacuationcenters = EvacuationCenters::create([
+                'admin_id' => 1,
                 'added_by' => Auth::user()->name,
                 'evac_name' => $request->input('evac_name'),
                 'evac_latitude' => $request->input('evac_latitude'),

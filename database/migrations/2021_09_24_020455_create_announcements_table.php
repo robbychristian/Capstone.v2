@@ -26,7 +26,7 @@ class CreateAnnouncementsTable extends Migration
             $table->softDeletes();
             $table->foreign('brgy_id')
                 ->references('id')
-                ->on('brgy_officials')
+                ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate(('cascade'));
             $table->foreign('admin_id')

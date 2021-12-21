@@ -57,6 +57,7 @@ class GuidelinesController extends Controller
                 ->withInput();
         } else {
             $guideline = Guidelines::create([
+                'admin_id' => 1,
                 'disaster' => $request->input('disaster'),
                 'time' => $request->input('time'),
                 'guideline' => $request->input('guideline')

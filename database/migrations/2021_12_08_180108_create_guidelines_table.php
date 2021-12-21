@@ -15,6 +15,8 @@ class CreateGuidelinesTable extends Migration
     {
         Schema::create('guidelines', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brgy_id')->nullable();
+            $table->unsignedBigInteger('admin_id')->nullable();
             $table->string('disaster');
             $table->string('time');
             $table->string('guideline');
