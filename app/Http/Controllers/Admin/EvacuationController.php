@@ -237,7 +237,7 @@ class EvacuationController extends Controller
 
        EvacuationCenters::find($id)->delete();
        return redirect('/admin/evacuation');
-       //return response()->json(['message' => 'The evacuation center has been deleted! Please refresh the page']);
+       //return response()->json(['message' => 'The evacuation center has been deleted! Please refresh the']);
     }
 
     public function approve($id)

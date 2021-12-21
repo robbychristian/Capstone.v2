@@ -390,7 +390,7 @@
                                 success: function(response) {
                                     //row.remove().draw();
                                     table.ajax.reload();
-                                    swal("Deleted!", response.message, "success");
+                                    swal("Deleted!", "success");
                                 },
 
                                 error:function(response){
