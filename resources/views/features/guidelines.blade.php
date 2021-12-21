@@ -48,7 +48,6 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood' && $guideline->time == 'Before')
 
-
                                         <li class="list-group-item bg-transparent">
                                             <div class="card border-left-primary h-100 w-100 py-2">
                                                 <div class="card-body">
@@ -60,30 +59,14 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
                                                                         <i
                                                                             class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
                                                                     </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
                                                                     </button>
                                                                     <div class="dropdown-menu"
                                                                         aria-labelledby="dropdownMenu2">
@@ -101,12 +84,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -138,53 +116,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
-
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <form
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
 
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -215,53 +150,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
-
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <form
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
 
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -297,53 +189,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
-
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <form
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
 
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -374,53 +223,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
-
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <form
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
 
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -451,53 +257,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
-
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="dropdown" style="background-color: none;">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-expanded="false" >
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <form
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
 
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -534,32 +297,10 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
-                                                                
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
+
                                                             </div>
                                                         @endif
                                                     </div>
@@ -591,31 +332,9 @@
 
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
                                                             </div>
                                                         @endif
 
@@ -647,31 +366,9 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -708,31 +405,9 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -763,31 +438,9 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -818,31 +471,9 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
-                                                                <div class="dropdown show">
-                                                                    <a href="#" role="button" id="dropdownMenuLink"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </a>
 
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenuLink">
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                        <a class="dropdown-item"
-                                                                            href="/admin/guidelines/{{ $guideline->id }}"
-                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
-                                                                    </div>
-                                                                </div>
 
-                                                                <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guideline->id }}"
-                                                                    method="POST" class="hidden">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                </form>
                                                             </div>
                                                         @endif
                                                     </div>
