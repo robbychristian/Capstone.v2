@@ -43,7 +43,7 @@
                 <div class="card-deck">
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
@@ -97,7 +97,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">DURING</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
@@ -149,7 +149,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
@@ -207,7 +207,7 @@
                 <div class="card-deck">
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
@@ -259,7 +259,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">DURING</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
@@ -311,7 +311,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
@@ -369,7 +369,7 @@
                 <div class="card-deck">
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
@@ -421,7 +421,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">DURING</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
@@ -473,7 +473,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
@@ -531,7 +531,7 @@
                 <div class="card-deck">
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">BEFORE</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
@@ -583,7 +583,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">DURING</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
@@ -635,7 +635,7 @@
                     </div>
                     <div class="card bg-transparent border-light">
                         <div class="card-body">
-                            <h5 class="card-title text-center h4">AFTER</h5>
+                            <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
