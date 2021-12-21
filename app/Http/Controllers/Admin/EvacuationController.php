@@ -240,9 +240,10 @@ class EvacuationController extends Controller
 
     public function approve($id)
     {
-        $pendingEvacuationCenter = DB::table('evacuation_centers')
-            ->where('id', $id)
-            ->update(['is_approved' => 1, 'updated_at' => now()]);
+        EvacuationCenters::find($id)->update(['is_approved' => 1, 'updated_at' => now()]);
+        //$pendingEvacuationCenter = DB::table('evacuation_centers')
+        //    ->where('id', $id)
+        //    ->update(['is_approved' => 1, 'updated_at' => now()]);
         return response()->json(['message' => 'The evacuation center has been approved!']);
         //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
