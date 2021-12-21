@@ -61,7 +61,7 @@ class EvacuationController extends Controller
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="#">Appprove</a>
                           <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                          <a class="dropdown-item delete_alert" onclick="deleteConfirmation(' . $row->id . ')">Delete</a>
+                          <a class="dropdown-item delete_alert" data-id="'.$row['id'].'" id="deleteEvacuationBtn">Delete</a>
                         </div>
                       </div>
                       
@@ -277,30 +277,22 @@ class EvacuationController extends Controller
         return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
 
-    public function deleteEvacuation($id)
+    public function deleteEvacuationCenter($id)
     {
-        //$evacuation_id = $request->evacuation_id;
-        //$query = EvacuationCenters::find($evacuation_id)->delete();
+        $evacuationcenter = new EvacuationCenters;
+        $evacuationcenter->deleteData($id);
+        return response()->json(['success' => 'The evacuation center has been deleted!']);
+        return redirect('/admin/evacuation');
+    }
 
-        //if ($query) {
-        //    return response()->json(['code' => 1, 'msg' => 'Country has been deleted from database']);
-        //} else {
-        //    return response()->json(['code' => 0, 'msg' => 'Something went wrong']);
-        //}
-        $delete = EvacuationCenters::where('id', $id)->delete();
+    public function deleteEvacuation(Request $request){
+        $evacuation_id = $request->evacuation_id;
+        $query = EvacuationCenters::find($evacuation_id)->delete();
 
-        if ($delete == 1) {
-            $success = true;
-            $message = "Evacuation deleted successfully";
-        } else {
-            $success = true;
-            $message = "Evacuation not found";
+        if($query){
+            return response()->json(['code'=>1, 'msg'=>'Evacuation Center has been deleted from database']);
+        }else{
+            return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
         }
-
-        //  Return response
-        return response()->json([
-            'success' => $success,
-            'message' => $message,
-        ]);
     }
 }
