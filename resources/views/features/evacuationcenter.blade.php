@@ -403,7 +403,7 @@
 
                             $.ajax({
                                 url: "https://kabisigapp.com/admin/evacuation/approve/" + evacuation_id,
-                                type: 'PUT',
+                                type: 'POST',
                                 dataType: 'JSON',
                                 data: {
                                     "id": evacuation_id
