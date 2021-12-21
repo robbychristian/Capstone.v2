@@ -397,37 +397,6 @@
             //});
 
 
-            //$(document).on('click','#deleteEvacuationBtn', function(){
-            //       var evacuation_id = $(this).data('id');
-            //       var url = '<?= route('admin.evacuation.delete') ?>';
-            //
-            //       swal.fire({
-            //            title:'Are you sure?',
-            //            html:'You want to <b>delete</b> this evacuation',
-            //            showCancelButton:true,
-            //            showCloseButton:true,
-            //            cancelButtonText:'Cancel',
-            //            confirmButtonText:'Yes, Delete',
-            //            cancelButtonColor:'#d33',
-            //            confirmButtonColor:'#556ee6',
-            //            width:300,
-            //            allowOutsideClick:false
-            //       }).then(function(result){
-            //             if(result.value){
-            //                 $.post(url,{evacuation_id:evacuation_id}, function(data){
-            //                      if(data.code == 1){
-            //                          $('#dataTable').DataTable().ajax.reload(null, false);
-            //                          toastr.success(data.msg);
-            //                      }else{
-            //                          toastr.error(data.msg);
-            //                      }
-            //                 },'json');
-            //             }
-            //       });
-            //
-            //   });
-
-
             function deleteConfirmation(id) {
                 swal({
                     title: "Delete?",
