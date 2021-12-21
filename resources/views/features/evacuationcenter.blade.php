@@ -121,7 +121,7 @@
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
-                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map"></i></a>
+                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map" onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
@@ -390,7 +390,7 @@
                                 success: function(response) {
                                     //row.remove().draw();
                                     table.ajax.reload();
-                                    swal("Deleted!", "success");
+                                    swal("Deleted!", response.message, "success");
                                 },
 
                                 error:function(response){
