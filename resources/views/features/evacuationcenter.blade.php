@@ -377,24 +377,24 @@
             });
 
 
-            $('body').on('click', '.deleteEvac', function() {
-                var evac_id = $(this).data("id");
-                var result = confirm("Are You sure want to delete !");
-                if (result) {
-                    $.ajax({
-                        type: "DELETE",
-                        url: "{{ route('admin.evacuation.destroy') }}" + '/' + evac_id,
-                        success: function(data) {
-                            table.draw();
-                        },
-                        error: function(data) {
-                            console.log('Error:', data);
-                        }
-                    });
-                } else {
-                    return false;
-                }
-            });
+            //$('body').on('click', '.deleteEvac', function() {
+            //    var evac_id = $(this).data("id");
+            //    var result = confirm("Are You sure want to delete !");
+            //    if (result) {
+            //        $.ajax({
+            //            type: "DELETE",
+            //            url: "{{ route('admin.evacuation.store') }}" + '/' + evac_id,
+            //            success: function(data) {
+            //                table.draw();
+            //            },
+            //            error: function(data) {
+            //                console.log('Error:', data);
+            //            }
+            //        });
+            //    } else {
+            //        return false;
+            //    }
+            //});
 
         });
     </script>

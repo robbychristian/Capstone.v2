@@ -32,25 +32,48 @@ class EvacuationController extends Controller
                     //
                     //return $btn;
 
-                    return '
-                    <div class="dropdown">
-                    <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Approve</a>
-                    <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="deleteEvac">Delete</a>
-                    </div>
-                    </div>'
-                        //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        //<i class="fas fa-ellipsis-v"></i></button>
-                        //<div class="dropdown-menu dropdown-menu-right">
-                        //<button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
-                        //<a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
-                        //<button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
-                        //</div>
-                        //</div>
-                    ;
+                    //return '
+                    //<div class="dropdown">
+                    //<a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    //<i class="fas fa-ellipsis-v"></i></a>
+                    //<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    //<a class="dropdown-item" href="#">Approve</a>
+                    //<a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
+                    //<a class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="deleteEvac">Delete</a>
+                    //</div>
+                    //</div>'
+                    //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    //<i class="fas fa-ellipsis-v"></i></button>
+                    //<div class="dropdown-menu dropdown-menu-right">
+                    //<button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
+                    //<a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
+                    //<button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
+                    //</div>
+                    //</div>
+
+
+                    return '<div class="dropdown">
+                        <a href="#" class="btn-primary" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                      
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#">Appprove</a>
+                          <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
+                          <a class="dropdown-item" href=' . \URL::route('admin.evacuation.destroy', $row->id) . ' onclick="event.preventDefault();document.getElementById("delete-evac").submit()">Delete</a>
+                        </div>
+                      </div>
+                      
+
+                      <form id="delete-evac"
+                      action="/admin/evacuation/" '. $row->id .' method="POST"
+                      class="hidden">
+                      ' . csrf_field() . '
+                      ' . method_field("DELETE") . '
+                     </form>
+
+                      
+                      ';
                 })
 
                 ->addColumn('is_approved', function ($row) {
