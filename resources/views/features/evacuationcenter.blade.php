@@ -427,7 +427,7 @@
                             },
                             error: function(resp) {
                                 swal.fire("Error!", 'Sumething went wrong.', "error");
-                                console.log(resp);
+                                console.log(resp.type, object.message);
                             }
                         });
 
