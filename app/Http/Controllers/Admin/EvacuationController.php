@@ -35,7 +35,7 @@ class EvacuationController extends Controller
                         </a>
                       
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="#">Appprove</a>
+                          <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Appprove</a>
                           <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
                           <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Delete</a>
                         </div>
@@ -244,8 +244,8 @@ class EvacuationController extends Controller
         $pendingEvacuationCenter = DB::table('evacuation_centers')
             ->where('id', $id)
             ->update(['is_approved' => 1, 'updated_at' => now()]);
-
-        return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
+        return response()->json(['message' => 'The evacuation center has been approved!']);
+        //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
 
 }

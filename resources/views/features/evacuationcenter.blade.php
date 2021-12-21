@@ -169,34 +169,6 @@
                                                     @endif
                                                 </ul>
                                                 </p>
-
-                                                @if ($evacuationcenter->is_approved === 0)
-                                                    <a href="/admin/evacuation/approve/{{ $evacuationcenter->id }}"
-                                                        class="card-link"
-                                                        onclick="event.preventDefault();document.getElementById('approve-evac').submit()">Approve</a>
-                                                @endif
-
-                                                <a href="/admin/evacuation/{{ $evacuationcenter->id }}/edit"
-                                                    class="card-link">Edit</a>
-
-                                                <a href="/admin/evacuation/{{ $evacuationcenter->id }}"
-                                                    class="card-link"
-                                                    onclick="event.preventDefault();document.getElementById('delete-evac').submit()">Delete</a>
-
-                                                <form id="delete-evac"
-                                                    action="/admin/evacuation/{{ $evacuationcenter->id }}" method="POST"
-                                                    class="hidden">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
-
-                                                <form id="approve-evac"
-                                                    action="/admin/evacuation/approve/{{ $evacuationcenter->id }}"
-                                                    method="POST" class="hidden">
-                                                    @csrf
-                                                    @method('POST')
-                                                </form>
-
                                             </div>
                                         </div>
                                     @endforeach
@@ -399,6 +371,56 @@
                             });
                         } else {
                             swal("Your imaginary file is safe!");
+                        }
+                    });
+
+
+            });
+
+
+            $(document).on('click', '#approveEvacuationBtn', function() {
+                var evacuation_id = $(this).data('id');
+                console.log(evacuation_id);
+
+                var row = table.row($(this).closest('tr'));
+                var data_row = row.data();
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to approve this evacaution center?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/evacuation/approve" + evacuation_id,
+                                type: 'DELETE',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": evacuation_id
+                                },
+
+                                success: function(response) {
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Approved!", response.message, "success");
+                                },
+
+                                error:function(response){
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
                         }
                     });
 
