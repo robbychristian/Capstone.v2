@@ -289,10 +289,15 @@ class EvacuationController extends Controller
         $evacuation_id = $request->evacuation_id;
         $query = EvacuationCenters::find($evacuation_id)->delete();
 
-        if($query){
-            return response()->json(['code'=>1, 'msg'=>'Evacuation Center has been deleted from database']);
-        }else{
-            return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
-        }
+        //if($query){
+        //    return response()->json(['code'=>1, 'msg'=>'Evacuation Center has been deleted from database']);
+        //}else{
+        //    return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
+        //}
+
+        //return response()->json([
+        //    'success' => true,
+        //    'message' => 'User successfully deleted',
+        //]);
     }
 }

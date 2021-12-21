@@ -396,36 +396,67 @@
             //    }
             //});
 
-            
-             $(document).on('click','#deleteEvacuationBtn', function(){
-                    var evacuation_id = $(this).data('id');
-                    var url = '/admin/evacuation/delete/' + evacuation_id;
 
-                    swal.fire({
-                         title:'Are you sure?',
-                         html:'You want to <b>delete</b> this evacuation',
-                         showCancelButton:true,
-                         showCloseButton:true,
-                         cancelButtonText:'Cancel',
-                         confirmButtonText:'Yes, Delete',
-                         cancelButtonColor:'#d33',
-                         confirmButtonColor:'#556ee6',
-                         width:300,
-                         allowOutsideClick:false
-                    }).then(function(result){
-                          if(result.value){
-                              $.post(url,{evacuation_id:evacuation_id}, function(data){
-                                   if(data.code == 1){
-                                       $('#dataTable').DataTable().ajax.reload(null, false);
-                                       toastr.success(data.msg);
-                                   }else{
-                                       toastr.error(data.msg);
-                                   }
-                              },'json');
-                          }
-                    });
+            $(document).on('click', '#deleteEvacuationBtn', function() {
+                var evacuation_id = $(this).data('id');
+                var url = '/admin/evacuation/delete/' + evacuation_id;
 
+                swal.fire({
+                    title: 'Are you sure?',
+                    html: 'You want to <b>delete</b> this evacuation',
+                    showCancelButton: true,
+                    showCloseButton: true,
+                    cancelButtonText: 'Cancel',
+                    confirmButtonText: 'Yes, Delete',
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#556ee6',
+                    width: 300,
+                    allowOutsideClick: false
+                }).then(function(result) {
+                    //if(result.value){
+                    //    $.post(url,{evacuation_id:evacuation_id}, function(data){
+                    //         if(data.code == 1){
+                    //             $('#dataTable').DataTable().ajax.reload(null, false);
+                    //             toastr.success(data.msg);
+                    //         }else{
+                    //             toastr.error(data.msg);
+                    //         }
+                    //    },'json');
+                    //}
+
+                    if (result.value == true) {
+                        let token = $('meta[name="csrf-token"]').attr('content');
+                        let url = '/admin/evacuation/delete/' + evacuation_id;
+
+                        $.ajax({
+                            type: 'POST',
+                            url: _url,
+                            data: {
+                                _token: token
+                            },
+                            success: function(resp) {
+                                if (resp.success) {
+                                    swal.fire("Done!", resp.message, "success");
+                                    location.reload();
+                                } else {
+                                    swal.fire("Error!", 'Sumething went wrong.',
+                                        "error");
+                                }
+                            },
+                            error: function(resp) {
+                                swal.fire("Error!", 'Sumething went wrong.', "error");
+                            }
+                        });
+
+                    } else {
+                        result.dismiss;
+                    }
+
+                }, function(dismiss) {
+                    return false;
                 });
+
+            });
 
         });
     </script>
