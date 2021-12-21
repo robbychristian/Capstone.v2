@@ -47,11 +47,13 @@
                         {{ $message }}
                     @enderror</small>
             </div>
+
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary ">Post</button>
                 @if (Auth::user()->user_role == 1)
                     <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
                 @endif
+
+                <button class="btn btn-primary mr-3">Post</button>
             </div>
             </form>
         </div>
