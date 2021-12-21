@@ -6,18 +6,24 @@
         <h1 class="h3 mb-4 text-gray-800">Create a Guideline</h1>
         <div class="container-fluid">
             @if (Auth::user()->user_role === 1)
-                <form action="" method="POST">
+                <form action="/admin/guidelines/{{ $guidelines->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
                 @elseif (Auth::user()->user_role >= 3)
                     <form action="" method="POST">
+                        @csrf
+                        @method('PUT')
             @endif
             @csrf
             <div class="form-group">
                 <label><strong>Disaster</strong></label>
                 <select name="disaster" class="form-control" value="{{ $guidelines->disaster }}">
-                    <option value="Flood" {{ $guidelines->disaster == "Flood"  ? 'selected' : '' }}>Flood</option>
-                    <option value="Earthquake" {{ $guidelines->disaster == "Earthquake"  ? 'selected' : '' }}>Earthquake</option>
-                    <option value="Tropical Cyclone" {{ $guidelines->disaster == "Tropical Cyclone"  ? 'selected' : '' }}>Tropical Cyclone</option>
-                    <option value="Tsunami" {{ $guidelines->disaster == "Tsunami"  ? 'selected' : '' }}>Tsunami</option>
+                    <option value="Flood" {{ $guidelines->disaster == 'Flood' ? 'selected' : '' }}>Flood</option>
+                    <option value="Earthquake" {{ $guidelines->disaster == 'Earthquake' ? 'selected' : '' }}>Earthquake
+                    </option>
+                    <option value="Tropical Cyclone" {{ $guidelines->disaster == 'Tropical Cyclone' ? 'selected' : '' }}>
+                        Tropical Cyclone</option>
+                    <option value="Tsunami" {{ $guidelines->disaster == 'Tsunami' ? 'selected' : '' }}>Tsunami</option>
                 </select>
                 <small class="text-danger">@error('disaster')
                         {{ $message }}
@@ -27,9 +33,9 @@
             <div class="form-group">
                 <label><strong>Time of Disaster</strong></label>
                 <select name="time" class="form-control">
-                    <option value="Before" {{ $guidelines->time == "Before"  ? 'selected' : ''}}>Before</option>
-                    <option value="During" {{ $guidelines->time == "During"  ? 'selected' : ''}}>During</option>
-                    <option value="After" {{ $guidelines->time == "After"  ? 'selected' : ''}}>After</option>
+                    <option value="Before" {{ $guidelines->time == 'Before' ? 'selected' : '' }}>Before</option>
+                    <option value="During" {{ $guidelines->time == 'During' ? 'selected' : '' }}>During</option>
+                    <option value="After" {{ $guidelines->time == 'After' ? 'selected' : '' }}>After</option>
                 </select>
                 <small class="text-danger">@error('time')
                         {{ $message }}

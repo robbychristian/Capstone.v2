@@ -103,7 +103,31 @@ class GuidelinesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'disaster' => 'required',
+            'time' => 'required',
+            'guideline' => 'required',
+        ], $messages = [
+            'disaster.required' => 'The disaster field is required!',
+            'time.required' => 'The time field is required!',
+            'guideline.required' => 'The guideline field is required!',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/admin/guidelines/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $guideline = Guidelines::where('id', $id)->update([
+                'admin_id' => 1,
+                'issued_by' => Auth::user()->name,
+                'disaster' => $request->input('disaster'),
+                'time' => $request->input('time'),
+                'guideline' => $request->input('guideline')
+            ]);
+
+            return redirect('/admin/guidelines')->with('success', 'Guideline has been edited!');
+        }
     }
 
     /**
