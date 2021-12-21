@@ -138,10 +138,8 @@ class GuidelinesController extends Controller
      */
     public function destroy($id)
     {
-        //$guidelines = Guidelines::find($id);
-        //$guidelines->delete();
-
-        dd($id);
-       // return redirect('/admin/guidelines')->with('success', 'The guidelines has been deleted!');
+        $guidelines = Guidelines::find($id);
+        $guidelines->delete();
+        return redirect('/admin/guidelines')->with('success', 'The guidelines has been deleted!');
     }
 }
