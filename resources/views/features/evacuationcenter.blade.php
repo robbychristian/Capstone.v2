@@ -356,6 +356,13 @@
             });
 
 
+            $(document).on('click', '#deleteEvacuationBtn', function() {
+                var evacuation_id = $(this).data('id');
+
+                console.log(evacuation_id);
+
+            });
+
         });
     </script>
 
