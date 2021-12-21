@@ -59,25 +59,32 @@
                                                                 </div>
                                                             </div>
                                                             @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                                <div class="col-auto">
+                                                                    <div class="dropdown show">
+                                                                        <a href="#" role="button" id="dropdownMenuLink"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                            <i
+                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                        </a>
 
-                                                                <div class="dropdown">
-                                                                    <button type="button" id="dropdownMenu2"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                        <i
-                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                    </button>
-                                                                    <div class="dropdown-menu"
-                                                                        aria-labelledby="dropdownMenu2">
-                                                                        <button class="dropdown-item">Edit</button>
-                                                                        <form id="delete-guideline"
-                                                                            action="/admin/guidelines/{{ $guideline->id }}"
-                                                                            method="POST" class="hidden">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button class="dropdown-item">Delete</button>
-                                                                        </form>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="dropdownMenuLink">
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                        </div>
                                                                     </div>
+
+                                                                    <form id="delete-guideline"
+                                                                        action="/admin/guidelines/{{ $guideline->id }}"
+                                                                        method="POST" class="hidden">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form>
                                                                 </div>
                                                             @endif
                                                         </div>
@@ -121,7 +128,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -175,7 +183,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -235,7 +244,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -289,7 +299,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -343,7 +354,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -403,7 +415,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -458,7 +471,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -513,7 +527,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -573,7 +588,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -627,7 +643,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
@@ -681,7 +698,8 @@
                                                                             aria-labelledby="dropdownMenuLink">
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item" href="#"
+                                                                            <a class="dropdown-item"
+                                                                                href="/admin/guidelines/{{ $guideline->id }}"
                                                                                 onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
