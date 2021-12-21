@@ -87,8 +87,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </li>
+
                                         @endif
                                     @endif
                                 @endforeach
@@ -102,9 +102,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -118,9 +154,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Flood')
                                         @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -140,9 +212,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -156,9 +264,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -172,9 +316,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Earthquake')
                                         @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -194,9 +374,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -210,9 +426,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -226,9 +478,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tropical Cyclone')
                                         @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -248,9 +536,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -264,9 +588,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -280,9 +640,45 @@
                                 @foreach ($guidelines as $guideline)
                                     @if ($guideline->disaster == 'Tsunami')
                                         @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent"><i
-                                                    class="fas fa-angle-double-right mr-2"
-                                                    style="color: #004F91"></i>{{ $guideline->guideline }}</li>
+                                            <li class="list-group-item bg-transparent">
+                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item" href="#"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         @endif
                                     @endif
                                 @endforeach
@@ -291,8 +687,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection
