@@ -388,8 +388,9 @@
                                 },
 
                                 success: function(response) {
-                                    row.remove().draw();
-                                    swal("Deleted!", "success");
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Deleted!", response.message, "success");
                                 },
 
                                 error:function(response){
