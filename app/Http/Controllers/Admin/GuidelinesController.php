@@ -112,8 +112,9 @@ class GuidelinesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guidelines $guidelines)
+    public function destroy($id)
     {
+        $guidelines = Guidelines::find($id);
         $guidelines->delete();
         return redirect('/admin/guidelines')->with('success', 'The guidelines has been deleted!');
     }
