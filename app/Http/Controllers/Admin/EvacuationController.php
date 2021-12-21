@@ -27,7 +27,8 @@ class EvacuationController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    return '<div class="d-flex justify-content-center align-items-center">
+                    if ($row->is_approved == '0') {
+                        return '<div class="d-flex justify-content-center align-items-center">
                     <div class="dropdown" style="text-align:center;">
                         <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
@@ -42,6 +43,22 @@ class EvacuationController extends Controller
 
                       </div>
                       ';
+                    } else {
+                        return '<div class="d-flex justify-content-center align-items-center">
+                        <div class="dropdown" style="text-align:center;">
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
+                            </a>
+                          
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
+                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Delete</a>
+                            </div>
+                          </div>
+    
+                          </div>
+                          ';
+                    }
                 })
 
                 ->addColumn('is_approved', function ($row) {
@@ -225,27 +242,18 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        //EvacuationCenters::find($id)->delete();
-        //return response()->json(['success' => 'The evacuation center has been deleted!']);
-        //$evacuationcenter = new EvacuationCenters;
-        //$evacuationcenter->deleteData($id);
-        //return response()->json(['success' => 'The evacuation center has been deleted!']);
-       //$evacuationcenter = EvacuationCenters::find($id);
-       //$evacuationcenter->delete();
-       //return redirect('/admin/evacuation');
-
-       EvacuationCenters::find($id)->delete();
-       return response()->json(['message' => 'The evacuation center has been deleted!']);
+        EvacuationCenters::find($id)->delete();
+        return response()->json(['message' => 'The evacuation center has been deleted!']);
     }
 
     public function approve($id)
     {
         EvacuationCenters::find($id)->update(['is_approved' => 1, 'updated_at' => now()]);
+        return response()->json(['message' => 'The evacuation center has been approved!']);
+
         //$pendingEvacuationCenter = DB::table('evacuation_centers')
         //    ->where('id', $id)
         //    ->update(['is_approved' => 1, 'updated_at' => now()]);
-        return response()->json(['message' => 'The evacuation center has been approved!']);
         //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
-
 }
