@@ -23,6 +23,17 @@ class CreateGuidelinesTable extends Migration
             $table->string('guideline');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('brgy_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->onDelete('cascade')
+                ->onUpdate(('cascade'));
         });
     }
 
