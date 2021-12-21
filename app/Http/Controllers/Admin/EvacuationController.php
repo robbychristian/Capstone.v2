@@ -236,7 +236,8 @@ class EvacuationController extends Controller
        //return redirect('/admin/evacuation');
 
        EvacuationCenters::find($id)->delete();
-       return response()->json(['message' => 'The evacuation center has been deleted!']);
+       return redirect('/admin/evacuation');
+       //return response()->json(['message' => 'The evacuation center has been deleted!']);
     }
 
     public function approve($id)
@@ -248,28 +249,4 @@ class EvacuationController extends Controller
         return redirect('/admin/evacuation')->with('success', 'The evacuation center has been approved!');
     }
 
-    public function deleteEvacuationCenter($id)
-    {
-        $evacuationcenter = new EvacuationCenters;
-        $evacuationcenter->deleteData($id);
-        return response()->json(['success' => 'The evacuation center has been deleted!']);
-        return redirect('/admin/evacuation');
-    }
-
-    public function deleteEvacuation($id)
-    {
-        //$evacuation_id = $request->evacuation_id;
-        $query = EvacuationCenters::find($id)->delete();
-
-        //if($query){
-        //    return response()->json(['code'=>1, 'msg'=>'Evacuation Center has been deleted from database']);
-        //}else{
-        //    return response()->json(['code'=>0, 'msg'=>'Something went wrong']);
-        //}
-
-        //return response()->json([
-        //    'success' => true,
-        //    'message' => 'User successfully deleted',
-        //]);
-    }
 }

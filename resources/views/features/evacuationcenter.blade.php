@@ -389,7 +389,7 @@
 
                                 success: function(response) {
                                     row.remove().draw();
-                                    swal("Deleted!", response.message, "success");
+                                    swal("Deleted!", "success");
                                 },
 
                                 error:function(response){
