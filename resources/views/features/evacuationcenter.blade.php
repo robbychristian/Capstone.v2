@@ -227,7 +227,7 @@
 
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
-                            <table class="table table-bordered data-table" width="100%" cellspacing="0">
+                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -355,27 +355,6 @@
 
             });
 
-
-            $(document).on('click', '#deleteEvacuationBtn', function() {
-                var evacuation_id = $(this).data('id');
-                swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this imaginary file!",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            swal("Poof! Your imaginary file has been deleted!", {
-                                icon: "success",
-                            });
-                        } else {
-                            swal("Your imaginary file is safe!");
-                        }
-                    });
-
-            });
 
         });
     </script>
