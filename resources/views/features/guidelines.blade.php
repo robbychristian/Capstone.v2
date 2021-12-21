@@ -78,7 +78,7 @@
                                                                 </div>
 
                                                                 <form id="delete-guideline"
-                                                                    action="/admin/guidelines/{{ $guidelinecenter->id }}"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
                                                                     method="POST" class="hidden">
                                                                     @csrf
                                                                     @method('DELETE')
