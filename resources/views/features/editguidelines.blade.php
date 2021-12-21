@@ -51,6 +51,12 @@
                     @enderror</small>
             </div>
             <button class="btn btn-primary float-right ">Post</button>
+
+            @if (Auth::user()->user_role == 1)
+                <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
+            @endif
+
+
             </form>
         </div>
 

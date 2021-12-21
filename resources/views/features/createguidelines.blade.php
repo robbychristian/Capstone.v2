@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Guidelines')
 @section('content')
-<!--edit dropdowns --> 
+    <!--edit dropdowns -->
     <div class="container-fluid" style="color: black;">
         <h1 class="h3 mb-4 text-gray-800">Create a Guideline</h1>
         <div class="container-fluid">
@@ -17,7 +17,8 @@
                     <option disabled hidden selected>Select the Disaster</option>
                     <option value="Flood" {{ old('disaster') == 'Flood' ? 'selected' : '' }}>Flood</option>
                     <option value="Earthquake" {{ old('disaster') == 'Earthquake' ? 'selected' : '' }}>Earthquake</option>
-                    <option value="Tropical Cyclone" {{ old('disaster') == 'Tropical Cyclone' ? 'selected' : '' }}>Tropical Cyclone</option>
+                    <option value="Tropical Cyclone" {{ old('disaster') == 'Tropical Cyclone' ? 'selected' : '' }}>
+                        Tropical Cyclone</option>
                     <option value="Tsunami" {{ old('disaster') == 'Tsunami' ? 'selected' : '' }}>Tsunami</option>
                 </select>
                 <small class="text-danger">@error('disaster')
@@ -47,6 +48,9 @@
                     @enderror</small>
             </div>
             <button class="btn btn-primary float-right ">Post</button>
+            @if (Auth::user()->user_role == 1)
+                <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
+            @endif
             </form>
         </div>
 
