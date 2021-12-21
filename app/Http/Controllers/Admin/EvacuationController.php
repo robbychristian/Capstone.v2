@@ -231,9 +231,12 @@ class EvacuationController extends Controller
         //$evacuationcenter = new EvacuationCenters;
         //$evacuationcenter->deleteData($id);
         //return response()->json(['success' => 'The evacuation center has been deleted!']);
-        $evacuationcenter = EvacuationCenters::find($id);
-        $evacuationcenter->delete();
-        return redirect('/admin/evacuation');
+       //$evacuationcenter = EvacuationCenters::find($id);
+       //$evacuationcenter->delete();
+       //return redirect('/admin/evacuation');
+
+       EvacuationCenters::find($id)->delete();
+       return response()->json(['message' => 'The evacuation center has been deleted!']);
     }
 
     public function approve($id)

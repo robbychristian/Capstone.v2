@@ -360,17 +360,41 @@
                 var evacuation_id = $(this).data('id');
                 console.log(evacuation_id);
 
+                var row = table.row($(this).closest('tr'));
+                var data_row = row.data();
+
                 swal({
                         title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this imaginary file!",
+                        text: "You want to delete this evacaution center?",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
                     })
                     .then((willDelete) => {
                         if (willDelete) {
-                            swal("Poof! Your imaginary file has been deleted!", {
-                                icon: "success",
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/evacuation/" + evacuation_id,
+                                type: 'DELETE',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": evacuation_id
+                                },
+
+                                success: function(response) {
+                                    row.remove().draw();
+                                    swal("Deleted!", response.message, "success");
+                                },
+
+                                error:function(response){
+                                    console.log(response);
+                                }
                             });
                         } else {
                             swal("Your imaginary file is safe!");
