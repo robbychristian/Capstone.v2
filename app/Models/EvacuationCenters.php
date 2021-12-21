@@ -11,6 +11,8 @@ class EvacuationCenters extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
+        'brgy_id',
+        'admin_id',
         'added_by',
         'evac_name',
         'evac_latitude',

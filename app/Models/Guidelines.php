@@ -14,6 +14,9 @@ class Guidelines extends Model
     protected $table = 'guidelines';
 
     protected $fillable = [
+        'brgy_id',
+        'admin_id',
+        'issued_by',
         'disaster',
         'time',
         'guideline'
