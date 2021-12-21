@@ -88,7 +88,10 @@ class GuidelinesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guidelines = Guidelines::find($id);
+        return view('features.editguidelines', [
+            'guidelines' => $guidelines
+        ]);
     }
 
     /**
@@ -109,8 +112,9 @@ class GuidelinesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Guidelines $guidelines)
     {
-        //
+        $guidelines->delete();
+        return redirect('/admin/guidelines')->with('success', 'The guidelines has been deleted!');
     }
 }
