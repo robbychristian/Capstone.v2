@@ -61,13 +61,13 @@ class EvacuationController extends Controller
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="#">Appprove</a>
                           <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                          <a class="dropdown-item" href="/admin/evacuation/" '. $row->id .' onclick="event.preventDefault();document.getElementById("delete-evac").submit()">Delete</a>
+                          <a class="dropdown-item" href=' . \URL::route('admin.evacuation.destroy', $row->id) . ' onclick="event.preventDefault();document.getElementById("delete-evac").submit()">Delete</a>
                         </div>
                       </div>
                       
 
                       <form id="delete-evac"
-                      action="/admin/evacuation/" '. $row->id .' method="POST"
+                      action=""{{ route(\'admin.evacuation.destroy\',' . $row->id . ') }}" method="POST"
                       class="hidden">
                       ' . csrf_field() . '
                       ' . method_field("DELETE") . '
