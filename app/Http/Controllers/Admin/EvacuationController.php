@@ -22,7 +22,6 @@ class EvacuationController extends Controller
     {
         if ($request->ajax()) {
             $data = DB::table('evacuation_centers')
-                ->where('is_approved', 1)
                 ->where('deleted_at', null);
             return DataTables::of($data)
                 ->addIndexColumn()
