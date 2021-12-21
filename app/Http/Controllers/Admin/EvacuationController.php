@@ -31,7 +31,7 @@ class EvacuationController extends Controller
                     return '<div class="d-flex justify-content-center align-items-center">
                     <div class="dropdown" style="text-align:center;">
                         <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v text-primary fa-5x"></i>
+                        <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
                         </a>
                       
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">

@@ -357,9 +357,11 @@
 
 
             $(document).on('click', '#deleteEvacuationBtn', function() {
-                var evacuation_id = $(this).data('id');
+                //var evacuation_id = $(this).data('id');
+                //
+                //console.log(evacuation_id);
 
-                console.log(evacuation_id);
+                alert('Clicked');
 
             });
 
