@@ -422,12 +422,13 @@
                                 } else {
                                     swal.fire("Error!", 'sjdsada.',
                                         "error");
-                                    console.log(resp.type, object.message);
+                                    console.log(resp.type, resp.message);
+                                    console.log(resp.json())
                                 }
                             },
                             error: function(resp) {
                                 swal.fire("Error!", 'Sumething went wrong.', "error");
-                                console.log(resp.type, object.message);
+                                console.log(resp.type, resp.message);
                             }
                         });
 
