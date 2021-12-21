@@ -422,10 +422,12 @@
                                 } else {
                                     swal.fire("Error!", 'Sumething went wrong.',
                                         "error");
+                                    console.log(resp);
                                 }
                             },
                             error: function(resp) {
                                 swal.fire("Error!", 'Sumething went wrong.', "error");
+                                console.log(resp);
                             }
                         });
 
