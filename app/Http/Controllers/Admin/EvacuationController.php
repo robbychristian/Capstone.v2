@@ -25,32 +25,6 @@ class EvacuationController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    //$btn = '<a href="javascript:void(0)" class="approve btn btn-info btn-sm mb-2">Approve</a>';
-                    //$btn = $btn .'<a href="javascript:void(0)" class="view btn btn-info btn-sm mb-2">View</a>';
-                    //$btn = $btn . '<a href="" class="edit btn btn-primary btn-sm mb-2">Edit</a>';
-                    //$btn = $btn . '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm mb-2">Delete</a>';
-                    //
-                    //return $btn;
-
-                    //return '
-                    //<div class="dropdown">
-                    //<a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                    //<i class="fas fa-ellipsis-v"></i></a>
-                    //<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    //<a class="dropdown-item" href="#">Approve</a>
-                    //<a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                    //<a class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="deleteEvac">Delete</a>
-                    //</div>
-                    //</div>'
-                    //<div class="btn-group"> <button class="btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    //<i class="fas fa-ellipsis-v"></i></button>
-                    //<div class="dropdown-menu dropdown-menu-right">
-                    //<button class="dropdown-item" type="button" data-id="' . $row['id'] . '" id="approveBtn">Approve</button>
-                    //<a href=' . \URL::route('admin.evacuation.edit', $row->id) . ' class="dropdown-item">Edit</a>
-                    //<button data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteEvacuationCenterModal" id="getDeleteId">Delete</button>
-                    //</div>
-                    //</div>
-
 
                     return '<div class="d-flex justify-content-center align-items-center">
                     <div class="dropdown" style="text-align:center;">
@@ -64,14 +38,6 @@ class EvacuationController extends Controller
                           <a class="dropdown-item delete_alert" data-id="'.$row['id'].'" id="deleteEvacuationBtn">Delete</a>
                         </div>
                       </div>
-                      
-
-                      <form id="delete-evac"
-                      action=""{{ route(\'admin.evacuation.destroy\',' . $row->id . ') }}" method="POST"
-                      class="hidden">
-                      ' . csrf_field() . '
-                      ' . method_field("DELETE") . '
-                     </form>
 
                       </div>
                       ';

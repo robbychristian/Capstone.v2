@@ -36,8 +36,9 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     
-    <!-- Sweet Alert
+    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Sweet Alert
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 
     <!--Chart JS-->

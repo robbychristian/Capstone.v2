@@ -299,27 +299,6 @@
     </div>
 
 
-    <!-- Delete EvacuationCenter Modal -->
-    <div class="modal" id="DeleteEvacuationCenterModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <h4>Are you sure want to delete this Evacuation Center?</h4>
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="SubmitDeleteEvacuationCenterForm">Yes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
@@ -380,62 +359,22 @@
 
             $(document).on('click', '#deleteEvacuationBtn', function() {
                 var evacuation_id = $(this).data('id');
-                //var url = 'https://kabisigapp.com/admin/evacuation/delete/' + evacuation_id;
-
-                swal.fire({
-                    title: 'Are you sure?',
-                    html: 'You want to <b>delete</b> this evacuation',
-                    showCancelButton: true,
-                    showCloseButton: true,
-                    cancelButtonText: 'Cancel',
-                    confirmButtonText: 'Yes, Delete',
-                    cancelButtonColor: '#d33',
-                    confirmButtonColor: '#556ee6',
-                    width: 300,
-                    allowOutsideClick: false
-                }).then(function(result) {
-                    //if(result.value){
-                    //    $.post(url,{evacuation_id:evacuation_id}, function(data){
-                    //         if(data.code == 1){
-                    //             $('#dataTable').DataTable().ajax.reload(null, false);
-                    //             toastr.success(data.msg);
-                    //         }else{
-                    //             toastr.error(data.msg);
-                    //         }
-                    //    },'json');
-                    //}
-
-                    if (result.value == true) {
-                        let token = $('meta[name="csrf-token"]').attr('content');
-                        let url = 'https://kabisigapp.com/admin/evacuation/delete/' + evacuation_id;
-
-                        $.ajax({
-                            type: 'POST',
-                            url: url,
-                            data: {
-                                _token: token
-                            },
-                            success: function(resp) {
-                                if (resp.success) {
-                                    swal.fire("Done!", resp.message, "success");
-                                    location.reload();
-                                } else {
-                                    swal.fire("Error!", 'sjdsada.',
-                                        "error");
-                                }
-                            },
-                            error: function(resp) {
-                                swal.fire("Error!", 'Sumething went wrong.', "error");
-                            }
-                        });
-
-                    } else {
-                        result.dismiss;
-                    }
-
-                }, function(dismiss) {
-                    return false;
-                });
+                swal({
+                        title: "Are you sure?",
+                        text: "Once deleted, you will not be able to recover this imaginary file!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal("Poof! Your imaginary file has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Your imaginary file is safe!");
+                        }
+                    });
 
             });
 
