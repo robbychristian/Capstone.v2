@@ -59,6 +59,7 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
+
                                                                 <div class="dropdown">
                                                                     <a role="button" id="dropdownMenuLink"
                                                                         data-toggle="dropdown" aria-expanded="false">
@@ -66,8 +67,6 @@
                                                                             class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
                                                                     </a>
 
-
-                                                                    </button>
                                                                     <div class="dropdown-menu"
                                                                         aria-labelledby="dropdownMenu2">
                                                                         <a class="dropdown-item"
@@ -79,11 +78,8 @@
                                                                             @method('DELETE')
                                                                             <button class="dropdown-item">Delete</button>
                                                                         </form>
-
-
                                                                     </div>
                                                                 </div>
-
 
                                                             </div>
                                                         @endif
@@ -117,8 +113,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -151,8 +165,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -190,8 +222,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -224,8 +274,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -258,8 +326,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -298,8 +384,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
-
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -333,7 +437,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -366,6 +489,27 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
+
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
 
 
@@ -406,7 +550,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -438,8 +601,27 @@
                                                         </div>
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
+                                                                <div class="dropdown">
 
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
@@ -472,7 +654,26 @@
                                                         @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
                                                             <div class="col-auto">
 
+                                                                <div class="dropdown">
+                                                                    <a role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
 
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
                                                         @endif
