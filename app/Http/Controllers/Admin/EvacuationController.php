@@ -21,7 +21,9 @@ class EvacuationController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = EvacuationCenters::all();
+            $data = DB::table('evacuation_centers')
+                ->where('is_approved', 1)
+                ->where('deleted_at', null);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -35,7 +37,7 @@ class EvacuationController extends Controller
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="#">Appprove</a>
                           <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                          <a class="dropdown-item delete_alert" data-id="'.$row['id'].'" id="deleteEvacuationBtn">Delete</a>
+                          <a class="dropdown-item delete_alert" data-id="' . $row['id'] . '" id="deleteEvacuationBtn">Delete</a>
                         </div>
                       </div>
 
@@ -251,7 +253,8 @@ class EvacuationController extends Controller
         return redirect('/admin/evacuation');
     }
 
-    public function deleteEvacuation($id){
+    public function deleteEvacuation($id)
+    {
         //$evacuation_id = $request->evacuation_id;
         $query = EvacuationCenters::find($id)->delete();
 
