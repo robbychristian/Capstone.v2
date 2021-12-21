@@ -285,9 +285,9 @@ class EvacuationController extends Controller
         return redirect('/admin/evacuation');
     }
 
-    public function deleteEvacuation(Request $request){
-        $evacuation_id = $request->evacuation_id;
-        $query = EvacuationCenters::find($evacuation_id)->delete();
+    public function deleteEvacuation($id){
+        //$evacuation_id = $request->evacuation_id;
+        $query = EvacuationCenters::find($id)->delete();
 
         //if($query){
         //    return response()->json(['code'=>1, 'msg'=>'Evacuation Center has been deleted from database']);
