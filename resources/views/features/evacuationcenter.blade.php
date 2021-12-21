@@ -399,7 +399,7 @@
             
              $(document).on('click','#deleteEvacuationBtn', function(){
                     var evacuation_id = $(this).data('id');
-                    var url = '<?= route("evacuation.delete") ?>';
+                    var url = '<?= route('admin.evacuation.delete') ?>';
 
                     swal.fire({
                          title:'Are you sure?',
