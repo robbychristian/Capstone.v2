@@ -54,17 +54,15 @@
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                                    <i
-                                                                    class="fas fa-angle-double-right mr-2"
-                                                                    style="color: #004F91"></i> {{ $guideline->guideline }}
+                                                                <div class="text-gray-800">
+                                                                    {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </li>
+                                            
                                         @endif
                                     @endif
                                 @endforeach
