@@ -83,7 +83,7 @@ class EvacuationController extends Controller
         $barangays = DB::table('barangays')
             ->where('is_added', 1)
             ->get();
-        $evacuationcenters = EvacuationCenters::paginate(2);
+        $evacuationcenters = EvacuationCenters::where('deleted_at', null)->paginate(2);
         return view('features.evacuationcenter', [
             'evacuationcenters' => $evacuationcenters,
             'barangays' => $barangays,
