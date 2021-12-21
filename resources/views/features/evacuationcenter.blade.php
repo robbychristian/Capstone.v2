@@ -430,7 +430,7 @@
 
                         $.ajax({
                             type: 'POST',
-                            url: _url,
+                            url: url,
                             data: {
                                 _token: token
                             },
