@@ -50,12 +50,13 @@
                         {{ $message }}
                     @enderror</small>
             </div>
-            <button class="btn btn-primary float-right ">Post</button>
 
-            @if (Auth::user()->user_role == 1)
-                <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
-            @endif
-
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary ">Post</button>
+                @if (Auth::user()->user_role == 1)
+                    <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
+                @endif
+            </div>
 
             </form>
         </div>
