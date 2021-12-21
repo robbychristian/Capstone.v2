@@ -79,6 +79,28 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
+
+                                                                    </div>
+                                                                </div>
+
                                                                 <form id="delete-guideline"
                                                                     action="/admin/guidelines/{{ $guideline->id }}"
                                                                     method="POST" class="hidden">
@@ -135,6 +157,28 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
+
+                                                                    </div>
+                                                                </div>
+
                                                                 <form id="delete-guideline"
                                                                     action="/admin/guidelines/{{ $guideline->id }}"
                                                                     method="POST" class="hidden">
@@ -186,6 +230,28 @@
                                                                         <a class="dropdown-item"
                                                                             href="/admin/guidelines/{{ $guideline->id }}"
                                                                             onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
 
                                                                     </div>
                                                                 </div>
@@ -250,6 +316,28 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
+
+                                                                    </div>
+                                                                </div>
+
                                                                 <form id="delete-guideline"
                                                                     action="/admin/guidelines/{{ $guideline->id }}"
                                                                     method="POST" class="hidden">
@@ -305,6 +393,28 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
+
+                                                                    </div>
+                                                                </div>
+
                                                                 <form id="delete-guideline"
                                                                     action="/admin/guidelines/{{ $guideline->id }}"
                                                                     method="POST" class="hidden">
@@ -356,6 +466,28 @@
                                                                         <a class="dropdown-item"
                                                                             href="/admin/guidelines/{{ $guideline->id }}"
                                                                             onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="dropdown" style="background-color: none;">
+                                                                    <button type="button" id="dropdownMenu2"
+                                                                        data-toggle="dropdown" aria-expanded="false" >
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenu2">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <form
+                                                                            action="/admin/guidelines/{{ $guideline->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button class="dropdown-item">Delete</button>
+                                                                        </form>
+
 
                                                                     </div>
                                                                 </div>
@@ -420,6 +552,7 @@
 
                                                                     </div>
                                                                 </div>
+                                                                
 
                                                                 <form id="delete-guideline"
                                                                     action="/admin/guidelines/{{ $guideline->id }}"
