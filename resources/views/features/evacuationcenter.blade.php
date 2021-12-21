@@ -380,7 +380,7 @@
 
             $(document).on('click', '#deleteEvacuationBtn', function() {
                 var evacuation_id = $(this).data('id');
-                var url = 'https://kabisigapp.com/admin/evacuation/delete/' + evacuation_id;
+                //var url = 'https://kabisigapp.com/admin/evacuation/delete/' + evacuation_id;
 
                 swal.fire({
                     title: 'Are you sure?',
@@ -407,7 +407,7 @@
 
                     if (result.value == true) {
                         let token = $('meta[name="csrf-token"]').attr('content');
-                        let url = '/admin/evacuation/delete/' + evacuation_id;
+                        let url = 'https://kabisigapp.com/admin/evacuation/delete/' + evacuation_id;
 
                         $.ajax({
                             type: 'POST',
