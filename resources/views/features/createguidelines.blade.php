@@ -50,10 +50,10 @@
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 @if (Auth::user()->user_role == 1)
-                    <a class="btn btn-secondary" href="/admin/guidelines" role="button">Cancel</a>
+                    <a class="btn btn-secondary mr-3" href="/admin/guidelines" role="button">Cancel</a>
                 @endif
 
-                <button class="btn btn-primary mr-3">Post</button>
+                <button class="btn btn-primary">Post</button>
             </div>
             </form>
         </div>
