@@ -74,7 +74,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -130,7 +130,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -185,7 +185,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -246,7 +246,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -301,7 +301,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -356,7 +356,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -417,7 +417,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -473,7 +473,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -529,7 +529,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -590,7 +590,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -645,7 +645,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
@@ -700,7 +700,7 @@
                                                                                 href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                             <a class="dropdown-item"
                                                                                 href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('#delete-guideline').submit()">Delete</a>
+                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
 
                                                                         </div>
                                                                     </div>
