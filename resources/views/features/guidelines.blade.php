@@ -46,53 +46,53 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Flood')
-                                        @if ($guideline->time == 'Before')
+                                    @if ($guideline->disaster == 'Flood' && $guideline->time == 'Before')
 
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </div>
+                                        </li>
 
-                                        @endif
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -103,51 +103,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Flood')
-                                        @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Flood' && $guideline->time == 'During')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -158,51 +158,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Flood')
-                                        @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Flood' && $guideline->time == 'After')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -219,51 +219,50 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Earthquake')
-                                        @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'Before')
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -274,51 +273,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Earthquake')
-                                        @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'During')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -329,51 +328,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Earthquake')
-                                        @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'After')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -390,51 +389,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tropical Cyclone')
-                                        @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'Before')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -445,53 +444,53 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tropical Cyclone')
-                                        @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'During')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
-
                                                         </div>
+
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
+
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -502,51 +501,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tropical Cyclone')
-                                        @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'After')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -563,51 +562,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">BEFORE</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tsunami')
-                                        @if ($guideline->time == 'Before')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'Before')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -618,51 +617,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">DURING</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tsunami')
-                                        @if ($guideline->time == 'During')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'During')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -673,51 +672,51 @@
                             <h5 class="card-title text-center h4 font-weight-bold text-primary text-uppercase">AFTER</h5>
                             <ul class="list-group list-group-flush bg-transparent" style="font-size: 1rem">
                                 @foreach ($guidelines as $guideline)
-                                    @if ($guideline->disaster == 'Tsunami')
-                                        @if ($guideline->time == 'After')
-                                            <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-gray-800">
-                                                                    {{ $guideline->guideline }}
-                                                                </div>
+                                    @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'After')
+
+                                        <li class="list-group-item bg-transparent">
+                                            <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card-body">
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                            <div class="text-gray-800">
+                                                                {{ $guideline->guideline }}
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
-                                                                <div class="col-auto">
-                                                                    <div class="dropdown show">
-                                                                        <a href="#" role="button" id="dropdownMenuLink"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                            <i
-                                                                                class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
-                                                                        </a>
-
-                                                                        <div class="dropdown-menu"
-                                                                            aria-labelledby="dropdownMenuLink">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}"
-                                                                                onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <form id="delete-guideline"
-                                                                        action="/admin/guidelines/{{ $guideline->id }}"
-                                                                        method="POST" class="hidden">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                    </form>
-                                                                </div>
-                                                            @endif
                                                         </div>
+                                                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            <div class="col-auto">
+                                                                <div class="dropdown show">
+                                                                    <a href="#" role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <i
+                                                                            class="fas fa-ellipsis-v fa-2x text-gray-300"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuLink">
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                        <a class="dropdown-item"
+                                                                            href="/admin/guidelines/{{ $guideline->id }}"
+                                                                            onclick="event.preventDefault();document.getElementById('delete-guideline').submit()">Delete</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <form id="delete-guideline"
+                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                    method="POST" class="hidden">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            </li>
-                                        @endif
+                                            </div>
+                                        </li>
+
                                     @endif
                                 @endforeach
                             </ul>
