@@ -50,7 +50,7 @@
                                         @if ($guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card border-left-primary h-100 py-2 w-100">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -59,9 +59,6 @@
                                                                     class="fas fa-angle-double-right mr-2"
                                                                     style="color: #004F91"></i> {{ $guideline->guideline }}
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                                             </div>
                                                         </div>
                                                     </div>
