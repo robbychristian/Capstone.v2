@@ -420,9 +420,9 @@
                                     swal.fire("Done!", resp.message, "success");
                                     location.reload();
                                 } else {
-                                    swal.fire("Error!", 'Sumething went wrong.',
+                                    swal.fire("Error!", 'sjdsada.',
                                         "error");
-                                    console.log(resp);
+                                    console.log(resp.type, object.message);
                                 }
                             },
                             error: function(resp) {
