@@ -52,9 +52,10 @@ class EvacuationController extends Controller
                     //</div>
 
 
-                    return '<div class="dropdown">
-                        <a href="#" class="btn-primary" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v"></i>
+                    return '<div class="d-flex justify-content-center align-items-center">
+                    <div class="dropdown" style="text-align:center;">
+                        <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v text-primary"></i>
                         </a>
                       
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
@@ -72,7 +73,7 @@ class EvacuationController extends Controller
                       ' . method_field("DELETE") . '
                      </form>
 
-                      
+                      </div>
                       ';
                 })
 
@@ -257,14 +258,14 @@ class EvacuationController extends Controller
      */
     public function destroy($id)
     {
-        EvacuationCenters::find($id)->delete();
-        return response()->json(['success' => 'The evacuation center has been deleted!']);
+        //EvacuationCenters::find($id)->delete();
+        //return response()->json(['success' => 'The evacuation center has been deleted!']);
         //$evacuationcenter = new EvacuationCenters;
         //$evacuationcenter->deleteData($id);
         //return response()->json(['success' => 'The evacuation center has been deleted!']);
-        //$evacuationcenter = EvacuationCenters::find($id);
-        //$evacuationcenter->delete();
-        //return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
+        $evacuationcenter = EvacuationCenters::find($id);
+        $evacuationcenter->delete();
+        return redirect('/admin/evacuation')->with('success', 'The evacuation center has been deleted!');
     }
 
     public function approve($id)
