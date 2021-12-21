@@ -52,7 +52,7 @@
                                         @if ($guideline->disaster == 'Flood' && $guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -107,7 +107,7 @@
                                         @if ($guideline->disaster == 'Flood' && $guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -161,7 +161,7 @@
                                         @if ($guideline->disaster == 'Flood' && $guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -220,7 +220,7 @@
                                     @foreach ($guidelines as $guideline)
                                         @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'Before')
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -274,7 +274,7 @@
                                         @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -328,7 +328,7 @@
                                         @if ($guideline->disaster == 'Earthquake' && $guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -388,7 +388,7 @@
                                         @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -442,7 +442,7 @@
                                         @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -498,7 +498,7 @@
                                         @if ($guideline->disaster == 'Tropical Cyclone' && $guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -560,7 +560,7 @@
                                         @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'Before')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -614,7 +614,7 @@
                                         @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'During')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
@@ -668,7 +668,7 @@
                                         @if ($guideline->disaster == 'Tsunami' && $guideline->time == 'After')
 
                                             <li class="list-group-item bg-transparent">
-                                                <div class="card border-left-primary h-100 w-100 py-2">
+                                                <div class="card border-left-primary h-100 w-100 ">
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
