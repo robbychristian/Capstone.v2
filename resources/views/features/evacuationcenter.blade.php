@@ -71,6 +71,7 @@
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options);
 
+            //paginate map
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
                     ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
@@ -94,27 +95,49 @@
 
             }
 
-
+            //ALL EVAC MAP
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
                     "{{ $evacmap->is_approved }}",
-                    "{{ $evacmap->id }}"],
+                    "{{ $evacmap->id }}",
+                    "{{ $evacmap->evac_name }}", 
+                    "{{ $evacmap->nearest_landmark }}", 
+                    "{{ $evacmap->phone_no }}", 
+                    "{{ $evacmap->capacity }}", 
+                    "{{ $evacmap->availability  }}", 
+                    ],
                 @endforeach
             ];
 
-            var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
-            var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
+            var infoWindow = new google.maps.InfoWindow();
+           
 
             for (var i = 0; i < allMarkers.length; i++) {
                 var data = allMarkers[i]
+                var success_badge = '<span class="badge badge-success">'+ data[8] + '</span>';
                 var location = new google.maps.LatLng(data[0], data[1]);
                 var marker = new google.maps.Marker({
                     position: location,
                     map: allmap,
                     label: data[3],
                     icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                    html: '<ul class="list-group list-group-flush">' +
+                        '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark:'+ data[5]'</li>' +
+                        '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number:'+ data[6]'</li>' +
+                        '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity'+ data[7]'</li>' +
+                        '<li class="list-group-item"></li>' +
+                        '<li class="list-group-item"></li>' +
+                        '</ul>'
                 });
+
+
+                (function(marker, data) {
+                    google.maps.event.addListener(marker, "click", function(e) {
+                        infoWindow.setContent(marker.html);
+                        infoWindow.open(allmap, marker);
+                    });
+                })(marker, data);
 
             }
 
