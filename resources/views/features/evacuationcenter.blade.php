@@ -255,24 +255,37 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
-                        <div class="container-fluid">
-                            <div class="dropdown">
-                                <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="fas fa-caret-down"></i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    @foreach ($barangays as $barangay)
-                                        <button class="dropdown-item" type="button">{{ $barangay->brgy_loc }}</button>
-                                    @endforeach
+                        @if (count($evacmaps > 0))
+                            <div class="container-fluid">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fas fa-caret-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        @foreach ($barangays as $barangay)
+                                            <button class="dropdown-item"
+                                                type="button">{{ $barangay->brgy_loc }}</button>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="map-container mt-3">
+                                    <div id="evac_map_all" style="height: 400px; width:auto;"></div>
+                                </div>
+
+                            </div>
+
+                        @else
+
+                            <div class="card">
+                                <div class="card-body">
+                                    There are no evacuation centers added yet.
                                 </div>
                             </div>
 
-                            <div class="map-container mt-3">
-                                <div id="evac_map_all" style="height: 400px; width:auto;"></div>
-                            </div>
-                            
-                        </div>
+                        @endif
+
                     </div>
 
                 </div>
