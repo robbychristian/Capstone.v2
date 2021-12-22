@@ -70,7 +70,7 @@
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options);
-            
+
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
                     ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
@@ -229,19 +229,21 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
-                        <div class="dropdown">
-                            <button class="btn btn-primary" type="button" id="dropdownMenu2"
-                                data-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                @foreach ($barangays as $barangay)
-                                    <button class="dropdown-item" type="button">{{ $barangay->brgy_loc }}</button>
-                                @endforeach
+                        <div class="container-fluid">
+                            <div class="dropdown">
+                                <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fas fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    @foreach ($barangays as $barangay)
+                                        <button class="dropdown-item" type="button">{{ $barangay->brgy_loc }}</button>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
 
-                        <div id="evac_map_all" style="height:100%; width: 100%;"></div>
+                            <div id="evac_map_all" style="height:100%; width: 100%;"></div>
+                        </div>
                     </div>
 
                 </div>
