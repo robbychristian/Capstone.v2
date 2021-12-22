@@ -79,7 +79,11 @@
                 @endforeach
             ]
 
-            console.log(brgys);
+            for (var i=0; i < brgys.length; i++){
+                var coordinates = brgys[i];
+
+                console.log(coordinates[0]);
+            }
 
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
