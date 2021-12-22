@@ -69,7 +69,8 @@
             function newLocation(newLat, newLng) {
                 allmap.setCenter({
                     lat: newLat,
-                    lng: newLng
+                    lng: newLng,
+                    center: 16,
                 });
             }
 
