@@ -84,8 +84,11 @@
 
                 for (var i = 0; i < brgys.length; i++) {
                     var coordinates = brgys[i];
+                    var lat = parseFloat(coordinates[1]);
+                    var lng = parseFloat(coordinates[2]);
+
                     $("#" + coordinates[0]).on('click', function() {
-                        newLocation(coordinates[1], coordinates[2]);
+                        newLocation(lat, lng);
                     });
                 }
             });
