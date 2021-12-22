@@ -166,7 +166,7 @@
                             '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' +
                             data[8] +
                             '</li>' +
-                            '<li class="list-group-item"><span class="badge badge-success">' + data[9] +
+                            '<li class="list-group-item"><span class="badge badge-danger">' + data[9] +
                             '</span></li>' +
                             '</ul>' +
                             '</p>' +
@@ -338,7 +338,7 @@
 
                                 <div class="map-container mt-3">
                                     <div id="evac_map_all" style="height: 400px; width:100%;"></div>
-                                    <p>Lengend:</p>
+                                    <h6 class="mt-3">Legend:</h6>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#00a79d"></i>Approved</li>
                                         <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#fb5968"></i>Not yet approved</li>
