@@ -84,7 +84,7 @@
 
                 for (var i = 0; i < brgys.length; i++) {
                     var coordinates = brgys[i];
-                    $("'#' + coordinates[0]").on('click', function() {
+                    $("#" + coordinates[0]).on('click', function() {
                         newLocation(coordinates[1], coordinates[2]);
                     });
                 }
