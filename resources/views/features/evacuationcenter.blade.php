@@ -174,7 +174,7 @@
                             '</div>',
                     });
                 }
-                
+
                 (function(marker, data) {
                     google.maps.event.addListener(marker, "click", function(e) {
                         infoWindow.setContent(marker.html);
@@ -337,7 +337,12 @@
                                 </div>
 
                                 <div class="map-container mt-3">
-                                    <div id="evac_map_all" style="height: 400px; width:auto;"></div>
+                                    <div id="evac_map_all" style="height: 400px; width:100%;"></div>
+                                    <p>Lengend:</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#00a79d"></i>Approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#fb5968"></i>Not yet approved</li>
+                                    </ul>
                                 </div>
 
                             </div>
