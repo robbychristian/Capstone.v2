@@ -82,17 +82,17 @@
             }
 
             $(document).ready(function() {
-                for (var i = 0; i < brgys.length; i++) {
+                for (var i = 0; i <= brgys.length; i++) {
 
-                    brgys = brgys[i];
-                    var lat = parseFloat(brgys[1]);
-                    var lng = parseFloat(brgys[2]);
+                    var coordinates = brgys[i];
+                    var lat = parseFloat(coordinates[1]);
+                    var lng = parseFloat(coordinates[2]);
 
 
-                    $("#" + brgys[0]).on('click', function() {
+                    $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
 
-                        console.log(brgys[0]);
+                        console.log(coordinates[0]);
                     });
                 }
             });
