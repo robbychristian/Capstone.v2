@@ -297,8 +297,8 @@
                                     </div>
                                 </div>
 
-                                <div class="map-container mt-3">
-                                    <div id="evac_map_all" style="height: 400px; width:100%;"></div>
+                                <div class="container-fluid mt-3">
+                                    <div id="evac_map_all" style="height: 500px; width:100%;"></div>
                                     <h6 class="mt-3 font-weight-bold">Legend:</h6>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
