@@ -116,6 +116,7 @@
             for (var i = 0; i < allMarkers.length; i++) {
                 var data = allMarkers[i]
                 var success_badge = '<span class="badge badge-success">' + data[8] + '</span>';
+                var danger_badge = '<span class="badge badge-danger">' + data[8] + '</span>';
                 var location = new google.maps.LatLng(data[0], data[1]);
                 var marker = new google.maps.Marker({
                     position: location,
@@ -133,7 +134,7 @@
                         data[7] + '</li>' +
                         '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' + data[8] +
                         '</li>' +
-                        '<li class="list-group-item"></li>' +
+                        '<li class="list-group-item">'+ data[9] == 'Available' ? success_badge : danger_badge + '</li>' +
                         '<li class="list-group-item"></li>' +
                         '</ul>' +
                         '</p>' +
