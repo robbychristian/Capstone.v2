@@ -242,7 +242,10 @@
                                 </div>
                             </div>
 
-                            <div id="evac_map_all" style="height:100%; width: 100%;"></div>
+                            <div>
+                                <div id="evac_map_all" style="height: 600px; width:auto;"></div>
+                            </div>
+                            
                         </div>
                     </div>
 
