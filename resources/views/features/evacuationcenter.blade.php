@@ -255,7 +255,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
-                        @if (count($evacmaps > 0))
+                        @if (count($evacmaps) > 0)
                             <div class="container-fluid">
                                 <div class="dropdown">
                                     <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
