@@ -53,7 +53,7 @@
             }
 
 
-            var evac_map = new google.maps.Map(document.getElementById('evac_map_all'), options);
+            var evac_map = new google.maps.Map(document.getElementById('map_all'), options);
         }
     </script>
 
@@ -115,9 +115,9 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <div id="evac_map_all" style="height:600px; width: 100%;"></div>
-                            </div>
+
+                            <div id="map_all" style="height:600px; width: auto;"></div>
+
 
                         </div>
                     </div>
