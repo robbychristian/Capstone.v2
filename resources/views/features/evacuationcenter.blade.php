@@ -2,7 +2,7 @@
 
 @section('title', '| Evacuation Centers and Hospitals')
 @section('content')
-
+<!--- COMMENTS (not yet accomplished): admin changeable buttons on the dropdown, brgy official side(crud),  resident side (not yet checked) -->
     <script>
         $(function() {
             $('[data-toggle="popover"]').popover()
