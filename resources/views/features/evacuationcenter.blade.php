@@ -70,8 +70,12 @@
                 allmap.setCenter({
                     lat: newLat,
                     lng: newLng,
-                    zoom: 16,
+                   
                 });
+
+                allmap.setZoom({
+                    zoom: 16,
+                })
             }
 
             var brgys = [
