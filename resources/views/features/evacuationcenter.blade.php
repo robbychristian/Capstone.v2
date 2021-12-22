@@ -80,7 +80,7 @@
             //    allmap.setZoom(16);
             //    allmap.panTo(brgy);
             //}
-            var brgy = <?php echo json_decode($barangays); >?
+            var brgy = <? php echo json_decode($barangays) ?>;
             console.log(brgy);
            //$(document).ready(function() {
            //    //n = (brgys.length);
