@@ -120,7 +120,9 @@
                             </div>
 
 
-                            <div id="map_all" style="height:600px; width: auto;"></div>
+                            <div class="col-sm-12 col-md-6 col-lg-8">
+                                <div id="evac_map" style="height:100%; width: 100%;"></div>
+                            </div>
 
 
                         </div>
