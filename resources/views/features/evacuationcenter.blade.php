@@ -112,7 +112,6 @@
 
             var infoWindow = new google.maps.InfoWindow();
            
-
             for (var i = 0; i < allMarkers.length; i++) {
                 var data = allMarkers[i]
                 var success_badge = '<span class="badge badge-success">'+ data[8] + '</span>';
@@ -122,13 +121,13 @@
                     map: allmap,
                     label: data[3],
                     icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                    html: '<ul class="list-group list-group-flush">' +
-                        '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark:'+ data[5]'</li>' +
-                        '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number:'+ data[6]'</li>' +
-                        '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity'+ data[7]'</li>' +
-                        '<li class="list-group-item"></li>' +
-                        '<li class="list-group-item"></li>' +
-                        '</ul>'
+                    //html: '<ul class="list-group list-group-flush">' +
+                    //    '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark:'+ data[5]'</li>' +
+                    //    '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number:'+ data[6]'</li>' +
+                    //    '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity'+ data[7]'</li>' +
+                    //    '<li class="list-group-item"></li>' +
+                    //    '<li class="list-group-item"></li>' +
+                    //    '</ul>',
                 });
 
 
