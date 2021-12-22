@@ -66,11 +66,7 @@
 
             //ALL EVAC MAP
 
-            function newLocation(newLat, newLng) {
-                var brgy = new google.maps.LatLng(newLat, newLng);
-                allmap.setZoom(16);
-                allmap.panTo(brgy);
-            }
+
 
             var brgys = [
                 @foreach ($barangays as $barangay)
@@ -82,17 +78,23 @@
 
 
             for (var i = 0; i < brgys.length; i++) {
+                function newLocation(newLat, newLng) {
+                    var brgy = new google.maps.LatLng(newLat, newLng);
+                    allmap.setZoom(16);
+                    allmap.panTo(brgy);
+                }
+
                 var coordinates = brgys[i];
                 var lat = parseFloat(coordinates[1]);
                 var lng = parseFloat(coordinates[2]);
                 $(document).ready(function() {
-                    
+
                     $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
                     });
                 });
 
-                console.log("#" + coordinates[0]);
+
             }
 
             console.log(brgys);
