@@ -19,15 +19,15 @@
 
         function initMap() {
             @if (Auth::user()->user_role == 1)
-            var options = {
-                zoom: 16,
+                var options = {
+                zoom: 10,
                 center: {
                 lat: 14.5764,
                 lng: 121.0851
                 },
                 }
-
-            var options2 = {
+            
+                var options2 = {
                 zoom: 13,
                 center: {
                 lat: 14.5764,
@@ -305,16 +305,16 @@
                                     </div>
                                 </div>
 
-                                <div class="container-fluid mt-3">
-                                    <div id="evac_map_all" style="height: 500px; width:100%;"></div>
-                                    <h6 class="mt-3 font-weight-bold">Legend:</h6>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
-                                                style="color:#00a79d"></i>Approved</li>
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
-                                                style="color:#fb5968"></i>Not yet approved</li>
-                                    </ul>
-                                </div>
+
+                                <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;"></div>
+                                <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                            style="color:#00a79d"></i>Approved</li>
+                                    <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                            style="color:#fb5968"></i>Not yet approved</li>
+                                </ul>
+
 
                             </div>
 
