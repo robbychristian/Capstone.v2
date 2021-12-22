@@ -70,7 +70,7 @@
 
             var brgys = [
                 @foreach ($barangays as $barangay)
-                    [ "{{ $barangay->id }}", "{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}",],
+                    [ "{{ $barangay->id }}", "{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}"],
                 @endforeach
             ]
 
@@ -80,7 +80,7 @@
                 allmap.setZoom(16);
                 allmap.panTo(brgy);
             }
-            
+
             $(document).ready(function() {
                 for (var i = 0; i < brgys.length; i++) {
 
@@ -89,7 +89,7 @@
                     var lng = parseFloat(coordinates[2]);
 
 
-                    $("#" + coordinates[0]).on('click', function() {
+                    $("#" + coordinates[0]).change(function() {
                         newLocation(lat, lng);
 
                         console.log(coordinates[0]);
