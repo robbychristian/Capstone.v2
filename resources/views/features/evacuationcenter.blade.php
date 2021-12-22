@@ -89,7 +89,7 @@
                     var lng = parseFloat(coordinates[2]);
 
 
-                    $("#" + coordinates[0]).change(function() {
+                    $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
 
                         console.log(coordinates[0]);
