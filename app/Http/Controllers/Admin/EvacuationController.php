@@ -80,11 +80,9 @@ class EvacuationController extends Controller
                 ->make(true);
         }
 
-       //$barangays = DB::table('barangays')
-       //    ->where('is_added', 1)
-       //    ->get();
-
-        $barangays = EvacuationCenters::all()->where('deleted_at', null)->toArray();
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
         $evacuationcenters = EvacuationCenters::where('deleted_at', null)->paginate(2);
         $evacmaps = EvacuationCenters::all()->where('deleted_at', null);
         return view('features.evacuationcenter', [

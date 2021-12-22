@@ -65,40 +65,36 @@
             }
 
             //ALL EVAC MAP
-
-
-
-            //var brgys = [
-            //    @foreach ($barangays as $barangay)
-            //        [ "{{ $barangay->id }}", "{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}"],
-            //    @endforeach
-            //]
+            var brgys = [
+                @foreach ($barangays as $barangay)
+                    [ "{{ $barangay->id }}", "{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}"],
+                @endforeach
+            ]
 
             //Setting Location with jQuery
-            //function newLocation(newLat, newLng) {
-            //    var brgy = new google.maps.LatLng(newLat, newLng);
-            //    allmap.setZoom(16);
-            //    allmap.panTo(brgy);
-            //}
-            var brgy = <? php echo json_decode($barangays) ?>;
-            console.log(brgy);
-           //$(document).ready(function() {
-           //    //n = (brgys.length);
-           //    for (var i = 0; i < brgys.length; i++) {
+            function newLocation(newLat, newLng) {
+                var brgy = new google.maps.LatLng(newLat, newLng);
+                allmap.setZoom(16);
+                allmap.panTo(brgy);
+            }
 
-           //        var coordinates = brgys[i];
-           //        var lat = parseFloat(coordinates[1]);
-           //        var lng = parseFloat(coordinates[2]);
+            $(document).ready(function() {
+                //n = (brgys.length);
+                for (var i = 0; i < brgys.length; i++) {
+
+                    var coordinates = brgys[i];
+                    var lat = parseFloat(coordinates[1]);
+                    var lng = parseFloat(coordinates[2]);
 
 
-           //        $("#" + coordinates[0]).on('click', function() {
-           //            newLocation(lat, lng);
+                    $("#" + coordinates[0]).on('click', function() {
+                        newLocation(lat, lng);
 
-           //            console.log(coordinates[0]);
-           //        });
-           //    }
-           //});
-           //console.log(brgys);
+                        console.log(coordinates[0]);
+                    });
+                }
+            });
+            console.log(brgys);
 
 
 
