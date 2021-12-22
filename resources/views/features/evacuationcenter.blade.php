@@ -338,10 +338,10 @@
 
                                 <div class="map-container mt-3">
                                     <div id="evac_map_all" style="height: 400px; width:100%;"></div>
-                                    <h6 class="mt-3">Legend:</h6>
+                                    <h6 class="mt-3 font-weight-bold">Legend:</h6>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#00a79d"></i>Approved</li>
-                                        <li class="list-inline-item"><i class="fas fa-map-marker" style="color:#fb5968"></i>Not yet approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-3" style="color:#00a79d"></i>Approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-3" style="color:#fb5968"></i>Not yet approved</li>
                                     </ul>
                                 </div>
 
