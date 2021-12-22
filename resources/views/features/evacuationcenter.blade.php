@@ -75,30 +75,27 @@
             ]
 
             //Setting Location with jQuery
+            function newLocation(newLat, newLng) {
+                var brgy = new google.maps.LatLng(newLat, newLng);
+                allmap.setZoom(16);
+                allmap.panTo(brgy);
+            }
+            
+            $(document).ready(function() {
+                for (var i = 0; i < brgys.length; i++) {
 
+                    var coordinates = brgys[i];
+                    var lat = parseFloat(coordinates[1]);
+                    var lng = parseFloat(coordinates[2]);
 
-            for (var i = 0; i < brgys.length; i++) {
-                function newLocation(newLat, newLng) {
-                    var brgy = new google.maps.LatLng(newLat, newLng);
-                    allmap.setZoom(16);
-                    allmap.panTo(brgy);
-                }
-
-                var coordinates = brgys[i];
-                var lat = parseFloat(coordinates[1]);
-                var lng = parseFloat(coordinates[2]);
-                $(document).ready(function() {
 
                     $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
 
                         console.log(coordinates[0]);
                     });
-                });
-
-
-            }
-
+                }
+            });
             console.log(brgys);
 
 
