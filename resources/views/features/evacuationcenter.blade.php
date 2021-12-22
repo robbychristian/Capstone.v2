@@ -18,55 +18,16 @@
         }
 
         function initMap() {
-            @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
-                var options = {
-                zoom: 16,
+            @if (Auth::user()->user_role == 1)
+            var options = {
+                zoom: 13,
                 center: {
-                lat: 14.6131,
-                lng: 121.0880
+                lat: 14.5764,
+                lng: 121.0851
                 },
                 }
             @endif
 
-            @if (Auth::user()->brgy_loc == 'Barangay Dela Paz')
-                var options = {
-                zoom: 16,
-                center: {
-                lat: 14.6137,
-                lng: 121.0960
-                },
-                }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Manggahan')
-                var options = {
-                zoom: 16,
-                center: {
-                lat: 14.601887,
-                lng: 121.093698
-                },
-                }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Maybunga')
-                var options = {
-                zoom: 16,
-                center: {
-                lat: 14.5763,
-                lng: 121.0850
-                },
-                }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Rosario')
-                var options = {
-                zoom: 16,
-                center: {
-                lat: 14.5885,
-                lng: 121.0891
-                },
-                }
-            @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options);
@@ -210,12 +171,10 @@
 
         <div class="card shadow">
             <div class="card-body">
-
-
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
-                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map"
+                            aria-controls="pills-map" aria-selected="true"><i class="fas fa-columns"
                                 onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
@@ -229,6 +188,7 @@
                     </li>
 
                 </ul>
+                <!-- MAP AND DETAILS -->
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
                         @if (count($evacuationcenters) > 0)
@@ -296,7 +256,7 @@
                         @endif
                     </div>
 
-
+                    <!-- TABLE -->
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
                             <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
@@ -320,6 +280,7 @@
                         </div>
                     </div>
 
+                    <!-- ALL EVAC MAPS -->
                     <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
                         @if (count($evacmaps) > 0)
                             <div class="container-fluid">
@@ -340,8 +301,10 @@
                                     <div id="evac_map_all" style="height: 400px; width:100%;"></div>
                                     <h6 class="mt-3 font-weight-bold">Legend:</h6>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2" style="color:#00a79d"></i>Approved</li>
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2" style="color:#fb5968"></i>Not yet approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#00a79d"></i>Approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#fb5968"></i>Not yet approved</li>
                                     </ul>
                                 </div>
 
