@@ -67,19 +67,9 @@
             //ALL EVAC MAP
 
             function newLocation(newLat, newLng) {
-               // allmap.setCenter({
-               //     lat: newLat,
-               //     lng: newLng,
-               //    
-               // });
-//
-               // allmap.setZoom({
-               //     zoom: 16,
-               // })
-
-               var brgy = new google.maps.LatLng(newLat, newLng);
-               allmap.setZoom(16);
-               allmap.panTo(brgy);
+                var brgy = new google.maps.LatLng(newLat, newLng);
+                allmap.setZoom(16);
+                allmap.panTo(brgy);
             }
 
             var brgys = [
@@ -89,18 +79,21 @@
             ]
 
             //Setting Location with jQuery
-            $(document).ready(function() {
 
-                for (var i = 0; i < brgys.length; i++) {
-                    var coordinates = brgys[i];
-                    var lat = parseFloat(coordinates[1]);
-                    var lng = parseFloat(coordinates[2]);
 
+            for (var i = 0; i < brgys.length; i++) {
+                var coordinates = brgys[i];
+                var lat = parseFloat(coordinates[1]);
+                var lng = parseFloat(coordinates[2]);
+                $(document).ready(function() {
                     $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
                     });
-                }
-            });
+                });
+
+                console.log(coordinates[0]);
+            }
+
 
 
 
