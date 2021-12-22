@@ -70,7 +70,7 @@
                 allmap.setCenter({
                     lat: newLat,
                     lng: newLng,
-                    center: 16,
+                    zoom: 16,
                 });
             }
 
