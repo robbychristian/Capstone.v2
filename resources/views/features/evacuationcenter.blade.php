@@ -3,6 +3,10 @@
 @section('title', '| Evacuation Centers and Hospitals')
 @section('content')
 
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
+    </script>
+
     <script>
         $(function() {
             $('[data-toggle="popover"]').popover()
@@ -264,9 +268,7 @@
     </div>
 
 
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
-    </script>
+
 
     <script type="text/javascript">
         $(document).ready(function() {
