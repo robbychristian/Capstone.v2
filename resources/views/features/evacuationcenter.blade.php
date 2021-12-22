@@ -69,6 +69,8 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
+            var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options);
+            
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
                     ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
@@ -121,11 +123,17 @@
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
-                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map" onClick="window.location.reload();"></i></a>
+                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map"
+                                onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
                             aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-allMap-tab" data-toggle="pill" href="#pills-allMap" role="tab"
+                            aria-controls="pills-allMap" aria-selected="false"><i class="fas fa-map-marked-alt"></i></a>
                     </li>
 
                 </ul>
@@ -218,6 +226,22 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
+                        <div class="dropdown">
+                            <button class="btn btn-primary" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                @foreach ($barangays as $barangay)
+                                    <button class="dropdown-item" type="button">{{ $barangay->brgy_loc }}</button>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div id="evac_map_all" style="height:100%; width: 100%;"></div>
                     </div>
 
                 </div>
@@ -365,7 +389,7 @@
                                     swal("Deleted!", response.message, "success");
                                 },
 
-                                error:function(response){
+                                error: function(response) {
                                     console.log(response);
                                 }
                             });
@@ -402,7 +426,8 @@
                             });
 
                             $.ajax({
-                                url: "https://kabisigapp.com/admin/evacuation/approve/" + evacuation_id,
+                                url: "https://kabisigapp.com/admin/evacuation/approve/" +
+                                    evacuation_id,
                                 type: 'POST',
                                 dataType: 'JSON',
                                 data: {
@@ -415,7 +440,7 @@
                                     swal("Approved!", response.message, "success");
                                 },
 
-                                error:function(response){
+                                error: function(response) {
                                     console.log(response);
                                 }
                             });
