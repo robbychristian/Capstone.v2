@@ -107,17 +107,17 @@
             var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
             var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
 
-            for (var i = 0; i < allMarkers.length; i++) {
-                var data = allMarkers[i]
-                var location = new google.maps.LatLng(data[0], data[1]);
-                var marker = new google.maps.Marker({
-                    position: location,
-                    map: allmap,
-                    label: data[3],
-                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                });
-
-            }
+            //for (var i = 0; i < allMarkers.length; i++) {
+            //    var data = allMarkers[i]
+            //    var location = new google.maps.LatLng(data[0], data[1]);
+            //    var marker = new google.maps.Marker({
+            //        position: location,
+            //        map: allmap,
+            //        label: data[3],
+            //        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+            //    });
+//
+            //}
 
             //loop coordinates from database
             for (var i = 0; i < allMarkers.length; i++) {
