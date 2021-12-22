@@ -113,36 +113,68 @@
 
             var infoWindow = new google.maps.InfoWindow();
 
+
+
             for (var i = 0; i < allMarkers.length; i++) {
                 var data = allMarkers[i]
-                var success_badge = '<span class="badge badge-success">' + data[8] + '</span>';
-                var danger_badge = '<span class="badge badge-danger">' + data[8] + '</span>';
+                var success_badge = '<span class="badge badge-success">' + data[9] + '</span>';
+                var danger_badge = '<span class="badge badge-danger">' + data[9] + '</span>';
                 var location = new google.maps.LatLng(data[0], data[1]);
-                var marker = new google.maps.Marker({
-                    position: location,
-                    map: allmap,
-                    label: data[3],
-                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                    html: '<div class="card">' + '<div class="card-body">' +
-                        '<h5 class="card-title"><span class="badge badge-primary mr-3">'+ data[3] +'</span><strong>'+ data[4]+ '</strong></h5>'+
-                        ' <h6 class="card-subtitle mb-2 text-muted">'+ data[5]+ '</h6>' +
-                        '<p class="card-text">' +
-                        '<ul class="list-group list-group-flush">' +
-                        '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark: ' +
-                        data[6] + '</li>' +
-                        '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number: ' +
-                        data[7] + '</li>' +
-                        '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' + data[8] +
-                        '</li>' +
-                        '<li class="list-group-item">'+ data[9] == 'Available' ? success_badge : danger_badge + '</li>' +
-                        '<li class="list-group-item"></li>' +
-                        '</ul>' +
-                        '</p>' +
-                        '</div>' +
-                        '</div>',
-                });
 
-
+                if (data[9] == 'Available') {
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: allmap,
+                        label: data[3],
+                        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                        html: '<div class="card">' + '<div class="card-body">' +
+                            '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
+                            '</span><strong>' + data[4] + '</strong></h5>' +
+                            ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                            '<p class="card-text">' +
+                            '<ul class="list-group list-group-flush">' +
+                            '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark: ' +
+                            data[6] + '</li>' +
+                            '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number: ' +
+                            data[7] + '</li>' +
+                            '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' +
+                            data[8] +
+                            '</li>' +
+                            '<li class="list-group-item"><span class="badge badge-success">' + data[9] +
+                            '</span></li>' +
+                            '</ul>' +
+                            '</p>' +
+                            '</div>' +
+                            '</div>',
+                    });
+                } else {
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: allmap,
+                        label: data[3],
+                        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                        html: '<div class="card">' + '<div class="card-body">' +
+                            '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
+                            '</span><strong>' + data[4] + '</strong></h5>' +
+                            ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                            '<p class="card-text">' +
+                            '<ul class="list-group list-group-flush">' +
+                            '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark: ' +
+                            data[6] + '</li>' +
+                            '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number: ' +
+                            data[7] + '</li>' +
+                            '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' +
+                            data[8] +
+                            '</li>' +
+                            '<li class="list-group-item"><span class="badge badge-success">' + data[9] +
+                            '</span></li>' +
+                            '</ul>' +
+                            '</p>' +
+                            '</div>' +
+                            '</div>',
+                    });
+                }
+                
                 (function(marker, data) {
                     google.maps.event.addListener(marker, "click", function(e) {
                         infoWindow.setContent(marker.html);
