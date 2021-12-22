@@ -198,14 +198,14 @@
                                 <label>Availability</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="availability" id=""
-                                        value="Available">
+                                        value="Available" {{ old('availability') == 'Available' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="">
                                         Available
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="availability" id=""
-                                        value="Not Available">
+                                        value="Not Available" {{ old('availability') == 'Not Available' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="">
                                         Not Available
                                     </label>
