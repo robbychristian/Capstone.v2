@@ -82,7 +82,8 @@
             }
 
             $(document).ready(function() {
-                for (var i = 0; i <= brgys.length; i++) {
+                n = (brgys.length);
+                for (var i = 0; i <= (n-1); i++) {
 
                     var coordinates = brgys[i];
                     var lat = parseFloat(coordinates[1]);
