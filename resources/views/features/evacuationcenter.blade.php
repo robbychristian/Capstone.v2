@@ -117,6 +117,8 @@
                 });
 
             }
+
+            console.log(allMarkers);
         }
     </script>
 
