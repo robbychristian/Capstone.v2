@@ -86,12 +86,13 @@
                 var lat = parseFloat(coordinates[1]);
                 var lng = parseFloat(coordinates[2]);
                 $(document).ready(function() {
+                    
                     $("#" + coordinates[0]).on('click', function() {
                         newLocation(lat, lng);
                     });
                 });
 
-                console.log(coordinates[0]);
+                console.log("#" + coordinates[0]);
             }
 
             console.log(brgys);
