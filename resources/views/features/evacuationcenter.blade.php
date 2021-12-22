@@ -67,15 +67,19 @@
             //ALL EVAC MAP
 
             function newLocation(newLat, newLng) {
-                allmap.setCenter({
-                    lat: newLat,
-                    lng: newLng,
-                   
-                });
+               // allmap.setCenter({
+               //     lat: newLat,
+               //     lng: newLng,
+               //    
+               // });
+//
+               // allmap.setZoom({
+               //     zoom: 16,
+               // })
 
-                allmap.setZoom({
-                    zoom: 16,
-                })
+               var brgy = new google.maps.LatLng(newLat, newLng);
+               allmap.setZoom(16);
+               allmap.panTo(brgy);
             }
 
             var brgys = [
