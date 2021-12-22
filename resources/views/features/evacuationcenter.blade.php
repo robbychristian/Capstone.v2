@@ -65,6 +65,22 @@
             }
 
             //ALL EVAC MAP
+
+            //function newLocation(newLat, newLng) {
+            //    allmap.setCenter({
+            //        lat: newLat,
+            //        lng: newLng
+            //    });
+            //}
+
+            var brgys = [
+                @foreach ($barangays as $barangay)
+                    [ "{{ $barangay->id }}", "{{ $barangay->brgy_lat }}","{{ $barangay->brgy_lng }}",],
+                @endforeach
+            ]
+
+            console.log(brgys);
+
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
@@ -299,7 +315,7 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                         @foreach ($barangays as $barangay)
-                                            <button class="dropdown-item"
+                                            <button class="dropdown-item" id="{{ $barangay->id }}"
                                                 type="button">{{ $barangay->brgy_loc }}</button>
                                         @endforeach
                                     </div>
