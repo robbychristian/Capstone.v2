@@ -84,15 +84,15 @@
             $(document).ready(function() {
                 for (var i = 0; i < brgys.length; i++) {
 
-                    var coordinates = brgys[i];
-                    var lat = parseFloat(coordinates[1]);
-                    var lng = parseFloat(coordinates[2]);
+                    //var coordinates = brgys[i];
+                    var lat = parseFloat(brgys[0][1]);
+                    var lng = parseFloat(brgys[0][2]);
 
 
-                    $("#" + coordinates[0]).on('click', function() {
+                    $("#" + brgys[0][0]).on('click', function() {
                         newLocation(lat, lng);
 
-                        console.log(coordinates[0]);
+                        console.log(brgys[0][0]);
                     });
                 }
             });
