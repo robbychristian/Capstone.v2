@@ -99,8 +99,7 @@
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
                     "{{ $evacmap->is_approved }}",
-                    "{{ $evacmap->id }}", ],
-                    "{{ $evacmap->evac_name }}", ],
+                    "{{ $evacmap->id }}"],
                 @endforeach
             ];
 
@@ -119,7 +118,7 @@
 
             }
 
-            //loop coordinates from database
+            console.log(allMarkers);
         }
     </script>
 
