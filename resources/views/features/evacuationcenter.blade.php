@@ -20,6 +20,14 @@
         function initMap() {
             @if (Auth::user()->user_role == 1)
             var options = {
+                zoom: 16,
+                center: {
+                lat: 14.5764,
+                lng: 121.0851
+                },
+                }
+
+            var options2 = {
                 zoom: 13,
                 center: {
                 lat: 14.5764,
@@ -30,7 +38,7 @@
 
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
-            var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options);
+            var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options2);
 
             //paginate map
             var markers = [
