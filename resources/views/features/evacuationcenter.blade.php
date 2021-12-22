@@ -121,13 +121,7 @@
                 <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
-                            aria-controls="pills-map" aria-selected="true"><i class="fas fa-map-marked-alt"
-                                onClick="window.location.reload();"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-board-tab" data-toggle="pill" href="#pills-board" role="tab"
-                            aria-controls="pills-board" aria-selected="false"><i class="fas fa-columns"
-                                onClick="window.location.reload();"></i></a>
+                            aria-controls="pills-map" aria-selected="true"><i class="far fa-map" onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
@@ -135,28 +129,8 @@
                     </li>
 
                 </ul>
-
-                <!-- MAP -->
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                        <div class="container-fluid">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                                    data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-caret-down"></i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    @foreach ($barangays as $barangay)
-                                        <button class="dropdown-item" type="button">{{ $barangay->brgy_loc }}</button>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div id="evac_map" style="height:100%; width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- INFO AND MAP -->
-                    <div class="tab-pane fade" id="pills-board" role="tabpanel" aria-labelledby="pills-board-tab">
                         @if (count($evacuationcenters) > 0)
                             <div class="row mt-3">
                                 <div class="col-sm-12 col-md-6 col-lg-4">
@@ -391,7 +365,7 @@
                                     swal("Deleted!", response.message, "success");
                                 },
 
-                                error: function(response) {
+                                error:function(response){
                                     console.log(response);
                                 }
                             });
@@ -428,8 +402,7 @@
                             });
 
                             $.ajax({
-                                url: "https://kabisigapp.com/admin/evacuation/approve/" +
-                                    evacuation_id,
+                                url: "https://kabisigapp.com/admin/evacuation/approve/" + evacuation_id,
                                 type: 'POST',
                                 dataType: 'JSON',
                                 data: {
@@ -442,7 +415,7 @@
                                     swal("Approved!", response.message, "success");
                                 },
 
-                                error: function(response) {
+                                error:function(response){
                                     console.log(response);
                                 }
                             });
