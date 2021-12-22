@@ -107,51 +107,19 @@
             var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
             var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
 
-            //for (var i = 0; i < allMarkers.length; i++) {
-            //    var data = allMarkers[i]
-            //    var location = new google.maps.LatLng(data[0], data[1]);
-            //    var marker = new google.maps.Marker({
-            //        position: location,
-            //        map: allmap,
-            //        label: data[3],
-            //        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-            //    });
-//
-            //}
-
-            //loop coordinates from database
             for (var i = 0; i < allMarkers.length; i++) {
                 var data = allMarkers[i]
                 var location = new google.maps.LatLng(data[0], data[1]);
-                let id = data[3];
-
-                @if (Auth::user()->user_role === 1)
-                
-                    var marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     position: location,
                     map: allmap,
                     label: data[3],
                     icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                    html: '<div class="card">' + '<div class="card-body">' +
-                            '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] + '</span><strong>' + data[4] + '</strong>' +
-                
-                                '</div>' +
-                        '</div>',
-                    });
-                
-                
-            
-                
-                @endif
-
-                    (function(marker, data) {
-                        google.maps.event.addListener(marker, "click", function(e) {
-                            infoWindow.setContent(marker.html);
-                            infoWindow.open(allmap, marker);
-                        });
-                    })(marker, data);
+                });
 
             }
+
+            //loop coordinates from database
         }
     </script>
 
