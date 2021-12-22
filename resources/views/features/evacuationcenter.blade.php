@@ -125,8 +125,8 @@
                                 onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-board-tab" data-toggle="pill" href="#pills-board" role="tab"
-                            aria-controls="pills-board" aria-selected="true"><i class="fas fa-columns"
+                        <a class="nav-link" id="pills-board-tab" data-toggle="pill" href="#pills-board" role="tab"
+                            aria-controls="pills-board" aria-selected="false"><i class="fas fa-columns"
                                 onClick="window.location.reload();"></i></a>
                     </li>
                     <li class="nav-item">
