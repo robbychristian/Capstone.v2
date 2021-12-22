@@ -66,12 +66,12 @@
 
             //ALL EVAC MAP
 
-            //function newLocation(newLat, newLng) {
-            //    allmap.setCenter({
-            //        lat: newLat,
-            //        lng: newLng
-            //    });
-            //}
+            function newLocation(newLat, newLng) {
+                allmap.setCenter({
+                    lat: newLat,
+                    lng: newLng
+                });
+            }
 
             var brgys = [
                 @foreach ($barangays as $barangay)
@@ -79,11 +79,18 @@
                 @endforeach
             ]
 
-            for (var i=0; i < brgys.length; i++){
-                var coordinates = brgys[i];
+            //Setting Location with jQuery
+            $(document).ready(function() {
 
-                console.log(coordinates[0]);
-            }
+                for (var i = 0; i < brgys.length; i++) {
+                    var coordinates = brgys[i];
+                    $("'#' + coordinates[0]").on('click', function() {
+                        newLocation(coordinates[1], coordinates[2]);
+                    });
+                }
+            });
+
+
 
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
