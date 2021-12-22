@@ -93,6 +93,30 @@
                 });
 
             }
+
+
+            var allMarkers = [
+                @foreach ($evacmaps as $evacmap)
+                    ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
+                    "{{ $evacmap->is_approved }}",
+                    "{{ $evacmap->id }}"],
+                @endforeach
+            ];
+
+            var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
+            var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
+
+            for (var i = 0; i < allMarkers.length; i++) {
+                var data = allMarkers[i]
+                var location = new google.maps.LatLng(data[0], data[1]);
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: allmap,
+                    label: data[3],
+                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                });
+
+            }
         }
     </script>
 
@@ -242,8 +266,8 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <div id="evac_map_all" style="height: 600px; width:auto;"></div>
+                            <div class="map-container mt-3">
+                                <div id="evac_map_all" style="height: 400px; width:auto;"></div>
                             </div>
                             
                         </div>
