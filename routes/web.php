@@ -133,6 +133,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         //Route::post('/evacuation/delete/{id}', [AdminEvacuation::class,'deleteEvacuation'])->name('evacuation.delete');
         Route::resource('/guidelines', AdminGuidelines::class);
         Route::resource('/vulnerabilitymap', AdminVulnerabilityMap::class);
+        Route::post('/vulnerabilitymap/approve/{id}', [AdminVulnerabilityMap::class, 'approve'])->name('vulnerabilitymap.approve');
         Route::resource('/reports', AdminReports::class);
         Route::post('/reports/confirm/{id}', [AdminReports::class, 'confirmReport']);
         Route::post('/reports/pending/{id}', [AdminReports::class, 'pendingReport']);
