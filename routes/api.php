@@ -39,6 +39,7 @@ Route::get('vulnerablearea/{brgy}', [VulnerabilityMapController::class, 'fetchLo
 Route::get('evacuationcenters/{brgy}', [EvacuationController::class, 'fetchEvacuation']);
 Route::post('updateprofile', [AccountController::class, 'editProfile']);
 Route::post('checkpass', [AccountController::class, 'checkPass']);
+//for register mobile
 Route::get('allBrgys', [ManageBarangay::class, 'mobileBarangays']);
 
 Auth::routes();
