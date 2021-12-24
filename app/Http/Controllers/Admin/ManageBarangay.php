@@ -102,4 +102,12 @@ class ManageBarangay extends Controller
             ->update(['is_added' => 0]);
         return redirect('admin/managebarangay/create')->with('success', 'Barangay removed!');
     }
+
+    public function mobileBarangays()
+    {
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+        return $barangays;
+    }
 }

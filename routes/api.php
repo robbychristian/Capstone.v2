@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AnnouncementController;
 use App\Http\Controllers\Auth\EvacuationController;
 use App\Http\Controllers\Auth\ReportsController;
 use App\Http\Controllers\Auth\VulnerabilityMapController;
+use App\Http\Controllers\Admin\ManageBarangay;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,6 @@ Route::get('vulnerablearea/{brgy}', [VulnerabilityMapController::class, 'fetchLo
 Route::get('evacuationcenters/{brgy}', [EvacuationController::class, 'fetchEvacuation']);
 Route::post('updateprofile', [AccountController::class, 'editProfile']);
 Route::post('checkpass', [AccountController::class, 'checkPass']);
+Route::get('allBrgys', [ManageBarangay::class, 'mobileBarangays']);
 
 Auth::routes();
