@@ -84,7 +84,7 @@ class ManageBarangay extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -107,11 +107,15 @@ class ManageBarangay extends Controller
      */
     public function destroy($id) //ajax
     {
-        $barangay = DB::table('barangays')
-            ->where('id', $id)
-            ->delete();
-            //->update(['is_added' => 0]);
-        return response()->json(['message' => 'The barangay has been archived!']);
+        //$barangay = DB::table('barangays')
+        //    ->where('id', $id)
+        //    ->delete();
+        //    //->update(['is_added' => 0]);
+        //return response()->json(['message' => 'The barangay has been archived!']);
+
+        Barangay::find($id)->delete();
+        return response()->json(['message' => 'The barangay has been archive!']);
+
     }
 
     public function addBarangay($id) //ajax
@@ -132,10 +136,7 @@ class ManageBarangay extends Controller
 
     public function deleteBarangay($id)
     {
-        $barangay = DB::table('barangays')
-            ->where('id', $id)
-            ->delete();
-            //->update(['is_added' => 0]);
+         Barangay::find($id)->delete();
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
