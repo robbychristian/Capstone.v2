@@ -119,7 +119,10 @@ class ManageBarangay extends Controller
         //    ->update(['is_added' => 1]);
         //return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
 
-        ManageBarangay::find($id)->update(['is_added' => 1, 'updated_at' => now()]);
+        //ManageBarangay::find($id)->update(['is_added' => 1, 'updated_at' => now()]);
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 1]);
         return response()->json(['message' => 'The barangay has been added!']);
     }
 
