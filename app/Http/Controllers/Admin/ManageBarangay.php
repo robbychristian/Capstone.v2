@@ -105,7 +105,7 @@ class ManageBarangay extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) //ajax
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
@@ -113,7 +113,7 @@ class ManageBarangay extends Controller
         return response()->json(['message' => 'The barangay has been archived!']);
     }
 
-    public function addBarangay($id)
+    public function addBarangay($id) //ajax
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
@@ -134,7 +134,7 @@ class ManageBarangay extends Controller
         $barangay = DB::table('barangays')
             ->where('id', $id)
             ->update(['is_added' => 0]);
-        return redirect('admin/managebarangay/create')->with('success', 'The barangay has been archived!');
+        return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
     public function mobileBarangays()
