@@ -127,7 +127,6 @@
                     var marker = new google.maps.Marker({
                         position: location,
                         map: allmap,
-                        label: data[3],
                         icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                         html: '<div class="card">' + '<div class="card-body">' +
                             '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
@@ -153,7 +152,6 @@
                     var marker = new google.maps.Marker({
                         position: location,
                         map: allmap,
-                        label: data[3],
                         icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                         html: '<div class="card">' + '<div class="card-body">' +
                             '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
@@ -249,18 +247,18 @@
                                                 </h6>
                                                 <p class="card-text">
                                                 <div class="content">
-                                                    <i class="fas fa-directions mr-2 color"></i>Nearest Landmark:
+                                                    <i class="fas fa-directions mr-2 color"></i> <span class="text-primary font-weight-bold"> Nearest Landmark:</span>
                                                     {{ $evacuationcenter->nearest_landmark }}
                                                 </div>
 
                                                 <div class="content">
-                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
+                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> <span class="text-primary font-weight-bold">Contact Number:</span>  
                                                     {{ $evacuationcenter->phone_no }}
                                                 </div>
 
 
                                                 <div class="content">
-                                                    <i class="fas fa-users mr-2 color"></i>Capacity:
+                                                    <i class="fas fa-users mr-2 color"></i> <span class="text-primary font-weight-bold">Capacity:</span> 
                                                     {{ $evacuationcenter->capacity }}
                                                 </div>
 
