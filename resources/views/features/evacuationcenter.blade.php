@@ -403,7 +403,14 @@
 
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-8">
-                                    <div id="evac_map" style="height:100%; width: 100%;"></div>
+                                    <div id="evac_map" style="height:500px; width: 100%;"></div>
+                                    <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#00a79d"></i>Approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#fb5968"></i>Not yet approved</li>
+                                    </ul>
                                 </div>
 
 
