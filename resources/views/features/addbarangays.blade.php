@@ -41,7 +41,7 @@
 
                         '<div class="d-grid gap-2 d-md-flex justify-content-md-center">' +
 
-                        '<form action="/admin/managebarangay/addbarangay/' + data[4] + '" method="POST">' +
+                        '<form action="/admin/managebarangay/addbarangaymap/' + data[4] + '" method="POST">' +
                         '@csrf' +
                         '@method("POST")' +
                         '<button class="btn btn-success mr-3">Add</button>' +
@@ -49,7 +49,7 @@
 
                         '<form action="/admin/managebarangay/deletebarangay/' + data[4] + '" method="POST">' +
                         '@csrf' +
-                        '@method("POST")' +
+                        '@method("DELETE")' +
                         '<button class="btn btn-warning">Archive</button>' +
                         '</form>' +
 

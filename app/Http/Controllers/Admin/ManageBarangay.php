@@ -18,8 +18,7 @@ class ManageBarangay extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = DB::table('barangays')
-                ->where('deleted_at', null);
+            $data = DB::table('barangays');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -111,21 +110,23 @@ class ManageBarangay extends Controller
         $barangay = DB::table('barangays')
             ->where('id', $id)
             ->delete();
-        return response()->json(['message' => 'The barangay has been deleted!']);
+        return response()->json(['message' => 'The barangay has been archived!']);
     }
 
     public function addBarangay($id)
     {
-        //$barangay = DB::table('barangays')
-        //    ->where('id', $id)
-        //    ->update(['is_added' => 1]);
-        //return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
-
-        //ManageBarangay::find($id)->update(['is_added' => 1, 'updated_at' => now()]);
         $barangay = DB::table('barangays')
             ->where('id', $id)
             ->update(['is_added' => 1]);
         return response()->json(['message' => 'The barangay has been added!']);
+    }
+
+    public function addBarangayMap($id)
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 1]);
+        return redirect('admin/managebarangay/')->with('success', 'The barangay has been added!');
     }
 
     public function deleteBarangay($id)
@@ -133,7 +134,7 @@ class ManageBarangay extends Controller
         $barangay = DB::table('barangays')
             ->where('id', $id)
             ->update(['is_added' => 0]);
-        return redirect('admin/managebarangay/create')->with('success', 'Barangay removed!');
+        return redirect('admin/managebarangay/create')->with('success', 'The barangay has been archived!');
     }
 
     public function mobileBarangays()
