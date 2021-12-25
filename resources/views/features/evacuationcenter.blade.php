@@ -166,6 +166,13 @@
                     }
                 }
 
+                (function(marker, data) {
+                    google.maps.event.addListener(marker, "click", function(e) {
+                        infoWindow.setContent(marker.html);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+
             }
 
             //ALL EVAC MAP
