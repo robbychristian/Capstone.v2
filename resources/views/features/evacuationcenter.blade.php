@@ -248,22 +248,36 @@
                                                     {{ $evacuationcenter->brgy_loc }}
                                                 </h6>
                                                 <p class="card-text">
+                                                <div class="content">
                                                     <i class="fas fa-directions mr-2 color"></i>Nearest Landmark:
                                                     {{ $evacuationcenter->nearest_landmark }}
+                                                </div>
 
+                                                <div class="content">
                                                     <i class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
                                                     {{ $evacuationcenter->phone_no }}
+                                                </div>
 
+
+                                                <div class="content">
                                                     <i class="fas fa-users mr-2 color"></i>Capacity:
                                                     {{ $evacuationcenter->capacity }}
+                                                </div>
 
+
+                                                <div class="content">
                                                     @if ($evacuationcenter->availability === 'Available')
-                                                        {{ $evacuationcenter->availability }}
+                                                        <span
+                                                            class="badge badge-success">{{ $evacuationcenter->availability }}</span>
 
                                                     @else
-                                                        {{ $evacuationcenter->availability }}
+                                                        <span
+                                                            class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
 
                                                     @endif
+                                                </div>
+
+
                                                 </p>
                                             </div>
                                         </div>
