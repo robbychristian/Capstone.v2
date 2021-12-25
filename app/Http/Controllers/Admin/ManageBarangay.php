@@ -113,7 +113,7 @@ class ManageBarangay extends Controller
         //    //->update(['is_added' => 0]);
         //return response()->json(['message' => 'The barangay has been archived!']);
 
-        Barangay::find($id)->delete();
+        Barangay::find($id)->update(['is_added' => 0, 'deleted_at' => now()]);
         return response()->json(['message' => 'The barangay has been archive!']);
 
     }
@@ -136,7 +136,7 @@ class ManageBarangay extends Controller
 
     public function deleteBarangay($id)
     {
-         Barangay::find($id)->delete();
+        Barangay::find($id)->update(['is_added' => 0, 'deleted_at' => now()]);
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
