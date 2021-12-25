@@ -74,7 +74,7 @@
                     if (data[9] == 'Not Available') {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: allmap,
+                            map: map,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5><span class="badge badge-danger">Not yet Approved</span></h5>'+
@@ -97,7 +97,7 @@
                     } else {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: allmap,
+                            map: map,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5><span class="badge badge-danger">Not yet Approved</span></h5>'+
@@ -122,7 +122,7 @@
                     if (data[9] == 'Not Available') {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: allmap,
+                            map: map,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
@@ -144,7 +144,7 @@
                     } else {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: allmap,
+                            map: map,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
