@@ -129,12 +129,12 @@
 
             });
 
-            $(document).on('click', '#addbtn', function(){
+            $(document).on('click', '#addbtn', function() {
                 var brgy_id = $(this).data('id');
 
                 swal({
                         title: "Are you sure?",
-                        text: "You want to delete this barangay?",
+                        text: "You want to add this barangay?",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -149,7 +149,8 @@
                             });
 
                             $.ajax({
-                                url: "https://kabisigapp.com/admin/managebarangay/addbarangay/" + brgy_id,
+                                url: "https://kabisigapp.com/admin/managebarangay/addbarangay/" +
+                                    brgy_id,
                                 type: 'POST',
                                 dataType: 'JSON',
                                 data: {
@@ -159,7 +160,7 @@
                                 success: function(response) {
                                     //row.remove().draw();
                                     table.ajax.reload();
-                                    swal("Deleted!", response.message, "success");
+                                    swal("Added!", response.message, "success");
                                 },
 
                                 error: function(response) {
