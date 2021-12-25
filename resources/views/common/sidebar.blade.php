@@ -207,7 +207,7 @@
                     <a class="collapse-item" href="{{ route('admin.managebrgy_official.index') }}">Manage Barangay
                         <br>
                         Officials</a>
-                    <a class="collapse-item" href="{{ route('admin.managebarangay.create') }}">Manage Barangays
+                    <a class="collapse-item" href="{{ route('admin.managebarangay.index') }}">Manage Barangays
                         <br></a>
                 </div>
             </div>

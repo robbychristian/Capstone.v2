@@ -15,16 +15,7 @@ class ManageBarangay extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
+    public function index(Request $request)
     {
         if ($request->ajax()) {
             $data = DB::table('barangays')
@@ -32,8 +23,8 @@ class ManageBarangay extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-success btn-sm" id="addbtn">Add</a>';
-                    $btn = $btn.'<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
+                    $btn = '<a  data-id="' . $row->id . '" class="btn btn-success btn-sm" id="addbtn">Add</a>';
+                    $btn = $btn.'<a  data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
   
                     return $btn;
                 })
@@ -53,6 +44,16 @@ class ManageBarangay extends Controller
         return view('features.addbarangays', [
             'barangays' => $barangays
         ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        
     }
 
     /**
