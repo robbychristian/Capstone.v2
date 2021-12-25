@@ -43,9 +43,17 @@
             //paginate map
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
-                    "{{ $evacuationcenter->is_approved }}",
-                    "{{ $evacuationcenter->id }}"],
+                    ["{{ $evacmap->evac_latitude }}", //0
+                    "{{ $evacmap->evac_longitude }}", //1
+                    "{{ $evacmap->is_approved }}", //2
+                    "{{ $evacmap->id }}", //3
+                    "{{ $evacmap->evac_name }}", //4
+                    "{{ $evacmap->brgy_loc }}", //5
+                    "{{ $evacmap->nearest_landmark }}", //6
+                    "{{ $evacmap->phone_no }}", //7
+                    "{{ $evacmap->capacity }}", //8
+                    "{{ $evacmap->availability }}", //9
+                    ],
                 @endforeach
             ];
 
@@ -58,9 +66,105 @@
                 var marker = new google.maps.Marker({
                     position: location,
                     map: map,
-                    label: data[3],
                     icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                    html: '<div class="card mb-2"><div class="card-body">' + +'</div></div>'
                 });
+
+                if (data[2] == '0') {
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>'+
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '</div>' +
+                                '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '</div>' +
+                                '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '</div>' +
+                                '<div class="content"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>'+
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '</div>' +
+                                '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '</div>' +
+                                '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '</div>' +
+                                '<div class="content"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
+                } else {
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '</div>' +
+                                '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '</div>' +
+                                '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '</div>' +
+                                '<div class="content"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '</div>' +
+                                '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '</div>' +
+                                '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '</div>' +
+                                '<div class="content"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
+                }
 
             }
 
@@ -247,18 +351,21 @@
                                                 </h6>
                                                 <p class="card-text">
                                                 <div class="content">
-                                                    <i class="fas fa-directions mr-2 color"></i> <span class="text-primary font-weight-bold"> Nearest Landmark:</span>
+                                                    <i class="fas fa-directions mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold"> Nearest Landmark:</span>
                                                     {{ $evacuationcenter->nearest_landmark }}
                                                 </div>
 
                                                 <div class="content">
-                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> <span class="text-primary font-weight-bold">Contact Number:</span>  
+                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold">Contact Number:</span>
                                                     {{ $evacuationcenter->phone_no }}
                                                 </div>
 
 
                                                 <div class="content">
-                                                    <i class="fas fa-users mr-2 color"></i> <span class="text-primary font-weight-bold">Capacity:</span> 
+                                                    <i class="fas fa-users mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold">Capacity:</span>
                                                     {{ $evacuationcenter->capacity }}
                                                 </div>
 
