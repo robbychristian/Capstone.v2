@@ -43,16 +43,16 @@
             //paginate map
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacmap->evac_latitude }}", //0
-                    "{{ $evacmap->evac_longitude }}", //1
-                    "{{ $evacmap->is_approved }}", //2
-                    "{{ $evacmap->id }}", //3
-                    "{{ $evacmap->evac_name }}", //4
-                    "{{ $evacmap->brgy_loc }}", //5
-                    "{{ $evacmap->nearest_landmark }}", //6
-                    "{{ $evacmap->phone_no }}", //7
-                    "{{ $evacmap->capacity }}", //8
-                    "{{ $evacmap->availability }}", //9
+                    ["{{ $evacuationcenter->evac_latitude }}", //0
+                    "{{ $evacuationcenter->evac_longitude }}", //1
+                    "{{ $evacuationcenter->is_approved }}", //2
+                    "{{ $evacuationcenter->id }}", //3
+                    "{{ $evacuationcenter->evac_name }}", //4
+                    "{{ $evacuationcenter->brgy_loc }}", //5
+                    "{{ $evacuationcenter->nearest_landmark }}", //6
+                    "{{ $evacuationcenter->phone_no }}", //7
+                    "{{ $evacuationcenter->capacity }}", //8
+                    "{{ $evacuationcenter->availability }}", //9
                     ],
                 @endforeach
             ];
