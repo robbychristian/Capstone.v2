@@ -2,7 +2,7 @@
 
 @section('title', '| Evacuation Centers and Hospitals')
 @section('content')
-<!--- COMMENTS (not yet accomplished): admin changeable buttons on the dropdown, brgy official side(crud),  resident side (not yet checked) -->
+    <!--- COMMENTS (not yet accomplished): admin changeable buttons on the dropdown, brgy official side(crud),  resident side (not yet checked) -->
     <script>
         $(function() {
             $('[data-toggle="popover"]').popover()
@@ -241,34 +241,29 @@
                                                 @if ($evacuationcenter->is_approved === 0)
                                                     <h5><span class="badge badge-danger">Not yet Approved</span></h5>
                                                 @endif
-                                                <h5 class="card-title"><span
-                                                        class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span><strong>{{ $evacuationcenter->evac_name }}</strong>
+                                                <h5 class="card-title">
+                                                    <strong>{{ $evacuationcenter->evac_name }}</strong>
                                                 </h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">
                                                     {{ $evacuationcenter->brgy_loc }}
                                                 </h6>
                                                 <p class="card-text">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-directions mr-2 color"></i>Nearest Landmark:
-                                                        {{ $evacuationcenter->nearest_landmark }}</li>
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
-                                                        {{ $evacuationcenter->phone_no }}</li>
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-users mr-2 color"></i>Capacity:
-                                                        {{ $evacuationcenter->capacity }}
-                                                    </li>
+                                                    <i class="fas fa-directions mr-2 color"></i>Nearest Landmark:
+                                                    {{ $evacuationcenter->nearest_landmark }}
+
+                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
+                                                    {{ $evacuationcenter->phone_no }}
+
+                                                    <i class="fas fa-users mr-2 color"></i>Capacity:
+                                                    {{ $evacuationcenter->capacity }}
+
                                                     @if ($evacuationcenter->availability === 'Available')
-                                                        <li class="list-group-item"><span
-                                                                class="badge badge-success">{{ $evacuationcenter->availability }}</span>
-                                                        </li>
+                                                        {{ $evacuationcenter->availability }}
+
                                                     @else
-                                                        <li class="list-group-item"><span
-                                                                class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
-                                                        </li>
+                                                        {{ $evacuationcenter->availability }}
+
                                                     @endif
-                                                </ul>
                                                 </p>
                                             </div>
                                         </div>
