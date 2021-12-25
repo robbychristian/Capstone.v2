@@ -39,7 +39,7 @@ class ManageBarangay extends Controller
                 })
 
                 ->addColumn('is_added', function ($row) {
-                    if ($row->is_approved == '1') {
+                    if ($row->is_added == '1') {
                         return '<label class="badge badge-success">Added</label>';
                     } else {
                         return '<label class="badge badge-danger">Not Added</label>';
