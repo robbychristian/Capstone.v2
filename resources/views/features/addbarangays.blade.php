@@ -175,6 +175,52 @@
             });
 
 
+            $(document).on('click', '#archivebtn', function() {
+                var brgy_id = $(this).data('id');
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to archive this barangay?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/managebarangay/deletebarangay/" +
+                                    brgy_id,
+                                type: 'DELETE',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": brgy_id
+                                },
+
+                                success: function(response) {
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Added!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+            });
+
+
 
 
 

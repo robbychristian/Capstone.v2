@@ -24,8 +24,8 @@ class ManageBarangay extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $btn = '<a  data-id="' . $row->id . '" class="btn btn-success btn-sm" id="addbtn">Add</a>';
-                    $btn = $btn.'<a  data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
-  
+                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
+
                     return $btn;
                 })
 
@@ -53,7 +53,6 @@ class ManageBarangay extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -109,7 +108,10 @@ class ManageBarangay extends Controller
      */
     public function destroy($id)
     {
-        //
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->delete();
+        return response()->json(['message' => 'The barangay has been deleted!']);
     }
 
     public function addBarangay($id)
