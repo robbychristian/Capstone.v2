@@ -109,7 +109,8 @@ class ManageBarangay extends Controller
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 0]);
+            ->delete();
+            //->update(['is_added' => 0]);
         return response()->json(['message' => 'The barangay has been archived!']);
     }
 
@@ -133,7 +134,8 @@ class ManageBarangay extends Controller
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 0]);
+            ->delete();
+            //->update(['is_added' => 0]);
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
