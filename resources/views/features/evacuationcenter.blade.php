@@ -81,13 +81,13 @@
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
                                 ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
                                 '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
                                 '</div>' +
                                 '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
                                 '</div>' +
                                 '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
                                 '</div>' +
                                 '<div class="content"><span class="badge badge-danger"> Not Available </span></div>' +
                                 '</p>' +
@@ -104,13 +104,13 @@
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
                                 ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
                                 '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
                                 '</div>' +
                                 '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
                                 '</div>' +
                                 '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
                                 '</div>' +
                                 '<div class="content"><span class="badge badge-success"> Available </span></div>' +
                                 '</p>' +
@@ -128,13 +128,13 @@
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
                                 ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
                                 '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
                                 '</div>' +
                                 '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
                                 '</div>' +
                                 '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
                                 '</div>' +
                                 '<div class="content"><span class="badge badge-danger"> Not Available </span></div>' +
                                 '</p>' +
@@ -150,13 +150,13 @@
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
                                 ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
                                 '<p class="card-text"><div class="content"><i class="fas fa-directions mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Nearest Landmark:</span>' + data[6] +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
                                 '</div>' +
                                 '<div class="content"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Contact Number:</span>' + data[7] +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
                                 '</div>' +
                                 '<div class="content"> <i class="fas fa-users mr-2 color"></i>' +
-                                '<span class="text-primary font-weight-bold"> Capacity:</span>' + data[8] +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
                                 '</div>' +
                                 '<div class="content"><span class="badge badge-success"> Available </span></div>' +
                                 '</p>' +
