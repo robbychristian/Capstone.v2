@@ -120,7 +120,7 @@ class ManageBarangay extends Controller
         //return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
 
         ManageBarangay::find($id)->update(['is_added' => 1, 'updated_at' => now()]);
-        return response()->json(['message' => 'The evacuation center has been added!']);
+        return response()->json(['message' => 'The barangay has been added!']);
     }
 
     public function deleteBarangay($id)

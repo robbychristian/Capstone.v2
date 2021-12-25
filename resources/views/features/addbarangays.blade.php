@@ -134,7 +134,7 @@
 
                 swal({
                         title: "Are you sure?",
-                        text: "You want to delete this evacaution center?",
+                        text: "You want to delete this barangay?",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
