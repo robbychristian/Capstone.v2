@@ -27,7 +27,7 @@ class ManageBarangay extends Controller
     public function create(Request $request)
     {
         if ($request->ajax()) {
-            $data = DB::table('evacuation_centers')
+            $data = DB::table('barangays')
                 ->where('deleted_at', null);
             return DataTables::of($data)
                 ->addIndexColumn()
