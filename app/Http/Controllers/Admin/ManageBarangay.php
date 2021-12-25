@@ -32,8 +32,8 @@ class ManageBarangay extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="btn btn-success btn-sm">Add</a>';
-                    $btn = $btn.'<a href="javascript:void(0)" class="btn btn-warning btn-sm">Archive</a>';
+                    $btn = '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-success btn-sm" id="addbtn">Add</a>';
+                    $btn = $btn.'<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
   
                     return $btn;
                 })
@@ -113,10 +113,13 @@ class ManageBarangay extends Controller
 
     public function addBarangay($id)
     {
-        $barangay = DB::table('barangays')
-            ->where('id', $id)
-            ->update(['is_added' => 1]);
-        return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
+        //$barangay = DB::table('barangays')
+        //    ->where('id', $id)
+        //    ->update(['is_added' => 1]);
+        //return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
+
+        ManageBarangay::find($id)->update(['is_added' => 1, 'updated_at' => now()]);
+        return response()->json(['message' => 'The evacuation center has been added!']);
     }
 
     public function deleteBarangay($id)

@@ -129,6 +129,50 @@
 
             });
 
+            $(document).on('click', '#addbtn', function(){
+                var brgy_id = $(this).data('id');
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to delete this evacaution center?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/managebarangay/addbarangay/" + brgy_id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": brgy_id
+                                },
+
+                                success: function(response) {
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Deleted!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+            });
+
 
 
 
