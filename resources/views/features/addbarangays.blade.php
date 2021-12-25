@@ -75,52 +75,65 @@
                 <div id="map" style="height: 600px; width: 100%;"></div>
             </div>
         </div>
-        <div class="table-responsive mt-5">
-            <table class="table table-hover">
-                <thead style="background-color: #004f91;">
-                    <tr style="color:white;">
-                        <th scope="col">#</th>
-                        <th scope="col">Barangay</th>
-                        <th scope="col">Status</th>
-                        <th scope="col" colspan="2">Action</th>
-                    </tr>
-                </thead>
-                <tbody style="color:black">
-                    @foreach ($barangays as $barangay)
-                        <tr>
-                            <th scope="row">{{ $barangay->id }}</th>
-                            <td>{{ $barangay->brgy_loc }}</td>
-                            <td>
-                                @if ($barangay->is_added === 0)
-                                    <h4> <span class="badge badge-danger">Not Added</span></h4>
-                                @else
-                                    <h4> <span class="badge badge-success">Added</span></h4>
-                                @endif
-                            </td>
-                            <td>
-                                <form action="/admin/managebarangay/addbarangay/{{ $barangay->id }}" method="POST">
-                                    @csrf
-                                    @method('POST')
-                                    <button class="btn btn-success">Add Barangay</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="/admin/managebarangay/deletebarangay/{{ $barangay->id }}" method="POST">
-                                    @csrf
-                                    @method('post')
-                                    <button class="btn btn-warning">Archive</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
 
-                </tbody>
-            </table>
+        <!-- TABLE -->
+        <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
+            <div class="table-responsive">
+                <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Barangay</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var table = $('.data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.managebarangay.create') }}",
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'brgy_loc',
+                    name: 'brgy_loc'
+                },
+                {
+                    data: 'is_added',
+                    name: 'is_added'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ],
+
+        });
+
+        
+
+       
+
+
+
+    });
+</script>
 
 @endsection

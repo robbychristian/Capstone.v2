@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 class ManageBarangay extends Controller
 {
@@ -23,8 +24,31 @@ class ManageBarangay extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        if ($request->ajax()) {
+            $data = DB::table('evacuation_centers')
+                ->where('deleted_at', null);
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="btn btn-success btn-sm">Add</a>';
+                    $btn = $btn.'<a href="javascript:void(0)" class="btn btn-warning btn-sm">Archive</a>';
+  
+                    return $btn;
+                })
+
+                ->addColumn('is_added', function ($row) {
+                    if ($row->is_approved == '1') {
+                        return '<label class="badge badge-success">Added</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not Added</label>';
+                    }
+                })
+
+                ->rawColumns(['action', 'is_added'])
+                ->make(true);
+        }
         $barangays = Barangay::all();
         return view('features.addbarangays', [
             'barangays' => $barangays
