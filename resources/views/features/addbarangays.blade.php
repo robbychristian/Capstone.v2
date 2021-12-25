@@ -106,7 +106,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.managebarangay.create') }}",
+                ajax: "{{ route('admin.managebarangay.index') }}",
                 columns: [{
                         data: 'id',
                         name: 'id'
