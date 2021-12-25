@@ -73,67 +73,69 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div id="map" style="height: 600px; width: 100%;"></div>
+
+                <!-- TABLE -->
+
+                <div class="table-responsive">
+                    <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Barangay</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
 
-        <!-- TABLE -->
-        <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
-            <div class="table-responsive">
-                <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Barangay</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
     </div>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('admin.managebarangay.create') }}",
-            columns: [{
-                    data: 'id',
-                    name: 'id'
-                },
-                {
-                    data: 'brgy_loc',
-                    name: 'brgy_loc'
-                },
-                {
-                    data: 'is_added',
-                    name: 'is_added'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
-            ],
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.managebarangay.create') }}",
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'brgy_loc',
+                        name: 'brgy_loc'
+                    },
+                    {
+                        data: 'is_added',
+                        name: 'is_added'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+
+            });
+
+
+
+
+
+
 
         });
-
-        
-
-       
-
-
-
-    });
-</script>
+    </script>
 
 @endsection
