@@ -206,7 +206,7 @@
                                 success: function(response) {
                                     //row.remove().draw();
                                     table.ajax.reload();
-                                    swal("Deleted!", response.message, "success");
+                                    swal("Archived!", response.message, "success");
                                 },
 
                                 error: function(response) {

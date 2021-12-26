@@ -113,7 +113,7 @@ class ManageBarangay extends Controller
         //    //->update(['is_added' => 0]);
         //return response()->json(['message' => 'The barangay has been archived!']);
 
-        Barangay::find($id)->update(['is_added' => 0, 'deleted_at' => now()]);
+        Barangay::find($id)->delete();
         return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
 
     }
