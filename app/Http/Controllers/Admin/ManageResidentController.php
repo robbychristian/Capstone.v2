@@ -91,7 +91,15 @@ class ManageResidentController extends Controller
                    
                 })
 
-                ->rawColumns(['action', 'is_valid', 'full_name'])
+                ->addColumn('user_role', function ($row) {
+                    if ($row->user_role == '2') {
+                        return '<label class="badge badge-success">Resident</label>';
+                    } else if ($row->user_role == '3') {
+                        return '<label class="badge badge-info">Barangay Official</label>';
+                    }
+                })
+
+                ->rawColumns(['action', 'is_valid', 'full_name', 'user_role'])
                 ->make(true);
         }
 
