@@ -73,8 +73,8 @@
                         name: 'last_name'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
+                        data: 'user_email',
+                        name: 'user_email'
                     },
                     {
                         data: 'contact_no',
