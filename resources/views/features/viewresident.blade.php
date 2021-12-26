@@ -16,8 +16,8 @@
             <div class="card-body">
               <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-4">
-                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}" class="rounded-circle mx-auto d-block" alt="...">
-                    <h6> {{ $user->first_name }}{{ $profile->middle_name }}{{ $user->last_name }}</h6>
+                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}" width="300" height="300" class="rounded-circle mx-auto d-block" alt="...">
+                    <h6> {{ $user->first_name }} {{ $profile->middle_name }} {{ $user->last_name }}</h6>
                 </div>
                   <div class="col-sm-12 col-md-6 col-lg-8">
                      
