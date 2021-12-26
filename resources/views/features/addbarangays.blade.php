@@ -70,30 +70,42 @@
     </script>
     <div class="container-fluid" style="color: black;">
         <h1 class="h3 mb-0 text-gray-800">Manage Barangays</h1>
+
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div id="map" style="height: 600px; width: 100%;"></div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-8">
+                        <!-- TABLE -->
 
-                <!-- TABLE -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Barangay</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
 
-                <div class="table-responsive">
-                    <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Barangay</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div id="map" style="height: 600px; width: 100%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
-
 
     </div>
 

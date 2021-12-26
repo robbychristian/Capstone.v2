@@ -84,7 +84,6 @@ class ManageBarangay extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
@@ -105,20 +104,20 @@ class ManageBarangay extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //public function destroy($id) //ajax
-    //{
-    //    //$barangay = DB::table('barangays')
-    //    //    ->where('id', $id)
-    //    //    ->delete();
-    //    //    //->update(['is_added' => 0]);
-    //    //return response()->json(['message' => 'The barangay has been archived!']);
-//
-    //    Barangay::find($id)->delete()->update(['is_added' => 1]);
-    //    return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
-//
-    //}
+    public function destroy($id) 
+    {
+        ////$barangay = DB::table('barangays')
+        ////    ->where('id', $id)
+        ////    ->delete();
+        ////    //->update(['is_added' => 0]);
+        ////return response()->json(['message' => 'The barangay has been archived!']);
+    //
+        //Barangay::find($id)->delete()->update(['is_added' => 1]);
+        //return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
+    
+    }
 
-    public function delete($id)
+    public function delete($id) //ajax
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
@@ -144,7 +143,9 @@ class ManageBarangay extends Controller
 
     public function deleteBarangay($id)
     {
-        Barangay::find($id)->update(['is_added' => 0, 'deleted_at' => now()]);
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 0, 'deleted_at' => now()]);
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
