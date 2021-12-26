@@ -26,9 +26,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>First Name</th>
-                        <th>Middle Name</th>
-                        <th>Last Name</th>
+                        <th>Full Name</th>
                         <th>Email</th>
                         <th>Contact Number</th>
                         <th>Barangay Location</th>

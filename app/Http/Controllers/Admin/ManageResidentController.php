@@ -80,7 +80,7 @@ class ManageResidentController extends Controller
                 })
 
                 ->addColumn('full_name', function ($row) {
-                    return $row->first_name.$row->middle_name.$row->last_name;
+                    return $row->first_name.''.$row->middle_name.''.$row->last_name;
                 })
 
                 ->rawColumns(['action', 'is_valid', 'full_name'])
