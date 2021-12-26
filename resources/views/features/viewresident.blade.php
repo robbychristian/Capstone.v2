@@ -16,14 +16,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="profile-img" style="height: 230px;
-                                width: 230px;
-                                overflow: hidden;
-                                border-radius: 50%;
-                                margin: 1rem 3rem;">
-                            <img style=" height: 100%;
-                                width: 100%;"
-                                src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}">
+                        <div class="profile-img" style="width: 250px; ">
+                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
+                                style="max-width: 100%;
+                                max-height: 100%;
+                                display: block; ">
 
                         </div>
 
