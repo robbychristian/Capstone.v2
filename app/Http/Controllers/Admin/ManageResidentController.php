@@ -72,7 +72,7 @@ class ManageResidentController extends Controller
                 })
 
                 ->addColumn('is_valid', function ($row) {
-                    if ($row->is_valid == '0') {
+                    if ($row->is_valid == '1') {
                         return '<label class="badge badge-success">Approved</label>';
                     } else {
                         return '<label class="badge badge-danger">Not yet Approved</label>';

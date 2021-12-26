@@ -57,16 +57,10 @@
                         name: 'id'
                     },
                     {
-                        data: 'first_name',
-                        name: 'first_name'
-                    },
-                    {
-                        data: 'middle_name',
-                        name: 'middle_name'
-                    },
-                    {
-                        data: 'last_name',
-                        name: 'last_name'
+                        data: null,
+                        render: function(data, type, row) {
+                            return row.users.first_name + ' ' + row.users.last_name;
+                        }
                     },
                     {
                         data: 'user_email',
