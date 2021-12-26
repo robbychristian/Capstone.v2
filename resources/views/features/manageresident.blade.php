@@ -25,7 +25,7 @@
             <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        
+                        <th>No</th>
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
@@ -52,7 +52,10 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.manageresident.index') }}",
-                columns: [
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
                     {
                         data: 'first_name',
                         name: 'first_name'
@@ -60,10 +63,6 @@
                     {
                         data: 'middle_name',
                         name: 'middle_name'
-                    },
-                    {
-                        data: 'last_name',
-                        name: 'last_name'
                     },
                     {
                         data: 'last_name',
