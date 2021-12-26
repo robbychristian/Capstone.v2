@@ -173,7 +173,16 @@ class ManageResidentController extends Controller
      */
     public function show($id)
     {
-        dd('hello');
+        $users = DB::table('users')
+            ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+            ->select('users.*', 'user_profiles.*')
+            ->where('users.user_role', 2)
+            ->where('users.id', $id)
+            ->get();
+
+        return view('features.viewresident', [
+            'users' => $users
+        ]);
     }
 
     /**
