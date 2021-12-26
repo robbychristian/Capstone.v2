@@ -18,7 +18,7 @@ class ManageBarangay extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Barangay::all();
+            $data = Barangay::withTrashed()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -105,18 +105,18 @@ class ManageBarangay extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //ajax
-    {
-        //$barangay = DB::table('barangays')
-        //    ->where('id', $id)
-        //    ->delete();
-        //    //->update(['is_added' => 0]);
-        //return response()->json(['message' => 'The barangay has been archived!']);
-
-        Barangay::find($id)->delete();
-        return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
-
-    }
+    //public function destroy($id) //ajax
+    //{
+    //    //$barangay = DB::table('barangays')
+    //    //    ->where('id', $id)
+    //    //    ->delete();
+    //    //    //->update(['is_added' => 0]);
+    //    //return response()->json(['message' => 'The barangay has been archived!']);
+//
+    //    Barangay::find($id)->delete()->update(['is_added' => 1]);
+    //    return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
+//
+    //}
 
     public function addBarangay($id) //ajax
     {
