@@ -15,10 +15,12 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div class="row d-flex">
-                    <div class="col-sm-12 col-md-6 col-lg-4 justify-content-center">
-                        <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                            class="rounded-circle img-responsive" style="width: 100%;
-                             object-fit: cover;">
+                    <div class="col-sm-12 col-md-6 col-lg-4 align-items-center">
+                        <div class="profile-pic" style="height: 300px; width: 300px; overflow: hidden;">
+                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
+                                class="rounded-circle img-responsive" style="height: 300px;">
+                        </div>
+
                         <h4> {{ $user->first_name }} {{ $profile->middle_name }} {{ $user->last_name }}</h4>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
@@ -33,7 +35,7 @@
 
                             <hr>
 
-    
+
 
                         </dl>
                     </div>
