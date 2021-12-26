@@ -32,9 +32,9 @@ class ManageResidentController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    if ($row->is_valid== '0') {
+                    if ($row->is_valid == '0') {
                         return '<div class="d-flex justify-content-center align-items-center">
-                        <div class="dropdown" style="text-align:center;">
+                        <div class="dropdown">
                             <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
                             </a>
@@ -52,7 +52,7 @@ class ManageResidentController extends Controller
                           ';
                     } else {
                         return '<div class="d-flex justify-content-center align-items-center">
-                            <div class="dropdown" style="text-align:center;">
+                            <div class="dropdown">
                                 <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
                                 </a>
