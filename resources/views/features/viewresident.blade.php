@@ -26,8 +26,8 @@
 
                     </div>
                     <div class="col-sm-12">
-                        <h3 class=" mb-3 mt-4 text-uppercase"> {{ $user->first_name }} {{ $profile->middle_name }}
-                            {{ $user->last_name }}</h3>
+                        <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }} {{ $profile->middle_name }}
+                            {{ $user->last_name }}</h2>
                         <h5 class="mb-3" style="font-weight: 600;">Profile Information</h5>
                         <div class="content mb-2">
                             <div class="row">
