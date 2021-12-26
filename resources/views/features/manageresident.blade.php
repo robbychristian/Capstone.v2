@@ -26,12 +26,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
+                        <th>Name</th>
+                        <th>Role</th>
                         <th>Barangay Location</th>
                         <th>Account Status</th>
-                        <th>Submitted Valid ID</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -59,12 +57,8 @@
                         name: 'full_name'
                     },
                     {
-                        data: 'user_email',
-                        name: 'user_email'
-                    },
-                    {
-                        data: 'contact_no',
-                        name: 'contact_no'
+                        data: 'user_role',
+                        name: 'user_role'
                     },
                     {
                         data: 'brgy_loc',
@@ -73,10 +67,6 @@
                     {
                         data: 'is_valid',
                         name: 'is_valid'
-                    },
-                    {
-                        data: 'valid_id',
-                        name: 'valid_id'
                     },
                     {
                         data: 'action',

@@ -40,6 +40,7 @@ class ManageResidentController extends Controller
                             </a>
                           
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">View</a>
                               <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Approve</a>
                               <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Block</a>
                               <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Activate</a>
@@ -80,7 +81,14 @@ class ManageResidentController extends Controller
                 })
 
                 ->addColumn('full_name', function ($row) {
-                    return $row->first_name.' '.$row->middle_name.' '.$row->last_name;
+                    return '<div class="media">
+                    <img class="mr-3" src="..." alt="Generic placeholder image">
+                    <div class="media-body">
+                      <h5 class="mt-0">'.$row->first_name.' '.$row->middle_name.' '.$row->last_name.'</h5>
+                        '.$row->user_email.'
+                    </div>
+                  </div>';
+                   
                 })
 
                 ->rawColumns(['action', 'is_valid', 'full_name'])
