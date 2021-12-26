@@ -15,13 +15,13 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="col-sm-12">
                         <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                             class="img-responsive" style="width: 100%; object-fit: cover; height: 300px;">
                         
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8">
-                        <h3 class=" mb-3 mt-4"> {{ $user->first_name }} {{ $profile->middle_name }}
+                    <div class="col-sm-12">
+                        <h3 class=" mb-3 mt-4 text-uppercase"> {{ $user->first_name }} {{ $profile->middle_name }}
                             {{ $user->last_name }}</h3>
                         <h5 class="mb-3" style="font-weight: 600;">Profile Information</h5>
                         <div class="content mb-2">
@@ -84,19 +84,19 @@
                         <h5 class="mb-3" style="font-weight: 600">Residence Details</h5>
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3  style="font-weight: 500;"">Home Address</div>
+                                <div class="col-sm-3 "style="font-weight: 500;">Home Address</div>
                                 <div class="col-sm-9 ">{{ $profile->home_add }}</div>
                             </div>
                         </div>
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3  style="font-weight: 500;"">Barangay</div>
+                                <div class="col-sm-3 "style="font-weight: 500;">Barangay</div>
                                 <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
                             </div>
                         </div>
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3  style="font-weight: 500;"">Residence Verification</div>
+                                <div class="col-sm-3" style="font-weight: 500;">Residence Verification</div>
 
                                 <div class="col-sm-9">
                                     @if ($user->is_valid == 1)
@@ -113,14 +113,14 @@
 
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3  style="font-weight: 500;"">Registration Date</div>
-                                <div class="col-sm-9 "> {{ date('F d, Y \a\t h:i A', strtotime($user->created_at)) }}</div>
+                                <div class="col-sm-3" style="font-weight: 500;">Registration Date</div>
+                                <div class="col-sm-9"> {{ date('F d, Y \a\t h:i A', strtotime($user->created_at)) }}</div>
                             </div>
                         </div>
 
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3  style="font-weight: 500;"">Valid ID</div>
+                                <div class="col-sm-3"style="font-weight: 500;">Valid ID</div>
                                 <div class="col-sm-9 ">
                                     <!-- Button trigger modal -->
 
