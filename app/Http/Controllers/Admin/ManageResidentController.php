@@ -31,9 +31,9 @@ class ManageResidentController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                
-                    $btn = '<a href="'.\URL::route('admin.manageresident.show', $row->id).' "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
-                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="actionsbtn"><i class="fas fa-user-cog"></i></a>';
+
+                    $btn = '<a href="' . \URL::route('admin.manageresident.show', $row->id) . ' "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = $btn . '<a href="' . \URL::route('admin.manageresident.edit', $row->id) . '"data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="actionsbtn"><i class="fas fa-user-cog"></i></a>';
 
                     return $btn;
                 })
@@ -48,7 +48,7 @@ class ManageResidentController extends Controller
 
                 ->addColumn('full_name', function ($row) {
                     return '<div class="media">
-                    <img class="mr-3 float-left rounded-circle" width="100" height="100" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
+                    <img class="mr-3 float-left rounded-circle" width="70" height="7s0" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
                     <div class="media-body">
                       <h6>' . $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name . '</h6>
                       <small class="text-muted">' . $row->user_email . '</small>
@@ -191,7 +191,14 @@ class ManageResidentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $profile = UserProfile::find($id);
+
+        return view('features.editresident', [
+            'user' => $user,
+            'profile' => $profile
+
+        ]);
     }
 
     /**
