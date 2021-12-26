@@ -14,14 +14,15 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-12">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 d-none"
+                        style="background-color: #fffff; justify-content: center; align-items: center;">
                         <div class="profile-img" style="width: 250px; text-align: center;">
-                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}" class="rounded-circle"
+                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                 style="max-width: 100%;
-                                max-height: 100%;
-                                display: block; 
-                                vertical-align: middle;">
+                                    max-height: 100%;
+                                    display: block; 
+                                    vertical-align: middle;">
 
                         </div>
 
