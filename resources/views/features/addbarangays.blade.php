@@ -49,7 +49,7 @@
 
                         '<form action="/admin/managebarangay/deletebarangay/' + data[4] + '" method="POST">' +
                         '@csrf' +
-                        '@method("DELETE")' +
+                        '@method("POST")' +
                         '<button class="btn btn-warning">Archive</button>' +
                         '</form>' +
 
