@@ -18,10 +18,11 @@
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                             class="img-responsive" style="width: 100%; object-fit: cover; height: 300px;">
-                        <h3 class="text-center mb-3 mt-4"> {{ $user->first_name }} {{ $profile->middle_name }}
-                            {{ $user->last_name }}</h3>
+                        
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
+                        <h3 class="text-center mb-3 mt-4"> {{ $user->first_name }} {{ $profile->middle_name }}
+                            {{ $user->last_name }}</h3>
                         <h5 class="mb-3">Profile Information</h5>
                         <div class="content mb-2">
                             <div class="row">
@@ -113,7 +114,7 @@
                         <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3 ">Registration Date</div>
-                                <div class="col-sm-9 "> {{ date('F d, Y \a\t h:i:s A', strtotime($user->created_at)) }}</div>
+                                <div class="col-sm-9 "> {{ date('F d, Y \a\t h:i A', strtotime($user->created_at)) }}</div>
                             </div>
                         </div>
 
@@ -139,7 +140,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
-                                                        class="img-responsive">
+                                                        class="img-fluid rounded mx-auto d-block">
                                                 </div>
 
                                             </div>
