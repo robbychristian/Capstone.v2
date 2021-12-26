@@ -31,69 +31,34 @@ class ManageResidentController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
+                
+                    $btn = '<a  data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="addbtn"><i class="fas fa-search"></i></a>';
+                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="archivebtn"><i class="fas fa-user-cog"></i></a>';
 
-                    if ($row->is_valid == '0') {
-                        return '<div class="d-flex justify-content-center align-items-center">
-                        <div class="dropdown" style="text-align:center;">
-                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
-                            </a>
-                          
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">View</a>
-                              <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Approve</a>
-                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Block</a>
-                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Activate</a>
-                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Deactivate</a>
-                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Promote</a>
-                            </div>
-                          </div>
-    
-                          </div>
-                          ';
-                    } else {
-                        return '<div class="d-flex justify-content-center align-items-center">
-                            <div class="dropdown" style="text-align:center;">
-                                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
-                                </a>
-                              
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Disapprove</a>
-                                <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Block</a>
-                                <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Activate</a>
-                                <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Deactivate</a>
-                                <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Promote</a>
-                              </div>
-                              </div>
-        
-                              </div>
-                              ';
-                    }
+                    return $btn;
                 })
 
                 ->addColumn('is_valid', function ($row) {
                     if ($row->is_valid == '1') {
-                        return '<label class="badge badge-success">Approved</label>';
+                        return '<label class="badge badge-success">Verified</label>';
                     } else {
-                        return '<label class="badge badge-danger">Not yet Approved</label>';
+                        return '<label class="badge badge-danger">Not yet verified</label>';
                     }
                 })
 
                 ->addColumn('full_name', function ($row) {
                     return '<div class="media">
-                    <img class="mr-3 float-left rounded-circle" width="50" height="50" src="'.\URL::asset('KabisigGit/storage/app/public/profile_pics/'. $row->id . '/' . $row->profile_pic) .'">
+                    <img class="mr-3 float-left rounded-circle" width="50" height="50" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
                     <div class="media-body">
-                      <h6>'.$row->first_name.' '.$row->middle_name.' '.$row->last_name.'</h6>
-                      <small class="text-muted">'.$row->user_email.'</small>
+                      <h6>' . $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name . '</h6>
+                      <small class="text-muted">' . $row->user_email . '</small>
                     </div>
                   </div>';
-                   
                 })
 
                 ->addColumn('user_role', function ($row) {
                     if ($row->user_role == '2') {
-                        return '<label class="badge badge-success">Resident</label>';
+                        return '<label class="badge badge-primary">Resident</label>';
                     } else if ($row->user_role == '3') {
                         return '<label class="badge badge-info">Barangay Official</label>';
                     }

@@ -25,12 +25,10 @@
             <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Name</th>
                         <th>Role</th>
                         <th>Barangay Location</th>
-                        <th>Account Status</th>
-                        <th>Action</th>
+                        <th colspan="2">Resident Verification</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,10 +46,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.manageresident.index') }}",
-                columns: [{
-                        data: 'id',
-                        name: 'id'
-                    },
+                columns: [
                     {
                         data: 'full_name',
                         name: 'full_name'
