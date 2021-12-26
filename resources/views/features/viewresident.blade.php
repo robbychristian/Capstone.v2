@@ -16,10 +16,10 @@
             <div class="card-body">
               <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-4">
-                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $users->id . '/' . $users->profile_pic) }}" class="rounded-circle mx-auto d-block" alt="...">
+                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $user->profile_pic) }}" class="rounded-circle mx-auto d-block" alt="...">
                   </div>
                   <div class="col-sm-12 col-md-6 col-lg-8">
-                      {{ $users->first_name }}
+                      {{ $user->first_name }}
                   </div>
               </div>
             </div>
