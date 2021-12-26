@@ -98,7 +98,7 @@
                     <div class="tab-pane fade show active" id="pills-table" role="tabpanel"
                         aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
-                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table data-table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No</th>
