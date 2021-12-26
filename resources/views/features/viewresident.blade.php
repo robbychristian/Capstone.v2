@@ -116,7 +116,7 @@
                                 <div class="col-sm-9 ">
                                     <!-- Button trigger modal -->
 
-                                    <a data-toggle="modal" data-target="#id{{ $user->id }}">View Photo</a>
+                                    <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#id{{ $user->id }}">View</a>
                                 
                                     <!-- Modal -->
                                     <div class="modal fade" id="id{{ $user->id }}" tabindex="-1"
@@ -131,9 +131,8 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                                        class="img-responsive"
-                                                        style="width: 100%; object-fit: cover; height: 300px;">
+                                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
+                                                        class="img-responsive">
                                                 </div>
 
                                             </div>
