@@ -39,7 +39,7 @@ class ManageBarangay extends Controller
                 ->rawColumns(['action', 'is_added'])
                 ->make(true);
         }
-        $barangays = Barangay::all();
+        $barangays = Barangay::withTrashed()->get();
         return view('features.addbarangays', [
             'barangays' => $barangays
         ]);
