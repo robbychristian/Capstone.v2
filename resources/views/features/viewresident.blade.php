@@ -22,11 +22,11 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <dl class="row">
-                            <dt class="col-sm-3">User ID</dt>
-                            <dd class="col-sm-9">{{ $user->id }}</dd>
+                            <dt class="col-sm-3 col-lg-2">User ID</dt>
+                            <dd class="col-sm-9 col-lg-10">{{ $user->id }}</dd>
 
-                            <dt class="col-sm-3">Email</dt>
-                            <dd class="col-sm-9">
+                            <dt class="col-sm-3 col-lg-2">Email</dt>
+                            <dd class="col-sm-9 col-lg-10">
                                 <p>{{ $user->email }}</p>
                             </dd>
 
