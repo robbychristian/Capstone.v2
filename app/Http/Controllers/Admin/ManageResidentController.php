@@ -19,13 +19,75 @@ class ManageResidentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = DB::table('users')
+                ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+                ->select('users.*', 'user_profiles.*')
+                ->where('users.user_role', 2)
+                ->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    if ($row->is_valid== '0') {
+                        return '<div class="d-flex justify-content-center align-items-center">
+                        <div class="dropdown" style="text-align:center;">
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
+                            </a>
+                          
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Approve</a>
+                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Block</a>
+                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Activate</a>
+                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Deactivate</a>
+                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Promote</a>
+                            </div>
+                          </div>
+    
+                          </div>
+                          ';
+                    } else {
+                        return '<div class="d-flex justify-content-center align-items-center">
+                            <div class="dropdown" style="text-align:center;">
+                                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
+                                </a>
+                              
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Disapprove</a>
+                                <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Block</a>
+                                <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Activate</a>
+                                <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Deactivate</a>
+                                <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Promote</a>
+                              </div>
+                              </div>
+        
+                              </div>
+                              ';
+                    }
+                })
+
+                ->addColumn('is_valid', function ($row) {
+                    if ($row->is_valid == '0') {
+                        return '<label class="badge badge-success">Approved</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not yet Approved</label>';
+                    }
+                })
+
+                ->rawColumns(['action', 'is_valid'])
+                ->make(true);
+        }
+
         $users = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
             ->where('users.user_role', 2)
             ->get();
+
         return view('features.manageresident', [
             'users' => $users
         ]);
