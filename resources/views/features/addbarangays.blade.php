@@ -79,10 +79,24 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-8">
-                        <!-- TABLE -->
+                <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                            aria-controls="pills-table" aria-selected="true"><i class="fas fa-list"></i></a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link " id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
+                            aria-controls="pills-map" aria-selected="false"><i class="fas fa-columns"
+                                onClick="window.location.reload();"></i></a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                     <!-- TABLE -->
+                    <div class="tab-pane fade show active" id="pills-table" role="tabpanel"
+                        aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
                             <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -100,9 +114,18 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+                    <!-- MAP -->
+                    <div class="tab-pane fade " id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
                         <div id="map" style="height: 600px; width: 100%;"></div>
+                        <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                    style="color:#00a79d"></i>Approved</li>
+                            <li class="list-inline-item"><i class="fas fa-map-marker mr-2" style="color:#fb5968"></i>Not yet
+                                approved</li>
+                        </ul>
                     </div>
+
                 </div>
             </div>
         </div>
