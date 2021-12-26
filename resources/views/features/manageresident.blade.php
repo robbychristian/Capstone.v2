@@ -28,7 +28,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Full Name</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
                             <th>Contact Number</th>
                             <th>Barangay Location</th>
@@ -70,10 +72,6 @@
                 columns: [{
                         data: 'id',
                         name: 'id'
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
                     },
                     {
                         data: 'first_name',
