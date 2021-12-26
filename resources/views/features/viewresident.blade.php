@@ -23,33 +23,55 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <h5 class="mb-3">Profile Information</h5>
-                        <div class="row">
-                            <div class="col-sm-3">User ID</div>
-                            <div class="col-sm-9 ">{{ $user->id }}</div>
-
-                            <div class="col-sm-3 ">Email</div>
-                            <div class="col-sm-9 ">{{ $user->email }}</div>
-
-                            <div class="col-sm-3 ">Contact Number</div>
-                            <div class="col-sm-9 ">{{ $profile->contact_no }}</div>
-
-                            <div class="col-sm-3 ">Birthday</div>
-                            <div class="col-sm-9 ">{{ $profile->birth_day }}</div>
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3">User ID</div>
+                                <div class="col-sm-9">{{ $user->id }}</div>
+                            </div>
+                        </div>
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3">User ID</div>
+                                <div class="col-sm-9">{{ $user->id }}</div>
+                            </div>
                         </div>
 
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3">Email</div>
+                                <div class="col-sm-9">{{ $user->email }}</div>
+                            </div>
+                        </div>
+
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3">Contact Number</div>
+                                <div class="col-sm-9">{{ $profile->contact_no }}</div>
+                            </div>
+                        </div>
+
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3">Birthday</div>
+                                <div class="col-sm-9">{{ $profile->birth_day }}</div>
+                            </div>
+                        </div>
+
+
+                        <hr>
                         <h5 class="mb-3">Residence Details</h5>
-                        <div class="row">
-                            <div class="col-sm-3 ">Home Address</div>
-                            <div class="col-sm-9 ">{{ $profile->home_add }}</div>
-
-                            <div class="col-sm-3 ">Barangay</div>
-                            <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3 ">Home Address</div>
+                                <div class="col-sm-9 ">{{ $profile->home_add }}</div>
+                            </div>
                         </div>
-
-
-
-
-
+                        <div class="content mb-3">
+                            <div class="row">
+                                <div class="col-sm-3 ">Barangay</div>
+                                <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
