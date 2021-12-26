@@ -51,13 +51,13 @@
                         <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3">Email</div>
-                                @if ($user->email_verified != null)
+                                @if ($user->email_verified_at != null)
                                     <div class="col-sm-9"><i
                                             class="fas fa-check-circle text-success mr-2"></i>{{ $user->email }}</div>
 
                                 @else
                                     <div class="col-sm-9"><i
-                                            class="fas fa-times-circle text-success mr-2"></i>{{ $user->email }}</div>
+                                            class="fas fa-times-circle text-danger mr-2"></i>{{ $user->email }}</div>
 
                                 @endif
 
@@ -91,6 +91,22 @@
                             <div class="row">
                                 <div class="col-sm-3 ">Barangay</div>
                                 <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
+                            </div>
+                        </div>
+                        <div class="content mb-2">
+                            <div class="row">
+                                <div class="col-sm-3 ">Residence Verification</div>
+
+                                <div class="col-sm-9">
+                                    @if ($user->is_valid == 1)
+                                        <i class="fas fa-check-circle text-success mr-2"></i><span
+                                            class="text-success font-weight-bold">Verified Resident</span>
+
+                                    @else
+                                        <i class="fas fa-times-circle text-danger mr-2"></i><span
+                                            class="text-danger font-weight-bold">Unverified Resident</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
