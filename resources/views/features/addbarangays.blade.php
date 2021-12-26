@@ -41,7 +41,7 @@
 
                         '<div class="d-grid gap-2 d-md-flex justify-content-md-center">' +
 
-                        '<form action="/admin/managebarangay/addbarangay/' + data[4] + '" method="POST">' +
+                        '<form action="/admin/managebarangay/addbarangaymap/' + data[4] + '" method="POST">' +
                         '@csrf' +
                         '@method("POST")' +
                         '<button class="btn btn-success mr-3">Add</button>' +
@@ -70,57 +70,198 @@
     </script>
     <div class="container-fluid" style="color: black;">
         <h1 class="h3 mb-0 text-gray-800">Manage Barangays</h1>
+
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div id="map" style="height: 600px; width: 100%;"></div>
+                <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                            aria-controls="pills-table" aria-selected="true"><i class="fas fa-list"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
+                            aria-controls="pills-map" aria-selected="false"><i class="fas fa-columns"
+                                onClick="window.location.reload();"></i></a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                     <!-- TABLE -->
+                    <div class="tab-pane fade show active" id="pills-table" role="tabpanel"
+                        aria-labelledby="pills-table-tab">
+                        <div class="table-responsive">
+                            <table class="table data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Barangay</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <!-- MAP -->
+                    <div class="tab-pane fade " id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
+                        <div id="map" style="height: 600px; width: 100%;"></div>
+                        <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                    style="color:#00a79d"></i>Approved</li>
+                            <li class="list-inline-item"><i class="fas fa-map-marker mr-2" style="color:#fb5968"></i>Not yet
+                                approved</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="table-responsive mt-5">
-            <table class="table table-hover">
-                <thead style="background-color: #004f91;">
-                    <tr style="color:white;">
-                        <th scope="col">#</th>
-                        <th scope="col">Barangay</th>
-                        <th scope="col">Status</th>
-                        <th scope="col" colspan="2">Action</th>
-                    </tr>
-                </thead>
-                <tbody style="color:black">
-                    @foreach ($barangays as $barangay)
-                        <tr>
-                            <th scope="row">{{ $barangay->id }}</th>
-                            <td>{{ $barangay->brgy_loc }}</td>
-                            <td>
-                                @if ($barangay->is_added === 0)
-                                    <h4> <span class="badge badge-danger">Not Added</span></h4>
-                                @else
-                                    <h4> <span class="badge badge-success">Added</span></h4>
-                                @endif
-                            </td>
-                            <td>
-                                <form action="/admin/managebarangay/addbarangay/{{ $barangay->id }}" method="POST">
-                                    @csrf
-                                    @method('POST')
-                                    <button class="btn btn-success">Add Barangay</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="/admin/managebarangay/deletebarangay/{{ $barangay->id }}" method="POST">
-                                    @csrf
-                                    @method('post')
-                                    <button class="btn btn-warning">Archive</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
 
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.managebarangay.index') }}",
+                columns: [{
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
+                        data: 'brgy_loc',
+                        name: 'brgy_loc'
+                    },
+                    {
+                        data: 'is_added',
+                        name: 'is_added'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+
+            });
+
+            $(document).on('click', '#addbtn', function() {
+                var brgy_id = $(this).data('id');
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to add this barangay?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/managebarangay/addbarangay/" +
+                                    brgy_id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": brgy_id
+                                },
+
+                                success: function(response) {
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Added!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+            });
+
+
+            $(document).on('click', '#archivebtn', function() {
+                var brgy_id = $(this).data('id');
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to archive this barangay?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/managebarangay/delete/" +
+                                    brgy_id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": brgy_id
+                                },
+
+                                success: function(response) {
+                                    //row.remove().draw();
+                                    table.ajax.reload();
+                                    swal("Archived!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+            });
+
+
+
+
+
+
+
+        });
     </script>
 
 @endsection

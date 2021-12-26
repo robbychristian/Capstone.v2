@@ -117,14 +117,11 @@
 
                             <div class="form-group">
                                 <div class="d-flex flex-row">
-                                    <label>Latitude</label>
-
-                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
-                                        data-toggle="popover" data-placement="right"
-                                        data-content="The latitude changes based on the position of the marker on the map.">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-
+                                    <div class="d-flex flex-row">
+                                        <label>Latitude</label>
+                                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"
+                                            data-content="The latitude changes based on the position of the marker on the map."><i class="fas fa-info-circle text-primary ml-2"></i></a>
+                                    </div>
                                 </div>
                                 <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
                                     value="{{ $evacuationcenter->evac_latitude }}" readonly>
@@ -138,11 +135,8 @@
                             <div class="form-group">
                                 <div class="d-flex flex-row">
                                     <label>Longitude</label>
-                                    <button type="button" class="ml-1 btn btn-info btn-circle btn-sm" data-container="body"
-                                        data-toggle="popover" data-placement="right"
-                                        data-content="The longitude changes based on the position of the marker on the map.">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
+                                    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"
+                                        data-content="The longitude changes based on the position of the marker on the map."><i class="fas fa-info-circle text-primary ml-2"></i></a>
                                 </div>
                                 <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
                                     value="{{ $evacuationcenter->evac_longitude }}" readonly>

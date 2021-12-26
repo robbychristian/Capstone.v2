@@ -2,7 +2,7 @@
 
 @section('title', '| Evacuation Centers and Hospitals')
 @section('content')
-<!--- COMMENTS (not yet accomplished): admin changeable buttons on the dropdown, brgy official side(crud),  resident side (not yet checked) -->
+    <!--- COMMENTS (not yet accomplished): admin changeable buttons on the dropdown, brgy official side(crud),  resident side (not yet checked) -->
     <script>
         $(function() {
             $('[data-toggle="popover"]').popover()
@@ -43,9 +43,17 @@
             //paginate map
             var markers = [
                 @foreach ($evacuationcenters as $evacuationcenter)
-                    ["{{ $evacuationcenter->evac_latitude }}","{{ $evacuationcenter->evac_longitude }}",
-                    "{{ $evacuationcenter->is_approved }}",
-                    "{{ $evacuationcenter->id }}"],
+                    ["{{ $evacuationcenter->evac_latitude }}", //0
+                    "{{ $evacuationcenter->evac_longitude }}", //1
+                    "{{ $evacuationcenter->is_approved }}", //2
+                    "{{ $evacuationcenter->id }}", //3
+                    "{{ $evacuationcenter->evac_name }}", //4
+                    "{{ $evacuationcenter->brgy_loc }}", //5
+                    "{{ $evacuationcenter->nearest_landmark }}", //6
+                    "{{ $evacuationcenter->phone_no }}", //7
+                    "{{ $evacuationcenter->capacity }}", //8
+                    "{{ $evacuationcenter->availability }}", //9
+                    ],
                 @endforeach
             ];
 
@@ -55,12 +63,109 @@
             for (var i = 0; i < markers.length; i++) {
                 var data = markers[i]
                 var location = new google.maps.LatLng(data[0], data[1]);
-                var marker = new google.maps.Marker({
-                    position: location,
-                    map: map,
-                    label: data[3],
-                    icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                });
+
+                if (data[2] == '0') {
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
+                } else {
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
+                }
+
+                (function(marker, data) {
+                    google.maps.event.addListener(marker, "click", function(e) {
+                        infoWindow.setContent(marker.html);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
 
             }
 
@@ -123,58 +228,100 @@
                 var danger_badge = '<span class="badge badge-danger">' + data[9] + '</span>';
                 var location = new google.maps.LatLng(data[0], data[1]);
 
-                if (data[9] == 'Available') {
-                    var marker = new google.maps.Marker({
-                        position: location,
-                        map: allmap,
-                        label: data[3],
-                        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                        html: '<div class="card">' + '<div class="card-body">' +
-                            '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
-                            '</span><strong>' + data[4] + '</strong></h5>' +
-                            ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
-                            '<p class="card-text">' +
-                            '<ul class="list-group list-group-flush">' +
-                            '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark: ' +
-                            data[6] + '</li>' +
-                            '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number: ' +
-                            data[7] + '</li>' +
-                            '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' +
-                            data[8] +
-                            '</li>' +
-                            '<li class="list-group-item"><span class="badge badge-success">' + data[9] +
-                            '</span></li>' +
-                            '</ul>' +
-                            '</p>' +
-                            '</div>' +
-                            '</div>',
-                    });
+                if (data[2] == '0') {
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5><span class="badge badge-danger">Not yet Approved</span></h5>' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
                 } else {
-                    var marker = new google.maps.Marker({
-                        position: location,
-                        map: allmap,
-                        label: data[3],
-                        icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
-                        html: '<div class="card">' + '<div class="card-body">' +
-                            '<h5 class="card-title"><span class="badge badge-primary mr-3">' + data[3] +
-                            '</span><strong>' + data[4] + '</strong></h5>' +
-                            ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
-                            '<p class="card-text">' +
-                            '<ul class="list-group list-group-flush">' +
-                            '<li class="list-group-item"><i class="fas fa-directions mr-2 color"></i>Nearest Landmark: ' +
-                            data[6] + '</li>' +
-                            '<li class="list-group-item"><i class="fas fa-phone-square-alt mr-2 color"></i>Contact Number: ' +
-                            data[7] + '</li>' +
-                            '<li class="list-group-item"><i class="fas fa-users mr-2 color"></i>Capacity: ' +
-                            data[8] +
-                            '</li>' +
-                            '<li class="list-group-item"><span class="badge badge-danger">' + data[9] +
-                            '</span></li>' +
-                            '</ul>' +
-                            '</p>' +
-                            '</div>' +
-                            '</div>',
-                    });
+                    if (data[9] == 'Not Available') {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-danger"> Not Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    } else {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: allmap,
+                            icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
+                            html: '<div class="card">' + '<div class="card-body">' +
+                                '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
+                                ' <h6 class="card-subtitle mb-2 text-muted">' + data[5] + '</h6>' +
+                                '<p class="card-text"><div class="content mb-2"><i class="fas fa-directions mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Nearest Landmark: </span>' + data[6] +
+                                '</div>' +
+                                '<div class="content mb-2"><i class="fas fa-phone-square-alt mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Contact Number: </span>' + data[7] +
+                                '</div>' +
+                                '<div class="content mb-2"> <i class="fas fa-users mr-2 color"></i>' +
+                                '<span class="text-primary font-weight-bold"> Capacity: </span>' + data[8] +
+                                '</div>' +
+                                '<div class="content mb-2"><span class="badge badge-success"> Available </span></div>' +
+                                '</p>' +
+                                '</div>' +
+                                '</div>',
+                        });
+                    }
                 }
 
                 (function(marker, data) {
@@ -241,34 +388,46 @@
                                                 @if ($evacuationcenter->is_approved === 0)
                                                     <h5><span class="badge badge-danger">Not yet Approved</span></h5>
                                                 @endif
-                                                <h5 class="card-title"><span
-                                                        class="badge badge-primary mr-3">{{ $evacuationcenter->id }}</span><strong>{{ $evacuationcenter->evac_name }}</strong>
+                                                <h5 class="card-title">
+                                                    <strong>{{ $evacuationcenter->evac_name }}</strong>
                                                 </h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">
                                                     {{ $evacuationcenter->brgy_loc }}
                                                 </h6>
                                                 <p class="card-text">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-directions mr-2 color"></i>Nearest Landmark:
-                                                        {{ $evacuationcenter->nearest_landmark }}</li>
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-phone-square-alt mr-2 color"></i> Contact Number:
-                                                        {{ $evacuationcenter->phone_no }}</li>
-                                                    <li class="list-group-item"><i
-                                                            class="fas fa-users mr-2 color"></i>Capacity:
-                                                        {{ $evacuationcenter->capacity }}
-                                                    </li>
+                                                <div class="content">
+                                                    <i class="fas fa-directions mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold"> Nearest Landmark:</span>
+                                                    {{ $evacuationcenter->nearest_landmark }}
+                                                </div>
+
+                                                <div class="content">
+                                                    <i class="fas fa-phone-square-alt mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold">Contact Number:</span>
+                                                    {{ $evacuationcenter->phone_no }}
+                                                </div>
+
+
+                                                <div class="content">
+                                                    <i class="fas fa-users mr-2 color"></i> <span
+                                                        class="text-primary font-weight-bold">Capacity:</span>
+                                                    {{ $evacuationcenter->capacity }}
+                                                </div>
+
+
+                                                <div class="content">
                                                     @if ($evacuationcenter->availability === 'Available')
-                                                        <li class="list-group-item"><span
-                                                                class="badge badge-success">{{ $evacuationcenter->availability }}</span>
-                                                        </li>
+                                                        <span
+                                                            class="badge badge-success">{{ $evacuationcenter->availability }}</span>
+
                                                     @else
-                                                        <li class="list-group-item"><span
-                                                                class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
-                                                        </li>
+                                                        <span
+                                                            class="badge badge-danger">{{ $evacuationcenter->availability }}</span>
+
                                                     @endif
-                                                </ul>
+                                                </div>
+
+
                                                 </p>
                                             </div>
                                         </div>
@@ -282,7 +441,14 @@
 
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-8">
-                                    <div id="evac_map" style="height:100%; width: 100%;"></div>
+                                    <div id="evac_map" style="height:500px; width: 100%;"></div>
+                                    <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#00a79d"></i>Approved</li>
+                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                                style="color:#fb5968"></i>Not yet approved</li>
+                                    </ul>
                                 </div>
 
 
@@ -300,7 +466,7 @@
                     <!-- TABLE -->
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
-                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
                                 <thead>
                                     <tr>
                                         <th>No</th>

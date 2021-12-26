@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 class ManageResidentController extends Controller
 {
@@ -19,13 +20,60 @@ class ManageResidentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = DB::table('users')
+                ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+                ->select('users.*', 'user_profiles.*')
+                ->where('users.user_role', 2)
+                ->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                
+                    $btn = '<a href="'.\URL::route('admin.manageresident.show', $row->id).' "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="actionsbtn"><i class="fas fa-user-cog"></i></a>';
+
+                    return $btn;
+                })
+
+                ->addColumn('is_valid', function ($row) {
+                    if ($row->is_valid == '1') {
+                        return '<label class="badge badge-success">Verified</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not yet verified</label>';
+                    }
+                })
+
+                ->addColumn('full_name', function ($row) {
+                    return '<div class="media">
+                    <img class="mr-3 float-left rounded-circle" width="50" height="50" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
+                    <div class="media-body">
+                      <h6>' . $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name . '</h6>
+                      <small class="text-muted">' . $row->user_email . '</small>
+                    </div>
+                  </div>';
+                })
+
+                ->addColumn('user_role', function ($row) {
+                    if ($row->user_role == '2') {
+                        return '<label class="badge badge-primary">Resident</label>';
+                    } else if ($row->user_role == '3') {
+                        return '<label class="badge badge-info">Barangay Official</label>';
+                    }
+                })
+
+                ->rawColumns(['action', 'is_valid', 'full_name', 'user_role'])
+                ->make(true);
+        }
+
         $users = DB::table('users')
             ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
             ->select('users.*', 'user_profiles.*')
             ->where('users.user_role', 2)
             ->get();
+
         return view('features.manageresident', [
             'users' => $users
         ]);
@@ -125,7 +173,14 @@ class ManageResidentController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $profile = UserProfile::find($id);
+
+        return view('features.viewresident', [
+            'user' => $user,
+            'profile' => $profile
+
+        ]);
     }
 
     /**

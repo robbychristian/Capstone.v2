@@ -152,7 +152,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/emergencymessage', AdminEmergency::class);
         Route::resource('/managebarangay', AdminManageBarangayLocations::class);
         Route::post('/managebarangay/addbarangay/{id}', [AdminManageBarangayLocations::class, 'addBarangay']);
+        Route::post('/managebarangay/addbarangaymap/{id}', [AdminManageBarangayLocations::class, 'addBarangayMap'])->name('managebarangay.add');
         Route::post('/managebarangay/deletebarangay/{id}', [AdminManageBarangayLocations::class, 'deleteBarangay']);
+        Route::post('/managebarangay/delete/{id}', [AdminManageBarangayLocations::class, 'delete']);
     });
 });
 

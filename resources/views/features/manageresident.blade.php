@@ -19,188 +19,69 @@
                     Resident</a>
             @endif
         </div>
-        <hr>
 
-        @if (count($users) > 0)
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead style="background-color: #004f91;">
-                        <tr>
-                            <th scope="col" style="color: white;">Full Name</th>
-                            <th scope="col" style="color: white;">Email</th>
-                            <th scope="col" style="color: white;">Contact Number</th>
-                            <th scope="col" style="color: white;">Barangay Location</th>
-                            <th scope="col" style="color: white;">Submitted Valid ID</th>
-                            <th scope="col" colspan='2' style="color: white;">Account Status</th>
-                            <th scope="col" colspan='3' style="color: white;text-align:'center';">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody style="color: black">
-                        @foreach ($users as $user)
+        <div class="card shadow-card mb-3 mt-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
+                        <thead>
                             <tr>
-                                <td> {{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}
-                                </td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->contact_no }}</td>
-                                <td>{{ $user->brgy_loc }}</td>
-                                <td> <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#id{{ $user->id }}">
-                                        View Valid ID
-                                    </button>
-                                </td>
-
-                                @if ($user->is_valid === 0)
-                                    <td>
-                                        <h5><span class="badge badge-danger">Not Validated</span></h5>
-                                    </td>
-                                    <td>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <button class="btn btn-success">Validate</button>
-                                        </form>
-                                    </td>
-                                @endif
-
-
-
-
-                                @if (Auth::user()->user_role === 3)
-                                    <!--IF BRGY OFFICIAL-->
-
-                                    @if ($user->is_blocked == true)
-                                        <td>
-                                            <form action="/brgy_official/manageresident/unblock/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-warning">Unblock</button>
-                                            </form>
-                                        </td>
-                                    @elseif ($user->is_blocked == false)
-                                        <td>
-                                            <form action="/brgy_official/manageresident/block/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-warning">Block</button>
-                                            </form>
-                                        </td>
-                                    @endif
-                                    @if ($user->is_deactivated == true)
-                                        <td>
-                                            <form action="/brgy_official/manageresident/activate/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-danger">Activate</button>
-                                            </form>
-                                        </td>
-                                    @elseif ($user->is_deactivated == false)
-                                        <td>
-                                            <form action="/brgy_official/manageresident/deactivate/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-danger">Deactivate</button>
-                                            </form>
-                                        </td>
-                                    @endif
-                                @endif
-
-                                @if (Auth::user()->user_role === 1)
-                                    <!--IF ADMIN-->
-
-                                    @if ($user->is_blocked == true)
-                                        <td>
-                                            <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-warning">Unblock</button>
-                                            </form>
-                                        </td>
-                                    @elseif ($user->is_blocked == false)
-                                        <td>
-                                            <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-warning">Block</button>
-                                            </form>
-                                        </td>
-                                    @endif
-                                    @if ($user->is_deactivated == true)
-                                        <td>
-                                            <form action="/admin/manageresident/activate/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-danger">Activate</button>
-                                            </form>
-                                        </td>
-                                    @elseif ($user->is_deactivated == false)
-                                        <td>
-                                            <form action="/admin/manageresident/deactivate/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="btn btn-danger">Deactivate</button>
-                                            </form>
-                                        </td>
-                                    @endif
-                                    <td>
-                                        <form action="/admin/manageresident/promote/{{ $user->id }}" method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <button class="btn btn-info ">Promote</button>
-                                        </form>
-                                    </td>
-
-                                @endif
-
-
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Barangay Location</th>
+                                <th>Resident Verification</th>
+                                <th>Action</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="id{{ $user->id }}" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: center;">
-                                <div class="modal-dialog modal-dialog-centered modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img class="img-fluid rounded mx-auto d-block"
-                                                src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $user->valid_id) }}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        @endforeach
-
-                    </tbody>
-                </table>
-            </div>
-            @if (Auth::user()->user_role === 3)
-                <div class="d-grid gap-2 mt-5 d-md-flex justify-content-md-end">
-                    {{ $users->links() }}
-                </div>
-            @endif
-
-        @else
-            <div class="card mt-3">
-                <div class="card-body" style="font-weight: 400; font-size: 1rem;">
-                    There are no registered users.
                 </div>
             </div>
-        @endif
-
-
+        </div>
 
     </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.manageresident.index') }}",
+                columns: [{
+                        data: 'full_name',
+                        name: 'full_name'
+                    },
+                    {
+                        data: 'user_role',
+                        name: 'user_role'
+                    },
+                    {
+                        data: 'brgy_loc',
+                        name: 'brgy_loc'
+                    },
+                    {
+                        data: 'is_valid',
+                        name: 'is_valid'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+
+            });
+
+
+
+
+
+        });
+    </script>
 
 
 

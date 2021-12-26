@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Barangay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 class ManageBarangay extends Controller
 {
@@ -14,8 +15,34 @@ class ManageBarangay extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $data = Barangay::withTrashed()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a  data-id="' . $row->id . '" class="btn btn-success btn-sm" id="addbtn">Add</a>';
+                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-sm ml-2" id="archivebtn">Archive</a>';
+
+                    return $btn;
+                })
+
+                ->addColumn('is_added', function ($row) {
+                    if ($row->is_added == '1') {
+                        return '<label class="badge badge-success">Added</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not Added</label>';
+                    }
+                })
+
+                ->rawColumns(['action', 'is_added'])
+                ->make(true);
+        }
+        $barangays = Barangay::withTrashed()->get();
+        return view('features.addbarangays', [
+            'barangays' => $barangays
+        ]);
     }
 
     /**
@@ -25,10 +52,6 @@ class ManageBarangay extends Controller
      */
     public function create()
     {
-        $barangays = Barangay::all();
-        return view('features.addbarangays', [
-            'barangays' => $barangays
-        ]);
     }
 
     /**
@@ -61,7 +84,6 @@ class ManageBarangay extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -82,25 +104,49 @@ class ManageBarangay extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) 
     {
-        //
+        ////$barangay = DB::table('barangays')
+        ////    ->where('id', $id)
+        ////    ->delete();
+        ////    //->update(['is_added' => 0]);
+        ////return response()->json(['message' => 'The barangay has been archived!']);
+    //
+        //Barangay::find($id)->delete()->update(['is_added' => 1]);
+        //return response()->json(['message' => 'The barangay has been archive!']); // fix deleted_at column not updating
+    
     }
 
-    public function addBarangay($id)
+    public function delete($id) //ajax
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 1]);
-        return redirect('admin/managebarangay/create')->with('success', 'Barangay added!');
+            ->update(['is_added' => 0, 'deleted_at' => now()]);
+        return response()->json(['message' => 'The barangay has been archived!']);
+    }
+
+    public function addBarangay($id) //ajax
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 1, 'updated_at' => now()]);
+        return response()->json(['message' => 'The barangay has been added!']);
+    }
+
+    public function addBarangayMap($id)
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 1, 'updated_at' => now()]);
+        return redirect('admin/managebarangay/')->with('success', 'The barangay has been added!');
     }
 
     public function deleteBarangay($id)
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 0]);
-        return redirect('admin/managebarangay/create')->with('success', 'Barangay removed!');
+            ->update(['is_added' => 0, 'deleted_at' => now()]);
+        return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
     }
 
     public function mobileBarangays()
