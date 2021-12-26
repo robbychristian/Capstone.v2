@@ -16,11 +16,12 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="profile-img" style="width: 250px; ">
-                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
+                        <div class="profile-img" style="width: 250px; text-align: center;">
+                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}" class="rounded-circle"
                                 style="max-width: 100%;
                                 max-height: 100%;
-                                display: block; ">
+                                display: block; 
+                                vertical-align: middle;">
 
                         </div>
 
