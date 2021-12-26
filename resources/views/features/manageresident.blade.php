@@ -57,10 +57,8 @@
                         name: 'id'
                     },
                     {
-                        data: null,
-                        render: function(data, type, row) {
-                            return row.users.first_name + ' ' + row.users.last_name;
-                        }
+                        data: 'full_name',
+                        name: 'full_name'
                     },
                     {
                         data: 'user_email',
