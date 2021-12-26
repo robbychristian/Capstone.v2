@@ -32,8 +32,8 @@ class ManageResidentController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                 
-                    $btn = '<a  data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="addbtn"><i class="fas fa-search"></i></a>';
-                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="archivebtn"><i class="fas fa-user-cog"></i></a>';
+                    $btn = '<a  data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = $btn . '<a  data-id="' . $row->id . '" class="btn btn-warning btn-circle btn-sm ml-2" id="actionsbtn"><i class="fas fa-user-cog"></i></a>';
 
                     return $btn;
                 })

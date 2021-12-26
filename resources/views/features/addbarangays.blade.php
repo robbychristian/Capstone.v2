@@ -99,7 +99,7 @@
                         aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
                             <table class="table data-table" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
+                                <thead style='color:black;'>
                                     <tr>
                                         <th>No</th>
                                         <th>Barangay</th>
@@ -107,7 +107,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style='color:black;'>
                                 </tbody>
                             </table>
 
