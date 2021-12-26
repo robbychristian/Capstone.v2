@@ -18,39 +18,50 @@
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                             class="img-responsive" style="width: 100%; object-fit: cover; height: 300px;">
-                        <h4 class="text-center mb-3 mt-4"> {{ $user->first_name }} {{ $profile->middle_name }}
-                            {{ $user->last_name }}</h4>
+                        <h3 class="text-center mb-3 mt-4 font-weight-bold"> {{ $user->first_name }} {{ $profile->middle_name }}
+                            {{ $user->last_name }}</h3>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <h5 class="mb-3">Profile Information</h5>
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3">User ID</div>
                                 <div class="col-sm-9">{{ $user->id }}</div>
                             </div>
                         </div>
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3">User ID</div>
-                                <div class="col-sm-9">{{ $user->id }}</div>
+                                <div class="col-sm-3">Role</div>
+
+                                @if ($user->user_role == 2)
+                                 <div class="col-sm-9"><span class="badge badge-pill badge-primary">Resident</span></div>
+                                @endif
+                                
+                            </div>
+                        </div>
+                        <div class="content mb-2">
+                            <div class="row">
+                                <div class="col-sm-3">Full Name</div>
+                                <div class="col-sm-9"> {{ $user->first_name }} {{ $profile->middle_name }}
+                                    {{ $user->last_name }}</div>
                             </div>
                         </div>
 
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3">Email</div>
                                 <div class="col-sm-9">{{ $user->email }}</div>
                             </div>
                         </div>
 
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3">Contact Number</div>
                                 <div class="col-sm-9">{{ $profile->contact_no }}</div>
                             </div>
                         </div>
 
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3">Birthday</div>
                                 <div class="col-sm-9">{{ $profile->birth_day }}</div>
@@ -60,13 +71,13 @@
 
                         <hr>
                         <h5 class="mb-3">Residence Details</h5>
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3 ">Home Address</div>
                                 <div class="col-sm-9 ">{{ $profile->home_add }}</div>
                             </div>
                         </div>
-                        <div class="content mb-3">
+                        <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3 ">Barangay</div>
                                 <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
