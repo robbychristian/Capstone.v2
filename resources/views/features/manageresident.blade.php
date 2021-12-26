@@ -28,7 +28,8 @@
                         <th>Name</th>
                         <th>Role</th>
                         <th>Barangay Location</th>
-                        <th colspan="2">Resident Verification</th>
+                        <th>Resident Verification</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
