@@ -48,7 +48,7 @@ class ManageResidentController extends Controller
 
                 ->addColumn('full_name', function ($row) {
                     return '<div class="media">
-                    <img class="mr-3 float-left rounded-circle" width="70" height="7s0" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
+                    <img class="mr-3 float-left rounded-circle" width="70" height="70" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
                     <div class="media-body">
                       <h6>' . $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name . '</h6>
                       <small class="text-muted">' . $row->user_email . '</small>

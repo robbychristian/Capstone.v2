@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title', '| Manage Resident')
 @section('content')
+
+<!-- comments: (what to do next) -> put the actions on these blade and test -->
     <div class="container-fluid" style="color: black">
         @if (Session::get('success'))
             <div class="alert alert-success">
