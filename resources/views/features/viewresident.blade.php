@@ -14,11 +14,11 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div class="row d-flex">
-                    <div class="col-sm-12 col-md-6 col-lg-4 align-items-center">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
                         <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                             class="img-responsive" style="width: 100%; object-fit: cover; height: 300px;">
-                        <h4> {{ $user->first_name }} {{ $profile->middle_name }} {{ $user->last_name }}</h4>
+                        <h4 class="text-center mb-3"> {{ $user->first_name }} {{ $profile->middle_name }} {{ $user->last_name }}</h4>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <dl class="row">
