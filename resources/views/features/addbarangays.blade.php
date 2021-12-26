@@ -195,9 +195,9 @@
                             });
 
                             $.ajax({
-                                url: "https://kabisigapp.com/admin/managebarangay/" +
+                                url: "https://kabisigapp.com/admin/managebarangay/delete/" +
                                     brgy_id,
-                                type: 'DELETE',
+                                type: 'POST',
                                 dataType: 'JSON',
                                 data: {
                                     "id": brgy_id

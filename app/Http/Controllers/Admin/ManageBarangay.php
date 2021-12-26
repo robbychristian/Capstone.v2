@@ -118,6 +118,14 @@ class ManageBarangay extends Controller
 //
     //}
 
+    public function delete($id)
+    {
+        $barangay = DB::table('barangays')
+            ->where('id', $id)
+            ->update(['is_added' => 0, 'deleted_at' => now()]);
+        return response()->json(['message' => 'The barangay has been archived!']);
+    }
+
     public function addBarangay($id) //ajax
     {
         $barangay = DB::table('barangays')
