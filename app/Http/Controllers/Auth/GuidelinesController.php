@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Guidelines;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -110,5 +111,12 @@ class GuidelinesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function guidelinesMobile()
+    {
+        $guidelines = DB::table('guidelines')
+            ->get();
+        return $guidelines;
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EvacuationController;
 use App\Http\Controllers\Auth\ReportsController;
 use App\Http\Controllers\Auth\VulnerabilityMapController;
 use App\Http\Controllers\Admin\ManageBarangay;
+use App\Http\Controllers\Auth\GuidelinesController;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,7 @@ Route::post('updateprofile', [AccountController::class, 'editProfile']);
 Route::post('checkpass', [AccountController::class, 'checkPass']);
 //for register mobile
 Route::get('allBrgys', [ManageBarangay::class, 'mobileBarangays']);
+//for guidelines
+Route::get('guidelines', [GuidelinesController::class, 'guidelinesMobile']);
 
 Auth::routes();
