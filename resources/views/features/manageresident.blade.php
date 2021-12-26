@@ -19,46 +19,29 @@
                     Resident</a>
             @endif
         </div>
-        <hr>
-
-        @if (count($users) > 0)
-           
-            <div class="table-responsive">
-                <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>First Name</th>
-                            <th>Middle Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact Number</th>
-                            <th>Barangay Location</th>
-                            <th>Account Status</th>
-                            <th>Submitted Valid ID</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
-            </div>
-            @if (Auth::user()->user_role === 3)
-                <div class="d-grid gap-2 mt-5 d-md-flex justify-content-md-end">
-                    {{ $users->links() }}
-                </div>
-            @endif
-
-        @else
-            <div class="card mt-3">
-                <div class="card-body" style="font-weight: 400; font-size: 1rem;">
-                    There are no registered users.
-                </div>
-            </div>
-        @endif
 
 
+        <div class="table-responsive">
+            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Barangay Location</th>
+                        <th>Account Status</th>
+                        <th>Submitted Valid ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
 
     </div>
 
