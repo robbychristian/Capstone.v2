@@ -14,22 +14,14 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Role</th>
-                                <th>Barangay Location</th>
-                                <th>Resident Verification</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
-                </div>
+              <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-4">
+                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $users->id . '/' . $users->profile_pic) }}" class="rounded-circle mx-auto d-block" alt="...">
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-8">
+                      {{ $users->first_name }}
+                  </div>
+              </div>
             </div>
         </div>
 
