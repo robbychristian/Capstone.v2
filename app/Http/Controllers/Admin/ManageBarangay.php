@@ -129,7 +129,7 @@ class ManageBarangay extends Controller
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 1]);
+            ->update(['is_added' => 1, 'updated_at' => now()]);
         return response()->json(['message' => 'The barangay has been added!']);
     }
 
@@ -137,7 +137,7 @@ class ManageBarangay extends Controller
     {
         $barangay = DB::table('barangays')
             ->where('id', $id)
-            ->update(['is_added' => 1]);
+            ->update(['is_added' => 1, 'updated_at' => now()]);
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been added!');
     }
 
