@@ -20,22 +20,25 @@
             @endif
         </div>
 
+        <div class="card shadow-card mb-3 mt-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Barangay Location</th>
+                                <th>Resident Verification</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
-        <div class="table-responsive">
-            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Barangay Location</th>
-                        <th>Resident Verification</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-
+                </div>
+            </div>
         </div>
 
     </div>
@@ -47,8 +50,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.manageresident.index') }}",
-                columns: [
-                    {
+                columns: [{
                         data: 'full_name',
                         name: 'full_name'
                     },
