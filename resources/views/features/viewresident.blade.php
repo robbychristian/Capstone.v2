@@ -16,9 +16,18 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                            class="img-responsive" style="width: 100%; object-fit: cover; height: 300px;">
-                        
+                        <div class="profile-img" style="height: 230px;
+                                width: 230px;
+                                overflow: hidden;
+                                border-radius: 50%;
+                                margin: 1rem 3rem;">
+                            <img style=" height: 100%;
+                                width: 100%;"
+                                src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}">
+
+                        </div>
+
+
                     </div>
                     <div class="col-sm-12">
                         <h3 class=" mb-3 mt-4 text-uppercase"> {{ $user->first_name }} {{ $profile->middle_name }}
@@ -84,13 +93,13 @@
                         <h5 class="mb-3" style="font-weight: 600">Residence Details</h5>
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3 "style="font-weight: 500;">Home Address</div>
+                                <div class="col-sm-3 " style="font-weight: 500;">Home Address</div>
                                 <div class="col-sm-9 ">{{ $profile->home_add }}</div>
                             </div>
                         </div>
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3 "style="font-weight: 500;">Barangay</div>
+                                <div class="col-sm-3 " style="font-weight: 500;">Barangay</div>
                                 <div class="col-sm-9 ">{{ $user->brgy_loc }}</div>
                             </div>
                         </div>
@@ -114,18 +123,20 @@
                         <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3" style="font-weight: 500;">Registration Date</div>
-                                <div class="col-sm-9"> {{ date('F d, Y \a\t h:i A', strtotime($user->created_at)) }}</div>
+                                <div class="col-sm-9">
+                                    {{ date('F d, Y \a\t h:i A', strtotime($user->created_at)) }}</div>
                             </div>
                         </div>
 
                         <div class="content mb-2">
                             <div class="row">
-                                <div class="col-sm-3"style="font-weight: 500;">Valid ID</div>
+                                <div class="col-sm-3" style="font-weight: 500;">Valid ID</div>
                                 <div class="col-sm-9 ">
                                     <!-- Button trigger modal -->
 
-                                    <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#id{{ $user->id }}">View</a>
-                                
+                                    <a href="#" class="text-decoration-none" data-toggle="modal"
+                                        data-target="#id{{ $user->id }}">View</a>
+
                                     <!-- Modal -->
                                     <div class="modal fade" id="id{{ $user->id }}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
