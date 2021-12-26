@@ -17,23 +17,25 @@
                 <div class="row d-flex">
                     <div class="col-sm-12 col-md-6 col-lg-4 justify-content-center">
                         <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                            class="rounded-circle mx-auto d-block img-responsive" style="width: 100%;
-                         object-fit: cover;">
+                            class="rounded-circle img-responsive" style="width: 100%;
+                             object-fit: cover;">
                         <h4> {{ $user->first_name }} {{ $profile->middle_name }} {{ $user->last_name }}</h4>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <dl class="row">
                             <dt class="col-sm-3">User ID</dt>
                             <dd class="col-sm-9">{{ $user->id }}</dd>
-                          
+
                             <dt class="col-sm-3">Email</dt>
                             <dd class="col-sm-9">
-                              <p>{{ $user->user_email }}</p>
+                                <p>{{ $user->email }}</p>
                             </dd>
 
                             <hr>
-                        
-                          </dl>
+
+    
+
+                        </dl>
                     </div>
                 </div>
             </div>
