@@ -143,6 +143,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/manageresident/activate/{manageresident}', [AdminManageResident::class, 'activate'])->name('manageresident.activate');
         Route::post('/manageresident/approve/{manageresident}', [AdminManageResident::class, 'approve'])->name('manageresident.approve');
         Route::post('/manageresident/disapprove/{manageresident}', [AdminManageResident::class, 'disapprove'])->name('manageresident.disapprove');
+        Route::post('/manageresident/promotehigher/{manageresident}', [AdminManageResident::class, 'higherOfficials'])->name('manageresident.higherofficials');
+        Route::post('/manageresident/promotesubordinate/{manageresident}', [AdminManageResident::class, 'subordinates'])->name('manageresident.subordinates');
+        Route::post('/manageresident/promoteresident/{manageresident}', [AdminManageResident::class, 'residents'])->name('manageresident.residents');
         Route::post('/manageresident/promote/{manageresident}', [AdminManageResident::class, 'incrementRole'])->name('manageresident.promote');
         Route::resource('/manageresident', AdminManageResident::class);
         Route::resource('/managebrgy_official', AdminManageBrgy::class);

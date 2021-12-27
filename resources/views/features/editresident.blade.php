@@ -322,7 +322,7 @@
                         });
 
                         $.ajax({
-                            //url: "https://kabisigapp.com/admin/evacuation/" + higher_id,
+                            url: "https://kabisigapp.com/admin/manageresident/promotehigher/" + higher_id,
                             type: 'POST',
                             dataType: 'JSON',
                             data: {
