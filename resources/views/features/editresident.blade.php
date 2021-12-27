@@ -24,8 +24,20 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Actions:</div>
-                        <a class="dropdown-item" href="#">Activate</a>
-                        <a class="dropdown-item" href="#">Block</a>
+
+                        @if ($user->is_deactivated === true)
+                            <a class="dropdown-item" href="#">Activate</a>
+                        @elseif ($user->is_deactivated === false)
+                            <a class="dropdown-item" href="#">Dectivate</a>
+                        @endif
+
+                        @if ($user->is_blocked === true)
+                            <a class="dropdown-item" href="#">Unblock</a>
+
+                        @elseif ($user->is_blocked === false)
+                            <a class="dropdown-item" href="#">Block</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -145,18 +157,24 @@
                             <div class="row">
                                 <div class="col-sm-3" style="font-weight: 500;">Valid ID</div>
                                 <div class="col-sm-9 ">
-                                    <!-- Button trigger modal -->
-
-
-
                                     <ul class="list-inline">
+                                        <!-- Button trigger modal -->
                                         <li class="list-inline-item">
                                             <a href="#" class="text-decoration-none" data-toggle="modal"
                                                 data-target="#id{{ $user->id }}">View</a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="text-success">Approve Residency</a>    
-                                        </li>
+
+                                        @if ($user->is_valid === 0)
+                                            <li class="list-inline-item">
+                                                <a href="#" class="text-success">Approve Residency</a>
+                                            </li>
+
+                                        @else
+                                            <li class="list-inline-item">
+                                                <a href="#" class="text-danger">Disapprove Residency</a>
+                                            </li>
+                                        @endif
+
                                     </ul>
 
                                     <!-- Modal -->
