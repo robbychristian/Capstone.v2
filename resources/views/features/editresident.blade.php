@@ -110,7 +110,7 @@
                                 <div class="col-sm-9">{{ $user->id }}</div>
                             </div>
                         </div>
-                        <div class="content mb-2">
+                        <div class="content">
                             <div class="row">
                                 <div class="col-sm-3" style="font-weight: 500;">Role</div>
 
@@ -119,27 +119,27 @@
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <div class="dropdown">
-                                                    <button class="btn dropdown-toggle" type="button"
+                                                    <button class="btn dropdown-toggle p-0" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
                                                         <span class="badge badge-pill badge-primary">Resident</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        
+
                                                         <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#">Barangay Chairman</a>
-                                                        <a class="dropdown-item" href="#">Barangay Kagawad</a>
-                                                        <a class="dropdown-item" href="#">Barangay Secretary</a>
+                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Chairman</a>
+                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Kagawad</a>
+                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Secretary</a>
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#">Barangay Official</a>
-                                                        
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay Official</a>
+
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
-                                    
+
                                         </ul>
 
                                     </div>
