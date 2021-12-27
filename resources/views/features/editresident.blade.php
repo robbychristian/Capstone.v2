@@ -117,8 +117,6 @@
                                 @if ($user->user_role == 2)
                                     <div class="col-sm-9">
                                         <ul class="list-inline">
-                                            <li class="list-inline-item"><span
-                                                    class="badge badge-pill badge-primary">Resident</span></li>
                                             <li class="list-inline-item">
                                                 <div class="dropdown">
                                                     <button class="btn dropdown-toggle" type="button"
@@ -127,9 +125,17 @@
                                                         <span class="badge badge-pill badge-primary">Resident</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Action</a>
-                                                        <a class="dropdown-item" href="#">Another action</a>
-                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                        
+                                                        <div class="dropdown-header">Higher Officials</div>
+                                                        <a class="dropdown-item" href="#">Barangay Chairman</a>
+                                                        <a class="dropdown-item" href="#">Barangay Kagawad</a>
+                                                        <a class="dropdown-item" href="#">Barangay Secretary</a>
+
+                                                        <div class="dropdown-header">Subordinates</div>
+                                                        <a class="dropdown-item" href="#">Barangay Official</a>
+                                                        
+                                                        <div class="dropdown-header">Basic User</div>
+                                                        <a class="dropdown-item" href="#">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
