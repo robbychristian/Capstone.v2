@@ -204,9 +204,15 @@
                                         </li>
 
                                         @if ($user->is_valid === 0)
+
+                                        <form action="/admin/manageresident/approve/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('POST')
                                             <li class="list-inline-item">
-                                                <a href="#" class="text-success">Approve Residency</a>
+                                                <button class="btn-success" type="submit">Approve Residency</button>
                                             </li>
+                                        </form>
+                                           
 
                                         @else
                                             <li class="list-inline-item">

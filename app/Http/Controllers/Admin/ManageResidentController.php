@@ -252,6 +252,23 @@ class ManageResidentController extends Controller
             ->update(['is_deactivated' => false]);
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully activated!');
     }
+
+    public function approve($id)
+    {
+        $isBlocked = DB::table('users')
+            ->where('id', $id)
+            ->update(['is_valid' => 1]);
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully verified!');
+    }
+
+    public function disapprove($id)
+    {
+        $isBlocked = DB::table('users')
+            ->where('id', $id)
+            ->update(['is_valid' => 0]);
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
+    }
+
     public function incrementRole($id)
     {
         $oldUserRole = DB::table('users')
