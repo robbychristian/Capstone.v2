@@ -270,15 +270,27 @@ class ManageResidentController extends Controller
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
     }
 
-    public function higherOfficials($id)
-    {
-        User::find($id)->update(['user_role' => 3]);
+    public function chairman($id)
+    {   
+        User::find($id)->update(['user_role' => 6]);
+        return response()->json(['message' => 'The user is now a higher official!']);
+    }
+
+    public function coChairman($id)
+    {   
+        User::find($id)->update(['user_role' => 5]);
+        return response()->json(['message' => 'The user is now a higher official!']);
+    }
+
+    public function secretary($id)
+    {   
+        User::find($id)->update(['user_role' => 4]);
         return response()->json(['message' => 'The user is now a higher official!']);
     }
 
     public function subordinates($id)
     {
-        User::find($id)->update(['user_role' => 4]);
+        User::find($id)->update(['user_role' => 3]);
         return response()->json(['message' => 'The user is now a barangay official!']);
     }
 

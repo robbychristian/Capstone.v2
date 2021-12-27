@@ -126,16 +126,19 @@
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                        <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Chairman</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Kagawad</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Secretary</a>
+                                                        @if (Auth::user()->user_role == 1)
+                                                            <div class="dropdown-header">Higher Officials</div>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                Co-Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                Secretary</a>
+                                                        @endif
+
 
                                                         <div class="dropdown-header">Subordinates</div>
                                                         <a class="dropdown-item" href="#" id="subordinates">Barangay
@@ -160,21 +163,23 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-success">Higher Barangay
+                                                        <span class="badge badge-pill badge-success">Barangay
                                                             Official</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                        <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Chairman</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Kagawad</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Secretary</a>
+                                                        @if (Auth::user()->user_role == 1)
+                                                            <div class="dropdown-header">Higher Officials</div>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                Co-Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                Secretary</a>
+                                                        @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
                                                         <a class="dropdown-item" href="#" id="subordinates">Barangay
@@ -200,20 +205,104 @@
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
                                                         <span class="badge badge-pill badge-secondary">Barangay
-                                                            Official</span>
+                                                            Secretary</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                        <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Chairman</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Kagawad</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
-                                                            id="higherOfficials">Barangay
-                                                            Secretary</a>
+                                                        @if (Auth::user()->user_role == 1)
+                                                            <div class="dropdown-header">Higher Officials</div>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                Co-Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                Secretary</a>
+                                                        @endif
+
+                                                        <div class="dropdown-header">Subordinates</div>
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                            Official</a>
+
+                                                        <div class="dropdown-header">Basic User</div>
+                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                @endif
+
+                                @if ($user->user_role == 5)
+                                    <div class="col-sm-9">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle p-0 shadow-none" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <span class="badge badge-pill badge-secondary">Barangay
+                                                            Co-Chairman</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                        @if (Auth::user()->user_role == 1)
+                                                            <div class="dropdown-header">Higher Officials</div>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                Co-Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                Secretary</a>
+                                                        @endif
+
+                                                        <div class="dropdown-header">Subordinates</div>
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                            Official</a>
+
+                                                        <div class="dropdown-header">Basic User</div>
+                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                @endif
+
+                                @if ($user->user_role == 6)
+                                    <div class="col-sm-9">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle p-0 shadow-none" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <span class="badge badge-pill badge-secondary">Barangay
+                                                            Chairman</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                        @if (Auth::user()->user_role == 1)
+                                                            <div class="dropdown-header">Higher Officials</div>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                Co-Chairman</a>
+                                                            <a class="dropdown-item" href="#"
+                                                                data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                Secretary</a>
+                                                        @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
                                                         <a class="dropdown-item" href="#" id="subordinates">Barangay
@@ -382,9 +471,9 @@
     </div>
 
     <script>
-        $(document).on('click', '#higherOfficials', function() {
-            var higher_id = $(this).data('id');
-            console.log(higher_id);
+        $(document).on('click', '#chairman', function() {
+            var id = $(this).data('id');
+            console.log(id);
 
             swal({
                     title: "Are you sure?",
@@ -403,12 +492,104 @@
                         });
 
                         $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotehigher/" +
-                                higher_id,
+                            url: "https://kabisigapp.com/admin/manageresident/promotechairman/" +
+                                id,
                             type: 'POST',
                             dataType: 'JSON',
                             data: {
-                                "id": higher_id
+                                "id": id
+                            },
+
+                            success: function(response) {
+                                //row.remove().draw();
+                                swal("Success!", response.message, "success");
+                            },
+
+                            error: function(response) {
+                                console.log(response);
+                            }
+                        });
+                    } else {
+                        swal("No changes were made!");
+                    }
+                });
+
+
+        });
+
+        $(document).on('click', '#co-chairman', function() {
+            var id = $(this).data('id');
+            console.log(id);
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You want to change the role of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        });
+
+                        $.ajax({
+                            url: "https://kabisigapp.com/admin/manageresident/promotecochairman/" +
+                                id,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {
+                                "id": id
+                            },
+
+                            success: function(response) {
+                                //row.remove().draw();
+                                swal("Success!", response.message, "success");
+                            },
+
+                            error: function(response) {
+                                console.log(response);
+                            }
+                        });
+                    } else {
+                        swal("No changes were made!");
+                    }
+                });
+
+
+        });
+
+        $(document).on('click', '#secretary', function() {
+            var id = $(this).data('id');
+            console.log(id);
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You want to change the role of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        });
+
+                        $.ajax({
+                            url: "https://kabisigapp.com/admin/manageresident/promotesecretary/" +
+                                id,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {
+                                "id": id
                             },
 
                             success: function(response) {
@@ -429,8 +610,8 @@
         });
 
         $(document).on('click', '#subordinates', function() {
-            var subordinates_id = $(this).data('id');
-            console.log(subordinates_id);
+            var id = $(this).data('id');
+            console.log(id);
 
             swal({
                     title: "Are you sure?",
@@ -450,11 +631,11 @@
 
                         $.ajax({
                             url: "https://kabisigapp.com/admin/manageresident/promotesubordinate/" +
-                                higher_id,
+                                id,
                             type: 'POST',
                             dataType: 'JSON',
                             data: {
-                                "id": higher_id
+                                "id": id
                             },
 
                             success: function(response) {
@@ -475,8 +656,8 @@
         });
 
         $(document).on('click', '#basicuser', function() {
-            var basicuser_id = $(this).data('id');
-            console.log(basicuser_id);
+            var id = $(this).data('id');
+            console.log(id);
 
             swal({
                     title: "Are you sure?",
@@ -496,11 +677,11 @@
 
                         $.ajax({
                             url: "https://kabisigapp.com/admin/manageresident/promoteresident/" +
-                                basicuser_id,
+                                id,
                             type: 'POST',
                             dataType: 'JSON',
                             data: {
-                                "id": basicuser_id
+                                "id": id
                             },
 
                             success: function(response) {
