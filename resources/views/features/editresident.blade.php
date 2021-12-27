@@ -141,11 +141,11 @@
 
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -182,11 +182,11 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -223,11 +223,11 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -264,11 +264,11 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -305,11 +305,11 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
