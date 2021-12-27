@@ -72,11 +72,11 @@
 
                     </div>
                     <div class="col-sm-12">
-                        <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }}
+                        <h2 class="mt-4 text-uppercase text-center"> {{ $user->first_name }}
                             {{ $profile->middle_name }}
                             {{ $user->last_name }}</h2>
 
-                        <ul class="list-inline text-center">
+                        <ul class="list-inline" style="text-align:center;">
                             @if ($user->is_deactivated === 1)
                                 <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated Account</span></li>
                             @else
