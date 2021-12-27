@@ -69,11 +69,19 @@
                         <div class="content mb-2">
                             <div class="row">
                                 <div class="col-sm-3" style="font-weight: 500;">Role</div>
-
-                                @if ($user->user_role == 2)
-                                    <div class="col-sm-9"><span class="badge badge-pill badge-primary">Resident</span>
-                                    </div>
-                                @endif
+                                <div class="col-sm-9">
+                                    @if ($user->user_role == 2)
+                                        <span class="badge badge-pill badge-primary">Resident</span>
+                                    @elseif ($user->user_role == 3)
+                                        <span class="badge badge-pill badge-info">Barangay Official</span>
+                                    @elseif ($user->user_role == 4)
+                                        <span class="badge badge-pill badge-secondary">Barangay Secretary</span>
+                                    @elseif ($user->user_role == 5)
+                                        <span class="badge badge-pill badge-secondary">Barangay Co-Chairman</span>
+                                    @elseif ($user->user_role == 5)
+                                        <span class="badge badge-pill badge-secondary">Barangay Chairman</span>
+                                    @endif
+                                </div>
 
                             </div>
                         </div>
