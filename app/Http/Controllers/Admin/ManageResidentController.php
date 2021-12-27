@@ -59,10 +59,15 @@ class ManageResidentController extends Controller
                     if ($row->user_role == '2') {
                         return '<label class="badge badge-primary">Resident</label>';
                     } else if ($row->user_role == '3') {
-                        return '<label class="badge badge-success">Higher Barangay Official</label>';
+                        return '<label class="badge badge-info">Barangay Official</label>';
                     }else if ($row->user_role == '4') {
-                        return '<label class="badge badge-secondary">Higher Barangay Official</label>';
+                        return '<label class="badge badge-secondary">Barangay Secretary</label>';
+                    }else if ($row->user_role == '5') {
+                        return '<label class="badge badge-warning">Barangay Co-Chairman</label>';
+                    }else if ($row->user_role == '6') {
+                        return '<label class="badge badge-success">Barangay Chairman</label>';
                     }
+                    
                 })
 
                 ->rawColumns(['action', 'is_valid', 'full_name', 'user_role'])
@@ -273,19 +278,19 @@ class ManageResidentController extends Controller
     public function chairman($id)
     {   
         User::find($id)->update(['user_role' => 6]);
-        return response()->json(['message' => 'The user is now a higher official!']);
+        return response()->json(['message' => 'The user is now a Barangay Chairman!']);
     }
 
     public function coChairman($id)
     {   
         User::find($id)->update(['user_role' => 5]);
-        return response()->json(['message' => 'The user is now a higher official!']);
+        return response()->json(['message' => 'The user is now a Barangay Co-Chairman!']);
     }
 
     public function secretary($id)
     {   
         User::find($id)->update(['user_role' => 4]);
-        return response()->json(['message' => 'The user is now a higher official!']);
+        return response()->json(['message' => 'The user is now a Barangay Secretary!']);
     }
 
     public function subordinates($id)

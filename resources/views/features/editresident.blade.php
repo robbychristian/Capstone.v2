@@ -163,7 +163,7 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-success">Barangay
+                                                        <span class="badge badge-pill badge-info">Barangay
                                                             Official</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -245,7 +245,7 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-secondary">Barangay
+                                                        <span class="badge badge-pill badge-warning">Barangay
                                                             Co-Chairman</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -286,7 +286,7 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-secondary">Barangay
+                                                        <span class="badge badge-pill badge-success">Barangay
                                                             Chairman</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
