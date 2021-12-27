@@ -25,16 +25,16 @@
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Actions:</div>
 
-                        @if ($user->is_deactivated === true)
+                        @if ($user->is_deactivated === 1)
                             <a class="dropdown-item" href="#">Activate</a>
-                        @elseif ($user->is_deactivated === false)
+                        @elseif ($user->is_deactivated === 0)
                             <a class="dropdown-item" href="#">Dectivate</a>
                         @endif
 
-                        @if ($user->is_blocked === true)
+                        @if ($user->is_blocked === 1)
                             <a class="dropdown-item" href="#">Unblock</a>
 
-                        @elseif ($user->is_blocked === false)
+                        @elseif ($user->is_blocked === 0)
                             <a class="dropdown-item" href="#">Block</a>
                         @endif
 
