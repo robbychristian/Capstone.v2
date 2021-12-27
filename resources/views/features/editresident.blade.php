@@ -76,7 +76,7 @@
                             {{ $profile->middle_name }}
                             {{ $user->last_name }}</h2>
 
-                        <ul class="list-inline">
+                        <ul class="list-inline text-center">
                             @if ($user->is_deactivated === 1)
                                 <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated Account</span></li>
                             @else
