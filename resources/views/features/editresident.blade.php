@@ -17,7 +17,7 @@
         <div class="card shadow mb-3 mt-3">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                 style="background-color: white;">
-                <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
+                <a href="/admin/manageresident/" class="btn btn-primary btn-sm active" role="button"
                     aria-pressed="true">Back</a>
 
                 <div class="dropdown no-arrow">
