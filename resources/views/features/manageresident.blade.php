@@ -2,11 +2,6 @@
 @section('title', '| Manage Resident')
 @section('content')
     <div class="container-fluid" style="color: black">
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Manage Resident</h1>

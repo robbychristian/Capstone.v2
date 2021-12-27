@@ -3,15 +3,17 @@
 @section('content')
 
     <div class="container-fluid" style="color: black">
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
+
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Resident Profile</h1>
         </div>
+
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
 
         <div class="card shadow mb-3 mt-3">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-end"
@@ -25,18 +27,31 @@
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Actions:</div>
 
+
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+
                         @if ($user->is_deactivated === 1)
-                            <a class="dropdown-item" href="#">Activate</a>
-                        @elseif ($user->is_deactivated === 0)
-                            <a class="dropdown-item" href="#">Dectivate</a>
+                            <button class="dropdown-item" type="button">Activate</button>
+
+                        @else
+                            <button class="dropdown-item" type="button">Dectivate</button>
+
                         @endif
 
                         @if ($user->is_blocked === 1)
-                            <a class="dropdown-item" href="#">Unblock</a>
+                            <button class="dropdown-item" type="button">Unblock</button>
 
-                        @elseif ($user->is_blocked === 0)
-                            <a class="dropdown-item" href="#">Block</a>
+                        @else
+                            <button class="dropdown-item" type="button">Block</button>
+
                         @endif
+
+
+                        <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST" hidden>
+                            @csrf
+                            @method('POST')
+                        </form>
 
                     </div>
                 </div>
