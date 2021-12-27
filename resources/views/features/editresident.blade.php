@@ -118,6 +118,7 @@
                                     <div class="col-sm-9">
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><span class="badge badge-pill badge-primary">Resident</span></li>
+                                            <li class="list-inline-item"><i class="fas fa-pen fa-fw fa-sm text-gray-600"></i></li>
                                             <li class="list-inline-item"><select class="form-control form-control-sm">
                                                 <optgroup label="Higher Officials">
                                                     <option>Barangay Chairman</option>
