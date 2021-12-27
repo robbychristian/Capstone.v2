@@ -160,7 +160,7 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-primary">Higher Barangay
+                                                        <span class="badge badge-pill badge-success">Higher Barangay
                                                             Official</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -199,7 +199,7 @@
                                                     <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
-                                                        <span class="badge badge-pill badge-primary">Barangay
+                                                        <span class="badge badge-pill badge-secondary">Barangay
                                                             Official</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

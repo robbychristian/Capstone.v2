@@ -26,7 +26,6 @@ class ManageResidentController extends Controller
             $data = DB::table('users')
                 ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
                 ->select('users.*', 'user_profiles.*')
-                ->where('users.user_role', 2)
                 ->get();
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -60,7 +59,9 @@ class ManageResidentController extends Controller
                     if ($row->user_role == '2') {
                         return '<label class="badge badge-primary">Resident</label>';
                     } else if ($row->user_role == '3') {
-                        return '<label class="badge badge-info">Barangay Official</label>';
+                        return '<label class="badge badge-success">Higher Barangay Official</label>';
+                    }else if ($row->user_role == '4') {
+                        return '<label class="badge badge-secondary">Higher Barangay Official</label>';
                     }
                 })
 
