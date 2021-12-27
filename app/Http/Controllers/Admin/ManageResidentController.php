@@ -269,6 +269,25 @@ class ManageResidentController extends Controller
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
     }
 
+    public function higherOfficials($id)
+    {
+        User::find($id)->update(['user_role' => 3]);
+        return response()->json(['message' => 'The evacuation center has been approved!']);
+    }
+
+    public function subordinates($id)
+    {
+        User::find($id)->update(['user_role' => 4]);
+        return response()->json(['message' => 'The evacuation center has been approved!']);
+    }
+
+    public function residents($id)
+    {
+        User::find($id)->update(['user_role' => 2]);
+        return response()->json(['message' => 'The evacuation center has been approved!']);
+    }
+    
+
     public function incrementRole($id)
     {
         $oldUserRole = DB::table('users')

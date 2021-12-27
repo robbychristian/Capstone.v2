@@ -119,7 +119,7 @@
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <div class="dropdown">
-                                                    <button class="btn dropdown-toggle p-0" type="button"
+                                                    <button class="btn dropdown-toggle p-0 shadow-none" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown"
                                                         aria-expanded="false">
                                                         <span class="badge badge-pill badge-primary">Resident</span>
@@ -127,12 +127,16 @@
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                                         <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Chairman</a>
-                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Kagawad</a>
-                                                        <a class="dropdown-item" href="#" id="higherOfficials">Barangay Secretary</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                            Chairman</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                            Kagawad</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                            Secretary</a>
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay Official</a>
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                            Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
                                                         <a class="dropdown-item" href="#" id="basicuser">Resident</a>
@@ -295,5 +299,52 @@
         </div>
 
     </div>
+
+    <script>
+        $(document).on('click', '#higherOfficials', function() {
+            var higher_id = $(this).data('id');
+            console.log(higher_id);
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You want to change the role of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        });
+
+                        $.ajax({
+                            //url: "https://kabisigapp.com/admin/evacuation/" + higher_id,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {
+                                "id": higher_id
+                            },
+
+                            success: function(response) {
+                                //row.remove().draw();
+                                swal("Success!", response.message, "success");
+                            },
+
+                            error: function(response) {
+                                console.log(response);
+                            }
+                        });
+                    } else {
+                        swal("No changes were made!");
+                    }
+                });
+
+
+        });
+    </script>
 
 @endsection
