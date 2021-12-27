@@ -119,6 +119,20 @@
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><span
                                                     class="badge badge-pill badge-primary">Resident</span></li>
+                                            <li class="list-inline-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <span class="badge badge-pill badge-primary">Resident</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                    </div>
+                                                </div>
+                                            </li>
                                             <li class="list-inline-item" id="pen"><i
                                                     class="fas fa-pen fa-fw fa-sm text-gray-500"></i></li>
                                             <li class="list-inline-item" id="form">
@@ -136,6 +150,7 @@
                                                     </optgroup>
                                                 </select>
                                             </li>
+
 
                                         </ul>
 
