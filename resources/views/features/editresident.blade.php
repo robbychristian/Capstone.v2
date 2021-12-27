@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid" style="color: black">
-
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Back</a>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Resident Profile</h1>
@@ -214,20 +214,24 @@
                                                     method="POST">
                                                     @csrf
                                                     @method('POST')
-                                                    <button type="submit" style="color:#1cc88a; border:none; background-color:transparent;">Approve Residency</button>
+                                                    <button type="submit"
+                                                        style="color:#1cc88a; border:none; background-color:transparent;">Approve
+                                                        Residency</button>
                                                 </form>
                                             </li>
 
 
                                         @else
-                                        <li class="list-inline-item">
-                                            <form action="/admin/manageresident/disapprove/{{ $user->id }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <button type="submit" style="color:#e74a3b; border:none; background-color:transparent;">Disapprove Residency</button>
-                                            </form>
-                                        </li>
+                                            <li class="list-inline-item">
+                                                <form action="/admin/manageresident/disapprove/{{ $user->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit"
+                                                        style="color:#e74a3b; border:none; background-color:transparent;">Disapprove
+                                                        Residency</button>
+                                                </form>
+                                            </li>
                                         @endif
 
                                     </ul>
