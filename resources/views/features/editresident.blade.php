@@ -14,7 +14,8 @@
         </div>
 
         <div class="card shadow mb-3 mt-3">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-end" style="background-color: white;">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-end"
+                style="background-color: white;">
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -146,8 +147,17 @@
                                 <div class="col-sm-9 ">
                                     <!-- Button trigger modal -->
 
-                                    <a href="#" class="text-decoration-none" data-toggle="modal"
-                                        data-target="#id{{ $user->id }}">View</a>
+
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-decoration-none" data-toggle="modal"
+                                                data-target="#id{{ $user->id }}">View</a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#" class="text-success">Approve Residency</a>    
+                                        </li>
+                                    </ul>
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="id{{ $user->id }}" tabindex="-1"
