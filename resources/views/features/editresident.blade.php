@@ -26,32 +26,35 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Actions:</div>
-
-
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Something else here</button>
-
                         @if ($user->is_deactivated === 1)
-                            <button class="dropdown-item" type="button">Activate</button>
-
+                            <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                <button class="dropdown-item" type="button">Activate</button>
+                            </form>
                         @else
-                            <button class="dropdown-item" type="button">Dectivate</button>
-
+                            <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                <button class="dropdown-item" type="button">Dectivate</button>
+                            </form>
                         @endif
 
                         @if ($user->is_blocked === 1)
-                            <button class="dropdown-item" type="button">Unblock</button>
+                            <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                <button class="dropdown-item" type="button">Unblock</button>
+                            </form>
 
                         @else
-                            <button class="dropdown-item" type="button">Block</button>
+                            <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                <button class="dropdown-item" type="button">Block</button>
+                            </form>
 
                         @endif
-
-
-                        <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST" hidden>
-                            @csrf
-                            @method('POST')
-                        </form>
 
                     </div>
                 </div>

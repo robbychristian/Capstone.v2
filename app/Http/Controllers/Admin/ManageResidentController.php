@@ -229,28 +229,28 @@ class ManageResidentController extends Controller
         $isBlocked = DB::table('users')
             ->where('id', $id)
             ->update(['is_blocked' => true]);
-        return redirect('admin/manageresident/' . $id . '/edit');
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully blocked!');
     }
     public function unblock($id)
     {
         $isBlocked = DB::table('users')
             ->where('id', $id)
             ->update(['is_blocked' => false]);
-        return redirect('admin/manageresident/' . $id . '/edit');
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unblocked!');
     }
     public function deactivate($id)
     {
         $isBlocked = DB::table('users')
             ->where('id', $id)
             ->update(['is_deactivated' => true]);
-        return redirect('admin/manageresident/' . $id . '/edit');
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully deactivated!');
     }
     public function activate($id)
     {
         $isBlocked = DB::table('users')
             ->where('id', $id)
             ->update(['is_deactivated' => false]);
-        return redirect('admin/manageresident/' . $id . '/edit');
+        return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully activated!');
     }
     public function incrementRole($id)
     {
