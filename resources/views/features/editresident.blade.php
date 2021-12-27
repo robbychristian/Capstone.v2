@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="container-fluid" style="color: black">
-        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Back</a>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Resident Profile</h1>
@@ -16,8 +15,11 @@
         @endif
 
         <div class="card shadow mb-3 mt-3">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-end"
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                 style="background-color: white;">
+                <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
+                    aria-pressed="true">Back</a>
+
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">

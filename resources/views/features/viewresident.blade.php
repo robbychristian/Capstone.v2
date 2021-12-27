@@ -8,6 +8,10 @@
             </div>
         @endif
 
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
+
+
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Resident Profile</h1>
         </div>
@@ -15,19 +19,46 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12 d-flex"
-                        style="justify-content: center; align-items: center;">
-                        <div class="profile-img" style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
+                    <div class="col-sm-12 d-flex" style="justify-content: center; align-items: center;">
+                        <div class="profile-img"
+                            style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
                             <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                           style=" width: auto; height: 100%; margin-left: -50px; ">
+                                style=" width: auto; height: 100%; margin-left: -50px; ">
 
                         </div>
 
 
                     </div>
                     <div class="col-sm-12">
-                        <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }} {{ $profile->middle_name }}
+                        <h2 class="mt-4 text-uppercase text-center"> {{ $user->first_name }}
+                            {{ $profile->middle_name }}
                             {{ $user->last_name }}</h2>
+
+                        <ul class="list-inline" style="text-align:center;">
+                            @if ($user->is_deactivated === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated
+                                        Account</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Active
+                                        Account</span></li>
+                            @endif
+
+                            @if ($user->is_blocked === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Blocked</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Not Blocked</span>
+                                </li>
+                            @endif
+
+                            @if ($user->is_valid === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Verified
+                                        Resident</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Unverified
+                                        Resident</span></li>
+                            @endif
+
+                        </ul>
                         <h5 class="mb-3" style="font-weight: 600;">Profile Information</h5>
                         <div class="content mb-2">
                             <div class="row">
