@@ -78,21 +78,26 @@
 
                         <ul class="list-inline" style="text-align:center;">
                             @if ($user->is_deactivated === 1)
-                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated Account</span></li>
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated
+                                        Account</span></li>
                             @else
-                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Active Account</span></li>
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Active
+                                        Account</span></li>
                             @endif
 
                             @if ($user->is_blocked === 1)
                                 <li class="list-inline-item"><span class="badge badge-pill badge-danger">Blocked</span></li>
                             @else
-                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Not Blocked</span></li>
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Not Blocked</span>
+                                </li>
                             @endif
 
                             @if ($user->is_valid === 1)
-                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Verified Resident</span></li>
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Verified
+                                        Resident</span></li>
                             @else
-                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Unverified Resident</span></li>
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Unverified
+                                        Resident</span></li>
                             @endif
 
                         </ul>
@@ -204,15 +209,15 @@
                                         </li>
 
                                         @if ($user->is_valid === 0)
-
-                                        <form action="/admin/manageresident/approve/{{ $user->id }}" method="POST">
-                                            @csrf
-                                            @method('POST')
                                             <li class="list-inline-item">
-                                                <button class="btn-success" type="submit">Approve Residency</button>
+                                                <form action="/admin/manageresident/approve/{{ $user->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button class="btn-success" type="submit">Approve Residency</button>
+                                                </form>
                                             </li>
-                                        </form>
-                                           
+
 
                                         @else
                                             <li class="list-inline-item">
