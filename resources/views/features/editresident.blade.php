@@ -116,7 +116,17 @@
 
                                 @if ($user->user_role == 2)
                                     <div class="col-sm-9"><select class="form-control form-control-sm">
-                                            <option>Small select</option>
+                                        <optgroup label="Higher Officials">
+                                            <option>Barangay Chairman</option>
+                                            <option>Barangay Kagawad</option>
+                                            <option>Barangay Secretary</option>
+                                        </optgroup>
+                                        <optgroup label="Subordinates">
+                                            <option>Barangay Official</option>
+                                        </optgroup>
+                                        <optgroup label="Basic User">
+                                            <option>Resident</option>
+                                        </optgroup>
                                         </select><span class="badge badge-pill badge-primary">Resident</span>
                                     </div>
                                 @endif
