@@ -30,13 +30,13 @@
                             <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <button class="dropdown-item" type="button">Activate</button>
+                                <button class="dropdown-item" type="submit">Activate</button>
                             </form>
                         @else
                             <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <button class="dropdown-item" type="button">Dectivate</button>
+                                <button class="dropdown-item" type="submit">Dectivate</button>
                             </form>
                         @endif
 
@@ -44,14 +44,14 @@
                             <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <button class="dropdown-item" type="button">Unblock</button>
+                                <button class="dropdown-item" type="submit">Unblock</button>
                             </form>
 
                         @else
                             <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <button class="dropdown-item" type="button">Block</button>
+                                <button class="dropdown-item" type="submit">Block</button>
                             </form>
 
                         @endif
