@@ -116,8 +116,9 @@
 
                                 @if ($user->user_role == 2)
                                     <div class="col-sm-9">
-                                        <div class="col-sm-3">
-                                            <select class="form-control form-control-sm">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><span class="badge badge-pill badge-primary">Resident</span></li>
+                                            <li class="list-inline-item"><select class="form-control form-control-sm">
                                                 <optgroup label="Higher Officials">
                                                     <option>Barangay Chairman</option>
                                                     <option>Barangay Kagawad</option>
@@ -129,11 +130,10 @@
                                                 <optgroup label="Basic User">
                                                     <option>Resident</option>
                                                 </optgroup>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <span class="badge badge-pill badge-primary">Resident</span>
-                                        </div>
+                                            </select></li>
+                                            
+                                          </ul>
+
                                     </div>
                                 @endif
 
