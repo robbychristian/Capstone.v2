@@ -272,19 +272,19 @@ class ManageResidentController extends Controller
     public function higherOfficials($id)
     {
         User::find($id)->update(['user_role' => 3]);
-        return response()->json(['message' => 'The evacuation center has been approved!']);
+        return response()->json(['message' => 'The user is now a higher official!']);
     }
 
     public function subordinates($id)
     {
         User::find($id)->update(['user_role' => 4]);
-        return response()->json(['message' => 'The evacuation center has been approved!']);
+        return response()->json(['message' => 'The user is now a barangay official!']);
     }
 
     public function residents($id)
     {
         User::find($id)->update(['user_role' => 2]);
-        return response()->json(['message' => 'The evacuation center has been approved!']);
+        return response()->json(['message' => 'The user is now a resident!']);
     }
     
 

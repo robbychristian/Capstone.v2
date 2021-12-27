@@ -127,11 +127,92 @@
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                                         <div class="dropdown-header">Higher Officials</div>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
                                                             Chairman</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
                                                             Kagawad</a>
-                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}" id="higherOfficials">Barangay
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Secretary</a>
+
+                                                        <div class="dropdown-header">Subordinates</div>
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                            Official</a>
+
+                                                        <div class="dropdown-header">Basic User</div>
+                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                @endif
+
+                                @if ($user->user_role == 3)
+                                    <div class="col-sm-9">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle p-0 shadow-none" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <span class="badge badge-pill badge-primary">Higher Barangay
+                                                            Official</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                        <div class="dropdown-header">Higher Officials</div>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Chairman</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Kagawad</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Secretary</a>
+
+                                                        <div class="dropdown-header">Subordinates</div>
+                                                        <a class="dropdown-item" href="#" id="subordinates">Barangay
+                                                            Official</a>
+
+                                                        <div class="dropdown-header">Basic User</div>
+                                                        <a class="dropdown-item" href="#" id="basicuser">Resident</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                @endif
+
+                                @if ($user->user_role == 4)
+                                    <div class="col-sm-9">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle p-0 shadow-none" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                        <span class="badge badge-pill badge-primary">Barangay
+                                                            Official</span>
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                        <div class="dropdown-header">Higher Officials</div>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Chairman</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
+                                                            Kagawad</a>
+                                                        <a class="dropdown-item" href="#" data-id="{{ $user->id }}"
+                                                            id="higherOfficials">Barangay
                                                             Secretary</a>
 
                                                         <div class="dropdown-header">Subordinates</div>
@@ -322,11 +403,104 @@
                         });
 
                         $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotehigher/" + higher_id,
+                            url: "https://kabisigapp.com/admin/manageresident/promotehigher/" +
+                                higher_id,
                             type: 'POST',
                             dataType: 'JSON',
                             data: {
                                 "id": higher_id
+                            },
+
+                            success: function(response) {
+                                //row.remove().draw();
+                                swal("Success!", response.message, "success");
+                            },
+
+                            error: function(response) {
+                                console.log(response);
+                            }
+                        });
+                    } else {
+                        swal("No changes were made!");
+                    }
+                });
+
+
+        });
+
+        $(document).on('click', '#subordinates', function() {
+            var subordinates_id = $(this).data('id');
+            console.log(subordinates_id);
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You want to change the role of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        });
+
+                        $.ajax({
+                            url: "https://kabisigapp.com/admin/manageresident/promotesubordinate/" +
+                                higher_id,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {
+                                "id": higher_id
+                            },
+
+                            success: function(response) {
+                                //row.remove().draw();
+                                swal("Success!", response.message, "success");
+                            },
+
+                            error: function(response) {
+                                console.log(response);
+                            }
+                        });
+                    } else {
+                        swal("No changes were made!");
+                    }
+                });
+
+
+        });
+
+        $(document).on('click', '#basicuser', function() {
+            var basicuser_id = $(this).data('id');
+            console.log(basicuser_id);
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You want to change the role of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        });
+
+                        $.ajax({
+                            url: "https://kabisigapp.com/admin/manageresident/promoteresident/" +
+                                basicuser_id,
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: {
+                                "id": basicuser_id
                             },
 
                             success: function(response) {
