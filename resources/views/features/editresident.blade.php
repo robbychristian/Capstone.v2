@@ -75,6 +75,27 @@
                         <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }}
                             {{ $profile->middle_name }}
                             {{ $user->last_name }}</h2>
+
+                        <ul class="list-inline">
+                            @if ($user->is_deactivated === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Deactivated Account</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Active Account</span></li>
+                            @endif
+
+                            @if ($user->is_blocked === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Blocked</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Not Blocked</span></li>
+                            @endif
+
+                            @if ($user->is_valid === 1)
+                                <li class="list-inline-item"><span class="badge badge-pill badge-success">Verified Resident</span></li>
+                            @else
+                                <li class="list-inline-item"><span class="badge badge-pill badge-danger">Unverified Resident</span></li>
+                            @endif
+
+                        </ul>
                         <h5 class="mb-3" style="font-weight: 600;">Profile Information</h5>
                         <div class="content mb-2">
                             <div class="row">
@@ -218,6 +239,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
