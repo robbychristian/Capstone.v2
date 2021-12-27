@@ -2,7 +2,6 @@
 @section('title', '| Manage Resident')
 @section('content')
 
-<!-- comments: (what to do next) -> put the actions on these blade and test -->
     <div class="container-fluid" style="color: black">
         @if (Session::get('success'))
             <div class="alert alert-success">
@@ -15,20 +14,38 @@
         </div>
 
         <div class="card shadow-card mb-3 mt-3">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                        aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12 d-flex"
-                        style="justify-content: center; align-items: center;">
-                        <div class="profile-img" style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
+                    <div class="col-sm-12 d-flex" style="justify-content: center; align-items: center;">
+                        <div class="profile-img"
+                            style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
                             <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                           style=" width: auto; height: 100%; margin-left: -50px; ">
+                                style=" width: auto; height: 100%; margin-left: -50px; ">
 
                         </div>
 
 
                     </div>
                     <div class="col-sm-12">
-                        <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }} {{ $profile->middle_name }}
+                        <h2 class=" mb-3 mt-4 text-uppercase text-center"> {{ $user->first_name }}
+                            {{ $profile->middle_name }}
                             {{ $user->last_name }}</h2>
                         <h5 class="mb-3" style="font-weight: 600;">Profile Information</h5>
                         <div class="content mb-2">
