@@ -13,13 +13,12 @@
             <h1 class="h3 mb-0 text-gray-800">Resident Profile</h1>
         </div>
 
-        <div class="card shadow-card mb-3 mt-3">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
+        <div class="card shadow mb-3 mt-3">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color: white;">
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        <i class="fas fa-cogs fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
