@@ -127,9 +127,19 @@
                                                         <span class="badge badge-pill badge-primary">Resident</span>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Action</a>
-                                                        <a class="dropdown-item" href="#">Another action</a>
-                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                        <select class="form-control form-control-sm">
+                                                            <optgroup label="Higher Officials">
+                                                                <option>Barangay Chairman</option>
+                                                                <option>Barangay Kagawad</option>
+                                                                <option>Barangay Secretary</option>
+                                                            </optgroup>
+                                                            <optgroup label="Subordinates">
+                                                                <option>Barangay Official</option>
+                                                            </optgroup>
+                                                            <optgroup label="Basic User">
+                                                                <option>Resident</option>
+                                                            </optgroup>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </li>
