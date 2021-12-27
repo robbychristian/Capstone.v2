@@ -115,7 +115,9 @@
                                 <div class="col-sm-3" style="font-weight: 500;">Role</div>
 
                                 @if ($user->user_role == 2)
-                                    <div class="col-sm-9"><span class="badge badge-pill badge-primary">Resident</span>
+                                    <div class="col-sm-9"><select class="form-control form-control-sm">
+                                            <option>Small select</option>
+                                        </select><span class="badge badge-pill badge-primary">Resident</span>
                                     </div>
                                 @endif
 
