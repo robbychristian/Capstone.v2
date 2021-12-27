@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Manage Resident')
 @section('content')
-
+    <!-- comment: assign roles for the dropdown fix else if depending on roles // add auto-reload page ajax  -->
     <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -141,11 +141,13 @@
 
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates"
+                                                            data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser"
+                                                            data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -182,11 +184,13 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates"
+                                                            data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser"
+                                                            data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -223,11 +227,13 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates"
+                                                            data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser"
+                                                            data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -264,11 +270,13 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates"
+                                                            data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser"
+                                                            data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -305,11 +313,13 @@
                                                         @endif
 
                                                         <div class="dropdown-header">Subordinates</div>
-                                                        <a class="dropdown-item" href="#" id="subordinates" data-id="{{ $user->id }}">Barangay
+                                                        <a class="dropdown-item" href="#" id="subordinates"
+                                                            data-id="{{ $user->id }}">Barangay
                                                             Official</a>
 
                                                         <div class="dropdown-header">Basic User</div>
-                                                        <a class="dropdown-item" href="#" id="basicuser" data-id="{{ $user->id }}">Resident</a>
+                                                        <a class="dropdown-item" href="#" id="basicuser"
+                                                            data-id="{{ $user->id }}">Resident</a>
                                                     </div>
                                                 </div>
                                             </li>
