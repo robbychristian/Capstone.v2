@@ -29,43 +29,35 @@
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
             aria-pressed="true">Back</a>
 
-
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Reports</h1>
-        </div>
-
         <div class="card shadow mb-3 mt-3">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         <div class="card">
+                            <div class="card-body">
 
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-3" style="font-weight: 500;">Reported by:</div>
-                                    <div class="col-sm-9">{{ $report->full_name }}</div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-3" style="font-weight: 500;">Reported by</div>
+                                        <div class="col-sm-9">{{ $report->full_name }}</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
-                                    <div class="col-sm-9">{{ $report->full_name }}</div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-3" style="font-weight: 500;">Full Name</div>
+                                        <div class="col-sm-9">{{ $report->full_name }}</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
-                                    <div class="col-sm-9">{{ $report->full_name }}</div>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-3" style="font-weight: 500;">Barangay Location</div>
+                                        <div class="col-sm-9">{{ $report->brgy_loc }}</div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
-                                    <div class="col-sm-9">{{ $report->full_name }}</div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
