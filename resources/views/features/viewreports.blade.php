@@ -50,21 +50,21 @@
 
                                 <hr>
 
-                                <div class="content">
+                                <div class="content mb-2">
                                     <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Reported by</div>
                                         <div class="col-sm-6">{{ $report->full_name }}</div>
                                     </div>
                                 </div>
 
-                                <div class="content">
+                                <div class="content mb-2">
                                     <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Barangay Location</div>
                                         <div class="col-sm-6">{{ $report->brgy_loc }}</div>
                                     </div>
                                 </div>
 
-                                <div class="content">
+                                <div class="content mb-2">
                                     <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Status</div>
                                         <div class="col-sm-6">
