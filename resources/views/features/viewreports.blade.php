@@ -38,8 +38,8 @@
                             <div class="card-body">
                                 <div class="content">
                                     <div class="row">
-                                        <div class="col-sm-12"> <h5>{{ $report->title }}</h5></div>
-                                        <div class="col-sm-12"> <p>{{ $report->description }}</p></div>
+                                        <div class="col-sm-12" style="font-weight: 700; font-size: 1.5rem;"> {{ $report->title }}</div>
+                                        <div class="col-sm-12">{{ $report->description }}</div>
                                     </div>
                                 </div>
                                
