@@ -17,6 +17,16 @@
 
 
             var map = new google.maps.Map(document.getElementById('map'), options);
+            var lat = document.getElementById('loc_lat').value;
+            var lng = document.getElementById('loc_lng').value;
+            console.log(lat);
+            console.log(lng);
+            //var latlng = new google.maps.LatLng()
+            //var marker = new google.maps.Marker({
+            //    position: latlng
+            //});
+
+            //marker.setMap(map);
         }
     </script>
     <div class="container-fluid" style="color: black">
@@ -81,7 +91,7 @@
                                     </div>
                                 </div>
 
-                                <div class="content d-flex justify-content-end mt-3">
+                                <div class="content d-flex justify-content-end mt-5">
                                     <button class="btn btn-circle btn-success mr-2"><i class="fas fa-check"></i></button>
                                     <button class="btn btn-circle btn-warning mr-2"><i class="fas fa-times"></i></button>
                                     <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
@@ -94,6 +104,8 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <div id="map" style="height:100%; width: 100%;"></div>
+                        <input type="text" name="" id="loc_lat" value="{{ $report->loc_lat }}" hidden >
+                        <input type="text" name="" id="loc_lng" value="{{ $report->loc_lng }}" hidden >
                     </div>
                 </div>
             </div>
