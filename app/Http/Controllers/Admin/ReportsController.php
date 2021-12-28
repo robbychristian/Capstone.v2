@@ -27,7 +27,7 @@ class ReportsController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = '<a href="' . \URL::route('admin.reports.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
                     return $btn;
                 })
 
@@ -43,7 +43,7 @@ class ReportsController extends Controller
                 })
 
                 ->editColumn('created_at', function ($row) {
-                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('F d, Y \a\t h:i A');
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
                     return $formatedDate;
                 })
 
@@ -83,8 +83,11 @@ class ReportsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $report = Reports::find($id);
+        return view('features.viewreports', [
+            'report' => $report
+        ]);
     }
 
     /**
