@@ -21,12 +21,12 @@
             var lng = document.getElementById('loc_lng').value;
             console.log(lat);
             console.log(lng);
-            //var latlng = new google.maps.LatLng()
-            //var marker = new google.maps.Marker({
-            //    position: latlng
-            //});
+            var latlng = new google.maps.LatLng(lat,lng);
+            var marker = new google.maps.Marker({
+                position: latlng
+            });
 
-            //marker.setMap(map);
+            marker.setMap(map);
         }
     </script>
     <div class="container-fluid" style="color: black">
