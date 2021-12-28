@@ -38,22 +38,15 @@
 
                                 <div class="content">
                                     <div class="row">
-                                        <div class="col-sm-3" style="font-weight: 500;">Reported by</div>
-                                        <div class="col-sm-9">{{ $report->full_name }}</div>
+                                        <div class="col-sm-6" style="font-weight: 500;">Reported by</div>
+                                        <div class="col-sm-6">{{ $report->full_name }}</div>
                                     </div>
                                 </div>
 
                                 <div class="content">
                                     <div class="row">
-                                        <div class="col-sm-3" style="font-weight: 500;">Full Name</div>
-                                        <div class="col-sm-9">{{ $report->full_name }}</div>
-                                    </div>
-                                </div>
-
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-sm-3" style="font-weight: 500;">Barangay Location</div>
-                                        <div class="col-sm-9">{{ $report->brgy_loc }}</div>
+                                        <div class="col-sm-6" style="font-weight: 500;">Barangay Location</div>
+                                        <div class="col-sm-6">{{ $report->brgy_loc }}</div>
                                     </div>
                                 </div>
 
