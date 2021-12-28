@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title', '| Add Residents')
 @section('content')
+
+<!-- comments: add residents not yet done revisions not yet reflected -->
     <script>
         $(document).ready(function() {
 
@@ -152,7 +154,7 @@
             <h1 class="h3 mb-0 text-gray-800">Add Resident</h1>
         </div>
 
-        <div class="card shadow mb-3 mt-3">
+        <div class="card mb-3 mt-3">
             <div class="card-body">
                 <small class="text-muted">Fields marked with an <span class="text-danger"
                         style="font-size: 1rem">*</span> are
