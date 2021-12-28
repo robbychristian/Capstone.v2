@@ -47,14 +47,6 @@
                                     </div>
                                 </div>
 
-                                <div class="content d-flex justify-content-end">
-                                    <button class="btn btn-circle btn-success"><i class="fas fa-check"></i></button>
-                                    <button class="btn btn-circle btn-warning"><i class="fas fa-times"></i></button>
-                                    <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
-
-                                </div>
-
-
                                 <hr>
 
                                 <div class="content">
@@ -69,6 +61,12 @@
                                         <div class="col-sm-6" style="font-weight: 500;">Barangay Location</div>
                                         <div class="col-sm-6">{{ $report->brgy_loc }}</div>
                                     </div>
+                                </div>
+
+                                <div class="content d-flex justify-content-end mt-3">
+                                    <button class="btn btn-circle btn-success mr-2"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-circle btn-warning mr-2"><i class="fas fa-times"></i></button>
+                                    <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
 
 
