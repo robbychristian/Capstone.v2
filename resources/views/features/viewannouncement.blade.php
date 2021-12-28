@@ -15,7 +15,7 @@
                 <h1 class="h3 mb-4 text-gray-800">Announcements</h1>
             </div>
 
-            <div class="card border-light mb-3 w-100">
+            <div class="card shadow mb-3 w-100">
                 <div class="card-header"></div>
                 <div class="card-body">
 
@@ -23,7 +23,7 @@
                         <h2 class="card-title">{{ $announcement->title }}</h2>
                         <small class=" bd-highlight text-muted">Issued by: {{ $announcement->name }}</small>
                         <small class=" bd-highlight text-muted">
-                            {{ date('F d, Y \a\t h:i:s A', strtotime($announcement->created_at)) }}</small>
+                            {{ date('F d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</small>
                     </div>
                     <p class="card-text">{{ $announcement->body }}</p>
 
