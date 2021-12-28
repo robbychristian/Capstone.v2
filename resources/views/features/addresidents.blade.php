@@ -154,7 +154,7 @@
 
         <div class="card shadow mb-3 mt-3">
             <div class="card-body">
-                <small class="text-muted mb-5">Fields marked with an <span class="text-danger"
+                <small class="text-muted">Fields marked with an <span class="text-danger"
                         style="font-size: 1rem">*</span> are
                     required.</small>
                 @if (Auth::user()->user_role === 1)
@@ -162,7 +162,7 @@
                         enctype="multipart/form-data">
                     @elseif (Auth::user()->user_role === 3)
                         <form action="{{ route('brgy_official.manageresident.store') }}" method="POST"
-                            class="mt-5" enctype="multipart/form-data">
+                            class="mt-3" enctype="multipart/form-data">
                 @endif
                 @csrf
                 <div class="form-row">
