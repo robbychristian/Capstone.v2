@@ -92,7 +92,12 @@ class ManageResidentController extends Controller
      */
     public function create()
     {
-        return view('features.addresidents');
+        $barangays = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+        return view('features.addresidents',[
+            'barangays' => $barangays,
+        ]);
     }
 
     /**

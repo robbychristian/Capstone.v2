@@ -202,12 +202,13 @@
                         <label class="control-label" for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
                             <select name="brgy" id="inputBrgy" class="form-control">
-                                <option value="">Barangay</option>
-                                <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
-                                <option value='Barangay Manggahan'>Barangay Manggahan</option>
-                                <option value='Barangay Maybunga'>Barangay Maybunga</option>
-                                <option value='Barangay Rosario'>Barangay Rosario</option>
-                                <option value='Barangay Santolan'>Barangay Santolan</option>
+                                @foreach ($barangays as $barangay)
+                                    <option disabled hidden selected>Select Barangay</option>
+                                    <option value='{{ $barangay->brgy_loc }}'
+                                        {{ old('brgy') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                        {{ $barangay->brgy_loc }}
+                                    </option>
+                                @endforeach
                             </select>
                             <small class="text-danger">@error('brgy')
                                     {{ $message }}
