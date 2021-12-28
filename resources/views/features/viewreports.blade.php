@@ -133,8 +133,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <img class="img-fluid rounded mx-auto d-block"
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <img style="height: 500px; width: 500px; object-fit:contain;" 
                         src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}">
                 </div>
             </div>
