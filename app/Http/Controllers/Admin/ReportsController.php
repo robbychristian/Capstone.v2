@@ -86,7 +86,7 @@ class ReportsController extends Controller
     {   
         $report = Reports::find($id);
         return view('features.viewreports', [
-            'report' => $report
+            'report' => $report->with('success', 'Report successfully Pending')
         ]);
     }
 
@@ -123,7 +123,7 @@ class ReportsController extends Controller
     {
         $report = Reports::find($id);
         $report->delete();
-        return redirect('admin/reports');
+        return redirect('admin/reports')->with('success', 'Report successfully deleted!');
     }
 
     public function confirmReport($id)
@@ -131,7 +131,7 @@ class ReportsController extends Controller
         DB::table('reports')
             ->where('id', '=', $id)
             ->update(['status' => 'Report Confirmed']);
-        return redirect('admin/reports');
+        return redirect('admin/reports')->with('success', 'Report successfully confirmed!');
     }
 
     public function pendingReport($id)
@@ -139,6 +139,6 @@ class ReportsController extends Controller
         DB::table('reports')
             ->where('id', '=', $id)
             ->update(['status' => 'Report Pending']);
-        return redirect('admin/reports');
+        return redirect('admin/reports')->with('success', 'The submitted report is pending!');
     }
 }

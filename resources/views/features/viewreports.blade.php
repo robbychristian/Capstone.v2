@@ -15,10 +15,10 @@
 
 
             var map = new google.maps.Map(document.getElementById('map'), options);
-           
+
             console.log(lat);
             console.log(lng);
-            var latlng = new google.maps.LatLng(lat,lng);
+            var latlng = new google.maps.LatLng(lat, lng);
             var marker = new google.maps.Marker({
                 position: latlng
             });
@@ -89,9 +89,25 @@
                                 </div>
 
                                 <div class="content d-flex justify-content-end mt-5">
-                                    <button class="btn btn-circle btn-success mr-2"><i class="fas fa-check"></i></button>
-                                    <button class="btn btn-circle btn-warning mr-2"><i class="fas fa-times"></i></button>
-                                    <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
+                                    <form action="/admin/reports/confirm/{{ $report->id }}" method="post">
+                                        @csrf
+                                        @method("POST")
+                                        <button class="btn btn-circle btn-success mr-2">
+                                            <i class="fas fa-check"></i></button>
+                                    </form>
+
+                                    <form action="/admin/reports/pending/{{ $report->id }}" method="post">
+                                        @csrf
+                                        @method("POST")
+                                        <button class="btn btn-circle btn-warning mr-2">
+                                            <i class="fas fa-times"></i></button>
+                                    </form>
+
+                                    <form action="/admin/reports/{{ $report->id }}" method="post">
+                                        @csrf
+                                        @method("POST")
+                                        <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </div>
 
 
@@ -101,8 +117,8 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <div id="map" style="height:100%; width: 100%;"></div>
-                        <input type="text" name="" id="loc_lat" value="{{ $report->loc_lat }}" hidden >
-                        <input type="text" name="" id="loc_lng" value="{{ $report->loc_lng }}" hidden >
+                        <input type="text" name="" id="loc_lat" value="{{ $report->loc_lat }}" hidden>
+                        <input type="text" name="" id="loc_lng" value="{{ $report->loc_lng }}" hidden>
                     </div>
                 </div>
             </div>
