@@ -27,12 +27,7 @@
         }
     </script>
     <div class="container-fluid" style="color: black">
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
-
+      
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
             aria-pressed="true">Back</a>
 
