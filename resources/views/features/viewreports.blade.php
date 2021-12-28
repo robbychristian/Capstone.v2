@@ -100,7 +100,7 @@
 
                                     <form action="/admin/reports/{{ $report->id }}" method="post">
                                         @csrf
-                                        @method("POST")
+                                        @method("DELETE")
                                         <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </div>
