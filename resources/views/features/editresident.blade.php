@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Manage Resident')
 @section('content')
-    <!-- comment: assign roles for the dropdown fix else if depending on roles // add auto-reload page ajax  -->
+    <!-- comment: assign roles for the dropdown fix else if depending on roles -->
     <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
