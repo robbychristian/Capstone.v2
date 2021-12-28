@@ -46,10 +46,8 @@ class ReportsController extends Controller
                 ->make(true);
         }
 
-        //$reports = Reports::latest()->paginate(10);
-        //return view('features.reports', [
-        //    'reports' => $reports
-        //]);
+       
+        return view('features.reports');
     }
 
     /**
