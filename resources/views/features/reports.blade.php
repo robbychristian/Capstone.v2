@@ -32,7 +32,12 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.reports.index') }}",
-                columns: [{
+                columns: [
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+                    {
                         data: 'full_name',
                         name: 'full_name'
                     },

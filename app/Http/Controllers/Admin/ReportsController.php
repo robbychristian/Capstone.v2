@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Reports;
 use Illuminate\Support\Facades\DB;
 use DataTables;
+use Carbon\Carbon;
 
 class ReportsController extends Controller
 {
@@ -36,17 +37,21 @@ class ReportsController extends Controller
                         return '<label class="badge badge-success">Confirmed</label>';
                     } else if ($row->status == 'Report Pending') {
                         return '<label class="badge badge-warning">Pending</label>';
-                    }else {
+                    } else {
                         return '<label class="badge badge-danger">Not Confirmed</label>';
                     }
-                    
+                })
+
+                ->editColumn('created_at', function ($row) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('F d, Y \a\t h:i A');
+                    return $formatedDate;
                 })
 
                 ->rawColumns(['action', 'status'])
                 ->make(true);
         }
 
-       
+
         return view('features.reports');
     }
 
