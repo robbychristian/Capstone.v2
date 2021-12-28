@@ -9,7 +9,7 @@
             @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
                 var options = {
                 zoom: 16,
-                center: new google.maps.LatLng(lat,lng);
+                center: new google.maps.LatLng(lat,lng)
                 }
             @endif
 
