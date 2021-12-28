@@ -1,6 +1,24 @@
 @extends('layouts.master')
 @section('title', '| Reports')
 @section('content')
+
+    <script type="text/javascript">
+        function initMap() {
+
+            @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
+                var options = {
+                zoom: 16,
+                center: {
+                lat: 14.6131,
+                lng: 121.0880
+                },
+                }
+            @endif
+
+
+            var map = new google.maps.Map(document.getElementById('map'), options);
+        }
+    </script>
     <div class="container-fluid" style="color: black">
         @if (Session::get('success'))
             <div class="alert alert-success">
@@ -8,35 +26,43 @@
             </div>
         @endif
 
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
+
+
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Reports</h1>
         </div>
 
         <div class="card shadow mb-3 mt-3">
             <div class="card-body">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                    style="background-color: white;">
-                    <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
-                        aria-pressed="true">Back</a>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card">
 
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-cogs fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Actions:</div>
+                            <div class="content">
+                                <div class="col-sm-3" style="font-weight: 500;">Reported by:</div>
+                                <div class="col-sm-9">{{ $report->full_name }}</div>
+                            </div>
 
-                            <button class="dropdown-item" type="submit">Activate</button>
+                            <div class="content">
+                                <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
+                                <div class="col-sm-9">{{ $report->full_name }}</div>
+                            </div>
 
-                            <button class="dropdown-item" type="submit">Dectivate</button>
+                            <div class="content">
+                                <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
+                                <div class="col-sm-9">{{ $report->full_name }}</div>
+                            </div>
 
-                            <button class="dropdown-item" type="submit">Unblock</button>
-
-                            <button class="dropdown-item" type="submit">Block</button>
-
+                            <div class="content">
+                                <div class="col-sm-3" style="font-weight: 500;">Full Name:</div>
+                                <div class="col-sm-9">{{ $report->full_name }}</div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-8">
+                        <div id="map" style="height:100%; width: 100%;"></div>
                     </div>
                 </div>
             </div>
@@ -44,8 +70,8 @@
 
     </div>
 
-
-
-
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
+    </script>
 
 @endsection

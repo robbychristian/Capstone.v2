@@ -11,7 +11,7 @@
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Name</th>
+                                <th>Reported By</th>
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Status</th>
