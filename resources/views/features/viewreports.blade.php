@@ -41,10 +41,17 @@
                                 </div>
                                 <div class="content d-flex align-items-center justify-content-center">
                                     <div class="row">
-                                        <div class="col-sm-12" style="font-weight: 700; font-size: 1.5rem;">
+                                        <div class="col-sm-12 text-center" style="font-weight: 700; font-size: 1.5rem;">
                                             {{ $report->title }}</div>
-                                        <div class="col-sm-12">{{ $report->description }}</div>
+                                        <div class="col-sm-12 text-center">{{ $report->description }}</div>
                                     </div>
+                                </div>
+
+                                <div class="content d-flex justify-content-end">
+                                    <button class="btn btn-circle btn-success"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-circle btn-warning"><i class="fas fa-times"></i></button>
+                                    <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
+
                                 </div>
 
 
