@@ -31,7 +31,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.manageresident.index') }}",
+                ajax: "{{ route('admin.reports.index') }}",
                 columns: [{
                         data: 'full_name',
                         name: 'full_name'
