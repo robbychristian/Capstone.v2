@@ -2,6 +2,7 @@
 @section('title', '| Reports')
 @section('content')
 
+<!-- comments: brgy official side not yet done and resident side -->
     <script type="text/javascript">
         function initMap() {
             var lat = document.getElementById('loc_lat').value;
