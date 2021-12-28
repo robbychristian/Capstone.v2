@@ -37,7 +37,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="content d-flex align-items-center justify-content-center">
-                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="height: 300px; width: 300px; object-fit:contain;">
+                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}"
+                                        style="height: 300px; width: 300px; object-fit:contain;">
                                 </div>
                                 <div class="content d-flex align-items-center justify-content-center">
                                     <div class="row">
@@ -60,6 +61,23 @@
                                     <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Barangay Location</div>
                                         <div class="col-sm-6">{{ $report->brgy_loc }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="font-weight: 500;">Status</div>
+                                        <div class="col-sm-6">
+                                            @if ($report->status == 'Report Confirmed')
+                                                <span class="badge badge-pill badge-success">{{ $report->status }}</span>
+
+                                            @elseif ($report->status == 'Report Pending')
+                                                <span class="badge badge-pill badge-warning">{{ $report->status }}</span>
+                                            @else
+                                                <span class="badge badge-pill badge-danger">Not Confirmed</span>
+                                            @endif
+
+                                        </div>
                                     </div>
                                 </div>
 
