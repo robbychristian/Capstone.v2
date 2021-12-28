@@ -142,19 +142,18 @@
     </script>
 
     <div class="container-fluid" style="color: black;">
+        @if (Auth::user()->user_role === 1)
+            <a class="btn btn-primary btn-sm" href="/admin/manageresident" role="button">Back</a>
+        @elseif (Auth::user()->user_role === 3)
+            <a class="btn btn-primary btn-sm" href="/brgy_official/manageresident" role="button">Back</a>
+        @endif
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Add Resident</h1>
-
-            @if (Auth::user()->user_role === 1)
-                <a class="btn btn-primary" href="/admin/manageresident" role="button">Back</a>
-            @elseif (Auth::user()->user_role === 3)
-                <a class="btn btn-primary" href="/brgy_official/manageresident" role="button">Back</a>
-            @endif
         </div>
 
-        <div class="text-muted mb-5">Fields marked with an <span class="text-danger" style="font-size: 1rem">*</span> are
-            required.</div>
+        <small class="text-muted mb-5">Fields marked with an <span class="text-danger" style="font-size: 1rem">*</span> are
+            required.</small>
 
         @if (Auth::user()->user_role === 1)
             <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-5"
