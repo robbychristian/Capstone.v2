@@ -512,6 +512,7 @@
 
                             success: function(response) {
                                 //row.remove().draw();
+                                location.reload();
                                 swal("Success!", response.message, "success");
                             },
 
