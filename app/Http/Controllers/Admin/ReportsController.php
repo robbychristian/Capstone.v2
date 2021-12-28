@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Reports;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 class ReportsController extends Controller
 {
@@ -14,12 +15,41 @@ class ReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reports = Reports::latest()->paginate(10);
-        return view('features.reports', [
-            'reports' => $reports
-        ]);
+        if ($request->ajax()) {
+            $data = DB::table('reports')
+                ->where('deleted_at', null)
+                ->latest();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    return $btn;
+                })
+
+
+                ->addColumn('status', function ($row) {
+                    if ($row->status == 'Report Confirmed') {
+                        return '<label class="badge badge-success">Confirmed</label>';
+                    } else if ($row->status == 'Report Pending') {
+                        return '<label class="badge badge-warning">Pending</label>';
+                    }else {
+                        return '<label class="badge badge-danger">Not Confirmed</label>';
+                    }
+                    
+                })
+
+                ->rawColumns(['action', 'status'])
+                ->make(true);
+        }
+
+        //$reports = Reports::latest()->paginate(10);
+        //return view('features.reports', [
+        //    'reports' => $reports
+        //]);
     }
 
     /**
