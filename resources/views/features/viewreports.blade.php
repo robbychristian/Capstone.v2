@@ -40,7 +40,8 @@
                             <div class="card-body">
                                 <div class="content d-flex align-items-center justify-content-center">
                                     <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}"
-                                        style="height: 300px; width: 300px; object-fit:contain;">
+                                        style="height: 300px; width: 300px; object-fit:contain;" data-toggle="modal"
+                                        data-target="#id{{ $report->id }}">
                                 </div>
                                 <div class="content d-flex align-items-center justify-content-center">
                                     <div class="row">
@@ -119,6 +120,25 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="id{{ $report->id }}" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: center;">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid rounded mx-auto d-block"
+                        src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script async defer
