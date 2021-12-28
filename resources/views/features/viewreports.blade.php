@@ -4,21 +4,18 @@
 
     <script type="text/javascript">
         function initMap() {
-
+            var lat = document.getElementById('loc_lat').value;
+            var lng = document.getElementById('loc_lng').value;
             @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
                 var options = {
                 zoom: 16,
-                center: {
-                lat: 14.6131,
-                lng: 121.0880
-                },
+                center: new google.maps.LatLng(lat,lng);
                 }
             @endif
 
 
             var map = new google.maps.Map(document.getElementById('map'), options);
-            var lat = document.getElementById('loc_lat').value;
-            var lng = document.getElementById('loc_lng').value;
+           
             console.log(lat);
             console.log(lng);
             var latlng = new google.maps.LatLng(lat,lng);
