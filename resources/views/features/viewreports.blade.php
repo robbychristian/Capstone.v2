@@ -33,6 +33,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-4">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>{{ $report->title }}</h5>
+                                <p>{{ $report->description }}</p>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="card-body">
 
@@ -49,8 +56,6 @@
                                         <div class="col-sm-6">{{ $report->brgy_loc }}</div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
