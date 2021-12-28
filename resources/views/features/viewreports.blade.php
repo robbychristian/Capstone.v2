@@ -36,8 +36,14 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h5>{{ $report->title }}</h5>
-                                <p>{{ $report->description }}</p>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-12"> <h5>{{ $report->title }}</h5></div>
+                                        <div class="col-sm-12"> <p>{{ $report->description }}</p></div>
+                                    </div>
+                                </div>
+                               
+                               
                             </div>
                         </div>
                         <div class="card">
