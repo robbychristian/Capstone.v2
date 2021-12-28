@@ -55,6 +55,13 @@
 
                                 <div class="content mb-2">
                                     <div class="row">
+                                        <div class="col-sm-6" style="font-weight: 500;">Date</div>
+                                        <div class="col-sm-6"> {{ date('M d, Y \a\t h:i A', strtotime($report->created_at)) }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="content mb-2">
+                                    <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Reported by</div>
                                         <div class="col-sm-6">{{ $report->full_name }}</div>
                                     </div>
