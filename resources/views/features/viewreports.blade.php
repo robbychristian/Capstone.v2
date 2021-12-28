@@ -37,17 +37,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="content">
+                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="height: 150px; width: 150px; object-fit:contain;">
+                                </div>
+                                <div class="content">
                                     <div class="row">
-                                        <div class="col-sm-12" style="font-weight: 700; font-size: 1.5rem;"> {{ $report->title }}</div>
+                                        <div class="col-sm-12" style="font-weight: 700; font-size: 1.5rem;">
+                                            {{ $report->title }}</div>
                                         <div class="col-sm-12">{{ $report->description }}</div>
                                     </div>
                                 </div>
-                               
-                               
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
+
+
+                                <hr>
 
                                 <div class="content">
                                     <div class="row">
@@ -62,8 +63,11 @@
                                         <div class="col-sm-6">{{ $report->brgy_loc }}</div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
+
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-8">
                         <div id="map" style="height:100%; width: 100%;"></div>
