@@ -86,7 +86,7 @@ class ReportsController extends Controller
     {   
         $report = Reports::find($id);
         return view('features.viewreports', [
-            'report' => $report->with('success', 'Report successfully Pending')
+            'report' => $report
         ]);
     }
 
