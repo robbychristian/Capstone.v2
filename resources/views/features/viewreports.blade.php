@@ -36,10 +36,10 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <div class="content">
-                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="height: 150px; width: 150px; object-fit:contain;">
+                                <div class="content d-flex align-items-center">
+                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}" style="height: 300px; width: 300px; object-fit:contain;">
                                 </div>
-                                <div class="content">
+                                <div class="content d-flex align-items-center">
                                     <div class="row">
                                         <div class="col-sm-12" style="font-weight: 700; font-size: 1.5rem;">
                                             {{ $report->title }}</div>
