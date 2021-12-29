@@ -12,7 +12,7 @@
 
                 {{ $disasterstats->type_disaster }}
 
-
+                <!-- comments: fix design // continue fixing edit report // fix generate report -->
                 <!-- Content Row -->
                 <div class="row">
                     <div class="col-xl-3 col-md-6 mb-4">
@@ -22,7 +22,8 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Families Affected</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $disasterstats->families_affected }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            {{ $disasterstats->families_affected }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-home fa-2x text-gray-300"></i>
@@ -38,7 +39,8 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                             Individuals Affected</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $disasterstats->individuals_affected }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            {{ $disasterstats->individuals_affected }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -55,7 +57,8 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Evacuees</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $disasterstats->evacuees }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $disasterstats->evacuees }}
+                                        </div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-house-user fa-2x text-gray-300"></i>
@@ -64,8 +67,8 @@
                             </div>
                         </div>
                     </div>
-                
-                   
+
+
                 </div>
             </div>
         </div>
