@@ -8,6 +8,7 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
+                
                 {{ $disasterstats->id }}
 
                 {{ $disasterstats->type_disaster }}
@@ -72,7 +73,7 @@
                 </div>
 
 
-                <table class="table" style="color: black;">
+                <table class="table table-responsive" style="color: black;">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
