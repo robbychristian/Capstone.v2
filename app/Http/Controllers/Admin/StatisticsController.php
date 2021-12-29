@@ -171,11 +171,11 @@ class StatisticsController extends Controller
         $disasterstats = DisasterReport::find($id);
         $affectedstreets = DisasterAffectedStreets::where('disaster_id', '=', $id)->first();
 
-        return view('features.viewdisasterstatsreport', [
-            'disasterstats' => $disasterstats,
-            'affectedstreets' => $affectedstreets
-
-        ]);
+        //return view('features.viewdisasterstatsreport', [
+        //    'disasterstats' => $disasterstats,
+        //    'affectedstreets' => $affectedstreets
+//
+        //]);
 
         dd($affectedstreets);
     }
