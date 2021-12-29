@@ -32,6 +32,8 @@ class StatisticsController extends Controller
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href=" "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = '<a href=" "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-pen"></i></a>';
+                    $btn = '<a href=" "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-trash"></i></a>';
                     return $btn;
                 })
 

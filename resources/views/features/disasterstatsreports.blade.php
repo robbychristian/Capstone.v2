@@ -60,11 +60,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.stats.index') }}",
-                columns: [{
-                        data: 'id',
-                        name: 'id'
-
-                    },
+                columns: [
                     {
                         data: 'created_at',
                         name: 'created_at'
