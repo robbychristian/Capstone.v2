@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DisasterAffectedStreets;
 use App\Models\DisasterReport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -168,13 +169,15 @@ class StatisticsController extends Controller
     public function show($id)
     {
         $disasterstats = DisasterReport::find($id);
-        $affectedstreets = DisasterReport::where('disaster_id', '=', $id);
+        $affectedstreets = DisasterAffectedStreets::where('disaster_id', '=', $id)->first();
 
         return view('features.viewdisasterstatsreport', [
             'disasterstats' => $disasterstats,
             'affectedstreets' => $affectedstreets
 
         ]);
+
+        dd($affectedstreets);
     }
 
     /**
