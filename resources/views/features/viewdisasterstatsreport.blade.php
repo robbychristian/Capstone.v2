@@ -81,13 +81,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            @foreach ($affectedstreets as $affectedstreet)
-                                <td>{{ $loop->iteration }}</td>
+                        @foreach ($affectedstreets as $affectedstreet)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $affectedstreet->affected_streets }}</td>
                                 <td>{{ $affectedstreet->number_families_affected }}</td>
-                            @endforeach
-                        </tr>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
