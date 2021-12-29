@@ -23,7 +23,7 @@ class StatisticsController extends Controller
         //$disasterstats = DisasterReport::latest()->paginate(10);
 
         if ($request->ajax()) {
-            $data = DB::table('users')
+            $data = DB::table('disaster_reports')
                     ->where('deleted_at', null)
                     ->latest();
 
