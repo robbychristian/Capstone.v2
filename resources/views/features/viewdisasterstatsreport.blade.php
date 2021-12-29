@@ -8,7 +8,8 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                {{ $disasterstats->$id }}
+                {{ $disasterstats->id }}
+                {{ $affectedstreets->disaster_id }}
             </div>
         </div>
 
