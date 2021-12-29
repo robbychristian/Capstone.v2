@@ -197,7 +197,7 @@
                                                         <div class="form-group col-md-2">
                                                             <label for="inputDay">Date</label>
                                                             <select id="month" class="form-control" name="monthOfdisaster">
-                                                                <option disabled hidden selected>Month</option>
+                                                                <option disabled hidden selected>Select Month</option>
                                                                 <option value='January'
                                                                     {{ old('monthOfdisaster') == 'January' ? 'selected' : '' }}>
                                                                     January</option>
@@ -247,9 +247,10 @@
                                                         </div>
                                                         <div class="form-group col-md-2">
                                                             <label for="inputDay" style="color:white"></label>
-                                                            <select name="dayOfdisaster" id="day" class="form-control"
-                                                                value="{{ old('dbday') }}">
-                                                                <option selected disabled>Day</option>
+                                                            <select id="day" class="form-control mt-2" id="inputDay"
+                                                                placeholder="Day" name="dayOfdisaster"
+                                                                value="{{ old('dayOfdisaster') }}">
+                                                                <option disabled hidden selected>Select Day</option>
                                                             </select>
 
                                                             <small class="text-danger">@error('dayOfdisaster')
@@ -268,7 +269,8 @@
                                                         <div class="form-group col-md-6">
                                                             <label>Barangay</label>
                                                             @if (Auth::user()->user_role === 1)
-                                                                <select id="inputBrgy" class="form-control" name="barangay">
+                                                                <select id="inputBrgy" class="form-control" name="barangay"
+                                                                    value="{{ old('barangay') }}">
                                                                     @foreach ($barangays as $barangay)
                                                                         <option disabled hidden selected>Select Barangay
                                                                         </option>
@@ -293,7 +295,8 @@
                                                         <div class="form-group col-md-4">
                                                             <label>Total Number of Families Affected</label>
                                                             <input type="text" class="form-control" name="familiesAffected"
-                                                                value="{{ old('familiesAffected') }}" onkeypress="return onlyNumberKey(event)">
+                                                                value="{{ old('familiesAffected') }}"
+                                                                onkeypress="return onlyNumberKey(event)">
                                                             <small class="text-danger">@error('familiesAffected')
                                                                     {{ $message }}
                                                                 @enderror</small>
@@ -301,7 +304,8 @@
                                                         <div class="form-group col-md-4">
                                                             <label>Total Number of Individuals Affected</label>
                                                             <input type="text" class="form-control" name="individualsAffected"
-                                                                value="{{ old('individualsAffected') }}" onkeypress="return onlyNumberKey(event)">
+                                                                value="{{ old('individualsAffected') }}"
+                                                                onkeypress="return onlyNumberKey(event)">
                                                             <small class="text-danger">@error('individualsAffected')
                                                                     {{ $message }}
                                                                 @enderror</small>
@@ -309,7 +313,8 @@
                                                         <div class="form-group col-md-4">
                                                             <label>Total Number of Evacuees</label>
                                                             <input type="text" class="form-control" name="evacuees"
-                                                                value="{{ old('evacuees') }}" onkeypress="return onlyNumberKey(event)">
+                                                                value="{{ old('evacuees') }}"
+                                                                onkeypress="return onlyNumberKey(event)">
                                                             <small class="text-danger">@error('evacuees')
                                                                     {{ $message }}
                                                                 @enderror</small>
@@ -322,7 +327,7 @@
                                                             <div class="form-group col-12 col-md-4">
                                                                 <label for="">Affected Streets</label>
                                                                 <input type="text" name="addMoreInputFields[0][street]"
-                                                                    class="form-control" onkeypress="return onlyNumberKey(event)"/>
+                                                                    class="form-control" />
                                                                 <small
                                                                     class="text-danger">@error('addMoreInputFields.*.street')
                                                                         {{ $message }}
@@ -332,7 +337,8 @@
                                                             <div class="form-group col-12 col-md-4">
                                                                 <label for="">Number of Families Affected</label>
                                                                 <input type="text" name="addMoreInputFields[0][families]"
-                                                                    class="form-control" onkeypress="return onlyNumberKey(event)"/>
+                                                                    class="form-control"
+                                                                    onkeypress="return onlyNumberKey(event)" />
                                                                 <small
                                                                     class="text-danger">@error('addMoreInputFields.*.families')
                                                                         {{ $message }}
@@ -363,9 +369,9 @@
                                                 $("#dynamicAddRemove").append(
                                                     '<div class="form-row" id="parent"><div class="form-group col-12 col-md-4"><input type="text" name="addMoreInputFields[' +
                                                     i +
-                                                    '][street]" class="form-control" /> <small class="text-danger">                @error('addMoreInputFields.*.street'){{ $message }}@enderror</small></div><div class="form-group col-12 col-md-4"> <input type = "text" name = "addMoreInputFields[' +
+                                                    '][street]" class="form-control" /> <small class="text-danger">                    @error('addMoreInputFields.*.street'){{ $message }}@enderror</small></div><div class="form-group col-12 col-md-4"> <input type = "text" name = "addMoreInputFields[' +
                                                     i +
-                                                    '][families]" class = "form-control"/> <small class="text-danger">                                @error('addMoreInputFields.*.families'){{ $message }}@enderror</small></div> <div class = "form-group col-6 col-md-4" ><button type = "button" name = "add" id = "dynamic-ar" class="btn btn-outline-danger form-control remove-input-field">Delete </button> </div></div>'
+                                                    '][families]" class = "form-control"/> <small class="text-danger">                            @error('addMoreInputFields.*.families'){{ $message }}@enderror</small></div> <div class = "form-group col-6 col-md-4" ><button type = "button" name = "add" id = "dynamic-ar" class="btn btn-outline-danger form-control remove-input-field">Delete </button> </div></div>'
                                                 );
                                             });
                                             $(document).on('click', '.remove-input-field', function() {
