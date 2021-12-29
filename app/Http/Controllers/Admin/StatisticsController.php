@@ -48,16 +48,15 @@ class StatisticsController extends Controller
                         return '<label class="badge badge-primary">Typhoon</label>';
                     } else if ($row->type_disaster == 'Flood') {
                         return '<label class="badge badge-info">Flood</label>';
-                    }else if ($row->type_disaster == 'Low Pressure Area') {
+                    } else if ($row->type_disaster == 'Low Pressure Area') {
                         return '<label class="badge badge-secondary">Low Pressure Area</label>';
-                    }else if ($row->type_disaster == 'Earthquake') {
+                    } else if ($row->type_disaster == 'Earthquake') {
                         return '<label class="badge badge-warning">Earthquake</label>';
-                    }else if ($row->type_disaster == 'Landslide') {
+                    } else if ($row->type_disaster == 'Landslide') {
                         return '<label class="badge badge-danger">Landslide</label>';
-                    }else if ($row->type_disaster == 'Others') {
+                    } else if ($row->type_disaster == 'Others') {
                         return '<label class="badge badge-dark">Others</label>';
                     }
-                    
                 })
 
 
@@ -171,13 +170,14 @@ class StatisticsController extends Controller
         $disasterstats = DisasterReport::find($id);
         //$affectedstreets = DisasterAffectedStreets::where('disaster_id', '=', $id)->first();
         $affectedstreets = DB::table('disaster_reports')
-        ->join('disaster_affected_streets', $id, '=', 'disaster_affected_streets.disaster_id')
-        ->get();
+            ->where('id', '=', $id)
+            ->join('disaster_affected_streets', 'disaster_reports.id', '=', 'disaster_affected_streets.disaster_id')
+            ->get();
 
         //return view('features.viewdisasterstatsreport', [
         //    'disasterstats' => $disasterstats,
         //    'affectedstreets' => $affectedstreets
-//
+        //
         //]);
 
         return $affectedstreets;
