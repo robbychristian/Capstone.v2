@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use DataTables;
 
 class StatisticsController extends Controller
 {
@@ -16,12 +18,33 @@ class StatisticsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $disasterstats = DisasterReport::latest()->paginate(10);
-        return view('features.viewdisasterstatsreports', [
-            'disasterstats' => $disasterstats,
-        ]);
+        //$disasterstats = DisasterReport::latest()->paginate(10);
+
+        if ($request->ajax()) {
+            $data = DB::table('users')
+                    ->where('deleted_at', null)
+                    ->latest();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href=" "data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    return $btn;
+                })
+
+                ->editColumn('created_at', function ($row) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y');
+                    return $formatedDate;
+                })
+
+
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('features.disasterstatsreports');
     }
 
     /**
