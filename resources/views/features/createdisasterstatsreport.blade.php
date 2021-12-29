@@ -170,7 +170,7 @@
                                                             <label>Type of Disaster</label>
                                                             <select id="inputDisaster" class="form-control"
                                                                 name="typeOfdisaster">
-                                                                <option value="" disabled>Disaster</option>
+                                                                <option disabled hidden selected>Select Disaster</option>
                                                                 <option value='Typhoon'>Typhoon</option>
                                                                 <option value='Flood'>Flood</option>
                                                                 <option value='Low Pressure Area'>Low Pressure Area</option>
