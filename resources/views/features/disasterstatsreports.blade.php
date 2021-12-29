@@ -33,7 +33,6 @@
                         style="color:#464646 !important">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>Created At</th>
                                 <th>Month of Disaster</th>
                                 <th>Year of Disaster</th>
