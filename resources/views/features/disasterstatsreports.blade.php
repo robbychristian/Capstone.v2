@@ -36,6 +36,7 @@
                                 <th>Created At</th>
                                 <th>Month of Disaster</th>
                                 <th>Year of Disaster</th>
+                                <th>Type of Disaster</th>
                                 <th>Barangay</th>
                                 <th>Action</th>
                             </tr>
