@@ -42,8 +42,25 @@ class StatisticsController extends Controller
                     return $formatedDate;
                 })
 
+                ->addColumn('type_disaster', function ($row) {
+                    if ($row->type_disaster == 'Typhoon') {
+                        return '<label class="badge badge-primary">Typhoon</label>';
+                    } else if ($row->type_disaster == 'Flood') {
+                        return '<label class="badge badge-info">Flood</label>';
+                    }else if ($row->type_disaster == 'Low Pressure Area') {
+                        return '<label class="badge badge-secondary">Low Pressure Area</label>';
+                    }else if ($row->type_disaster == 'Earthquake') {
+                        return '<label class="badge badge-warning">Earthquake</label>';
+                    }else if ($row->type_disaster == 'Landslide') {
+                        return '<label class="badge badge-danger">Landslide</label>';
+                    }else if ($row->type_disaster == 'Others') {
+                        return '<label class="badge badge-dark">Others</label>';
+                    }
+                    
+                })
 
-                ->rawColumns(['action'])
+
+                ->rawColumns(['action', 'type_disaster'])
                 ->make(true);
         }
         return view('features.disasterstatsreports');

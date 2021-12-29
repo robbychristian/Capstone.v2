@@ -73,6 +73,10 @@
                         name: 'year_disaster'
                     },
                     {
+                        data: 'type_disaster',
+                        name: 'type_disaster'
+                    },
+                    {
                         data: 'barangay',
                         name: 'barangay'
                     },
