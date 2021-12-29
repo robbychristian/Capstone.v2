@@ -31,7 +31,12 @@ class StatisticsController extends Controller
      */
     public function create()
     {
-        return view('features.createdisasterstatsreport');
+        $allBrgys = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+        return view('features.createdisasterstatsreport', [
+            'barangays' => $allBrgys
+        ]);
     }
 
     /**
