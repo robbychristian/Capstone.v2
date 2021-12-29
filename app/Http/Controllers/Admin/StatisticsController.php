@@ -168,12 +168,6 @@ class StatisticsController extends Controller
     public function show($id)
     {
         $disasterstats = DisasterReport::find($id);
-        //$affectedstreets = DisasterAffectedStreets::where('disaster_id', '=', $id)->first();
-        //$affectedstreets = DB::table('disaster_reports')
-        //    ->where('id', '=', $id)
-        //    ->join('disaster_affected_streets', 'disaster_reports.id', '=', 'disaster_affected_streets.disaster_id')
-        //    ->get();
-
         $affectedstreets = DB::table('disaster_reports')
             ->join('disaster_affected_streets', 'disaster_reports.id', '=', 'disaster_affected_streets.disaster_id')
             ->select('disaster_reports.*', 'disaster_affected_streets.*')
@@ -181,13 +175,11 @@ class StatisticsController extends Controller
             ->get();
 
 
-        //return view('features.viewdisasterstatsreport', [
-        //    'disasterstats' => $disasterstats,
-        //    'affectedstreets' => $affectedstreets
-        //
-        //]);
-
-        return $affectedstreets;
+        return view('features.viewdisasterstatsreport', [
+            'disasterstats' => $disasterstats,
+            'affectedstreets' => $affectedstreets
+        
+        ]);
     }
 
     /**

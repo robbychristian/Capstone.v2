@@ -82,9 +82,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            @foreach ($affectedstreets as $affectedstreet)
+                                <th scope="row">{{ $loop->iteration }}<< /th>
+                                <td>{{ $affectedstreet->affected_streets }}</td>
+                                <td>{{ $affectedstreet->number_families_affected }}</td>
+                            @endforeach
                         </tr>
                     </tbody>
                 </table>
