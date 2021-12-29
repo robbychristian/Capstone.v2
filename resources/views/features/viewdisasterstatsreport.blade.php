@@ -72,7 +72,7 @@
                 </div>
 
 
-                <table class="table">
+                <table class="table" style="color: black;">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
