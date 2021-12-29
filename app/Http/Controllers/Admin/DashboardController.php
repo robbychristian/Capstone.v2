@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DisasterReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,7 +17,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('features.admindashboardindex');
+        $allBrgys = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+
+        return view('features.admindashboardindex',[
+            'barangays' => $allBrgys
+        ]);
     }
 
     /**
@@ -90,7 +96,7 @@ class DashboardController extends Controller
     {
         // ADD WHERE CLAUSE IN BRGY
         $date = Carbon::now()->format('Y');
-        $brgy_loc = "Barangay " . $brgy;
+        $brgy_loc = $brgy;
         //january
         $jan_typhoon_count = DisasterReport::where('type_disaster', 'Typhoon')
             ->where('month_disaster', 'January')

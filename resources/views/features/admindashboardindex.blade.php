@@ -12,66 +12,23 @@
 
         <div class="row mt-3">
 
-            <div class="col-sm-6 mb-3">
-                <div class="card text-center">
-                    <div class="card-body border-left-primary">
-                        <h5 class="card-title">Barangay Dela Paz</h5>
-                        <p class="card-text">View the Disaster Statistics Report of Barangay Dela Paz
-                        </p>
-                        <a href="/admin/dashboard/brgy/Dela Paz" class="btn btn-primary"><i class="fas fa-search"></i> View
-                        </a>
+            @foreach ($barangays as $barangay)
+                <div class="col-sm-6 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body border-left-primary">
+                            <h5 class="card-title">{{ $barangay->brgy_loc }}</h5>
+                            <p class="card-text">View the Disaster Statistics Report of {{ $barangay->brgy_loc }}
+                            </p>
+                            <a href="/admin/dashboard/brgy/{{ $barangay->brgy_loc }}" class="btn btn-primary"><i
+                                    class="fas fa-search"></i>
+                                View
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 mb-3">
-                <div class="card text-center">
-                    <div class="card-body border-left-primary">
-                        <h5 class="card-title">Barangay Manggahan</h5>
-                        <p class="card-text">View the Disaster Statistics Report of Barangay Manggahan
-                        </p>
-                        <a href="/admin/dashboard/brgy/Manggahan" class="btn btn-primary"><i class="fas fa-search"></i>
-                            View
-                        </a>
-                    </div>
-                </div>
-            </div>
 
+            @endforeach
 
-            <div class="col-sm-6 mb-3">
-                <div class="card text-center">
-                    <div class="card-body border-left-primary">
-                        <h5 class="card-title">Barangay Maybunga</h5>
-                        <p class="card-text">View the Disaster Statistics Report of Barangay Maybunga
-                        </p>
-                        <a href="/admin/dashboard/brgy/Maybunga" class="btn btn-primary"><i class="fas fa-search"></i> View
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 mb-3">
-                <div class="card text-center">
-                    <div class="card-body border-left-primary">
-                        <h5 class="card-title">Barangay Rosario</h5>
-                        <p class="card-text">View the Disaster Statistics Report of Barangay Rosario
-                        </p>
-                        <a href="/admin/dashboard/brgy/Rosario" class="btn btn-primary"><i class="fas fa-search"></i> View
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 mb-3">
-                <div class="card text-center">
-                    <div class="card-body border-left-primary">
-                        <h5 class="card-title">Barangay Santolan</h5>
-                        <p class="card-text">View the Disaster Statistics Report of Barangay Santolan
-                        </p>
-                        <a href="/admin/dashboard/brgy/Santolan" class="btn btn-primary"><i class="fas fa-search"></i> View
-                        </a>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
