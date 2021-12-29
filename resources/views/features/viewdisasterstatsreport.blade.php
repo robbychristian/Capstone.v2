@@ -83,7 +83,7 @@
                     <tbody>
                         <tr>
                             @foreach ($affectedstreets as $affectedstreet)
-                                <th scope="row">{{ $loop->iteration }}<< /th>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $affectedstreet->affected_streets }}</td>
                                 <td>{{ $affectedstreet->number_families_affected }}</td>
                             @endforeach
