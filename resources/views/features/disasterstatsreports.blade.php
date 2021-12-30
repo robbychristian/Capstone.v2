@@ -3,7 +3,7 @@
 @section('title', '| Disaster Statistical Reports')
 @section('content')
 
-  <!-- comments: continue fixing edit report: fix foreach inuupdate lahat ng values pag isa lng iuupdate // brgy side not yet done -->
+    <!-- comments: continue fixing edit report: fix foreach inuupdate lahat ng values pag isa lng iuupdate // brgy side not yet done -->
     <div class="container-fluid" style="color: black;">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Disaster Statistical Reports</h1>
@@ -62,8 +62,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('admin.stats.index') }}",
-                columns: [
-                    {
+                columns: [{
                         data: 'created_at',
                         name: 'created_at'
                     },
@@ -93,9 +92,8 @@
 
             });
 
-        });
 
-        $(document).on('click', '#deletebtn', function() {
+            $(document).on('click', '#deletebtn', function() {
                 var stats_id = $(this).data('id');
                 console.log(stats_id);
 
@@ -144,6 +142,15 @@
 
 
             });
+
+
+
+
+
+
+
+
+        });
     </script>
 
 
