@@ -32,9 +32,9 @@ class StatisticsController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
-                    $btn = ' ' . $btn . '<a href="' . \URL::route('admin.stats.edit', $row->id) . '"data-id="' . $row->id . '" class="btn btn-info btn-circle btn-sm" id="viewbtn"><i class="fas fa-pen"></i></a>';
-                    $btn = ' ' . $btn . '<a href=" "data-id="' . $row->id . '" class="btn btn-danger btn-circle btn-sm" id="viewbtn"><i class="fas fa-trash"></i></a>';
+                    $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-search"></i></a>';
+                    $btn = ' ' . $btn . '<a href="' . \URL::route('admin.stats.edit', $row->id) . '"data-id="' . $row->id . '" class="btn btn-info btn-circle btn-sm" ><i class="fas fa-pen"></i></a>';
+                    $btn = ' ' . $btn . '<a href=" "data-id="' . $row->id . '" class="btn btn-danger btn-circle btn-sm" id="deletebtn"><i class="fas fa-trash"></i></a>';
                     return $btn;
                 })
 
@@ -286,8 +286,11 @@ class StatisticsController extends Controller
      */
     public function destroy($id)
     {
-        $disaster = DisasterReport::find($id);
-        $disaster->delete();
-        return redirect('/admin/stats/')->with('success', 'The disaster statistical report has been deleted!');
+        //$disaster = DisasterReport::find($id);
+        //$disaster->delete();
+        //return redirect('/admin/stats/')->with('success', 'The disaster statistical report has been deleted!');
+
+        DisasterReport::find($id)->delete();
+        return response()->json(['message' => 'The disaster statistical report has been deleted!']);
     }
 }
