@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\DisasterExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -18,7 +19,12 @@ class GenerateReportController extends Controller
      */
     public function index()
     {
-        return view('features.generatereport');
+        $allBrgys = DB::table('barangays')
+            ->where('is_added', 1)
+            ->get();
+        return view('features.generatereport', [
+            'barangays' => $allBrgys
+        ]);
     }
 
     /**
@@ -49,14 +55,13 @@ class GenerateReportController extends Controller
             return redirect('/admin/generate')
                 ->with('error', 'Please choose a month and year!')
                 ->withErrors($validator);
-        } else{
+        } else {
             $monthDisaster =  $request->input('monthOfdisaster');
             $yearDisaster = $request->input('yearOfdisaster');
             $barangay = $request->input('barangay');
-    
+
             return Excel::download(new DisasterExport($monthDisaster, $yearDisaster, $barangay), 'Disaster Report.xlsx');
         }
-       
     }
 
     /**

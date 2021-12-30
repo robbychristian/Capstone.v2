@@ -23,13 +23,14 @@
                     <div class="form-group col">
                         <label for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
-                            <select id="inputBrgy" class="form-control" name="barangay" value="{{ old('barangay') }}">
-                                <option value="">Barangay</option>
-                                <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
-                                <option value='Barangay Manggahan'>Barangay Manggahan</option>
-                                <option value='Barangay Maybunga'>Barangay Maybunga</option>
-                                <option value='Barangay Rosario'>Barangay Rosario</option>
-                                <option value='Barangay Santolan'>Barangay Santolan</option>
+                            <select id="inputBrgy" class="form-control" name="barangay">
+                                @foreach ($barangays as $barangay)
+                                    <option disabled hidden selected>Select Barangay</option>
+                                    <option value='{{ $barangay->brgy_loc }}'
+                                        {{ old('barangay') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                        {{ $barangay->brgy_loc }}
+                                    </option>
+                                @endforeach
                             </select>
 
                         @elseif(Auth::user()->user_role === 3)
@@ -42,19 +43,37 @@
                     <div class="form-group col">
                         <label for="inputDay">Month</label>
                         <select id="inputMonth" class="form-control" name="monthOfdisaster">
-                            <option value=''>Month</option>
-                            <option value='January'>January</option>
-                            <option value='February'>February</option>
-                            <option value='March'>March</option>
-                            <option value='April'>April</option>
-                            <option value='May'>May</option>
-                            <option value='June'>June</option>
-                            <option value='July'>July</option>
-                            <option value='August'>August</option>
-                            <option value='September'>September</option>
-                            <option value='October'>October</option>
-                            <option value='November'>November</option>
-                            <option value='December'>December</option>
+                            <option disabled hidden selected>Select Month</option>
+                            <option value='January' {{ old('monthOfdisaster') == 'January' ? 'selected' : '' }}>
+                                January</option>
+                            <option value='February' {{ old('monthOfdisaster') == 'February' ? 'selected' : '' }}>
+                                February</option>
+                            <option value='March' {{ old('monthOfdisaster') == 'March' ? 'selected' : '' }}>
+                                March
+                            </option>
+                            <option value='April' {{ old('monthOfdisaster') == 'April' ? 'selected' : '' }}>
+                                April
+                            </option>
+                            <option value='May' {{ old('monthOfdisaster') == 'May' ? 'selected' : '' }}>
+                                May
+                            </option>
+                            <option value='June' {{ old('monthOfdisaster') == 'June' ? 'selected' : '' }}>
+                                June
+                            </option>
+                            <option value='July' {{ old('monthOfdisaster') == 'July' ? 'selected' : '' }}>
+                                July
+                            </option>
+                            <option value='August' {{ old('monthOfdisaster') == 'August' ? 'selected' : '' }}>
+                                August
+                            </option>
+                            <option value='September' {{ old('monthOfdisaster') == 'September' ? 'selected' : '' }}>
+                                September</option>
+                            <option value='October' {{ old('monthOfdisaster') == 'October' ? 'selected' : '' }}>
+                                October</option>
+                            <option value='November' {{ old('monthOfdisaster') == 'November' ? 'selected' : '' }}>
+                                November</option>
+                            <option value='December' {{ old('monthOfdisaster') == 'December' ? 'selected' : '' }}>
+                                December</option>
                         </select>
 
                     </div>
@@ -62,9 +81,9 @@
                     <div class="form-group col">
                         <label for="inputDay">Year</label>
                         <select id="inputYear" class="form-control" name="yearOfdisaster">
-                            <option value="">Year</option>
-                            <option value='2021'>2021</option>
-                            <option value='2022'>2022</option>
+                            <option disabled hidden selected>Select Year</option>
+                            <option value='2021' {{ old('yearOfdisaster') == '2021' ? 'selected' : '' }}>2021</option>
+                            <option value='2022' {{ old('yearOfdisaster') == '2022' ? 'selected' : '' }}>2022</option>
                         </select>
                     </div>
                 </div>
