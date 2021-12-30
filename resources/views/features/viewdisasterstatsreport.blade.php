@@ -18,13 +18,13 @@
                                 <div class="content mb-2">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                                            <div class="row mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
+                                            <div class="row mb-xl-2 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-4 col-md-4" style="font-weight: 500;">Type:</div>
                                                 <div class="col-sm-8 col-md-8"> {{ $disasterstats->type_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                                            <div class="row mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
+                                            <div class="row mb-xl-2 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-4" style="font-weight: 500;">Name:</div>
                                                 <div class="col-sm-8"> {{ $disasterstats->name_disaster }}</div>
                                             </div>
@@ -35,14 +35,14 @@
                                 <div class="content mb-2 ">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                                            <div class="row mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
+                                            <div class="row mb-xl-2 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-4 col-md-4" style="font-weight: 500;">Date:</div>
                                                 <div class="col-sm-8 col-md-8"> {{ $disasterstats->month_disaster }}
                                                     {{ $disasterstats->day_disaster }}, {{ $disasterstats->year_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                                            <div class="row mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
+                                            <div class="row mb-xl-2 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-12 col-md-" style="font-weight: 500;">{{ $disasterstats->barangay }}</div>
 
                                             </div>
