@@ -2,7 +2,7 @@
 
 @section('title', '| Disaster Statistical Reports')
 @section('content')
-    <!-- comments: fix design // continue fixing edit report // fix generate report -->
+    <!-- comments: continue fixing edit report // fix generate report -->
     <div class="container-fluid" style="color: black;">
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
             aria-pressed="true">Back</a>

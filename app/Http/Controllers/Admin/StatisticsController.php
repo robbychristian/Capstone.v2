@@ -33,7 +33,7 @@ class StatisticsController extends Controller
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
-                    $btn = ' ' . $btn . '<a href=" "data-id="' . $row->id . '" class="btn btn-info btn-circle btn-sm" id="viewbtn"><i class="fas fa-pen"></i></a>';
+                    $btn = ' ' . $btn . '<a href="' . \URL::route('admin.stats.edit', $row->id) . '"data-id="' . $row->id . '" class="btn btn-info btn-circle btn-sm" id="viewbtn"><i class="fas fa-pen"></i></a>';
                     $btn = ' ' . $btn . '<a href=" "data-id="' . $row->id . '" class="btn btn-danger btn-circle btn-sm" id="viewbtn"><i class="fas fa-trash"></i></a>';
                     return $btn;
                 })
@@ -178,7 +178,7 @@ class StatisticsController extends Controller
         return view('features.viewdisasterstatsreport', [
             'disasterstats' => $disasterstats,
             'affectedstreets' => $affectedstreets
-        
+
         ]);
     }
 
