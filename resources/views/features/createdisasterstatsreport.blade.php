@@ -171,12 +171,12 @@
                                                             <select id="inputDisaster" class="form-control"
                                                                 name="typeOfdisaster">
                                                                 <option disabled hidden selected>Select Disaster</option>
-                                                                <option value='Typhoon'>Typhoon</option>
-                                                                <option value='Flood'>Flood</option>
-                                                                <option value='Low Pressure Area'>Low Pressure Area</option>
-                                                                <option value='Earthquake'>Earthquake</option>
-                                                                <option value='Landslide'>Landslide</option>
-                                                                <option value='Others'>Others</option>
+                                                                <option value='Typhoon' {{ old('typeOfdisaster') == 'Typhoon' ? 'selected' : '' }}>Typhoon</option>
+                                                                <option value='Flood' {{ old('typeOfdisaster') == 'Flood' ? 'selected' : '' }}>Flood</option>
+                                                                <option value='Low Pressure Area' {{ old('typeOfdisaster') == 'Low Pressure Area' ? 'selected' : '' }}>Low Pressure Area</option>
+                                                                <option value='Earthquake' {{ old('typeOfdisaster') == 'Earthquake' ? 'selected' : '' }}>Earthquake</option>
+                                                                <option value='Landslide' {{ old('typeOfdisaster') == 'Landslide' ? 'selected' : '' }}>Landslide</option>
+                                                                <option value='Others' {{ old('typeOfdisaster') == 'Others' ? 'selected' : '' }}>Others</option>
                                                             </select>
                                                             <small class="text-danger">@error('typeOfdisaster')
                                                                     {{ $message }}
