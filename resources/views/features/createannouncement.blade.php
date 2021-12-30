@@ -38,7 +38,6 @@
                         {{ $message }}
                     @enderror</small>
             </div>
-            <button class="btn btn-primary float-right ">Post</button>
             @if (Auth::user()->user_role == 1)
                 <a class="btn btn-outline-secondary float-right" href="{{ route('admin.announcements.index') }}"
                     role="button">Cancel</a>
@@ -46,6 +45,9 @@
             @elseif (Auth::user()->user_role == 3)
                 <a class="btn btn-outline-secondary float-right" href="" role="button">Cancel</a>
             @endif
+
+            <button class="btn btn-primary float-right mr-2">Post</button>
+
             </form>
         </div>
 

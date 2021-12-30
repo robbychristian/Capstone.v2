@@ -89,7 +89,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Download</button>
                 @if (Auth::user()->user_role == 1)
-                    <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard.index') }}" role="button">Back</a>
+                    <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard.index') }}" role="button">Cancel</a>
 
                 @elseif (Auth::user()->user_role == 3)
                     <a class="btn btn-outline-secondary" href="" role="button">Cancel</a>
