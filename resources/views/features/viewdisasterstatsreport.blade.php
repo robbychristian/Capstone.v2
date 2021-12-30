@@ -15,7 +15,7 @@
                         <div class="card border-bottom-warning h-100">
                             <div class="card-body">
 
-                                <div class="content mb-2">
+                                <div class="content mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                             <div class="row">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
 
-                                <div class="content mb-2">
+                                <div class="content mb-xl-2 mb-lg-4 mb-md-4 mb-sm-4">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                             <div class="row">
