@@ -271,8 +271,7 @@ class StatisticsController extends Controller
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
-                DB::table('disaster_affected_streets')->update([
-                    'disaster_id' => $id,
+                DisasterAffectedStreets::where('disaster_id', $id)->update([
                     'affected_streets' => $values['street'],
                     'number_families_affected' => $values['families'],
                 ]);
