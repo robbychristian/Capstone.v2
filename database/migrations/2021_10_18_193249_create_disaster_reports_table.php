@@ -16,7 +16,7 @@ class CreateDisasterReportsTable extends Migration
         Schema::create('disaster_reports', function (Blueprint $table) {
             $table->id();
             $table->string('type_disaster');
-            $table->string('name_disaster');
+            $table->string('name_disaster')->nullable();
             $table->string('month_disaster');
             $table->string('day_disaster');
             $table->string('year_disaster');

@@ -18,6 +18,7 @@ class CreateDisasterAffectedStreetsTable extends Migration
             $table->unsignedBigInteger('disaster_id');
             $table->string('affected_streets');
             $table->integer('number_families_affected');
+            $table->timestamps();
             $table->softDeletes();
             $table->foreign('disaster_id')
                 ->references('id')
