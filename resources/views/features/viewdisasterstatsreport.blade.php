@@ -11,13 +11,22 @@
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col-6"> 
-                        <div class="card">
+                    <div class="col-6 mb-4"> 
+                        <div class="card border-bottom-warning h-100">
                             <div class="card-body">
-                                {{ $disasterstats->type_disaster }}
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"> {{ $disasterstats->type_disaster }}</li>
+                                    <li class="list-group-item">{{ $disasterstats->name_disaster }}</li>
+                                    <li class="list-group-item">{{ $disasterstats->barangay }}</li>
+                                    <li class="list-group-item">{{ $disasterstats->month_disaster }} {{ $disasterstats->day_disaster }}, {{ $disasterstats->year_disaster }}</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                  </ul>
+                               
                             </div>
                         </div>
                     </div>
+
                     <div class="col-6">
                         <!-- Content Row -->
                         <div class="row">
