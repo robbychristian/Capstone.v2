@@ -19,8 +19,8 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-6" style="font-weight: 500;">Type</div>
-                                                <div class="col-sm-6"> {{ $disasterstats->type_disaster }}</div>
+                                                <div class="col-sm-4" style="font-weight: 500;">Type</div>
+                                                <div class="col-sm-8"> {{ $disasterstats->type_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6">
@@ -36,8 +36,8 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-6" style="font-weight: 500;">Date</div>
-                                                <div class="col-sm-6"> {{ $disasterstats->month_disaster }}
+                                                <div class="col-sm-4" style="font-weight: 500;">Date</div>
+                                                <div class="col-sm-8"> {{ $disasterstats->month_disaster }}
                                                     {{ $disasterstats->day_disaster }}, {{ $disasterstats->year_disaster }}</div>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
