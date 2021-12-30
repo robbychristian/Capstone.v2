@@ -447,6 +447,14 @@
 
                                                                     <button type="submit" class="btn btn-primary">Submit
                                                                         Data</button>
+
+                                                                    @if (Auth::user()->user_role == 1)
+                                                                        <a class="btn btn-outline-secondary" href="{{ route('user.stats.index') }}" role="button">Back</a>
+
+                                                                    @elseif (Auth::user()->user_role == 3)
+                                                                        <a class="btn btn-outline-secondary" href="" role="button">Back</a>
+                                                                    @endif
+                                                                    
                                                                     </form>
 
                                                                 </div>
