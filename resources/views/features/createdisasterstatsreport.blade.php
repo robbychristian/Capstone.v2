@@ -275,7 +275,7 @@
                                                                         <option disabled hidden selected>Select Barangay
                                                                         </option>
                                                                         <option value='{{ $barangay->brgy_loc }}'
-                                                                            {{ old('brgy_loc') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                                                            {{ old('barangay') == $barangay->brgy_loc ? 'selected' : '' }}>
                                                                             {{ $barangay->brgy_loc }}
                                                                         </option>
                                                                     @endforeach

@@ -91,7 +91,6 @@ class StatisticsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'typeOfdisaster' => 'required',
-            'nameOfdisaster' => 'required|max:255',
             'monthOfdisaster' => 'required',
             'dayOfdisaster' => 'required',
             'yearOfdisaster' => 'required|max:2100|integer',
@@ -103,7 +102,6 @@ class StatisticsController extends Controller
             'addMoreInputFields.*.families' => 'required|integer',
         ], $messages = [
             'typeOfdisaster.required' => 'The type of disaster field is required!',
-            'nameOfdisaster.required' => 'The name of disaster field is required!',
             'monthOfdisaster.required' => 'The month of disaster field is required!',
             'dayOfdisaster.required' => 'The day of disaster field is required!',
             'dayOfdisaster.integer' => 'The day of disaster must be an integer.',
@@ -216,7 +214,6 @@ class StatisticsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'typeOfdisaster' => 'required',
-            'nameOfdisaster' => 'required|max:255',
             'monthOfdisaster' => 'required',
             'dayOfdisaster' => 'required',
             'yearOfdisaster' => 'required|max:2100|integer',
@@ -228,7 +225,6 @@ class StatisticsController extends Controller
             'addMoreInputFields.*.families' => 'required|integer',
         ], $messages = [
             'typeOfdisaster.required' => 'The type of disaster field is required!',
-            'nameOfdisaster.required' => 'The name of disaster field is required!',
             'monthOfdisaster.required' => 'The month of disaster field is required!',
             'dayOfdisaster.required' => 'The day of disaster field is required!',
             'dayOfdisaster.integer' => 'The day of disaster must be an integer.',
