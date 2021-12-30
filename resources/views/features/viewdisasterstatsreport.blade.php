@@ -19,14 +19,14 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-7" style="font-weight: 500;">Type</div>
-                                                <div class="col-sm-5"> {{ $disasterstats->type_disaster }}</div>
+                                                <div class="col-sm-6" style="font-weight: 500;">Type</div>
+                                                <div class="col-sm-6"> {{ $disasterstats->type_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-7" style="font-weight: 500;">Name</div>
-                                                <div class="col-sm-5"> {{ $disasterstats->name_disaster }}</div>
+                                                <div class="col-sm-6" style="font-weight: 500;">Name</div>
+                                                <div class="col-sm-6"> {{ $disasterstats->name_disaster }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -36,29 +36,20 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-7" style="font-weight: 500;">Date</div>
-                                                <div class="col-sm-5"> {{ $disasterstats->month_disaster }}
+                                                <div class="col-sm-6" style="font-weight: 500;">Date</div>
+                                                <div class="col-sm-6"> {{ $disasterstats->month_disaster }}
                                                     {{ $disasterstats->day_disaster }}, {{ $disasterstats->year_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6">
                                             <div class="row">
-                                                <div class="col-sm-7" style="font-weight: 500;">Barangay</div>
-                                                <div class="col-sm-5"> {{ $disasterstats->barangay }}</div>
+                                                <div class="col-sm-6" style="font-weight: 500;">Barangay</div>
+                                                <div class="col-sm-6"> {{ $disasterstats->barangay }}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!---
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"></li>
-                                    <li class="list-group-item">{{ $disasterstats->name_disaster }}</li>
-                                    <li class="list-group-item">{{ $disasterstats->barangay }}</li>
-                                    <li class="list-group-item"></li>
-                                    <li class="list-group-item">Vestibulum at eros</li>
-                                </ul> -->
-
+                                
                             </div>
                         </div>
                     </div>
