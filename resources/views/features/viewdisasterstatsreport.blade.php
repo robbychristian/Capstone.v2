@@ -8,7 +8,7 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                
+
                 {{ $disasterstats->id }}
 
                 {{ $disasterstats->type_disaster }}
@@ -72,25 +72,26 @@
 
                 </div>
 
-
-                <table class="table table-responsive" style="color: black;">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Affected Streets</th>
-                            <th scope="col">Number of Families Affected</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($affectedstreets as $affectedstreet)
+                <div class="table-responsive">
+                    <table class="table " style="color: black;">
+                        <thead>
                             <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $affectedstreet->affected_streets }}</td>
-                                <td>{{ $affectedstreet->number_families_affected }}</td>
+                                <th scope="col">No</th>
+                                <th scope="col">Affected Streets</th>
+                                <th scope="col">Number of Families Affected</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($affectedstreets as $affectedstreet)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $affectedstreet->affected_streets }}</td>
+                                    <td>{{ $affectedstreet->number_families_affected }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
