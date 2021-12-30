@@ -264,10 +264,10 @@ class StatisticsController extends Controller
                 'evacuees' => $request->input('evacuees')
             ]);
 
-            $id = DB::table('disaster_reports')
-                ->where('month_disaster', $request->input('monthOfdisaster'))
-                ->where('day_disaster', $request->input('dayOfdisaster'))
-                ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
+            //$id = DB::table('disaster_reports')
+            //    ->where('month_disaster', $request->input('monthOfdisaster'))
+            //    ->where('day_disaster', $request->input('dayOfdisaster'))
+            //    ->where('year_disaster', $request->input('yearOfdisaster'))->value('id');
 
             foreach ($request->addMoreInputFields as $key => $values) {
 
