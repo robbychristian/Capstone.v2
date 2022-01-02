@@ -120,6 +120,8 @@
 
             });
 
+            console.log(stats_brgy)
+
         });
     </script>
 
