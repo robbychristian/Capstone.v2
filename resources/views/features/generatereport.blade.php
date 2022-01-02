@@ -23,17 +23,6 @@
                     <div class="form-group col">
                         <label for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
-                        <!-- 
-                            <select id="inputBrgy" class="form-control" name="barangay">
-                                @foreach ($barangays as $barangay)
-                                    <option disabled hidden selected>Select Barangay</option>
-                                    <option value='{{ $barangay->brgy_loc }}'
-                                        {{ old('barangay') == $barangay->brgy_loc ? 'selected' : '' }}>
-                                        {{ $barangay->brgy_loc }}
-                                    </option>
-                                @endforeach
-                            </select> -->
-
                         <input class="form-control" type="text" value="{{ $barangay }}" name="barangay"
                             readonly>
 
