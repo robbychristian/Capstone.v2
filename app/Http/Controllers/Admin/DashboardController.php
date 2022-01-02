@@ -98,7 +98,6 @@ class DashboardController extends Controller
         if ($request->ajax()) {
             $data = DB::table('disaster_reports')
                 ->where('deleted_at', null)
-                ->where('barangay', '=', $brgy)
                 ->latest();
 
             return DataTables::of($data)
