@@ -23,9 +23,7 @@
                         <div class="profile-img"
                             style=" display: inline-block;">
                             <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                style="  border-radius: 150%; 
-                                width: 100px;
-                                height: 100px;">
+                                style="border-radius: 100%; width: 200px; height: 200px;">
 
                         </div>
 
