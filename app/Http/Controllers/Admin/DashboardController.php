@@ -95,11 +95,10 @@ class DashboardController extends Controller
 
     public function brgyDashboard($brgy, Request $request)
     {
-        $barangay = $brgy;
         if ($request->ajax()) {
             $data = DB::table('disaster_reports')
                 ->where('deleted_at', null)
-                ->where('barangay', $barangay)
+                ->where('barangay', $brgy)
                 ->latest();
 
             return DataTables::of($data)
@@ -1335,6 +1334,7 @@ class DashboardController extends Controller
 
 
         return view('features.dashboard', compact(
+            'brgy_loc',
             'jan_typhoon_count',
             'jan_flood_count',
             'jan_lpa_count',

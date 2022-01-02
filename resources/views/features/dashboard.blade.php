@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
-                            aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
+                            aria-controls="pills-table" aria-selected="false" data-id="{{ $brgy_loc }}"><i class="fas fa-list"></i></a>
                     </li>
 
                 </ul>
@@ -85,7 +85,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var stats_brgy = $(this).data('brgy');
+            var stats_brgy = $('#pills-table-tab').attr("data-id");
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
