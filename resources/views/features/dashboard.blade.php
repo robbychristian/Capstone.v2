@@ -88,7 +88,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.brgydashboard.stats') }}",
+                ajax: "{{ route('admin.dashboard.stats') }}",
                 columns: [{
                         data: 'created_at',
                         name: 'created_at'
