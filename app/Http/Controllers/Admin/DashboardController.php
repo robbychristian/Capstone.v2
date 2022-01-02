@@ -7,6 +7,7 @@ use App\Models\DisasterReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 class DashboardController extends Controller
 {
@@ -92,8 +93,51 @@ class DashboardController extends Controller
         //
     }
 
-    public function brgyDashboard($brgy)
+    public function brgyDashboard($brgy, Request $request)
     {
+        if ($request->ajax()) {
+            $data = DB::table('disaster_reports')
+                ->where('deleted_at', null)
+                ->where('barangay', '=', $brgy)
+                ->latest();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-search"></i></a>';
+                    return $btn;
+                })
+
+                ->editColumn('created_at', function ($row) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y');
+                    return $formatedDate;
+                })
+
+                ->addColumn('type_disaster', function ($row) {
+                    if ($row->type_disaster == 'Typhoon') {
+                        return '<label class="badge badge-primary">Typhoon</label>';
+                    } else if ($row->type_disaster == 'Flood') {
+                        return '<label class="badge badge-info">Flood</label>';
+                    } else if ($row->type_disaster == 'Low Pressure Area') {
+                        return '<label class="badge badge-secondary">Low Pressure Area</label>';
+                    } else if ($row->type_disaster == 'Earthquake') {
+                        return '<label class="badge badge-warning">Earthquake</label>';
+                    } else if ($row->type_disaster == 'Landslide') {
+                        return '<label class="badge badge-danger">Landslide</label>';
+                    } else if ($row->type_disaster == 'Others') {
+                        return '<label class="badge badge-dark">Others</label>';
+                    }
+                })
+
+
+                ->rawColumns(['action', 'type_disaster'])
+                ->make(true);
+        }
+
+
+        
+        
         // ADD WHERE CLAUSE IN BRGY
         $date = Carbon::now()->format('Y');
         $brgy_loc = $brgy;

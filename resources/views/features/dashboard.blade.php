@@ -22,24 +22,105 @@
             @endif
         </div>
 
-        <div class="card mt-3" style="position: relative; height:50vh;">
+        <div class="card shadow ">
             <div class="card-body">
-                <canvas id="myChart"></canvas>
+                <ul class="nav nav-pills mb-3 justify-content-end" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart" role="tab"
+                            aria-controls="pills-chart" aria-selected="true"><i class="fas fa-columns"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                            aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-chart" role="tabpanel"
+                        aria-labelledby="pills-chart-tab">
+                        <div class="card mt-3" style="position: relative; height:50vh;">
+                            <div class="card-body">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3" style="position: relative; height:50vh;">
+                            <div class="card-body">
+                                <canvas id="indivChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3" style="position: relative; height:50vh;">
+                            <div class="card-body">
+                                <canvas id="evacChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
+                        <div class="table-responsive">
+                            <table class="table data-table" id="dataTable" width="100%" cellspacing="0"
+                                style="color:#464646 !important">
+                                <thead>
+                                    <tr>
+                                        <th>Created At</th>
+                                        <th>Month of Disaster</th>
+                                        <th>Year of Disaster</th>
+                                        <th>Type of Disaster</th>
+                                        <th>Barangay</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card mt-3" style="position: relative; height:50vh;">
-            <div class="card-body">
-                <canvas id="indivChart"></canvas>
-            </div>
-        </div>
 
-        <div class="card mt-3" style="position: relative; height:50vh;">
-            <div class="card-body">
-                <canvas id="evacChart"></canvas>
-            </div>
-        </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.brgydashboard.stats') }}",
+                columns: [{
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+                    {
+                        data: 'month_disaster',
+                        name: 'month_disaster'
+                    },
+                    {
+                        data: 'year_disaster',
+                        name: 'year_disaster'
+                    },
+                    {
+                        data: 'type_disaster',
+                        name: 'type_disaster'
+                    },
+                    {
+                        data: 'barangay',
+                        name: 'barangay'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+
+            });
+
+        });
+    </script>
 
     <script>
         var jan_typhoon_count = <?php echo $jan_typhoon_count; ?>;

@@ -154,7 +154,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/managebrgy_official/demote/{managebarangay}', [AdminManageBrgy::class, 'decrementRole'])->name('manageresident.demote');
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
-        Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"]);
+        Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"])->name('dashboard.stats');
         Route::resource('/generate', AdminGenerateReport::class);
         Route::resource('/emergencymessage', AdminEmergency::class);
         Route::resource('/managebarangay', AdminManageBarangayLocations::class);
