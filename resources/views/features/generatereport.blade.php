@@ -4,6 +4,10 @@
 @section('content')
 
     <div class="container-fluid" style="color: black">
+
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
+
         <div class="card" style="width: 30rem;">
 
             <div class="card-body">
@@ -82,7 +86,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Download</button>
                 @if (Auth::user()->user_role == 1)
-                    <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard.index') }}" role="button">Cancel</a>
+                    <a class="btn btn-outline-secondary" href="/admin/generate/{{ $barangay }}" role="button">Cancel</a>
 
                 @elseif (Auth::user()->user_role == 3)
                     <a class="btn btn-outline-secondary" href="" role="button">Cancel</a>
