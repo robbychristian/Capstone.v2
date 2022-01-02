@@ -22,7 +22,7 @@ class DashboardController extends Controller
             ->where('is_added', 1)
             ->get();
 
-        return view('features.admindashboardindex',[
+        return view('features.admindashboardindex', [
             'barangays' => $allBrgys
         ]);
     }
@@ -105,7 +105,7 @@ class DashboardController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-search"></i></a>';
+                    $btn = '<a href="' . \URL::route('admin.stats.show', $row->id) . '" data-id="' . $row->id . '" data-brgy="' . $row->barangay . '"class="btn btn-primary btn-circle btn-sm"><i class="fas fa-search"></i></a>';
                     return $btn;
                 })
 
@@ -136,8 +136,8 @@ class DashboardController extends Controller
         }
 
 
-        
-        
+
+
         // ADD WHERE CLAUSE IN BRGY
         $date = Carbon::now()->format('Y');
         $brgy_loc = $brgy;

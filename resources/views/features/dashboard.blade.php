@@ -85,10 +85,11 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            var stats_brgy = $(this).data('brgy');
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.dashboard.stats') }}",
+                ajax: "/admin/dashboard/brgy/" + stats_brgy,
                 columns: [{
                         data: 'created_at',
                         name: 'created_at'
