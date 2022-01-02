@@ -95,9 +95,11 @@ class DashboardController extends Controller
 
     public function brgyDashboard($brgy, Request $request)
     {
+        $barangay = $brgy;
         if ($request->ajax()) {
             $data = DB::table('disaster_reports')
                 ->where('deleted_at', null)
+                ->where('barangay', $barangay)
                 ->latest();
 
             return DataTables::of($data)
