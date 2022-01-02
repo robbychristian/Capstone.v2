@@ -14,7 +14,7 @@
                     </div>
                 @endif
                 @if (Auth::user()->user_role === 1)
-                    <form action="/admin/generate" method="POST">
+                    <form action="/admin/generate/{{ $barangay }}/{{ $barangay }}" method="POST">
                     @elseif (Auth::user()->user_role === 3)
                         <form action="/brgy_official/generate" method="POST">
                 @endif
@@ -23,6 +23,7 @@
                     <div class="form-group col">
                         <label for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
+                        <!-- 
                             <select id="inputBrgy" class="form-control" name="barangay">
                                 @foreach ($barangays as $barangay)
                                     <option disabled hidden selected>Select Barangay</option>
@@ -31,7 +32,10 @@
                                         {{ $barangay->brgy_loc }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </select> -->
+
+                        <input class="form-control" type="text" value="{{ $barangay }}" name="barangay"
+                            readonly>
 
                         @elseif(Auth::user()->user_role === 3)
                             <input class="form-control" type="text" value="{{ Auth::user()->brgy_loc }}" name="barangay"

@@ -16,7 +16,7 @@
                     class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>
             @elseif (Auth::user()->user_role === 1)
-                <a href="{{ route('admin.generate.index') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                <a href="/admin/generate/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>
             @endif

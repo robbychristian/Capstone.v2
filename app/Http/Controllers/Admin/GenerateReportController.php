@@ -108,4 +108,30 @@ class GenerateReportController extends Controller
     {
         //
     }
+
+    public function testGenerate(Request $request, $brgy_name)
+    {
+        $validator = Validator::make($request->all(), [
+            'monthOfdisaster' => 'required',
+            'yearOfdisaster' => 'required',
+            'barangay' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/admin/generate/'.$brgy_name)
+                ->with('error', 'Please choose a month and year!')
+                ->withErrors($validator);
+        } else{
+            $monthDisaster =  $request->input('monthOfdisaster');
+            $yearDisaster = $request->input('yearOfdisaster');
+            
+            return Excel::download(new DisasterExport($monthDisaster, $yearDisaster, $brgy_name), 'Disaster Report.xlsx');
+        }
+    }
+
+    public function showGenerator($brgy)
+    {
+        $barangay = $brgy;
+        return view('features.generatereport')->with('barangay', $barangay);
+    }
 }

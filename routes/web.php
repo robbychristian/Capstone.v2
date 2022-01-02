@@ -155,7 +155,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/stats', AdminStatsReport::class);
         Route::resource('/dashboard', AdminDashboard::class);
         Route::get('/dashboard/brgy/{brgy}', [AdminDashboard::class, "brgyDashboard"])->name('dashboard.stats');
-        Route::resource('/generate', AdminGenerateReport::class);
+        //Route::resource('/generate', AdminGenerateReport::class);
+        Route::get('/generate/{brgy}', [AdminGenerateReport::class, 'showGenerator']);
+        Route::post('/generate/{brgy}/{brgy_loc}', [AdminGenerateReport::class, 'testGenerate']);
         Route::resource('/emergencymessage', AdminEmergency::class);
         Route::resource('/managebarangay', AdminManageBarangayLocations::class);
         Route::post('/managebarangay/addbarangay/{id}', [AdminManageBarangayLocations::class, 'addBarangay']);
