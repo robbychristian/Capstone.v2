@@ -21,9 +21,11 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12 d-flex" style="justify-content: center; align-items: center;">
                         <div class="profile-img"
-                            style=" display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
+                            style=" display: inline-block;">
                             <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                style=" width: auto; height: 100%; margin-left: -50px; ">
+                                style="  border-radius: 150%; 
+                                width: 100px;
+                                height: 100px;">
 
                         </div>
 
