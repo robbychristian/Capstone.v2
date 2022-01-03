@@ -140,7 +140,7 @@ class EvacuationController extends Controller
         } else {
             $evacuationcenters = EvacuationCenters::create([
                 'brgy_id' => Auth::user()->id,
-                'added_by' => Auth::user()->name,
+                'added_by' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
                 'evac_name' => $request->input('evac_name'),
                 'evac_latitude' => $request->input('evac_latitude'),
                 'evac_longitude' => $request->input('evac_longitude'),
