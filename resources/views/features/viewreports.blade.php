@@ -2,18 +2,16 @@
 @section('title', '| Reports')
 @section('content')
 
-<!-- comments: brgy official side not yet done and resident side -->
+    <!-- comments: brgy official side not yet done and resident side -->
     <script type="text/javascript">
         function initMap() {
             var lat = document.getElementById('loc_lat').value;
             var lng = document.getElementById('loc_lng').value;
-            @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
-                var options = {
-                zoom: 16,
-                center: new google.maps.LatLng(lat,lng)
-                }
-            @endif
 
+            var options = {
+                zoom: 16,
+                center: new google.maps.LatLng(lat, lng)
+            }
 
             var map = new google.maps.Map(document.getElementById('map'), options);
 
@@ -28,7 +26,7 @@
         }
     </script>
     <div class="container-fluid" style="color: black">
-      
+
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
             aria-pressed="true">Back</a>
 
@@ -57,7 +55,8 @@
                                 <div class="content mb-2">
                                     <div class="row">
                                         <div class="col-sm-6" style="font-weight: 500;">Date</div>
-                                        <div class="col-sm-6"> {{ date('M d, Y \a\t h:i A', strtotime($report->created_at)) }}</div>
+                                        <div class="col-sm-6">
+                                            {{ date('M d, Y \a\t h:i A', strtotime($report->created_at)) }}</div>
                                     </div>
                                 </div>
 
@@ -93,25 +92,60 @@
                                 </div>
 
                                 <div class="content d-flex justify-content-end mt-5">
-                                    <form action="/admin/reports/confirm/{{ $report->id }}" method="post">
-                                        @csrf
-                                        @method("POST")
-                                        <button class="btn btn-circle btn-success mr-2">
-                                            <i class="fas fa-check"></i></button>
-                                    </form>
+                                    @if (Auth::user()->user_role == 1)
+                                        <form action="/admin/reports/confirm/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("POST")
+                                            <button class="btn btn-circle btn-success mr-2">
+                                                <i class="fas fa-check"></i></button>
+                                        </form>
 
-                                    <form action="/admin/reports/pending/{{ $report->id }}" method="post">
-                                        @csrf
-                                        @method("POST")
-                                        <button class="btn btn-circle btn-warning mr-2">
-                                            <i class="fas fa-times"></i></button>
-                                    </form>
+                                        <form action="/admin/reports/pending/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("POST")
+                                            <button class="btn btn-circle btn-warning mr-2">
+                                                <i class="fas fa-times"></i></button>
+                                        </form>
 
-                                    <form action="/admin/reports/{{ $report->id }}" method="post">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button class="btn btn-circle btn-danger"><i class="fas fa-trash"></i></button>
-                                    </form>
+                                        <form action="/admin/reports/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-circle btn-danger"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+
+                                    @elseif (Auth::user()->user_role >= 4)
+                                        <form action="/user/reports/confirm/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("POST")
+                                            <button class="btn btn-circle btn-success mr-2">
+                                                <i class="fas fa-check"></i></button>
+                                        </form>
+
+                                        <form action="/user/reports/pending/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("POST")
+                                            <button class="btn btn-circle btn-warning mr-2">
+                                                <i class="fas fa-times"></i></button>
+                                        </form>
+
+                                        <form action="/user/reports/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-circle btn-danger"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+
+
+                                    @elseif (Auth::user()->user_role == 2)
+                                        <form action="/user/reports/{{ $report->id }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-circle btn-danger"><i
+                                                    class="fas fa-trash"></i></button>
+                                        </form>
+                                    @endif
+
                                 </div>
 
 
@@ -131,18 +165,17 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="id{{ $report->id }}" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true" style="text-align: center;">
+    <div class="modal fade" id="id{{ $report->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="text-align: center;">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body d-flex align-items-center justify-content-center">
-                    <img style="height: 500px; width: 500px; object-fit:contain;" 
+                    <img style="height: 500px; width: 500px; object-fit:contain;"
                         src="{{ URL::asset('KabisigGit/storage/app/public/report_imgs/' . $report->user_id . '/' . $report->loc_img) }}">
                 </div>
             </div>
