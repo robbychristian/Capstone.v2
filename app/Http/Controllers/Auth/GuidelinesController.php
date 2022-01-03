@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Guidelines;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -59,6 +60,8 @@ class GuidelinesController extends Controller
                 ->withInput();
         } else {
             $guideline = Guidelines::create([
+                'brgy_id' => Auth::user()->id,
+                'issued_by' => Auth::user()->first_name .' '. Auth::user()->last_name,
                 'disaster' => $request->input('disaster'),
                 'time' => $request->input('time'),
                 'guideline' => $request->input('guideline')
