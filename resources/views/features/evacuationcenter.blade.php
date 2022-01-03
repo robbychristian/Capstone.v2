@@ -19,26 +19,46 @@
 
         function initMap() {
 
-            var app = @json($barangays)
+            var userBrgy = @json($barangays);
+            var userLat = userBrgy[0]['brgy_lat'];
+            var userLng = userBrgy[0]['brgy_lng'];
 
-            console.log(app);
-            console.log(app[0]['brgy_lat']);
-
-            var options = {
+            @if (Auth::user()->user_role == 1)
+                var options = {
                 zoom: 12,
                 center: {
-                    lat: 14.5764,
-                    lng: 121.0851
+                lat: 14.5764,
+                lng: 121.0851
                 },
-            }
-
-            var options2 = {
+                }
+            
+                var options2 = {
                 zoom: 13,
                 center: {
-                    lat: 14.5764,
-                    lng: 121.0851
+                lat: 14.5764,
+                lng: 121.0851
                 },
-            }
+                }
+            
+            @elseif (Auth::user()->user_role >= 2)
+                var options = {
+                zoom: 12,
+                center: {
+                lat: userLat,
+                lng: userLng
+                },
+                }
+            
+                var options2 = {
+                zoom: 13,
+                center: {
+                lat: userLat,
+                lng: userLng
+                },
+                }
+            @endif
+
+
 
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
