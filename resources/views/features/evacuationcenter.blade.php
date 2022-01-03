@@ -46,7 +46,7 @@
             
             @elseif (Auth::user()->user_role >= 2)
                 var options = {
-                zoom: 12,
+                zoom: 16,
                 center: {
                 lat: userLatparse,
                 lng: userLngparse
@@ -54,7 +54,7 @@
                 }
             
                 var options2 = {
-                zoom: 13,
+                zoom: 16,
                 center: {
                 lat: userLatparse,
                 lng: userLngparse
