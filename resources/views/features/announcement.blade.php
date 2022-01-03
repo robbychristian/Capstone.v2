@@ -105,7 +105,7 @@
                                             <div class="d-flex flex-row">
                                                 <div class="v-announcement-date-title mr-2">
                                                     <a href="/admin/announcements/{{ $announcement->id }}/edit">
-                                                        <button class="btn btn-success">Edit</button>
+                                                        <button class="btn btn-success btn-sm">Edit</button>
                                                     </a>
                                                 </div>
                                                 <div class="v-announcement-date">
@@ -113,7 +113,7 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button class="btn btn-danger">Delete</button>
+                                                        <button class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -122,7 +122,7 @@
                                                 <div class="d-flex flex-row">
                                                     <div class="v-announcement-date-title mr-2">
                                                         <a href="/user/announcements/{{ $announcement->id }}/edit">
-                                                            <button class="btn btn-success">Edit</button>
+                                                            <button class="btn btn-success btn-sm">Edit</button>
                                                         </a>
                                                     </div>
                                                     <div class="v-announcement-date">
@@ -130,7 +130,7 @@
                                                             method="POST">
                                                             @csrf
                                                             @method('delete')
-                                                            <button class="btn btn-danger">Delete</button>
+                                                            <button class="btn btn-danger btn-sm">Delete</button>
                                                         </form>
                                                     </div>
                                                 </div>
