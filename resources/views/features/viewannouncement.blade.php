@@ -4,12 +4,9 @@
 @section('content')
 
     <div class="container-fluid" style="color: black;">
-        @if (Auth::user()->user_role === 1)
-            <a class="btn btn-primary btn-sm mb-3" href="/admin/announcements" role="button">Back</a>
-        @elseif (Auth::user()->user_role === 3)
-            <a class="btn btn-primary btn-sm mb-3" href="/brgy_official/announcements" role="button">Back</a>
-        @endif
-
+        
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Announcements</h1>
