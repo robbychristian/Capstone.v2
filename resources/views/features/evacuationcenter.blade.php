@@ -195,7 +195,7 @@
             }
 
             //ALL EVAC MAP
-            var brgyLat = document.getElementById("evac_latitude").value;
+            var brgyLat = document.getElementById("").value;
             var brgyLat = $('.changeBrgy').attr("data-lat");
             var brgyLng = $('.changeBrgy').attr("data-lng");
 
