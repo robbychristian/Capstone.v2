@@ -98,6 +98,8 @@
                                         <div class="v-announcement-date">
                                             {{ date('M d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</div>
                                     </div>
+
+
                                     @if (Auth::user()->user_role >= 3 || Auth::user()->user_role === 1)
                                         @if (Auth::user()->user_role === 1)
                                             <div class="d-flex flex-row">
@@ -116,21 +118,24 @@
                                                 </div>
                                             </div>
                                         @elseif(Auth::user()->user_role >= 3)
-                                            <div class="d-flex flex-row">
-                                                <div class="v-announcement-date-title mr-2">
-                                                    <a href="/user/announcements/{{ $announcement->id }}/edit">
-                                                        <button class="btn btn-success">Edit</button>
-                                                    </a>
+                                            @if ($announcement->brgy_id == Auth::user()->id || Auth::user()->user_role >= 4)
+                                                <div class="d-flex flex-row">
+                                                    <div class="v-announcement-date-title mr-2">
+                                                        <a href="/user/announcements/{{ $announcement->id }}/edit">
+                                                            <button class="btn btn-success">Edit</button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="v-announcement-date">
+                                                        <form action="/user/announcements/{{ $announcement->id }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                <div class="v-announcement-date">
-                                                    <form action="/user/announcements/{{ $announcement->id }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            @endif
+
                                         @endif
                                     @endif
                                 </div>

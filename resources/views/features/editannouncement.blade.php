@@ -35,7 +35,7 @@
                     role="button">Cancel</a>
             @endif
 
-            <button class="btn btn-primary float-right ">Post</button>
+            <button class="btn btn-primary float-right mr-2">Post</button>
             </form>
         </div>
 
