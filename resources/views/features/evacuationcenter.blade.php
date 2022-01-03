@@ -332,11 +332,13 @@
                             aria-controls="pills-map" aria-selected="true"><i class="fas fa-columns"
                                 onClick="window.location.reload();"></i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
-                            aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
-                    </li>
+                    @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                                aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
+                        </li>
 
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" id="pills-allMap-tab" data-toggle="pill" href="#pills-allMap" role="tab"
                             aria-controls="pills-allMap" aria-selected="false"><i class="fas fa-map-marked-alt"></i></a>
@@ -474,7 +476,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                
+
                                 <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;"></div>
                                 <h6 class="mt-3 font-weight-bold">Legend:</h6>
                                 <ul class="list-inline">

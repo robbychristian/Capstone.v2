@@ -101,6 +101,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/announcements/approve/{id}', [UserAnnouncement::class, 'approve'])->name('announcement.approve');
         Route::post('/announcements/disapprove/{id}', [UserAnnouncement::class, 'disapprove'])->name('announcement.disapprove');
         Route::resource('/evacuation', UserEvacuation::class);
+        Route::post('/evacuation/approve/{id}', [UserEvacuation::class,'approve'])->name('evacuation.approve');
         Route::resource('/guidelines', UserGuidelines::class);
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);
         Route::resource('/reports', UserReports::class);
