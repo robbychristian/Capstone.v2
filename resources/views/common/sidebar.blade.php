@@ -58,12 +58,16 @@
 
 
     @elseif (Auth::user()->user_role >= 3)
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('user.dashboard.index') }}">
-                <i class="fas fa-fw fa-chart-bar"></i>
-                <span>Dashboard</span></a>
-        </li>
+
+        @if (Auth::user()->user_role >= 4)
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('user.dashboard.index') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Dashboard</span></a>
+            </li>
+        @endif
+
 
         <!-- Nav Item - Account -->
         <li class="nav-item">
@@ -108,21 +112,23 @@
                 <i class="fas fa-fw fa-edit"></i>
                 <span>Reports</span></a>
         </li>
+        @if (Auth::user()->user_role >= 4)
+            <!-- Nav Item - Reports -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.emergencymessage.create') }}">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Emergency Alert
+                        Message</span></a>
+            </li>
 
-        <!-- Nav Item - Reports -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.emergencymessage.create') }}">
-                <i class="fas fa-fw fa-envelope"></i>
-                <span>Emergency Alert
-                    Message</span></a>
-        </li>
+            <!-- Nav Item - Reports -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.stats.index') }}">
+                    <i class="fas fa-fw fa-clipboard"></i>
+                    <span>Disaster Statistics</span></a>
+            </li>
+        @endif
 
-        <!-- Nav Item - Reports -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.stats.index') }}">
-                <i class="fas fa-fw fa-clipboard"></i>
-                <span>Disaster Statistics</span></a>
-        </li>
 
         <!-- Nav Item - Reports -->
         <li class="nav-item">
