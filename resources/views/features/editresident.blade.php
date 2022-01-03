@@ -466,26 +466,42 @@
 
                                             @if ($user->is_valid === 0)
                                                 <li class="list-inline-item">
-                                                    <form action="/admin/manageresident/approve/{{ $user->id }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit"
-                                                            style="color:#1cc88a; border:none; background-color:transparent;">Approve
-                                                            Residency</button>
+                                                    @if (Auth::user()->user_role == 1)
+                                                        <form action="/admin/manageresident/approve/{{ $user->id }}"
+                                                            method="POST">
+
+                                                        @elseif (Auth::user()->user_role >= 4)
+                                                            <form action="/user/manageresident/approve/{{ $user->id }}"
+                                                                method="POST">
+                                                    @endif
+
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit"
+                                                        style="color:#1cc88a; border:none; background-color:transparent;">Approve
+                                                        Residency</button>
                                                     </form>
                                                 </li>
 
 
                                             @else
                                                 <li class="list-inline-item">
-                                                    <form action="/admin/manageresident/disapprove/{{ $user->id }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('POST')
-                                                        <button type="submit"
-                                                            style="color:#e74a3b; border:none; background-color:transparent;">Disapprove
-                                                            Residency</button>
+                                                    @if (Auth::user()->user_role == 1)
+                                                        <form action="/admin/manageresident/disapprove/{{ $user->id }}"
+                                                            method="POST">
+
+                                                        @elseif (Auth::user()->user_role >= 4)
+                                                            <form
+                                                                action="/user/manageresident/disapprove/{{ $user->id }}"
+                                                                method="POST">
+                                                    @endif
+
+
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit"
+                                                        style="color:#e74a3b; border:none; background-color:transparent;">Disapprove
+                                                        Residency</button>
                                                     </form>
                                                 </li>
                                             @endif
