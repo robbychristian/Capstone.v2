@@ -19,9 +19,10 @@
 
         function initMap() {
 
-            var app = <?php echo json_encode($barangays); ?>;
+            var app = @json($barangays)
 
             console.log(app);
+            console.log(app['brgy_lat']);
 
             var options = {
                 zoom: 12,
