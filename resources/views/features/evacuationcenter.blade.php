@@ -204,7 +204,7 @@
                     lng: newLng
                 });
             }
-            Setting Location with jQuery
+            
             $(document).ready(function() {
                 $("#changeBrgy").on('click', function() {
                     var brgyLat = $(this).attr('data-lat');
