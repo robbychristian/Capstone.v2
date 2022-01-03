@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
 use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
 use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
 use App\Http\Controllers\Auth\ReportsController as UserReports;
+use App\Http\Controllers\Auth\StatisticsController as UserStatsReports;
 
 use App\Http\Controllers\Brgy\BrgyOfficialController;
 use App\Http\Controllers\Brgy\AccountController as BrgyAccount;
@@ -107,7 +108,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/manageresident/deactivate/{manageresident}', [BrgyManageResident::class, 'deactivate'])->name('manageresident.deactivate');
         Route::post('/manageresident/activate/{manageresident}', [BrgyManageResident::class, 'activate'])->name('manageresident.activate');
         Route::resource('/manageresident', BrgyManageResident::class);
-        Route::resource('/stats', BrgyStatsReport::class);
+        Route::resource('/stats', UserStatsReports::class);
         Route::resource('/generate', BrgyGenerateReport::class);
         Route::resource('/dashboard', BrgyDashboard::class);
         Route::resource('/emergencymessage', BrgyEmergency::class);
