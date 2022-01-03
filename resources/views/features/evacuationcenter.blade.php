@@ -308,7 +308,8 @@
             <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
 
             @if (Auth::user()->user_role >= 3)
-                <a href="{{ route('user.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                <a href="{{ route('user.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>
                     Add Evacuation Centers or Nearby Hospitals</a>
             @elseif (Auth::user()->user_role === 1)
                 <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
@@ -458,20 +459,22 @@
                     <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
                         @if (count($evacmaps) > 0)
                             <div class="container-fluid">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <i class="fas fa-caret-down"></i>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        @foreach ($barangays as $barangay)
-                                            <button class="dropdown-item" id="{{ $barangay->id }}"
-                                                type="button">{{ $barangay->brgy_loc }}</button>
-                                        @endforeach
+
+                                @if (Auth::user()->user_role == 1)
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary" type="button" id="dropdownMenu2"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            @foreach ($barangays as $barangay)
+                                                <button class="dropdown-item" id="{{ $barangay->id }}"
+                                                    type="button">{{ $barangay->brgy_loc }}</button>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
-
-
+                                @endif
+                                
                                 <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;"></div>
                                 <h6 class="mt-3 font-weight-bold">Legend:</h6>
                                 <ul class="list-inline">
