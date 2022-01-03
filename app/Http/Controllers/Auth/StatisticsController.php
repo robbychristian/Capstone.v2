@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class StatisticsController extends Controller
 {
@@ -113,7 +114,7 @@ class StatisticsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/admin/stats/create')
+            return redirect('/user/stats/create')
                 ->withErrors($validator)
                 ->withInput();
         } else {
@@ -145,7 +146,7 @@ class StatisticsController extends Controller
             };
 
 
-            return redirect('/admin/stats/create')
+            return redirect('/user/stats/create')
                 ->with('success', 'Disaster Report Saved!');
         }
     }
@@ -231,7 +232,7 @@ class StatisticsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/admin/stats/' . $id . '/edit')
+            return redirect('/user/stats/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
@@ -262,7 +263,7 @@ class StatisticsController extends Controller
             };
 
 
-            return redirect('/admin/stats/')
+            return redirect('/user/stats/')
                 ->with('success', 'Disaster Report Saved!');
         }
     }
