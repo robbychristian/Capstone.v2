@@ -308,7 +308,7 @@
             <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
 
             @if (Auth::user()->user_role >= 3)
-                <a href="" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                <a href="{{ route('user.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
                     Add Evacuation Centers or Nearby Hospitals</a>
             @elseif (Auth::user()->user_role === 1)
                 <a href="{{ route('admin.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i

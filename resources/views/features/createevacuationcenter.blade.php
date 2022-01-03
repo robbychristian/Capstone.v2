@@ -101,125 +101,142 @@
                         to zoom in the map for accuracy of the position. </em></div>
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
-                        <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
-                            @csrf
-                            <div class="form-group">
-                                <label>Location</label>
-                                <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
+                        @if (Auth::user()->user_role == 1)
 
-                                <small class="text-danger">@error('evac_name')
-                                        {{ $message }}
-                                    @enderror</small>
-                            </div>
+                            <form action="{{ route('admin.evacuation.store') }}" method="POST" style="color: black;">
+                            @elseif (Auth::user()->user_role >= 3)
+                                <form action="{{ route('user.evacuation.store') }}" method="POST" style="color: black;">
+                        @endif
+
+                        @csrf
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
+
+                            <small class="text-danger">@error('evac_name')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
 
 
-                            <div class="form-group">
+                        <div class="form-group">
+                            <div class="d-flex flex-row">
                                 <div class="d-flex flex-row">
-                                    <div class="d-flex flex-row">
-                                        <label>Latitude</label>
-                                        <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"
-                                            data-content="The latitude changes based on the position of the marker on the map."><i class="fas fa-info-circle text-primary ml-2"></i></a>
-                                    </div>
-                                </div>
-                                
-                                <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
-                                    value="{{ old('evac_latitude') }}" readonly>
-
-                                <small class="text-danger">@error('evac_latitude')
-                                        {{ $message }}
-                                    @enderror</small>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="d-flex flex-row">
-                                    <label>Longitude</label>
+                                    <label>Latitude</label>
                                     <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"
-                                        data-content="The longitude changes based on the position of the marker on the map."><i class="fas fa-info-circle text-primary ml-2"></i></a>
+                                        data-content="The latitude changes based on the position of the marker on the map."><i
+                                            class="fas fa-info-circle text-primary ml-2"></i></a>
                                 </div>
-                                <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
-                                    value="{{ old('evac_longitude') }}" readonly>
-                                <small class="text-danger">@error('evac_longitude')
-                                        {{ $message }}
-                                    @enderror</small>
                             </div>
 
-                            <div class="form-group">
-                                <label>Nearest Landmark</label>
-                                <input name="nearest_landmark" type="text" class="form-control"
-                                    value={{ old('nearest_landmark') }}>
-                                <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
-                                    center.</small>
-                                <small class="text-danger">@error('nearest_landmark')
-                                        {{ $message }}
-                                    @enderror</small>
+                            <input type="text" class="form-control" name="evac_latitude" id="evac_latitude"
+                                value="{{ old('evac_latitude') }}" readonly>
+
+                            <small class="text-danger">@error('evac_latitude')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="d-flex flex-row">
+                                <label>Longitude</label>
+                                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"
+                                    data-content="The longitude changes based on the position of the marker on the map."><i
+                                        class="fas fa-info-circle text-primary ml-2"></i></a>
                             </div>
+                            <input type="text" class="form-control" name="evac_longitude" id="evac_longitude"
+                                value="{{ old('evac_longitude') }}" readonly>
+                            <small class="text-danger">@error('evac_longitude')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
 
-                            <div class="form-group">
-                                <label>Barangay</label>
-                                @if (Auth::user()->user_role === 1)
-                                    <select name="brgy_loc" class="form-control">
-                                        @foreach ($barangays as $barangay)
-                                            <option disabled hidden selected>Select Barangay</option>
-                                            <option value='{{ $barangay->brgy_loc }}' {{ old('brgy_loc') == $barangay->brgy_loc ? "selected" : "" }}>{{ $barangay->brgy_loc }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                @endif
+                        <div class="form-group">
+                            <label>Nearest Landmark</label>
+                            <input name="nearest_landmark" type="text" class="form-control"
+                                value={{ old('nearest_landmark') }}>
+                            <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
+                                center.</small>
+                            <small class="text-danger">@error('nearest_landmark')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
 
-                                @if (Auth::user()->user_role >= 3)
-                                    <input class="form-control" type="text" name="brgy_loc"
-                                        value="{{ Auth::user()->brgy_loc }}" readonly>
-                                @endif
-                                <small class="text-danger">@error('brgy_loc')
-                                        {{ $message }}
-                                    @enderror</small>
+                        <div class="form-group">
+                            <label>Barangay</label>
+                            @if (Auth::user()->user_role === 1)
+                                <select name="brgy_loc" class="form-control">
+                                    @foreach ($barangays as $barangay)
+                                        <option disabled hidden selected>Select Barangay</option>
+                                        <option value='{{ $barangay->brgy_loc }}'
+                                            {{ old('brgy_loc') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                            {{ $barangay->brgy_loc }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            @endif
+
+                            @if (Auth::user()->user_role >= 3)
+                                <input class="form-control" type="text" name="brgy_loc"
+                                    value="{{ Auth::user()->brgy_loc }}" readonly>
+                            @endif
+                            <small class="text-danger">@error('brgy_loc')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input name="phone_no" type="text" class="form-control" value={{ old('phone_no') }}>
+                            <small class="text-danger">@error('phone_no')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Capacity</label>
+                            <input name="capacity" type="text" class="form-control"
+                                onkeypress="return onlyNumberKey(event)" value={{ old('capacity') }}>
+                            <small class="text-danger">@error('capacity')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Availability</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="availability" id="" value="Available"
+                                    {{ old('availability') == 'Available' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="">
+                                    Available
+                                </label>
                             </div>
-
-                            <div class="form-group">
-                                <label>Contact Number</label>
-                                <input name="phone_no" type="text" class="form-control" value={{ old('phone_no') }}>
-                                <small class="text-danger">@error('phone_no')
-                                        {{ $message }}
-                                    @enderror</small>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="availability" id="" value="Not Available"
+                                    {{ old('availability') == 'Not Available' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="">
+                                    Not Available
+                                </label>
                             </div>
-
-                            <div class="form-group">
-                                <label>Capacity</label>
-                                <input name="capacity" type="text" class="form-control"
-                                    onkeypress="return onlyNumberKey(event)" value={{ old('capacity') }}>
-                                <small class="text-danger">@error('capacity')
-                                        {{ $message }}
-                                    @enderror</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Availability</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="availability" id=""
-                                        value="Available" {{ old('availability') == 'Available' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="">
-                                        Available
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="availability" id=""
-                                        value="Not Available" {{ old('availability') == 'Not Available' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="">
-                                        Not Available
-                                    </label>
-                                </div>
-                                <small class="text-danger">@error('availability')
-                                        {{ $message }}
-                                    @enderror</small>
-                            </div>
+                            <small class="text-danger">@error('availability')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
 
 
-                            <div class="mt-5">
-                                <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
+                        <div class="mt-5">
+                            <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
+                            @if (Auth::user()->user_role == 1)
                                 <a class="btn btn-secondary btn-block" href="{{ route('admin.evacuation.index') }}"
                                     role="button">Cancel</a>
-                            </div>
+
+                            @elseif (Auth::user()->user_role >= 3)
+                                <a class="btn btn-secondary btn-block" href="{{ route('user.evacuation.index') }}"
+                                    role="button">Cancel</a>
+                            @endif
+
+                        </div>
 
                         </form>
                     </div>
