@@ -62,9 +62,6 @@
                 }
             @endif
 
-
-
-
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
             var allmap = new google.maps.Map(document.getElementById('evac_map_all'), options2);
 
@@ -198,6 +195,11 @@
             }
 
             //ALL EVAC MAP
+            var brgyLat =  $('#changeBrgy').attr("data-lat");
+            var brgyLng =  $('#changeBrgy').attr("data-lng");
+
+            console.log(brgyLat);
+            console.log(brgyLng);
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
@@ -499,7 +501,9 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             @foreach ($barangays as $barangay)
-                                                <button class="dropdown-item" id="{{ $barangay->id }}"
+                                                <button class="dropdown-item" id="changeBrgy"
+                                                    data-lat="{{ $barangay->brgy_lat }}"
+                                                    data-lng="{{ $barangay->brgy_lng }}"
                                                     type="button">{{ $barangay->brgy_loc }}</button>
                                             @endforeach
                                         </div>
