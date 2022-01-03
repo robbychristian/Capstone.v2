@@ -4,16 +4,17 @@
 @section('content')
 
     <div class="container-fluid" style="color: black;">
-        @if (Auth::user()->user_role === 1)
-            <a href="/admin/dashboard" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
-        @endif
+
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
+
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
-            @if (Auth::user()->user_role === 3)
-                <a href="{{ route('brgy_official.generate.index') }}"
-                    class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
+            @if (Auth::user()->user_role >= 4)
+                <a href="{{ route('user.generate.index') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>
             @elseif (Auth::user()->user_role === 1)
                 <a href="/admin/generate/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
@@ -29,10 +30,24 @@
                         <a class="nav-link active" id="pills-chart-tab" data-toggle="pill" href="#pills-chart" role="tab"
                             aria-controls="pills-chart" aria-selected="true"><i class="fas fa-columns"></i></a>
                     </li>
+
+
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
-                            aria-controls="pills-table" aria-selected="false" data-id="{{ $brgy_loc }}"><i class="fas fa-list"></i></a>
+                        @if (Auth::user()->user_role == 1)
+                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                                aria-controls="pills-table" aria-selected="false" data-id="{{ $brgy_loc }}"><i
+                                    class="fas fa-list"></i></a>
+
+                        @elseif (Auth::user()->user_role >= 4)
+                            <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                                aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
+
+                        @endif
+
+
                     </li>
+
+
 
                 </ul>
 
@@ -83,47 +98,94 @@
 
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var stats_brgy = $('#pills-table-tab').attr("data-id");
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "/admin/dashboard/brgy/" + stats_brgy,
-                columns: [{
-                        data: 'created_at',
-                        name: 'created_at'
-                    },
-                    {
-                        data: 'month_disaster',
-                        name: 'month_disaster'
-                    },
-                    {
-                        data: 'year_disaster',
-                        name: 'year_disaster'
-                    },
-                    {
-                        data: 'type_disaster',
-                        name: 'type_disaster'
-                    },
-                    {
-                        data: 'barangay',
-                        name: 'barangay'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ],
+    @if (Auth::user()->user_role == 1)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var stats_brgy = $('#pills-table-tab').attr("data-id");
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "/admin/dashboard/brgy/" + stats_brgy,
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'month_disaster',
+                            name: 'month_disaster'
+                        },
+                        {
+                            data: 'year_disaster',
+                            name: 'year_disaster'
+                        },
+                        {
+                            data: 'type_disaster',
+                            name: 'type_disaster'
+                        },
+                        {
+                            data: 'barangay',
+                            name: 'barangay'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+
+                console.log(stats_brgy)
 
             });
+        </script>
 
-            console.log(stats_brgy)
+    @elseif (Auth::user()->user_role >= 4)
 
-        });
-    </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var stats_brgy = $('#pills-table-tab').attr("data-id");
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.dashboard.index') }}",
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'month_disaster',
+                            name: 'month_disaster'
+                        },
+                        {
+                            data: 'year_disaster',
+                            name: 'year_disaster'
+                        },
+                        {
+                            data: 'type_disaster',
+                            name: 'type_disaster'
+                        },
+                        {
+                            data: 'barangay',
+                            name: 'barangay'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+
+                console.log(stats_brgy)
+
+            });
+        </script>
+    @endif
+
 
     <script>
         var jan_typhoon_count = <?php echo $jan_typhoon_count; ?>;
