@@ -20,7 +20,7 @@ class GuidelinesController extends Controller
      */
     public function index()
     {
-        $guideline = Guidelines::all();
+        $guideline = Guidelines::where('deleted_at', NULL);
         return view('features.guidelines', [
             'guidelines' => $guideline
         ]);
@@ -61,7 +61,7 @@ class GuidelinesController extends Controller
         } else {
             $guideline = Guidelines::create([
                 'brgy_id' => Auth::user()->id,
-                'issued_by' => Auth::user()->first_name .' '. Auth::user()->last_name,
+                'issued_by' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
                 'disaster' => $request->input('disaster'),
                 'time' => $request->input('time'),
                 'guideline' => $request->input('guideline')
@@ -90,7 +90,10 @@ class GuidelinesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guidelines = Guidelines::find($id);
+        return view('features.editguidelines', [
+            'guidelines' => $guidelines
+        ]);
     }
 
     /**
@@ -102,7 +105,31 @@ class GuidelinesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'disaster' => 'required',
+            'time' => 'required',
+            'guideline' => 'required',
+        ], $messages = [
+            'disaster.required' => 'The disaster field is required!',
+            'time.required' => 'The time field is required!',
+            'guideline.required' => 'The guideline field is required!',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/user/guidelines/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $guideline = Guidelines::where('id', $id)->update([
+                'brgy_id' => Auth::user()->id,
+                'issued_by' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
+                'disaster' => $request->input('disaster'),
+                'time' => $request->input('time'),
+                'guideline' => $request->input('guideline')
+            ]);
+
+            return redirect('/user/guidelines')->with('success', 'Guideline has been edited!');
+        }
     }
 
     /**
@@ -113,7 +140,9 @@ class GuidelinesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guidelines = Guidelines::find($id);
+        $guidelines->delete();
+        return redirect('/user/guidelines')->with('success', 'The guidelines has been deleted!');
     }
 
     public function guidelinesMobile()

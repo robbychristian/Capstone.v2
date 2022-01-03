@@ -70,16 +70,33 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
+
                                                                         </div>
                                                                     </div>
 
@@ -125,16 +142,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -179,16 +211,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -238,16 +285,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -292,16 +354,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -346,16 +423,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -406,16 +498,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -461,16 +568,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -516,16 +638,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -578,16 +715,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -632,16 +784,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
@@ -686,16 +853,31 @@
 
                                                                         <div class="dropdown-menu"
                                                                             aria-labelledby="dropdownMenu2">
-                                                                            <a class="dropdown-item"
-                                                                                href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                            <form
-                                                                                action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                @method('DELETE')
-                                                                                <button
-                                                                                    class="dropdown-item">Delete</button>
-                                                                            </form>
+                                                                            @if (Auth::user()->user_role == 1)
+                                                                                <a class="dropdown-item"
+                                                                                    href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/admin/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+
+                                                                            @elseif (Auth::user()->user_role >= 4)
+
+                                                                                <a class="dropdown-item"
+                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
+                                                                                <form
+                                                                                    action="/user/guidelines/{{ $guideline->id }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <button
+                                                                                        class="dropdown-item">Delete</button>
+                                                                                </form>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
 
