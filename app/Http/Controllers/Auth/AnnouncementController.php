@@ -174,7 +174,7 @@ class AnnouncementController extends Controller
     {
         $pendingAnnouncement = DB::table('announcements')
             ->where('id', $id)
-            ->delete();
+            ->update(['approved' => 0, 'deleted_at' => now()]);
         return redirect('/user/announcements')->with('success', 'The announcement has been disapproved!');
     }
 }
