@@ -50,14 +50,14 @@
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 @if (Auth::user()->user_role == 1)
-                    <a class="btn btn-outline-secondary" href="/admin/guidelines" role="button">Cancel</a>
+                    <a class="btn btn-outline-secondary mr-2" href="/admin/guidelines" role="button">Cancel</a>
 
                     @elseif (Auth::user()->user_role >= 4)
-                    <a class="btn btn-outline-secondary float-right" href="/user/guidelines"
+                    <a class="btn btn-outline-secondary mr-2" href="/user/guidelines"
                         role="button">Cancel</a>
                 @endif
 
-                <button class="btn btn-primary mr-2">Post</button>
+                <button class="btn btn-primary">Post</button>
             </div>
             </form>
         </div>
