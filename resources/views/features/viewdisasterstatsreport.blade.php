@@ -25,7 +25,14 @@
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                             <div class="row mb-xl-0 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-4" style="font-weight: 500;">Name:</div>
-                                                <div class="col-sm-8"> {{ $disasterstats->name_disaster }}</div>
+                                                <div class="col-sm-8">
+                                                    @if ($disasterstats->name_disaster == null)
+                                                        None
+                                                    @else
+                                                        {{ $disasterstats->name_disaster }}
+                                                    @endif
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -37,12 +44,14 @@
                                             <div class="row mb-xl-0 mb-lg-3 mb-md-3 mb-sm-4">
                                                 <div class="col-sm-4 col-md-4" style="font-weight: 500;">Date:</div>
                                                 <div class="col-sm-8 col-md-8"> {{ $disasterstats->month_disaster }}
-                                                    {{ $disasterstats->day_disaster }}, {{ $disasterstats->year_disaster }}</div>
+                                                    {{ $disasterstats->day_disaster }},
+                                                    {{ $disasterstats->year_disaster }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                             <div class="row mb-xl-0 mb-lg-3 mb-md-3 mb-sm-4">
-                                                <div class="col-sm-12 col-md-" style="font-weight: 500;">{{ $disasterstats->barangay }}</div>
+                                                <div class="col-sm-12 col-md-" style="font-weight: 500;">
+                                                    {{ $disasterstats->barangay }}</div>
 
                                             </div>
                                         </div>
