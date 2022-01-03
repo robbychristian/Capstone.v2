@@ -38,12 +38,24 @@
                         {{ $message }}
                     @enderror</small>
             </div>
+
+            <div class="form-group d-none">
+                @if (Auth::user()->user_role >= 4)
+                    <input type="text" name="approved" class="form-control" value="1" hidden>
+
+                @elseif (Auth::user()->user_role == 3)
+                    <input type="text" name="approved" class="form-control" value="0" hidden>
+                @endif
+            </div>
+
+
             @if (Auth::user()->user_role == 1)
                 <a class="btn btn-outline-secondary float-right" href="{{ route('admin.announcements.index') }}"
                     role="button">Cancel</a>
 
             @elseif (Auth::user()->user_role >= 3)
-                <a class="btn btn-outline-secondary float-right" href="{{ route('user.announcements.index') }}" role="button">Cancel</a>
+                <a class="btn btn-outline-secondary float-right" href="{{ route('user.announcements.index') }}"
+                    role="button">Cancel</a>
             @endif
 
             <button class="btn btn-primary float-right mr-2">Post</button>

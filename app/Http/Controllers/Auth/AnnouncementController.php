@@ -73,7 +73,8 @@ class AnnouncementController extends Controller
                 'name' => Auth::user()->name,
                 'brgy_loc' => Auth::user()->brgy_loc,
                 'title' => $request->input('title'),
-                'body' => $request->input('message')
+                'body' => $request->input('message'),
+                'approved' => $request->input('approved')
             ]);
 
             return redirect('/user/announcements')->with('success', 'Announcement has been posted!');
