@@ -78,7 +78,7 @@
                                         <span class="badge badge-pill badge-secondary">Barangay Secretary</span>
                                     @elseif ($user->user_role == 5)
                                         <span class="badge badge-pill badge-secondary">Barangay Co-Chairman</span>
-                                    @elseif ($user->user_role == 5)
+                                    @elseif ($user->user_role == 6)
                                         <span class="badge badge-pill badge-secondary">Barangay Chairman</span>
                                     @endif
                                 </div>

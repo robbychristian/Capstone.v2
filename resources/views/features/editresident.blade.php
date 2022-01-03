@@ -2,6 +2,7 @@
 @section('title', '| Manage Resident')
 @section('content')
     <!-- comment: assign roles for the dropdown fix else if depending on roles -->
+
     <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -14,11 +15,33 @@
             </div>
         @endif
 
+        @if (Auth::user()->user_role == 3)
+            <div class="card shadow mb-3 mt-3">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                    style="background-color: white;">
+
+                    <a href="/user/manageresident/" class="btn btn-primary btn-sm active" role="button"
+                        aria-pressed="true">Back</a>
+
+                </div>
+
+                <div class="card-body">
+                    You are not authorized to configure this user.
+                </div>
+            </div>
+        @endif
+
         <div class="card shadow mb-3 mt-3">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                 style="background-color: white;">
-                <a href="/admin/manageresident/" class="btn btn-primary btn-sm active" role="button"
-                    aria-pressed="true">Back</a>
+                @if (Auth::user()->user_role == 1)
+                    <a href="/admin/manageresident/" class="btn btn-primary btn-sm active" role="button"
+                        aria-pressed="true">Back</a>
+
+                @elseif (Auth::user()->user_role >= 3)
+                    <a href="/user/manageresident/" class="btn btn-primary btn-sm active" role="button"
+                        aria-pressed="true">Back</a>
+                @endif
 
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -29,31 +52,48 @@
                         aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Actions:</div>
                         @if ($user->is_deactivated === 1)
-                            <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="dropdown-item" type="submit">Activate</button>
+                            @if (Auth::user()->user_role == 1)
+                                <form action="/admin/manageresident/activate/{{ $user->id }}" method="POST">
+                                @elseif (Auth::user()->user_role >= 4)
+                                    <form action="/user/manageresident/activate/{{ $user->id }}" method="POST">
+                            @endif
+
+                            @csrf
+                            @method('POST')
+                            <button class="dropdown-item" type="submit">Activate</button>
                             </form>
                         @else
-                            <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="dropdown-item" type="submit">Dectivate</button>
+                            @if (Auth::user()->user_role == 1)
+                                <form action="/admin/manageresident/deactivate/{{ $user->id }}" method="POST">
+                                @elseif (Auth::user()->user_role >= 4)
+                                    <form action="/user/manageresident/deactivate/{{ $user->id }}" method="POST">
+                            @endif
+                            @csrf
+                            @method('POST')
+                            <button class="dropdown-item" type="submit">Dectivate</button>
                             </form>
                         @endif
 
                         @if ($user->is_blocked === 1)
-                            <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="dropdown-item" type="submit">Unblock</button>
+                            @if (Auth::user()->user_role == 1)
+                                <form action="/admin/manageresident/unblock/{{ $user->id }}" method="POST">
+                                @elseif (Auth::user()->user_role >= 4)
+                                    <form action="/user/manageresident/unblock/{{ $user->id }}" method="POST">
+                            @endif
+                            @csrf
+                            @method('POST')
+                            <button class="dropdown-item" type="submit">Unblock</button>
                             </form>
 
                         @else
-                            <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="dropdown-item" type="submit">Block</button>
+                            @if (Auth::user()->user_role == 1)
+                                <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
+                                @elseif (Auth::user()->user_role >= 4)
+                                    <form action="/user/manageresident/block/{{ $user->id }}" method="POST">
+                            @endif
+                            @csrf
+                            @method('POST')
+                            <button class="dropdown-item" type="submit">Block</button>
                             </form>
 
                         @endif
@@ -479,236 +519,335 @@
 
     </div>
 
-    <script>
-        $(document).on('click', '#chairman', function() {
-            var id = $(this).data('id');
-            console.log(id);
+    @if (Auth::user()->user_role == 1)
+        <script>
+            $(document).on('click', '#chairman', function() {
+                var id = $(this).data('id');
+                console.log(id);
 
-            swal({
-                    title: "Are you sure?",
-                    text: "You want to change the role of this user?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
 
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        });
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
 
-                        $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotechairman/" +
-                                id,
-                            type: 'POST',
-                            dataType: 'JSON',
-                            data: {
-                                "id": id
-                            },
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promotechairman/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
 
-                            success: function(response) {
-                                location.reload();
-                                swal("Success!", response.message, "success");
-                            },
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
 
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        });
-                    } else {
-                        swal("No changes were made!");
-                    }
-                });
-
-
-        });
-
-        $(document).on('click', '#co-chairman', function() {
-            var id = $(this).data('id');
-            console.log(id);
-
-            swal({
-                    title: "Are you sure?",
-                    text: "You want to change the role of this user?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        });
-
-                        $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotecochairman/" +
-                                id,
-                            type: 'POST',
-                            dataType: 'JSON',
-                            data: {
-                                "id": id
-                            },
-
-                            success: function(response) {
-                                location.reload();
-                                swal("Success!", response.message, "success");
-                            },
-
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        });
-                    } else {
-                        swal("No changes were made!");
-                    }
-                });
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
 
 
-        });
+            });
 
-        $(document).on('click', '#secretary', function() {
-            var id = $(this).data('id');
-            console.log(id);
+            $(document).on('click', '#co-chairman', function() {
+                var id = $(this).data('id');
+                console.log(id);
 
-            swal({
-                    title: "Are you sure?",
-                    text: "You want to change the role of this user?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
 
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        });
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
 
-                        $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotesecretary/" +
-                                id,
-                            type: 'POST',
-                            dataType: 'JSON',
-                            data: {
-                                "id": id
-                            },
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promotecochairman/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
 
-                            success: function(response) {
-                                location.reload();
-                                swal("Success!", response.message, "success");
-                            },
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
 
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        });
-                    } else {
-                        swal("No changes were made!");
-                    }
-                });
-
-
-        });
-
-        $(document).on('click', '#subordinates', function() {
-            var id = $(this).data('id');
-            console.log(id);
-
-            swal({
-                    title: "Are you sure?",
-                    text: "You want to change the role of this user?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        });
-
-                        $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promotesubordinate/" +
-                                id,
-                            type: 'POST',
-                            dataType: 'JSON',
-                            data: {
-                                "id": id
-                            },
-
-                            success: function(response) {
-                                location.reload();
-                                swal("Success!", response.message, "success");
-                            },
-
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        });
-                    } else {
-                        swal("No changes were made!");
-                    }
-                });
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
 
 
-        });
+            });
 
-        $(document).on('click', '#basicuser', function() {
-            var id = $(this).data('id');
-            console.log(id);
+            $(document).on('click', '#secretary', function() {
+                var id = $(this).data('id');
+                console.log(id);
 
-            swal({
-                    title: "Are you sure?",
-                    text: "You want to change the role of this user?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
 
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        });
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
 
-                        $.ajax({
-                            url: "https://kabisigapp.com/admin/manageresident/promoteresident/" +
-                                id,
-                            type: 'POST',
-                            dataType: 'JSON',
-                            data: {
-                                "id": id
-                            },
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promotesecretary/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
 
-                            success: function(response) {
-                                location.reload();
-                                swal("Success!", response.message, "success");
-                            },
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
 
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        });
-                    } else {
-                        swal("No changes were made!");
-                    }
-                });
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
 
 
-        });
-    </script>
+            });
+
+            $(document).on('click', '#subordinates', function() {
+                var id = $(this).data('id');
+                console.log(id);
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promotesubordinate/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
+
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+
+            });
+
+            $(document).on('click', '#basicuser', function() {
+                var id = $(this).data('id');
+                console.log(id);
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promoteresident/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
+
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+
+            });
+        </script>
+
+    @elseif (Auth::user()->user_role >= 4)
+
+        <script>
+            $(document).on('click', '#subordinates', function() {
+                var id = $(this).data('id');
+                console.log(id);
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/user/manageresident/promotesubordinate/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
+
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+
+            });
+
+            $(document).on('click', '#basicuser', function() {
+                var id = $(this).data('id');
+                console.log(id);
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/user/manageresident/promoteresident/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
+
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+
+            });
+        </script>
+    @endif
+
 
 @endsection
