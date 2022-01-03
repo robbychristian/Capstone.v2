@@ -15,18 +15,17 @@
                 @endif
                 @if (Auth::user()->user_role === 1)
                     <form action="/admin/generate/{{ $barangay }}/{{ $barangay }}" method="POST">
-                    @elseif (Auth::user()->user_role === 3)
-                        <form action="/brgy_official/generate" method="POST">
+                    @elseif (Auth::user()->user_role >= 4)
+                        <form action="/user/generate" method="POST">
                 @endif
                 @csrf
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
-                        <input class="form-control" type="text" value="{{ $barangay }}" name="barangay"
-                            readonly>
+                            <input class="form-control" type="text" value="{{ $barangay }}" name="barangay" readonly>
 
-                        @elseif(Auth::user()->user_role === 3)
+                        @elseif(Auth::user()->user_role >= 4)
                             <input class="form-control" type="text" value="{{ Auth::user()->brgy_loc }}" name="barangay"
                                 readonly>
                         @endif
@@ -82,10 +81,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Download</button>
                 @if (Auth::user()->user_role == 1)
-                    <a class="btn btn-outline-secondary" href="/admin/dashboard/brgy/{{ $barangay }}" role="button">Cancel</a>
+                    <a class="btn btn-outline-secondary" href="/admin/dashboard/brgy/{{ $barangay }}"
+                        role="button">Cancel</a>
 
-                @elseif (Auth::user()->user_role == 3)
-                    <a class="btn btn-outline-secondary" href="" role="button">Cancel</a>
+                @elseif (Auth::user()->user_role >= 4)
+                    <a class="btn btn-outline-secondary" href="{{ route('user.dashboard.index') }}"
+                        role="button">Cancel</a>
                 @endif
                 </form>
 
