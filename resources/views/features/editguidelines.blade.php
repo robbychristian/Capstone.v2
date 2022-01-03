@@ -10,7 +10,7 @@
                     @csrf
                     @method('PUT')
                 @elseif (Auth::user()->user_role >= 3)
-                    <form action="" method="POST">
+                    <form action="/user/guidelines/{{ $guidelines->id }}" method="POST">
                         @csrf
                         @method('PUT')
             @endif
@@ -54,6 +54,10 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 @if (Auth::user()->user_role == 1)
                     <a class="btn btn-outline-secondary mr-2" href="/admin/guidelines" role="button">Cancel</a>
+
+                @elseif (Auth::user()->user_role >= 4)
+
+                    <a class="btn btn-outline-secondary mr-2" href="/user/guidelines" role="button">Cancel</a>
                 @endif
 
                 <button class="btn btn-primary">Post</button>
