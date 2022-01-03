@@ -118,7 +118,7 @@
                                                 </div>
                                             </div>
                                         @elseif(Auth::user()->user_role >= 3)
-                                            @if ($announcement->brgy_id == Auth::user()->id || Auth::user()->user_role >= 4 || $announcement->brgy_id == NULL)
+                                            @if ($announcement->brgy_id == Auth::user()->id || Auth::user()->user_role >= 4 && $announcement->brgy_id == NULL)
                                                 <div class="d-flex flex-row">
                                                     <div class="v-announcement-date-title mr-2">
                                                         <a href="/user/announcements/{{ $announcement->id }}/edit">
