@@ -18,7 +18,8 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
+                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0"
+                        style="color:#464646 !important">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -39,44 +40,83 @@
     </div>
 
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('admin.manageresident.index') }}",
-                columns: [{
-                        data: 'full_name',
-                        name: 'full_name'
-                    },
-                    {
-                        data: 'user_role',
-                        name: 'user_role'
-                    },
-                    {
-                        data: 'brgy_loc',
-                        name: 'brgy_loc'
-                    },
-                    {
-                        data: 'is_valid',
-                        name: 'is_valid'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ],
+    @if (Auth::user()->user_role == 1)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('admin.manageresident.index') }}",
+                    columns: [{
+                            data: 'full_name',
+                            name: 'full_name'
+                        },
+                        {
+                            data: 'user_role',
+                            name: 'user_role'
+                        },
+                        {
+                            data: 'brgy_loc',
+                            name: 'brgy_loc'
+                        },
+                        {
+                            data: 'is_valid',
+                            name: 'is_valid'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+
+
+
+
 
             });
+        </script>
 
+    @elseif (Auth::user()->user_role >= 3)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.manageresident.index') }}",
+                    columns: [{
+                            data: 'full_name',
+                            name: 'full_name'
+                        },
+                        {
+                            data: 'user_role',
+                            name: 'user_role'
+                        },
+                        {
+                            data: 'brgy_loc',
+                            name: 'brgy_loc'
+                        },
+                        {
+                            data: 'is_valid',
+                            name: 'is_valid'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
 
+                });
 
+            });
+        </script>
+    @endif
 
-
-        });
-    </script>
 
 
 
