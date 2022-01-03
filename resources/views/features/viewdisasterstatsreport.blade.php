@@ -27,7 +27,7 @@
                                                 <div class="col-sm-4" style="font-weight: 500;">Name:</div>
                                                 <div class="col-sm-8">
                                                     @if ($disasterstats->name_disaster == null)
-                                                        None
+                                                        <em>None</em>
                                                     @else
                                                         {{ $disasterstats->name_disaster }}
                                                     @endif
