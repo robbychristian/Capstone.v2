@@ -149,7 +149,7 @@ class EvacuationController extends Controller
                 'phone_no' => $request->input('phone_no'),
                 'capacity' => $request->input('capacity'),
                 'availability' => $request->input('availability'),
-                'is_approved' => 1,
+                'is_approved' => $request->input('is_approved'),
             ]);
 
             return redirect('/user/evacuation')->with('success', 'The evacuation center has been added!');

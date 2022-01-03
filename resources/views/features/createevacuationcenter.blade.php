@@ -224,6 +224,16 @@
                                 @enderror</small>
                         </div>
 
+                        <div class="form-group d-none">
+                            @if (Auth::user()->user_role >= 4)
+                                <input name="is_approved" type="text" class="form-control" value="1">
+                            @elseif (Auth::user()->user_role == 3)
+                                <input name="is_approved" type="text" class="form-control" value="0">
+                            @endif
+
+
+                        </div>
+
 
                         <div class="mt-5">
                             <button class="btn btn-primary btn-block" type="submit">Add Evacuation Center</button>
