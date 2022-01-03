@@ -88,7 +88,7 @@ class EvacuationController extends Controller
         }
 
         $barangays = DB::table('barangays')
-            ->where('barangay', Auth::user()->brgy_loc)
+            ->where('brgy_loc', Auth::user()->brgy_loc)
             ->get();
 
         $evacuationcenters = EvacuationCenters::where('deleted_at', null)->where('brgy_loc', Auth::user()->brgy_loc)->paginate(2);
