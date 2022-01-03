@@ -70,7 +70,7 @@ class AnnouncementController extends Controller
         } else {
             $announcement = Announcement::create([
                 'brgy_id' => Auth::user()->id,
-                'name' => Auth::user()->name,
+                'name' => Auth::user()->first_name .' '. Auth::user()->last_name,
                 'brgy_loc' => Auth::user()->brgy_loc,
                 'title' => $request->input('title'),
                 'body' => $request->input('message'),
