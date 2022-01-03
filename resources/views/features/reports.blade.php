@@ -20,12 +20,22 @@
                         style="color:#464646 !important">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Reported By</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                    <th>Date</th>
+                                    <th>Reported By</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                @elseif (Auth::user()->user_role == 2)
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                @endif
+
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +84,48 @@
                 });
             });
         </script>
+
+
+    @elseif (Auth::user()->user_role >= 3)
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.reports.index') }}",
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'full_name',
+                            name: 'full_name'
+                        },
+                        {
+                            data: 'title',
+                            name: 'title'
+                        },
+                        {
+                            data: 'description',
+                            name: 'description'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+            });
+        </script>
+
     @endif
 
 @endsection

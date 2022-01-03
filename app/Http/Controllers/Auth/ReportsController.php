@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Reports;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use DataTables;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ReportsController extends Controller
 {
@@ -15,12 +18,42 @@ class ReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reports = Reports::latest()->paginate(10);
-        return view('features.reports', [
-            'reports' => $reports
-        ]);
+        if ($request->ajax()) {
+            $data = DB::table('reports')
+                ->where('deleted_at', null)
+                ->where('brgy_loc', Auth::user()->brgy_loc)
+                ->latest();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="' . \URL::route('user.reports.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    return $btn;
+                })
+
+
+                ->addColumn('status', function ($row) {
+                    if ($row->status == 'Report Confirmed') {
+                        return '<label class="badge badge-success">Confirmed</label>';
+                    } else if ($row->status == 'Report Pending') {
+                        return '<label class="badge badge-warning">Pending</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not Confirmed</label>';
+                    }
+                })
+
+                ->editColumn('created_at', function ($row) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
+                    return $formatedDate;
+                })
+
+                ->rawColumns(['action', 'status'])
+                ->make(true);
+        }
+        return view('features.reports');
     }
 
     /**
@@ -67,7 +100,10 @@ class ReportsController extends Controller
      */
     public function show($id)
     {
-        //
+        $report = Reports::find($id);
+        return view('features.viewreports', [
+            'report' => $report
+        ]);
     }
 
     /**
@@ -103,7 +139,23 @@ class ReportsController extends Controller
     {
         $report = Reports::find($id);
         $report->delete();
-        return redirect('user/reports');
+        return redirect('user/reports')->with('success', 'Report successfully deleted!');
+    }
+
+    public function confirmReport($id)
+    {
+        DB::table('reports')
+            ->where('id', '=', $id)
+            ->update(['status' => 'Report Confirmed']);
+        return redirect('user/reports')->with('success', 'Report successfully confirmed!');
+    }
+
+    public function pendingReport($id)
+    {
+        DB::table('reports')
+            ->where('id', '=', $id)
+            ->update(['status' => 'Report Pending']);
+        return redirect('user/reports')->with('success', 'The submitted report is pending!');
     }
 
     public function fetchReport($id, $brgy)
