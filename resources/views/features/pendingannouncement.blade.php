@@ -9,7 +9,7 @@
                 @foreach ($announcements as $announcement)
                     <li class="list-group-item">
                         <h4>{{ $announcement->title }}</h4>
-                        <div class="text-muted d-flex flex-column">
+                        <div class="text-muted d-flex flex-column mb-3">
                             <small>Issued To: {{ $announcement->brgy_loc }}</small>
                             <small>Issued By: {{ $announcement->name }}</small>
                             <small>Date Issued: {{ date('M d, Y \a\t h:i A', strtotime($announcement->created_at)) }}</small>
