@@ -98,7 +98,6 @@ class EvacuationController extends Controller
             'evacmaps' => $evacmaps,
             'barangays' => $barangays,
         ]);
-
     }
 
     /**
@@ -108,8 +107,13 @@ class EvacuationController extends Controller
      */
     public function create()
     {
+        $barangays = DB::table('barangays')
+            ->where('brgy_loc', Auth::user()->brgy_loc)
+            ->get();
 
-        return view('features.createevacuationcenter');
+        return view('features.createevacuationcenter', [
+            'barangays' => $barangays,
+        ]);
     }
 
     /**
@@ -181,10 +185,13 @@ class EvacuationController extends Controller
      */
     public function edit($id)
     {
-
+        $barangays = DB::table('barangays')
+            ->where('brgy_loc', Auth::user()->brgy_loc)
+            ->get();
         $evacuationcenter = EvacuationCenters::find($id);
         return view('features.editevacuationcenter', [
-            'evacuationcenter' => $evacuationcenter
+            'evacuationcenter' => $evacuationcenter,
+            'barangays' => $barangays,
         ]);
     }
 

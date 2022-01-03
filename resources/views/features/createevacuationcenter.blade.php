@@ -21,52 +21,45 @@
         }
 
         function initMap() {
-            @if (Auth::user()->brgy_loc == 'Barangay Santolan' || Auth::user()->user_role == 1)
+            var userBrgy = @json($barangays);
+            var userLat = userBrgy[0]['brgy_lat'];
+            var userLng = userBrgy[0]['brgy_lng'];
+
+            //parsed
+
+            var userLatparse = parseFloat(userLat);
+            var userLngparse = parseFloat(userLng);
+            @if (Auth::user()->user_role == 1)
                 var options = {
-                zoom: 16,
+                zoom: 12,
                 center: {
-                lat: 14.6131,
-                lng: 121.0880
+                lat: 14.5764,
+                lng: 121.0851
                 },
                 }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Dela Paz')
-                var options = {
-                zoom: 16,
+            
+                var options2 = {
+                zoom: 13,
                 center: {
-                lat: 14.6137,
-                lng: 121.0960
+                lat: 14.5764,
+                lng: 121.0851
                 },
                 }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Manggahan')
+            
+            @elseif (Auth::user()->user_role >= 2)
                 var options = {
                 zoom: 16,
                 center: {
-                lat: 14.601887,
-                lng: 121.093698
+                lat: userLatparse,
+                lng: userLngparse
                 },
                 }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Maybunga')
-                var options = {
+            
+                var options2 = {
                 zoom: 16,
                 center: {
-                lat: 14.5763,
-                lng: 121.0850
-                },
-                }
-            @endif
-
-            @if (Auth::user()->brgy_loc == 'Barangay Rosario')
-                var options = {
-                zoom: 16,
-                center: {
-                lat: 14.5885,
-                lng: 121.0891
+                lat: userLatparse,
+                lng: userLngparse
                 },
                 }
             @endif
