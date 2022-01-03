@@ -195,6 +195,7 @@
             }
 
             //ALL EVAC MAP
+            var brgyLat = document.getElementById("evac_latitude").value;
             var brgyLat = $('.changeBrgy').attr("data-lat");
             var brgyLng = $('.changeBrgy').attr("data-lng");
 
@@ -214,6 +215,8 @@
                 });
 
             });
+
+            //make the dropdown dynamic for admin -- continue on vulnerability map (brgyofficial side)
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
