@@ -184,6 +184,57 @@
 
                 });
 
+
+                $(document).on('click', '#deletebtn', function() {
+                    var stats_id = $(this).data('id');
+                    console.log(stats_id);
+
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to delete this vulnerable area?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: "https://kabisigapp.com/user/stats/" +
+                                        stats_id,
+                                    type: 'DELETE',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": stats_id
+                                    },
+
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Deleted!", response.message, "success");
+                                    },
+
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
+
+
+                });
+
             });
         </script>
     @endif

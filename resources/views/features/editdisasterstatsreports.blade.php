@@ -452,7 +452,7 @@
                                                                         <a class="btn btn-outline-secondary" href="{{ route('admin.stats.index') }}" role="button">Cancel</a>
 
                                                                     @elseif (Auth::user()->user_role >= 4)
-                                                                        <a class="btn btn-outline-secondary" href="" role="button">Cancel</a>
+                                                                        <a class="btn btn-outline-secondary" href="{{ route('user.stats.index') }}" role="button">Cancel</a>
                                                                     @endif
                                                                     
                                                                     </form>
