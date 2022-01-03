@@ -157,4 +157,21 @@ class AnnouncementController extends Controller
 
         return $announcements;
     }
+
+    public function approve($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->update(['approved' => 1, 'updated_at' => now()]);
+
+        return redirect('/user/announcements')->with('success', 'The announcement has been approved!');
+    }
+
+    public function disapprove($id)
+    {
+        $pendingAnnouncement = DB::table('announcements')
+            ->where('id', $id)
+            ->delete();
+        return redirect('/user/announcements')->with('success', 'The announcement has been disapproved!');
+    }
 }

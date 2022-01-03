@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AccountController as UserAccount;
 use App\Http\Controllers\Auth\AnnouncementController as UserAnnouncement;
 use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
 use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
+use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
 use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
 use App\Http\Controllers\Auth\ReportsController as UserReports;
 
@@ -91,7 +92,10 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::view('/home', 'dashboard.user.home')->name('home');
         Route::resource('/account', UserAccount::class);
-        Route::resource('/announcements', UserAnnouncement::class);
+        Route::resource('/announcements', UserAnnouncement::class); 
+        Route::resource('/pending', UserPendingAnnouncements::class);
+        Route::post('/announcements/approve/{id}', [UserAnnouncement::class, 'approve'])->name('announcement.approve');
+        Route::post('/announcements/disapprove/{id}', [UserAnnouncement::class, 'disapprove'])->name('announcement.disapprove');
         Route::resource('/evacuation', UserEvacuation::class);
         Route::resource('/guidelines', UserGuidelines::class);
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);

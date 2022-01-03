@@ -42,12 +42,15 @@
                                 </button>
                             </a>
 
-                            <a href="#" class="btn btn-warning btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
-                                <span class="text">Pending Announcements</span>
-                            </a>
+                            @if (Auth::user()->user_role >= 4)
+                                <a href="{{ route('user.pending.index') }}">
+                                    <button type="button" class="btn btn-warning me-md-2 ml-3" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        <span class="mr-2"><i
+                                                class="fas fa-exclamation-triangle fa-1x"></i></span>Pending Announcements
+                                    </button>
+                                </a>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -113,7 +116,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        @elseif(Auth::user()->user_role === 3)
+                                        @elseif(Auth::user()->user_role >= 3)
                                             <div class="d-flex flex-row">
                                                 <div class="v-announcement-date-title mr-2">
                                                     <a href="/user/announcements/{{ $announcement->id }}/edit">
