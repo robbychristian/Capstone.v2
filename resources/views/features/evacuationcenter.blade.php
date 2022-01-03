@@ -19,6 +19,10 @@
 
         function initMap() {
 
+            var app = <?php echo json_encode($barangays); ?>;
+
+            console.log(app);
+
             var options = {
                 zoom: 12,
                 center: {
