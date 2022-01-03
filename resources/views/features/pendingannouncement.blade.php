@@ -3,6 +3,8 @@
 @section('title', '| Pending Announcements')
 @section('content')
     <div class="container-fluid" style="color: black;">
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
         <h1 class="h3 mb-4 text-gray-800">Pending Announcements</h1>
         <div class="card">
             <ul class="list-group list-group-flush">
