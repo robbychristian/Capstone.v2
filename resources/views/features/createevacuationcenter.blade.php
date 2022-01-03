@@ -66,11 +66,21 @@
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
-            // creates a draggable marker to the given coords
-            var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(14.6131, 121.0880),
+            @if (Auth::user()->user_role >= 3)
+                // creates a draggable marker to the given coords
+                var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(userLatparse, userLngparse),
                 draggable: true
-            });
+                });
+            
+            @elseif (Auth::user()->user_role == 1)
+                // creates a draggable marker to the given coords
+                var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(14.5764, 121.0851),
+                draggable: true
+                });
+            @endif
+
             // adds a listener to the marker
             // gets the coords when drag event ends
             // then updates the input with the new coords
