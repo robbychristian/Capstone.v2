@@ -20,8 +20,8 @@
         function initMap() {
 
             var userBrgy = @json($barangays);
-            var userLat = userBrgy[0]['brgy_lat'];
-            var userLng = userBrgy[0]['brgy_lng'];
+            var userLat = parseFloat(userBrgy[0]['brgy_lat']);
+            var userLng = parseFloat(userBrgy[0]['brgy_lng']);
 
             @if (Auth::user()->user_role == 1)
                 var options = {
