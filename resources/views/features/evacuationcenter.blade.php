@@ -195,11 +195,25 @@
             }
 
             //ALL EVAC MAP
-            var brgyLat =  $('#changeBrgy').attr("data-lat");
-            var brgyLng =  $('#changeBrgy').attr("data-lng");
+            var brgyLat = $('.changeBrgy').attr("data-lat");
+            var brgyLng = $('.changeBrgy').attr("data-lng");
 
-            console.log(brgyLat);
-            console.log(brgyLng);
+            function newLocation(newLat, newLng) {
+                map.setCenter({
+                    lat: newLat,
+                    lng: newLng
+                });
+            }
+            Setting Location with jQuery
+            $(document).ready(function() {
+                $("#changeBrgy").on('click', function() {
+                    var brgyLat = $(this).attr('data-lat');
+                    var brgyLng = $(this).attr('data-lng');
+                    console.log(brgyLat)
+                    console.log(brgyLng)
+                });
+
+            });
             var allMarkers = [
                 @foreach ($evacmaps as $evacmap)
                     ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
@@ -501,7 +515,7 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             @foreach ($barangays as $barangay)
-                                                <button class="dropdown-item" id="changeBrgy"
+                                                <button class="dropdown-item changeBrgy" id="changeBrgy"
                                                     data-lat="{{ $barangay->brgy_lat }}"
                                                     data-lng="{{ $barangay->brgy_lng }}"
                                                     type="button">{{ $barangay->brgy_loc }}</button>
