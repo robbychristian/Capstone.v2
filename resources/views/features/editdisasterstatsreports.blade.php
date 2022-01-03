@@ -164,9 +164,9 @@
                                                                     @if (Auth::user()->user_role === 1)
                                                                         <form action="/admin/stats/{{ $disasterstats->id }}"
                                                                             method="POST">
-                                                                        @elseif (Auth::user()->user_role === 3)
+                                                                        @elseif (Auth::user()->user_role >= 4)
                                                                             <form
-                                                                                action="/brgy_official/stats/{{ $disasterstats->id }}"
+                                                                                action="/user/stats/{{ $disasterstats->id }}"
                                                                                 method="POST">
                                                                     @endif
 
@@ -343,7 +343,7 @@
                                                                                 <small class="text-danger">@error('barangay')
                                                                                         {{ $message }}
                                                                                     @enderror</small>
-                                                                            @elseif(Auth::user()->user_role === 3)
+                                                                            @elseif(Auth::user()->user_role >= 4)
                                                                                 <input name="barangay" type="text"
                                                                                     class="form-control" id="inputAddress"
                                                                                     value="{{ $disasterstats->barangay }}"
@@ -451,7 +451,7 @@
                                                                     @if (Auth::user()->user_role == 1)
                                                                         <a class="btn btn-outline-secondary" href="{{ route('admin.stats.index') }}" role="button">Cancel</a>
 
-                                                                    @elseif (Auth::user()->user_role == 3)
+                                                                    @elseif (Auth::user()->user_role >= 4)
                                                                         <a class="btn btn-outline-secondary" href="" role="button">Cancel</a>
                                                                     @endif
                                                                     
