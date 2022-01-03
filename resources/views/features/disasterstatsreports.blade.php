@@ -8,8 +8,8 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Disaster Statistical Reports</h1>
 
-            @if (Auth::user()->user_role === 3)
-                <a href="{{ route('brgy_official.stats.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+            @if (Auth::user()->user_role >= 4)
+                <a href="{{ route('user.stats.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i> Create a
                     Disaster Statistical Reports</a>
 
@@ -56,102 +56,138 @@
 
 
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('admin.stats.index') }}",
-                columns: [{
-                        data: 'created_at',
-                        name: 'created_at'
-                    },
-                    {
-                        data: 'month_disaster',
-                        name: 'month_disaster'
-                    },
-                    {
-                        data: 'year_disaster',
-                        name: 'year_disaster'
-                    },
-                    {
-                        data: 'type_disaster',
-                        name: 'type_disaster'
-                    },
-                    {
-                        data: 'barangay',
-                        name: 'barangay'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ],
+    @if (Auth::user()->user_role == 1)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('admin.stats.index') }}",
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'month_disaster',
+                            name: 'month_disaster'
+                        },
+                        {
+                            data: 'year_disaster',
+                            name: 'year_disaster'
+                        },
+                        {
+                            data: 'type_disaster',
+                            name: 'type_disaster'
+                        },
+                        {
+                            data: 'barangay',
+                            name: 'barangay'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+
+
+                $(document).on('click', '#deletebtn', function() {
+                    var stats_id = $(this).data('id');
+                    console.log(stats_id);
+
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to delete this vulnerable area?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: "https://kabisigapp.com/admin/stats/" +
+                                        stats_id,
+                                    type: 'DELETE',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": stats_id
+                                    },
+
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Deleted!", response.message, "success");
+                                    },
+
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
+
+
+                });
+            });
+        </script>
+
+    @elseif (Auth::user()->user_role >= 4)
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.stats.index') }}",
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'month_disaster',
+                            name: 'month_disaster'
+                        },
+                        {
+                            data: 'year_disaster',
+                            name: 'year_disaster'
+                        },
+                        {
+                            data: 'type_disaster',
+                            name: 'type_disaster'
+                        },
+                        {
+                            data: 'barangay',
+                            name: 'barangay'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
 
             });
+        </script>
+    @endif
 
-
-            $(document).on('click', '#deletebtn', function() {
-                var stats_id = $(this).data('id');
-                console.log(stats_id);
-
-                var row = table.row($(this).closest('tr'));
-                var data_row = row.data();
-
-                swal({
-                        title: "Are you sure?",
-                        text: "You want to delete this vulnerable area?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                }
-                            });
-
-                            $.ajax({
-                                url: "https://kabisigapp.com/admin/stats/" +
-                                    stats_id,
-                                type: 'DELETE',
-                                dataType: 'JSON',
-                                data: {
-                                    "id": stats_id
-                                },
-
-                                success: function(response) {
-                                    //row.remove().draw();
-                                    table.ajax.reload();
-                                    swal("Deleted!", response.message, "success");
-                                },
-
-                                error: function(response) {
-                                    console.log(response);
-                                }
-                            });
-                        } else {
-                            swal("No changes were made!");
-                        }
-                    });
-
-
-            });
-
-
-
-
-
-
-
-
-        });
-    </script>
 
 
 @endsection

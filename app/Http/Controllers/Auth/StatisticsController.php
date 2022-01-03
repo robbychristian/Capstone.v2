@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -21,6 +22,7 @@ class StatisticsController extends Controller
         if ($request->ajax()) {
             $data = DB::table('disaster_reports')
                 ->where('deleted_at', null)
+                ->where('barangay', Auth::user()->brgy_loc)
                 ->latest();
 
             return DataTables::of($data)
