@@ -7,7 +7,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Disaster Preparedness</h1>
 
-            @if (Auth::user()->user_role >= 3)
+            @if (Auth::user()->user_role >= 4)
                 <a href="{{ route('user.guidelines.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i>
                     Add Guidelines </a>
@@ -58,7 +58,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -113,7 +113,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -167,7 +167,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -226,7 +226,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -280,7 +280,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -334,7 +334,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -394,7 +394,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -449,7 +449,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -504,7 +504,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -566,7 +566,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -620,7 +620,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
                                                                     <div class="dropdown">
 
@@ -674,7 +674,7 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
