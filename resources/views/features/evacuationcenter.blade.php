@@ -22,7 +22,7 @@
             var app = @json($barangays)
 
             console.log(app);
-            console.log(app['brgy_lat']);
+            console.log(app[0]['brgy_lat']);
 
             var options = {
                 zoom: 12,
