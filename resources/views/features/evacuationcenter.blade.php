@@ -18,23 +18,22 @@
         }
 
         function initMap() {
-            @if (Auth::user()->user_role == 1)
-                var options = {
+
+            var options = {
                 zoom: 12,
                 center: {
-                lat: 14.5764,
-                lng: 121.0851
+                    lat: 14.5764,
+                    lng: 121.0851
                 },
-                }
-            
-                var options2 = {
+            }
+
+            var options2 = {
                 zoom: 13,
                 center: {
-                lat: 14.5764,
-                lng: 121.0851
+                    lat: 14.5764,
+                    lng: 121.0851
                 },
-                }
-            @endif
+            }
 
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
@@ -433,7 +432,8 @@
                     <!-- TABLE -->
                     <div class="tab-pane fade" id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
                         <div class="table-responsive">
-                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0" style="color:#464646 !important">
+                            <table class="table table-bordered data-table" id="dataTable" width="100%" cellspacing="0"
+                                style="color:#464646 !important">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -551,160 +551,324 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOhN8Ve4h6uAEKm4Kh_2eznLfx0GIbOTo&callback=initMap">
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('admin.evacuation.index') }}",
-                columns: [{
-                        data: 'id',
-                        name: 'id'
-                    },
-                    {
-                        data: 'added_by',
-                        name: 'added_by'
-                    },
-                    {
-                        data: 'evac_name',
-                        name: 'evac_name'
-                    },
-                    {
-                        data: 'nearest_landmark',
-                        name: 'nearest_landmark'
-                    },
-                    {
-                        data: 'brgy_loc',
-                        name: 'brgy_loc'
-                    },
-                    {
-                        data: 'phone_no',
-                        name: 'phone_no'
-                    },
-                    {
-                        data: 'capacity',
-                        name: 'capacity'
-                    },
-                    {
-                        data: 'availability',
-                        name: 'availability'
-                    },
-                    {
-                        data: 'is_approved',
-                        name: 'is_approved'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ],
+
+    @if (Auth::user()->user_role == 1)
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('admin.evacuation.index') }}",
+                    columns: [{
+                            data: 'id',
+                            name: 'id'
+                        },
+                        {
+                            data: 'added_by',
+                            name: 'added_by'
+                        },
+                        {
+                            data: 'evac_name',
+                            name: 'evac_name'
+                        },
+                        {
+                            data: 'nearest_landmark',
+                            name: 'nearest_landmark'
+                        },
+                        {
+                            data: 'brgy_loc',
+                            name: 'brgy_loc'
+                        },
+                        {
+                            data: 'phone_no',
+                            name: 'phone_no'
+                        },
+                        {
+                            data: 'capacity',
+                            name: 'capacity'
+                        },
+                        {
+                            data: 'availability',
+                            name: 'availability'
+                        },
+                        {
+                            data: 'is_approved',
+                            name: 'is_approved'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+
+
+                $(document).on('click', '#deleteEvacuationBtn', function() {
+                    var evacuation_id = $(this).data('id');
+                    console.log(evacuation_id);
+
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to delete this evacaution center?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: "https://kabisigapp.com/admin/evacuation/" + evacuation_id,
+                                    type: 'DELETE',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": evacuation_id
+                                    },
+
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Deleted!", response.message, "success");
+                                    },
+
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
+
+
+                });
+
+
+                $(document).on('click', '#approveEvacuationBtn', function() {
+                    var evacuation_id = $(this).data('id');
+                    console.log(evacuation_id);
+
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to approve this evacaution center?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: "https://kabisigapp.com/admin/evacuation/approve/" +
+                                        evacuation_id,
+                                    type: 'POST',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": evacuation_id
+                                    },
+
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Approved!", response.message, "success");
+                                    },
+
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
+
+
+                });
 
             });
+        </script>
+
+    @elseif (Auth::user()->user_role >= 4)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('user.evacuation.index') }}",
+                    columns: [{
+                            data: 'id',
+                            name: 'id'
+                        },
+                        {
+                            data: 'added_by',
+                            name: 'added_by'
+                        },
+                        {
+                            data: 'evac_name',
+                            name: 'evac_name'
+                        },
+                        {
+                            data: 'nearest_landmark',
+                            name: 'nearest_landmark'
+                        },
+                        {
+                            data: 'brgy_loc',
+                            name: 'brgy_loc'
+                        },
+                        {
+                            data: 'phone_no',
+                            name: 'phone_no'
+                        },
+                        {
+                            data: 'capacity',
+                            name: 'capacity'
+                        },
+                        {
+                            data: 'availability',
+                            name: 'availability'
+                        },
+                        {
+                            data: 'is_approved',
+                            name: 'is_approved'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
 
 
-            $(document).on('click', '#deleteEvacuationBtn', function() {
-                var evacuation_id = $(this).data('id');
-                console.log(evacuation_id);
+                $(document).on('click', '#deleteEvacuationBtn', function() {
+                    var evacuation_id = $(this).data('id');
+                    console.log(evacuation_id);
 
-                var row = table.row($(this).closest('tr'));
-                var data_row = row.data();
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
 
-                swal({
-                        title: "Are you sure?",
-                        text: "You want to delete this evacaution center?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to delete this evacaution center?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
 
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                }
-                            });
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
 
-                            $.ajax({
-                                url: "https://kabisigapp.com/admin/evacuation/" + evacuation_id,
-                                type: 'DELETE',
-                                dataType: 'JSON',
-                                data: {
-                                    "id": evacuation_id
-                                },
+                                $.ajax({
+                                    url: "https://kabisigapp.com/user/evacuation/" + evacuation_id,
+                                    type: 'DELETE',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": evacuation_id
+                                    },
 
-                                success: function(response) {
-                                    //row.remove().draw();
-                                    table.ajax.reload();
-                                    swal("Deleted!", response.message, "success");
-                                },
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Deleted!", response.message, "success");
+                                    },
 
-                                error: function(response) {
-                                    console.log(response);
-                                }
-                            });
-                        } else {
-                            swal("No changes were made!");
-                        }
-                    });
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
 
+
+                });
+
+
+                $(document).on('click', '#approveEvacuationBtn', function() {
+                    var evacuation_id = $(this).data('id');
+                    console.log(evacuation_id);
+
+                    var row = table.row($(this).closest('tr'));
+                    var data_row = row.data();
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "You want to approve this evacaution center?",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                            if (willDelete) {
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    }
+                                });
+
+                                $.ajax({
+                                    url: "https://kabisigapp.com/user/evacuation/approve/" +
+                                        evacuation_id,
+                                    type: 'POST',
+                                    dataType: 'JSON',
+                                    data: {
+                                        "id": evacuation_id
+                                    },
+
+                                    success: function(response) {
+                                        //row.remove().draw();
+                                        table.ajax.reload();
+                                        swal("Approved!", response.message, "success");
+                                    },
+
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
+                            } else {
+                                swal("No changes were made!");
+                            }
+                        });
+
+
+                });
 
             });
+        </script>
 
 
-            $(document).on('click', '#approveEvacuationBtn', function() {
-                var evacuation_id = $(this).data('id');
-                console.log(evacuation_id);
-
-                var row = table.row($(this).closest('tr'));
-                var data_row = row.data();
-
-                swal({
-                        title: "Are you sure?",
-                        text: "You want to approve this evacaution center?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                }
-                            });
-
-                            $.ajax({
-                                url: "https://kabisigapp.com/admin/evacuation/approve/" +
-                                    evacuation_id,
-                                type: 'POST',
-                                dataType: 'JSON',
-                                data: {
-                                    "id": evacuation_id
-                                },
-
-                                success: function(response) {
-                                    //row.remove().draw();
-                                    table.ajax.reload();
-                                    swal("Approved!", response.message, "success");
-                                },
-
-                                error: function(response) {
-                                    console.log(response);
-                                }
-                            });
-                        } else {
-                            swal("No changes were made!");
-                        }
-                    });
-
-
-            });
-
-        });
-    </script>
+    @endif
 
 @endsection
