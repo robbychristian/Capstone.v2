@@ -24,6 +24,8 @@ class AnnouncementController extends Controller
         //     ->paginate(10);
         $announcements = DB::table('announcements')
             ->where('brgy_loc', Auth::user()->brgy_loc)
+            ->where('approved', 1)
+            ->where('deleted_at', null)
             ->orWhere('brgy_loc', 'all')
             ->latest()
             ->paginate(10);

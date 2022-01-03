@@ -4,6 +4,8 @@
 @section('content')
 
     <div class="container-fluid" style="color: black;">
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
 
         <div class="row">
             <div class="col-sm-12 col-md-8">
