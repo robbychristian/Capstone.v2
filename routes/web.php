@@ -106,7 +106,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);
         Route::post('/vulnerabilitymap/approve/{id}', [UserVulnerabilityMap::class, 'approve'])->name('vulnerabilitymap.approve');
         Route::resource('/reports', UserReports::class);
-        Route::get('/reports/getreports/{id}', [UserReports::class, 'getreports']);
+        Route::get('/getreports/{id}', [UserReports::class, 'getreports']);
         Route::post('/reports/confirm/{id}', [UserReports::class, 'confirmReport']);
         Route::post('/reports/pending/{id}', [UserReports::class, 'pendingReport']);
         Route::resource('/manageresident', UserManageResident::class);
