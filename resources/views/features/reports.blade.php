@@ -136,7 +136,7 @@
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "/reports/getreports/" + id,
+                    ajax: "https://kabisigapp.com/user/reports/getreports/" + id,
                     columns: [{
                             data: 'created_at',
                             name: 'created_at'
