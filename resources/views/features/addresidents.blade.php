@@ -2,7 +2,7 @@
 @section('title', '| Add Residents')
 @section('content')
 
-<!-- comments: add residents not yet done revisions not yet reflected -->
+    <!-- comments: add residents not yet done revisions not yet reflected -->
     <script>
         $(document).ready(function() {
 
@@ -146,8 +146,8 @@
     <div class="container-fluid" style="color: black;">
         @if (Auth::user()->user_role === 1)
             <a class="btn btn-primary btn-sm mb-3" href="/admin/manageresident" role="button">Back</a>
-        @elseif (Auth::user()->user_role === 3)
-            <a class="btn btn-primary btn-sm mb-3" href="/brgy_official/manageresident" role="button">Back</a>
+        @elseif (Auth::user()->user_role >= 3)
+            <a class="btn btn-primary btn-sm mb-3" href="/user/manageresident" role="button">Back</a>
         @endif
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
