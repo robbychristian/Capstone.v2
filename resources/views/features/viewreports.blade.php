@@ -27,8 +27,15 @@
     </script>
     <div class="container-fluid" style="color: black">
 
-        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
-            aria-pressed="true">Back</a>
+        @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 3)
+            <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+                aria-pressed="true">Back</a>
+
+        @elseif (Auth::user()->user_role == 2)
+            <a href="/user/getreports/{{ Auth::user()->id }}" class="btn btn-primary btn-sm active mb-3" role="button"
+                aria-pressed="true">Back</a>
+        @endif
+
 
         <div class="card shadow mb-3 mt-3">
             <div class="card-body">
