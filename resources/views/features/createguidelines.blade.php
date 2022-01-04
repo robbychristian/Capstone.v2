@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', '| Guidelines')
 @section('content')
-    <!--edit dropdowns -->
     <div class="container-fluid" style="color: black;">
         <h1 class="h3 mb-4 text-gray-800">Create a Guideline</h1>
         <div class="container-fluid">

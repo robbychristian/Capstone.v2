@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title', '| Manage Resident')
 @section('content')
-    <!-- comment: assign roles for the dropdown fix else if depending on roles -->
-
     <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -39,7 +37,7 @@
                         <a href="/admin/manageresident/" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
 
-                    @elseif (Auth::user()->user_role >= 3)
+                    @elseif (Auth::user()->user_role >= 4)
                         <a href="/user/manageresident/" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
                     @endif
