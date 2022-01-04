@@ -8,7 +8,7 @@
             @if (Auth::user()->user_role === 1)
                 <a href="{{ route('admin.manageresident.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i>Add Resident</a>
-            @elseif (Auth::user()->user_role === 3)
+            @elseif (Auth::user()->user_role >= 3)
                 <a href="{{ route('brgy_official.manageresident.create') }}"
                     class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
                     Resident</a>
