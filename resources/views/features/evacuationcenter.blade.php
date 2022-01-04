@@ -355,7 +355,7 @@
     @elseif (Auth::user()->user_role == 2)
         <script>
             //resident side
-            
+
             function initMap() {
 
                 var userBrgy = @json($barangays);
@@ -406,7 +406,7 @@
                     if (data[9] == 'Not Available') {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: map,
+                            map: resmap,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
@@ -428,7 +428,7 @@
                     } else {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: map,
+                            map:resmap,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
@@ -453,7 +453,7 @@
                     (function(marker, data) {
                         google.maps.event.addListener(marker, "click", function(e) {
                             infoWindow.setContent(marker.html);
-                            infoWindow.open(map, marker);
+                            infoWindow.open(resmap, marker);
                         });
                     })(marker, data);
 
