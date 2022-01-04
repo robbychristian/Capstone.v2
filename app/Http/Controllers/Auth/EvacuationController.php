@@ -92,11 +92,13 @@ class EvacuationController extends Controller
             ->get();
 
         $evacuationcenters = EvacuationCenters::where('deleted_at', null)->where('brgy_loc', Auth::user()->brgy_loc)->paginate(2);
+        $approvedevacs = EvacuationCenters::where('deleted_at', null)->where('brgy_loc', Auth::user()->brgy_loc)->where('is_approved', 1)->paginate(2); // for resident side
         $evacmaps = EvacuationCenters::where('deleted_at', null)->where('brgy_loc', Auth::user()->brgy_loc)->get();
         return view('features.evacuationcenter', [
             'evacuationcenters' => $evacuationcenters,
             'evacmaps' => $evacmaps,
             'barangays' => $barangays,
+            'approvedevacs' => $approvedevacs,
         ]);
     }
 
