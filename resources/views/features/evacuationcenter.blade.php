@@ -395,8 +395,13 @@
                     @endforeach
                 ];
 
+                console.log(markers)
+
                 var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
                 var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
+                
+                var infoWindow = new google.maps.InfoWindow();
+
 
                 for (var i = 0; i < markers.length; i++) {
                     var data = markers[i]
