@@ -353,8 +353,9 @@
         </script>
 
     @elseif (Auth::user()->user_role == 2)
-
         <script>
+            //resident side
+            
             function initMap() {
 
                 var userBrgy = @json($barangays);
@@ -375,21 +376,21 @@
                 }
 
 
-                var resmap = new google.maps.Map(document.getElementById('resmap'), options2);
+                var resmap = new google.maps.Map(document.getElementById('resmap'), options);
 
                 //paginate map
                 var markers = [
-                    @foreach ($evacuationcenters as $evacuationcenter)
-                        ["{{ $evacuationcenter->evac_latitude }}", //0
-                        "{{ $evacuationcenter->evac_longitude }}", //1
-                        "{{ $evacuationcenter->is_approved }}", //2
-                        "{{ $evacuationcenter->id }}", //3
-                        "{{ $evacuationcenter->evac_name }}", //4
-                        "{{ $evacuationcenter->brgy_loc }}", //5
-                        "{{ $evacuationcenter->nearest_landmark }}", //6
-                        "{{ $evacuationcenter->phone_no }}", //7
-                        "{{ $evacuationcenter->capacity }}", //8
-                        "{{ $evacuationcenter->availability }}", //9
+                    @foreach ($approvedevacs as $approvedevac)
+                        ["{{ $approvedevac->evac_latitude }}", //0
+                        "{{ $approvedevac->evac_longitude }}", //1
+                        "{{ $approvedevac->is_approved }}", //2
+                        "{{ $approvedevac->id }}", //3
+                        "{{ $approvedevac->evac_name }}", //4
+                        "{{ $approvedevac->brgy_loc }}", //5
+                        "{{ $approvedevac->nearest_landmark }}", //6
+                        "{{ $approvedevac->phone_no }}", //7
+                        "{{ $approvedevac->capacity }}", //8
+                        "{{ $approvedevac->availability }}", //9
                         ],
                     @endforeach
                 ];
@@ -671,8 +672,8 @@
                         </div>
 
                     </div>
-                
-                <!--- RESIDENT SIDE -->
+
+                    <!--- RESIDENT SIDE -->
                 @elseif (Auth::user()->user_role == 2)
                     @if (count($approvedevacs) > 0)
                         <div class="row mt-3">
