@@ -51,7 +51,7 @@
 
         <!-- Nav Item - Reports -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.reports.index') }}">
+            <a class="nav-link" href="/reports/getreports/{{ Auth::user()->id }}">
                 <i class="fas fa-fw fa-edit"></i>
                 <span>Reports</span></a>
         </li>

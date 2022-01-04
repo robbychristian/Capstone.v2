@@ -34,6 +34,7 @@
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Action</th>
+                                    <input type="text" name="" id="id" value="{{ Auth::user()->id }}" hidden>
                                 @endif
 
                             </tr>
@@ -125,6 +126,45 @@
                 });
             });
         </script>
+
+        @elseif (Auth::user()->user_role == 2)
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var id = $('#id').val();
+                console.log(id);
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "/reports/getreports/" + id,
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'title',
+                            name: 'title'
+                        },
+                        {
+                            data: 'description',
+                            name: 'description'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
+
+                });
+            });
+        </script>
+
 
     @endif
 
