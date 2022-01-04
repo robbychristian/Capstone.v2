@@ -195,26 +195,26 @@
             }
 
             //ALL EVAC MAP
-            var brgyLat = document.getElementById("").value;
-            var brgyLat = $('.changeBrgy').attr("data-lat");
-            var brgyLng = $('.changeBrgy').attr("data-lng");
-
-            function newLocation(newLat, newLng) {
-                map.setCenter({
-                    lat: newLat,
-                    lng: newLng
-                });
-            }
-            
-            $(document).ready(function() {
-                $("#changeBrgy").on('click', function() {
-                    var brgyLat = $(this).attr('data-lat');
-                    var brgyLng = $(this).attr('data-lng');
-                    console.log(brgyLat)
-                    console.log(brgyLng)
-                });
-
-            });
+            //var brgyLat = document.getElementById("").value;
+            //var brgyLat = $('.changeBrgy').attr("data-lat");
+            //var brgyLng = $('.changeBrgy').attr("data-lng");
+//
+            //function newLocation(newLat, newLng) {
+            //    map.setCenter({
+            //        lat: newLat,
+            //        lng: newLng
+            //    });
+            //}
+            //
+            //$(document).ready(function() {
+            //    $("#changeBrgy").on('click', function() {
+            //        var brgyLat = $(this).attr('data-lat');
+            //        var brgyLng = $(this).attr('data-lng');
+            //        console.log(brgyLat)
+            //        console.log(brgyLng)
+            //    });
+//
+            //});
 
             //make the dropdown dynamic for admin -- continue on vulnerability map (brgyofficial side)
             var allMarkers = [
