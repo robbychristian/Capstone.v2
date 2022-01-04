@@ -56,6 +56,48 @@ class ReportsController extends Controller
         return view('features.reports');
     }
 
+
+    public function getreports(Request $request, $userid)
+    {
+        if ($request->ajax()) {
+            $data = DB::table('reports')
+                ->where('deleted_at', null)
+                ->where('user_id', $userid)
+                ->latest();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="' . \URL::route('user.reports.show', $row->id) . '" data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    return $btn;
+                })
+
+
+                ->addColumn('status', function ($row) {
+                    if ($row->status == 'Report Confirmed') {
+                        return '<label class="badge badge-success">Confirmed</label>';
+                    } else if ($row->status == 'Report Pending') {
+                        return '<label class="badge badge-warning">Pending</label>';
+                    } else {
+                        return '<label class="badge badge-danger">Not Confirmed</label>';
+                    }
+                })
+
+                ->editColumn('created_at', function ($row) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
+                    return $formatedDate;
+                })
+
+                ->rawColumns(['action', 'status'])
+                ->make(true);
+        }
+
+
+        return view('features.reports');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
