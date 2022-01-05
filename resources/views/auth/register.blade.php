@@ -141,17 +141,6 @@
             return true;
         }
     </script>
-   
-    @php
-    $barangays = DB::table('barangays')
-        ->select('brgy_loc')
-        ->where('is_added', 1)
-        ->get();
-
-     vardump($barangays);
-    @endphp
-
-
 
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -206,7 +195,13 @@
                                 <div class="form-group col-md-4 required">
                                     <label class="control-label" for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
-
+                                        @foreach ($barangays as $barangay)
+                                            <option disabled hidden selected>Select Barangay</option>
+                                            <option value='{{ $barangay->brgy_loc }}'
+                                                {{ old('brgy') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                                {{ $barangay->brgy_loc }}
+                                            </option>
+                                        @endforeach
 
                                     </select>
                                     <small class="text-danger">@error('brgy')

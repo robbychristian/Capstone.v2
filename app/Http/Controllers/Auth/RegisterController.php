@@ -12,6 +12,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -45,6 +46,19 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
+    
+    public function showRegistrationForm()
+    {
+        $barangays = DB::table('barangays')
+        ->select('brgy_loc')
+        ->where('is_added', 1)
+        ->get();
+
+        return view('auth.register', [
+            'barangays' => $barangays
+        ]);
+    }
     protected $redirectTo = '/user/login';
 
     /**
