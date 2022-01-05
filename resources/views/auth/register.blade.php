@@ -149,7 +149,7 @@
         ->get();
 
     foreach ($barangays as $barangay) {
-        echo $barangay;
+        echo $barangay['brgy_loc'];
     }
     @endphp
 
