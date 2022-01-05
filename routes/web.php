@@ -80,7 +80,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['guest'])->group(function () {
         Route::view('/login', 'auth.login')->name('login');
-        Route::view('/register', 'auth.register')->name('register');
+        //Route::view('/register', 'auth.register')->name('register');
+        Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
         Route::post('/create', [RegisterController::class, 'create'])->name('create');
         Route::post('/check', [LoginController::class, '/check'])->name('check');
         //Route::get('/email/verify', function () {
