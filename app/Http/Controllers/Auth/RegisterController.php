@@ -8,6 +8,7 @@ use Illuminate\Http\data;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Barangay;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\UserProfile;
@@ -50,10 +51,7 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        $barangays = DB::table('barangays')
-        ->select('brgy_loc')
-        ->where('is_added', 1)
-        ->get();
+        $barangays = Barangay::where('is_added', 1)->where('deleted_at', NULL)->get();
 
         return view('auth.register', [
             'barangays' => $barangays
