@@ -148,9 +148,7 @@
         ->where('is_added', 1)
         ->get();
 
-    foreach ($barangays as $barangay) {
-        echo $barangay['brgy_loc'];
-    }
+        echo vardump($barangays);
     @endphp
 
 
