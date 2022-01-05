@@ -148,7 +148,7 @@
         ->where('is_added', 1)
         ->get();
 
-        echo vardump($barangays);
+     vardump($barangays);
     @endphp
 
 
