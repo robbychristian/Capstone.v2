@@ -141,6 +141,20 @@
             return true;
         }
     </script>
+   
+    @php
+    $barangays = DB::table('barangays')
+        ->select('brgy_loc')
+        ->where('is_added', 1)
+        ->get();
+
+    foreach ($barangays as $barangay) {
+        echo $barangay;
+    }
+    @endphp
+
+
+
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -194,12 +208,8 @@
                                 <div class="form-group col-md-4 required">
                                     <label class="control-label" for="inputBrgy">Barangay</label>
                                     <select name="brgy" id="inputBrgy" class="form-control" value="{{ old('brgy') }}">
-                                        <option selected disabled>Choose your barangay</option>
-                                        <option value='Barangay Dela Paz'>Barangay Dela Paz</option>
-                                        <option value='Barangay Manggahan'>Barangay Manggahan</option>
-                                        <option value='Barangay Maybunga'>Barangay Maybunga</option>
-                                        <option value='Barangay Rosario'>Barangay Rosario</option>
-                                        <option value='Barangay Santolan'>Barangay Santolan</option>
+
+
                                     </select>
                                     <small class="text-danger">@error('brgy')
                                             {{ $message }}
