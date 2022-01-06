@@ -26,8 +26,4 @@ class Announcement extends Model implements Auditable
         'body'
     ];
 
-    protected $auditInclude = [
-        'title',
-        'body',
-    ];
 }
