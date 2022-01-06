@@ -129,10 +129,16 @@ class AnnouncementController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $announcement = Announcement::where('id', $id)->update([
-                'title' => $request->input('title'),
-                'body' => $request->input('message')
-            ]);
+            //$announcement = Announcement::where('id', $id)->update([
+            //    'title' => $request->input('title'),
+            //    'body' => $request->input('message')
+            //]);
+
+            $announcement = Announcement::find($id);
+            $announcement->title = $request->input('title');
+            $announcement->body = $request->input('message');
+            $announcement->save();
+
 
             return redirect('/user/announcements')->with('success', 'Announcement has been edited!');
         }
