@@ -16,7 +16,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -48,7 +48,7 @@ class RegisterController extends Controller
      * @var string
      */
 
-    
+
     public function showRegistrationForm()
     {
         $barangays = Barangay::where('is_added', 1)->where('deleted_at', NULL)->get();
@@ -90,7 +90,11 @@ class RegisterController extends Controller
             'ybday' => 'required',
             'email' => 'required|email|unique:users|string',
             'cnum' => 'required|max:255|unique:user_profiles,contact_no',
-            'pass' => 'required|min:8',
+            'pass' => ['required', Password::min(8)
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->symbols()],
             'cpass' => 'required|min:8|same:pass',
             'validID' => 'mimes:jpeg,png,jpg',
             'file' => 'mimes:jpeg,png,jpg',
