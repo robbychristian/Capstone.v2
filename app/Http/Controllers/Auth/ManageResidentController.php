@@ -234,58 +234,91 @@ class ManageResidentController extends Controller
 
     public function block($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_blocked' => true]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_blocked' => true]);
+
+        $isBlocked = User::find($id);
+        $isBlocked->is_blocked = true;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully blocked!');
     }
     public function unblock($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_blocked' => false]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_blocked' => false]);
+        $isBlocked = User::find($id);
+        $isBlocked->is_blocked = false;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully unblocked!');
     }
     public function deactivate($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_deactivated' => true]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_deactivated' => true]);
+        $isBlocked = User::find($id);
+        $isBlocked->is_deactivated = true;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully deactivated!');
     }
     public function activate($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_deactivated' => false]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_deactivated' => false]);
+        $isBlocked = User::find($id);
+        $isBlocked->is_deactivated = false;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully activated!');
     }
 
     public function approve($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_valid' => 1]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_valid' => 1]);
+        $isBlocked = User::find($id);
+        $isBlocked->is_valid = 1;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully verified!');
     }
 
     public function disapprove($id)
     {
-        $isBlocked = DB::table('users')
-            ->where('id', $id)
-            ->update(['is_valid' => 0]);
+        //$isBlocked = DB::table('users')
+        //    ->where('id', $id)
+        //    ->update(['is_valid' => 0]);
+        $isBlocked = User::find($id);
+        $isBlocked->is_valid = 0;
+        $isBlocked->save();
+        
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
     }
 
     public function subordinates($id)
     {
-        User::find($id)->update(['user_role' => 3]);
+        //User::find($id)->update(['user_role' => 3]);
+        $user = User::find($id);
+        $user->user_role = 3;
+        $user->save();
+
         return response()->json(['message' => 'The user is now a barangay official!']);
     }
 
     public function residents($id)
     {
-        User::find($id)->update(['user_role' => 2]);
+        //User::find($id)->update(['user_role' => 2]);
+        $user = User::find($id);
+        $user->user_role = 2;
+        $user->save();
+
         return response()->json(['message' => 'The user is now a resident!']);
     }
 }
