@@ -230,18 +230,30 @@ class EvacuationController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $evacuationcenters = EvacuationCenters::where('id', $id)->update([
-                //'added_by' => Auth::user()->name,
-                'evac_name' => $request->input('evac_name'),
-                'evac_latitude' => $request->input('evac_latitude'),
-                'evac_longitude' => $request->input('evac_longitude'),
-                'nearest_landmark' => $request->input('nearest_landmark'),
-                'brgy_loc' => $request->input('brgy_loc'),
-                'phone_no' => $request->input('phone_no'),
-                'capacity' => $request->input('capacity'),
-                'availability' => $request->input('availability'),
-                //'is_approved' => 1,
-            ]);
+            //$evacuationcenters = EvacuationCenters::where('id', $id)->update([
+            //    //'added_by' => Auth::user()->name,
+            //    'evac_name' => $request->input('evac_name'),
+            //    'evac_latitude' => $request->input('evac_latitude'),
+            //    'evac_longitude' => $request->input('evac_longitude'),
+            //    'nearest_landmark' => $request->input('nearest_landmark'),
+            //    'brgy_loc' => $request->input('brgy_loc'),
+            //    'phone_no' => $request->input('phone_no'),
+            //    'capacity' => $request->input('capacity'),
+            //    'availability' => $request->input('availability'),
+            //    //'is_approved' => 1,
+            //]);
+
+            $evacuationcenters = EvacuationCenters::find($id);
+            $evacuationcenters->evac_name = $request->input('evac_name');
+            $evacuationcenters->evac_latitude = $request->input('evac_latitude');
+            $evacuationcenters->evac_longitude = $request->input('evac_longitude');
+            $evacuationcenters->nearest_landmark = $request->input('nearest_landmark');
+            $evacuationcenters->brgy_loc = $request->input('brgy_loc');
+            $evacuationcenters->phone_no = $request->input('phone_no');
+            $evacuationcenters->capacity = $request->input('capacity');
+            $evacuationcenters->availability = $request->input('availability');
+            $evacuationcenters->save();
+
 
             return redirect('/user/evacuation')->with('success', 'The evacuation center has been edited!');
         }
