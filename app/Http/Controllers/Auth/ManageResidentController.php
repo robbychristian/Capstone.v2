@@ -284,7 +284,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_valid' => 1]);
         $isBlocked = User::find($id);
-        $isBlocked->is_valid = 1;
+        $isBlocked->is_valid = true;
         $isBlocked->save();
         
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully verified!');
@@ -296,7 +296,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_valid' => 0]);
         $isBlocked = User::find($id);
-        $isBlocked->is_valid = 0;
+        $isBlocked->is_valid = false;
         $isBlocked->save();
         
         return redirect('user/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
