@@ -16,7 +16,7 @@ class PendingAnnouncements extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::where('brgy_loc', Auth::user()->brgy_loc)->latest()->paginate(10);
+        $announcements = Announcement::where('brgy_loc', Auth::user()->brgy_loc)->where('approved', 0)->where('deleted_at', NULL)->latest()->paginate(10);
         return view('features.pendingannouncement', [
             'announcements' => $announcements
         ]);

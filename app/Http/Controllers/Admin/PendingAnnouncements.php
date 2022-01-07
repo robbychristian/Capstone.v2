@@ -16,7 +16,7 @@ class PendingAnnouncements extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::latest()->paginate(10);
+        $announcements = Announcement::where('approved', 0)->where('deleted_at', NULL)->latest()->paginate(10);
         return view('features.pendingannouncement', [
             'announcements' => $announcements
         ]);
