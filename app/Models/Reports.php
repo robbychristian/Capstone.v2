@@ -10,7 +10,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Reports extends Model implements Auditable
 {
     use SoftDeletes;
-    use OwenIt\Auditing\Contracts\Auditable;
+    use \OwenIt\Auditing\Contracts\Auditable;
     
     protected $table = 'reports';
     protected $fillable = [
