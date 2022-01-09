@@ -240,7 +240,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_blocked' => true]);
         $isBlocked = User::find($id);
-        $isBlocked->is_blocked = true;
+        $isBlocked->is_blocked = 1;
         $isBlocked->save();
 
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully blocked!');
@@ -252,7 +252,7 @@ class ManageResidentController extends Controller
         //    ->update(['is_blocked' => false]);
 
         $isBlocked = User::find($id);
-        $isBlocked->is_blocked = false;
+        $isBlocked->is_blocked = 0;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unblocked!');
     }
@@ -262,7 +262,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_deactivated' => true]);
         $isBlocked = User::find($id);
-        $isBlocked->is_deactivated = true;
+        $isBlocked->is_deactivated = 1;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully deactivated!');
     }
@@ -272,7 +272,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_deactivated' => false]);
         $isBlocked = User::find($id);
-        $isBlocked->is_deactivated = false;
+        $isBlocked->is_deactivated = 0;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully activated!');
     }
@@ -283,7 +283,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_valid' => 1]);
         $isBlocked = User::find($id);
-        $isBlocked->is_valid = true;
+        $isBlocked->is_valid = 1;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully verified!');
     }
@@ -294,7 +294,7 @@ class ManageResidentController extends Controller
         //    ->where('id', $id)
         //    ->update(['is_valid' => 0]);
         $isBlocked = User::find($id);
-        $isBlocked->is_valid = false;
+        $isBlocked->is_valid = 0;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
     }
