@@ -23,10 +23,10 @@ class ActivityLogController extends Controller
                 ->where('user_type', null)
                 ->where('user_id', null)
                 ->latest();
-        
+
             return DataTables::of($data)
                 ->addIndexColumn()
-        
+
                 ->addColumn('event', function ($row) {
                     if ($row->event == 'created') {
                         return '<label class="badge badge-success">Created</label>';
@@ -36,32 +36,31 @@ class ActivityLogController extends Controller
                         return '<label class="badge badge-danger">Deleted</label>';
                     }
                 })
-        
+
                 ->addColumn('description', function ($row) {
-                   if ($row->event == 'created') {
-                       foreach ($row->new_values as $attribute => $value){
-                          return "<b>$attribute = </b>$value<br>"; 
-                       }
-                   }
+
+                    foreach ($row->new_values as $attribute => $value) {
+                        return "<b>$attribute = </b>$value<br>";
+                    }
                 })
-        
-        
+
+
                 ->editColumn('created_at', function ($row) {
                     // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
                     $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
                     return $formatedDate;
                 })
-        
+
                 ->rawColumns(['action', 'event', 'description'])
                 ->make(true);
         }
         return view('features.activitylog');
 
         //$announcement = Announcement::first();
-//
+        //
         //// Get all associated Audits
         //$all = $announcement->audits;
-//
+        //
         //return $all;
     }
 
