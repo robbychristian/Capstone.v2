@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DataTables;
@@ -15,46 +16,53 @@ class ActivityLogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->ajax()) {
-            $data = DB::table('audits')
-                ->where('user_type', null)
-                ->where('user_id', null)
-                ->latest();
+        //if ($request->ajax()) {
+        //    $data = DB::table('audits')
+        //        ->where('user_type', null)
+        //        ->where('user_id', null)
+        //        ->latest();
+        //
+        //    return DataTables::of($data)
+        //        ->addIndexColumn()
+        //
+        //        ->addColumn('event', function ($row) {
+        //            if ($row->event == 'created') {
+        //                return '<label class="badge badge-success">Created</label>';
+        //            } else if ($row->event == 'updated') {
+        //                return '<label class="badge badge-info">Updated</label>';
+        //            } else if ($row->event == 'deleted') {
+        //                return '<label class="badge badge-danger">Deleted</label>';
+        //            }
+        //        })
+        //
+        //        //->addColumn('description', function ($row) {
+        //        //   if ($row->event == 'created') {
+        //        //       foreach ($row->new_values as $data){
+        //        //           return $data[]
+        //        //       }
+        //        //   }
+        //        //)
+        //
+        //
+        //        ->editColumn('created_at', function ($row) {
+        //            // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
+        //            $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
+        //            return $formatedDate;
+        //        })
+        //
+        //        ->rawColumns(['action', 'event'])
+        //        ->make(true);
+        //}
+        //return view('features.activitylog');
 
-            return DataTables::of($data)
-                ->addIndexColumn()
+        $announcement = Announcement::first();
 
-                ->addColumn('event', function ($row) {
-                    if ($row->event == 'created') {
-                        return '<label class="badge badge-success">Created</label>';
-                    } else if ($row->event == 'updated') {
-                        return '<label class="badge badge-info">Updated</label>';
-                    } else if ($row->event == 'deleted') {
-                        return '<label class="badge badge-danger">Deleted</label>';
-                    }
-                })
+        // Get all associated Audits
+        $all = $announcement->audits;
 
-                //->addColumn('description', function ($row) {
-                //   if ($row->event == 'created') {
-                //       foreach ($row->new_values as $data){
-                //           return $data[]
-                //       }
-                //   }
-                //)
-
-
-                ->editColumn('created_at', function ($row) {
-                    // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
-                    $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
-                    return $formatedDate;
-                })
-
-                ->rawColumns(['action', 'event'])
-                ->make(true);
-        }
-        return view('features.activitylog');
+        return $all;
     }
 
     /**
