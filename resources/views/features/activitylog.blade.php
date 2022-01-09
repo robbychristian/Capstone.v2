@@ -38,7 +38,7 @@
                     ajax: "{{ route('admin.activitylog.index') }}",
                     columns: [{
                             data: 'created_at',
-                            name: 'created_at',
+                            name: 'created_at'
                         },
                         {
                             data: 'event',
