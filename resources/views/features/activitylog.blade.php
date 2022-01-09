@@ -42,7 +42,7 @@
                         },
                         {
                             data: 'event',
-                            name: 'event'
+                            name: 'event',
                             orderable: false,
                             searchable: false
                         },
