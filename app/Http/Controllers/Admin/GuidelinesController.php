@@ -18,7 +18,7 @@ class GuidelinesController extends Controller
      */
     public function index()
     {
-        $guideline = Guidelines::where('deleted_at', NULL);
+        $guideline = Guidelines::where('deleted_at', NULL)->get();
         return view('features.guidelines', [
             'guidelines' => $guideline
         ]);
