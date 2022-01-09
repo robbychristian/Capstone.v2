@@ -31,6 +31,7 @@ use App\Http\Controllers\Brgy\VulnerabilityMapController as BrgyVulnerabilityMap
 use App\Http\Controllers\Brgy\ReportsController as BrgyReports;
 use App\Http\Controllers\Brgy\StatisticsController as BrgyStatsReport;
 
+use App\Http\Controllers\Admin\ActivityLogController as AdminActivityLog;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncement;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
@@ -181,6 +182,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/managebarangay/addbarangaymap/{id}', [AdminManageBarangayLocations::class, 'addBarangayMap'])->name('managebarangay.add');
         Route::post('/managebarangay/deletebarangay/{id}', [AdminManageBarangayLocations::class, 'deleteBarangay']);
         Route::post('/managebarangay/delete/{id}', [AdminManageBarangayLocations::class, 'delete']);
+        Route::resource('/activitylog', AdminActivityLog::class);
     });
 });
 

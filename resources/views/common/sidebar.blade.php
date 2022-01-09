@@ -219,6 +219,23 @@
             </div>
         </li>
 
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#log"
+                aria-expanded="true" aria-controls="log">
+                <i class="fas fa-fw fa-user-tag"></i>
+                <span>Log</span>
+            </a>
+            <div id="log" class="collapse" aria-labelledby="log"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.activitylog.index') }}">My Activity Log</a>
+                    <a class="collapse-item" href="">Users Activity Log</a>
+                    
+                </div>
+            </div>
+        </li>
+
     @elseif (Auth::user()->user_role === 5)
         <!-- Nav Item - Barangay -->
         <li class="nav-item">
