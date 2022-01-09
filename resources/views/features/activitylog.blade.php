@@ -16,8 +16,7 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Event</th>
-                                <th>Old Values</th>
-                                <th>New Values</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,26 +42,18 @@
                             name: 'created_at'
                         },
                         {
-                            data: 'old_values',
-                            name: 'old_values'
-                        },
-                        {
-                            data: 'new_values',
-                            name: 'new_values'
-                        },
-                        {
                             data: 'event',
-                            name: 'event',
+                            name: 'event'
+                        },
+                        {
+                            data: 'description',
+                            name: 'description',
                             orderable: false,
                             searchable: false
                         },
                     ],
 
                 });
-
-
-
-
 
             });
         </script>
