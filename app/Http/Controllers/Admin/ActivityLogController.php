@@ -36,18 +36,14 @@ class ActivityLogController extends Controller
                     }
                 })
 
-                ->addColumn('user', function ($row) {
-                    if ($row->user_id == NULL) {
-                        return '<label class="badge badge-success">Admin</label>';
-                    }
-                })
 
                 ->editColumn('created_at', function ($row) {
-                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
+                    // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
+                    $formatedDate = $row->created_at->diffForHumans();
                     return $formatedDate;
                 })
 
-                ->rawColumns(['action', 'event', 'user'])
+                ->rawColumns(['action', 'event'])
                 ->make(true);
         }
         return view('features.activitylog');

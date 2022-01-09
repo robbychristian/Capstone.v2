@@ -14,9 +14,8 @@
                         style="color:#464646 !important">
                         <thead>
                             <tr>
-                                <th>User</th>
+                                <th>Date</th>
                                 <th>Event</th>
-                                <th>Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,16 +37,12 @@
                     serverSide: true,
                     ajax: "{{ route('admin.activitylog.index') }}",
                     columns: [{
-                            data: 'user',
-                            name: 'user'
+                            data: 'created_at',
+                            name: 'created_at',
                         },
                         {
                             data: 'event',
                             name: 'event'
-                        },
-                        {
-                            data: 'created_at',
-                            name: 'created_at',
                             orderable: false,
                             searchable: false
                         },
