@@ -130,17 +130,25 @@ class ReportsController extends Controller
 
     public function confirmReport($id)
     {
-        DB::table('reports')
-            ->where('id', '=', $id)
-            ->update(['status' => 'Report Confirmed']);
+        //DB::table('reports')
+        //    ->where('id', '=', $id)
+        //    ->update(['status' => 'Report Confirmed']);
+
+        $report = Reports::find($id);
+        $report->status = 'Report Confirmed';
+        $report->save();
         return redirect('admin/reports')->with('success', 'Report successfully confirmed!');
     }
 
     public function pendingReport($id)
     {
-        DB::table('reports')
-            ->where('id', '=', $id)
-            ->update(['status' => 'Report Pending']);
+        //DB::table('reports')
+        //    ->where('id', '=', $id)
+        //    ->update(['status' => 'Report Pending']);
+        
+        $report = Reports::find($id);
+        $report->status = 'Report Pending';
+        $report->save();
         return redirect('admin/reports')->with('success', 'The submitted report is pending!');
     }
 }

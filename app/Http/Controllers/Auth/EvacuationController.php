@@ -244,6 +244,8 @@ class EvacuationController extends Controller
             //]);
 
             $evacuationcenters = EvacuationCenters::find($id);
+            $evacuationcenters->brgy_id = Auth::user()->id;
+            $evacuationcenters->added_by = Auth::user()->first_name . ' ' . Auth::user()->last_name;
             $evacuationcenters->evac_name = $request->input('evac_name');
             $evacuationcenters->evac_latitude = $request->input('evac_latitude');
             $evacuationcenters->evac_longitude = $request->input('evac_longitude');
@@ -273,7 +275,12 @@ class EvacuationController extends Controller
 
     public function approve($id)
     {
-        EvacuationCenters::find($id)->update(['is_approved' => 1, 'updated_at' => now()]);
+        //EvacuationCenters::find($id)->update(['is_approved' => 1, 'updated_at' => now()]);
+        $evacuationcenters = EvacuationCenters::find($id);
+        $evacuationcenters->is_approved = 1;
+        $evacuationcenters->updated_at = now();
+        $evacuationcenters->save();
+        
         return response()->json(['message' => 'The evacuation center has been approved!']);
     }
 

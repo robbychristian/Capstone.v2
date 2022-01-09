@@ -118,13 +118,21 @@ class GuidelinesController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $guideline = Guidelines::where('id', $id)->update([
-                'admin_id' => 1,
-                'issued_by' => Auth::user()->name,
-                'disaster' => $request->input('disaster'),
-                'time' => $request->input('time'),
-                'guideline' => $request->input('guideline')
-            ]);
+            //$guideline = Guidelines::where('id', $id)->update([
+            //    'admin_id' => 1,
+            //    'issued_by' => Auth::user()->name,
+            //    'disaster' => $request->input('disaster'),
+            //    'time' => $request->input('time'),
+            //    'guideline' => $request->input('guideline')
+            //]);
+
+            $guideline = Guidelines::find($id);
+            $guideline->admin_id = Auth::user()->id;
+            $guideline->issued_by = Auth::user()->name;
+            $guideline->disaster = $request->input('disaster');
+            $guideline->time = $request->input('time');
+            $guideline->guideline = $request->input('guideline');
+            $guideline->save();
 
             return redirect('/admin/guidelines')->with('success', 'Guideline has been edited!');
         }

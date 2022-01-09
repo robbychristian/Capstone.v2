@@ -127,10 +127,16 @@ class AnnouncementController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $announcement = Announcement::where('id', $id)->update([
-                'title' => $request->input('title'),
-                'body' => $request->input('message')
-            ]);
+            //$announcement = Announcement::where('id', $id)->update([
+            //    'title' => $request->input('title'),
+            //    'body' => $request->input('message')
+            //]);
+
+            $announcement = Announcement::find($id);
+            $announcement->title = $request->input('title');
+            $announcement->body = $request->input('message');
+            $announcement->save();
+
 
             return redirect('/admin/announcements')->with('success', 'The announcement has been edited!');
         }
@@ -150,18 +156,29 @@ class AnnouncementController extends Controller
 
     public function approve($id)
     {
-        $pendingAnnouncement = DB::table('announcements')
-            ->where('id', $id)
-            ->update(['approved' => 1, 'updated_at' => now()]);
+        //$pendingAnnouncement = DB::table('announcements')
+        //    ->where('id', $id)
+        //    ->update(['approved' => 1, 'updated_at' => now()]);
+
+        $pendingAnnouncement = Announcement::find($id);
+        $pendingAnnouncement->approved = 1;
+        $pendingAnnouncement->updated_at = now();
+        $pendingAnnouncement->save();
 
         return redirect('/admin/announcements')->with('success', 'The announcement has been approved!');
     }
 
     public function disapprove($id)
     {
-        $pendingAnnouncement = DB::table('announcements')
-            ->where('id', $id)
-            ->delete();
+        //$pendingAnnouncement = DB::table('announcements')
+        //    ->where('id', $id)
+        //    ->delete();
+
+        $pendingAnnouncement = Announcement::find($id);
+        $pendingAnnouncement->approved = 0;
+        $pendingAnnouncement->deleted_at = now();
+        $pendingAnnouncement->save();
+        
         return redirect('/admin/announcements')->with('success', 'The announcement has been disapproved!');
     }
 
