@@ -36,6 +36,14 @@ class ActivityLogController extends Controller
                     }
                 })
 
+                //->addColumn('description', function ($row) {
+                //   if ($row->event == 'created') {
+                //       foreach ($row->new_values as $data){
+                //           return $data[]
+                //       }
+                //   }
+                //)
+
 
                 ->editColumn('created_at', function ($row) {
                     // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');

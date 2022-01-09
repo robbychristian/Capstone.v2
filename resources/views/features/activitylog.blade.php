@@ -16,6 +16,8 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Event</th>
+                                <th>Old Values</th>
+                                <th>New Values</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +41,14 @@
                     columns: [{
                             data: 'created_at',
                             name: 'created_at'
+                        },
+                        {
+                            data: 'old_values',
+                            name: 'old_values'
+                        },
+                        {
+                            data: 'new_values',
+                            name: 'new_values'
                         },
                         {
                             data: 'event',
