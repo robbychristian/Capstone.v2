@@ -175,10 +175,8 @@ class AnnouncementController extends Controller
         //    ->delete();
 
         $pendingAnnouncement = Announcement::find($id);
-        $pendingAnnouncement->approved = 0;
-        $pendingAnnouncement->deleted_at = now();
-        $pendingAnnouncement->save();
-        
+        $pendingAnnouncement->delete();
+
         return redirect('/admin/announcements')->with('success', 'The announcement has been disapproved!');
     }
 

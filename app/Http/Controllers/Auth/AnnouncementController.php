@@ -187,9 +187,8 @@ class AnnouncementController extends Controller
         //    ->where('id', $id)
         //    ->update(['approved' => 0, 'deleted_at' => now()]);
         $pendingAnnouncement = Announcement::find($id);
-        $pendingAnnouncement->approved = 0;
-        $pendingAnnouncement->deleted_at = now();
-        $pendingAnnouncement->save();
+        $pendingAnnouncement->delete();
+        
         return redirect('/user/announcements')->with('success', 'The announcement has been disapproved!');
     }
 }
