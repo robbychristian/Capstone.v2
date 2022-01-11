@@ -62,7 +62,7 @@ class ActivityLogController extends Controller
                     return $formatedDate;
                 })
 
-                ->rawColumns(['action' , 'user'])
+                ->rawColumns(['action' , 'user', 'user_type'])
                 ->make(true);
         }
         return view('features.activitylog');
