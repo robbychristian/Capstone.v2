@@ -56,16 +56,13 @@ class ActivityLogController extends Controller
                     }
                 })
 
-                ->addColumn('created_at', function ($row) {
+                ->editColumn('created_at', function ($row) {
                     $fulldate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
                     $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
-                    return ' <div class= "name">
-                    <p>' . $fulldate.'</p>
-                    <small class="text-muted">' . $formatedDate . '</small>
-                    </div>';
+                    return $fulldate . '-' . $formatedDate;
                 })
 
-                ->rawColumns(['action' , 'user', 'user_type', 'created_at'])
+                ->rawColumns(['action' , 'user', 'user_type'])
                 ->make(true);
         }
         return view('features.activitylog');
