@@ -16,9 +16,10 @@
                             <tr>
                                 <th>Date</th>
                                 <th>User</th>
+                                <th>User Type</th>
                                 <th>Event</th>
                                 <th>Subject</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
