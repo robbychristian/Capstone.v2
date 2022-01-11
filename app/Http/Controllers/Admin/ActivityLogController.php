@@ -21,7 +21,7 @@ class ActivityLogController extends Controller
         if ($request->ajax()) {
             $data = DB::table('audits')
                 ->join('users', 'audits.user_id', '=', 'users.id')
-                ->select('audits.event', 'audits.created_at', 'users.id', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
+                ->select('audits.event', 'audits.created_at', 'audits.auditable_type', 'users.id', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
                 ->where('audits.user_id', '!=', NULL)
                 ->latest();
 
@@ -36,10 +36,24 @@ class ActivityLogController extends Controller
 
                 ->addColumn('user', function ($row) {
                     return ' <div class= "name">
-                    <h6>' . $row->first_name . '' . $row->last_name . '</h6>
+                    <h6>' . $row->first_name . ' ' . $row->last_name . '</h6>
                     <small class="text-muted">' . $row->email . '</small>
                     </div>';
                     
+                })
+
+                ->addColumn('user_type', function ($row) {
+                    if ($row->user_role == '2') {
+                        return '<label class="badge badge-primary">Resident</label>';
+                    } else if ($row->user_role == '3') {
+                        return '<label class="badge badge-info">Barangay Official</label>';
+                    } else if ($row->user_role == '4') {
+                        return '<label class="badge badge-secondary">Barangay Secretary</label>';
+                    } else if ($row->user_role == '5') {
+                        return '<label class="badge badge-warning">Barangay Co-Chairman</label>';
+                    } else if ($row->user_role == '6') {
+                        return '<label class="badge badge-success">Barangay Chairman</label>';
+                    }
                 })
 
                 ->editColumn('created_at', function ($row) {

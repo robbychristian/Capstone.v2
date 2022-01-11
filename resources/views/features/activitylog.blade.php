@@ -17,7 +17,8 @@
                                 <th>Date</th>
                                 <th>User</th>
                                 <th>Event</th>
-                                <th>Description</th>
+                                <th>Subject</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,8 +48,16 @@
                             name: 'user'
                         },
                         {
+                            data: 'user_type',
+                            name: 'user_type'
+                        },
+                        {
                             data: 'event',
                             name: 'event'
+                        },
+                        {
+                            data: 'auditable_type',
+                            name: 'auditable_type'
                         },
                         {
                             data: 'action',
