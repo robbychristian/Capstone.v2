@@ -3,6 +3,9 @@
 @section('content')
     <div class="container-fluid" style="color: black">
 
+        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            aria-pressed="true">Back</a>
+
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Users Audit Logs</h1>
         </div>
@@ -15,11 +18,11 @@
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
 
                     <div class="table-responsive mt-3">
-                        <table class="table table-sm" style="color: black;" width="50%">
-                            <thead class="thead-light">
+                        <table class="table table-sm" style="color:#464646;" width="50%">
+                            <thead>
                                 <tr>
-                                    <th scope="col">Attribute</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col" style="color:#464646;">Attribute</th>
+                                    <th scope="col" style="color:#464646;">Value</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,9 +35,9 @@
                             </tbody>
                         </table>
                     </div>
+
                 @empty
                     <div class="card-text">No logs</div>
-
                 @endforelse
             </div>
         </div>
