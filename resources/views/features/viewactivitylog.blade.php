@@ -10,30 +10,12 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 @forelse($audits as $audit)
-                <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
-                    {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
-                    this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                    <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
+                        {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
+                        this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
 
-                    <!-- 
-                    <ul class="list-unstyled">
-                        format: On 2022-01-11 17:46:18, Tine Manabs[111.125.109.69] created this record via https://kabisigapp.com/user/vulnerabilitymap/9?
-                        <li>On {{ $audit->created_at }}, {{ $audit->first_name }}
-                            {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
-                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
-
-                            <ul>
-                                @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                    <li>{{ $attribute }}: {{ $value }}</li>
-
-                                @endforeach
-
-                            </ul>
-                        </li>
-
-                    </ul> -->
-
-                    <div class="table-responsive">
-                        <table class="table">
+                    <div class="table-responsive mt-3">
+                        <table class="table table-sm" style="color: black;" width="50%">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Attribute</th>
