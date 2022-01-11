@@ -18,7 +18,7 @@
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
 
                     <div class="table-responsive mt-3">
-                        <table class="table table-sm" style="color:#464646;" width="50%">
+                        <table class="table table-sm table-bordered" style="color:#464646;" width="50%">
                             <thead>
                                 <tr>
                                     <th scope="col" style="color:#464646;">Attribute</th>
