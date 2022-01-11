@@ -17,8 +17,11 @@
                             this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
 
-                               <li>{{ $audit->new_values }}</li>
+                                @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                <li>{{ $attribute }}: {{ $value }}</li>
 
+                                @endforeach
+                               
 
                             </ul>
                         </li>

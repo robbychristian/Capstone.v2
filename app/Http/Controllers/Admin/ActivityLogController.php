@@ -114,15 +114,13 @@ class ActivityLogController extends Controller
             ->where('audits.id', $id)
             ->get();
 
-            $barangays = DB::table('barangays')
-            ->where('is_added', 1)
-            ->get();            
+           
 
-        //return view('features.viewactivitylog', [
-        //    'audits' => $audits,
-        //]);
+        return view('features.viewactivitylog', [
+            'audits' => $audits,
+        ]);
 
-        return var_dump($barangays);
+        //return var_dump($barangays);
     }
 
     /**
