@@ -56,7 +56,7 @@ class ActivityLogController extends Controller
                     }
                 })
 
-                ->editColumn('created_at', function ($row) {
+                ->addColumn('created_at', function ($row) {
                     $fulldate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
                     $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
                     return ' <div class= "name">
@@ -65,7 +65,7 @@ class ActivityLogController extends Controller
                     </div>';
                 })
 
-                ->rawColumns(['action' , 'user', 'user_type'])
+                ->rawColumns(['action' , 'user', 'user_type', 'created_at'])
                 ->make(true);
         }
         return view('features.activitylog');
