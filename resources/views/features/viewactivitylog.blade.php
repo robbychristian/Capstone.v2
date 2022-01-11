@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Activity Log')
 @section('content')
+<!---comments: continue on update event view and admin -->
     <div class="container-fluid" style="color: black">
 
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
