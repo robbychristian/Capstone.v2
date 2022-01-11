@@ -10,8 +10,18 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 @foreach ($audits as $audit)
-                    {{ $audit->id }}
-                    
+                    <ul class="list-unstyled">
+
+                        <li>On {{ $audit->created_at }}, {{ $audit->user_id }}[{{ $audit->ip_address }}] {{ $audit->event }} this record via {{ $audit->url }}
+                            <ul>
+                                <li>are unaffected by this style</li>
+                                <li>will still show a bullet</li>
+                                <li>and have appropriate left margin</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
                 @endforeach
             </div>
         </div>
