@@ -37,7 +37,7 @@ class ActivityLogController extends Controller
                 ->addColumn('user', function ($row) {
                     return ' <div class= "name">
                     <h6>' . $row->first_name . '' . $row->last_name . '</h6>
-                    <small class="text-muted">' . $row->user_email . '</small>
+                    <small class="text-muted">' . $row->email . '</small>
                     </div>';
                     
                 })
