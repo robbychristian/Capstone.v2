@@ -17,11 +17,11 @@
                             this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
                                 @if (is_array($audit->new_values) || is_object($audit->new_values))
-                                @foreach($audit->new_values as $attribute => $value)
-                                  <b>{{ $attribute }} =</b> {{ $value }}<br>
-                                @endforeach
-                             @endif
-                               
+                                    @foreach ($audit->new_values as $attribute => $value)
+                                        <li>{{ $attribute }}: </li> {{ $value }}<br>
+                                    @endforeach
+                                @endif
+
                             </ul>
                         </li>
 
