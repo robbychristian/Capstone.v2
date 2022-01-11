@@ -114,11 +114,11 @@ class ActivityLogController extends Controller
             ->where('audits.id', $id)
             ->get();
 
-        //return view('features.viewactivitylog', [
-        //    'audits' => $audits,
-        //]);
+        return view('features.viewactivitylog', [
+            'audits' => $audits,
+        ]);
 
-        return var_dump($audits);
+        //return var_dump($audits);
     }
 
     /**

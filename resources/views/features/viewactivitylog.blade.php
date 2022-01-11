@@ -17,12 +17,7 @@
                             this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
 
-                                @forelse ($audit->new_values as $attribute => $value)
-                                    <li>{{ $attribute }}: {{ $value }}</li>
-
-                                @empty
-                                    <li>No details</li>
-                                @endforelse
+                               <li>{{ $audit->new_values }}</li>
 
 
                             </ul>
