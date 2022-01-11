@@ -20,30 +20,29 @@ class ActivityLogController extends Controller
     {
         if ($request->ajax()) {
             $data = DB::table('audits')
-                ->where('user_type', null)
-                ->where('user_id', null)
+                ->join('users', 'audits.user_id', '=', 'users.id')
+                ->select('audits.*', 'users.*')
+                ->where('audits.user_id', '!=', NULL)
                 ->latest();
 
             return DataTables::of($data)
                 ->addIndexColumn()
 
-                ->addColumn('event', function ($row) {
-                    if ($row->event == 'created') {
-                        return '<label class="badge badge-success">Created</label>';
-                    } else if ($row->event == 'updated') {
-                        return '<label class="badge badge-info">Updated</label>';
-                    } else if ($row->event == 'deleted') {
-                        return '<label class="badge badge-danger">Deleted</label>';
-                    }
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="#"data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    return $btn;
                 })
 
-                ->addColumn('description', function ($row) {
-
-                    foreach ($row->new_values as $attribute => $value) {
-                        return "<b>$attribute = </b>$value<br>";
-                    }
+                ->addColumn('user', function ($row) {
+                    return '<div class="media">
+                    <img class="mr-3 float-left rounded-circle" width="60" height="60" src="' . \URL::asset('KabisigGit/storage/app/public/profile_pics/' . $row->id . '/' . $row->profile_pic) . '">
+                    <div class="media-body">
+                      <h6>' . $row->first_name . '' . $row->last_name . '</h6>
+                      <small class="text-muted">' . $row->email . '</small>
+                    </div>
+                  </div>';
                 })
-
 
                 ->editColumn('created_at', function ($row) {
                     // $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y \a\t h:i A');
@@ -51,7 +50,7 @@ class ActivityLogController extends Controller
                     return $formatedDate;
                 })
 
-                ->rawColumns(['action', 'event', 'description'])
+                ->rawColumns(['action' , 'user'])
                 ->make(true);
         }
         return view('features.activitylog');

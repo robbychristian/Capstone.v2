@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Date</th>
+                                <th>User</th>
                                 <th>Event</th>
                                 <th>Description</th>
                             </tr>
@@ -42,12 +43,16 @@
                             name: 'created_at'
                         },
                         {
+                            data: 'user',
+                            name: 'user'
+                        },
+                        {
                             data: 'event',
                             name: 'event'
                         },
                         {
-                            data: 'description',
-                            name: 'description',
+                            data: 'action',
+                            name: 'action',
                             orderable: false,
                             searchable: false
                         },
