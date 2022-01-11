@@ -9,7 +9,7 @@
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
-                @foreach ($audits as $audit)
+                @forelse($audits as $audit)
                     <ul class="list-unstyled">
                         <!-- format: On 2022-01-11 17:46:18, Tine Manabs[111.125.109.69] created this record via https://kabisigapp.com/user/vulnerabilitymap/9? -->
                         <li>On {{ $audit->created_at }}, {{ $audit->first_name }}
@@ -17,17 +17,22 @@
                             this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
 
-                                @foreach ($audit['new_values'] as $attribute => $value)
+                                @forelse ($audit->new_values as $attribute => $value)
                                     <li>{{ $attribute }}: {{ $value }}</li>
-                                @endforeach
+
+                                @empty
+                                    <li>No details</li>
+                                @endforelse
 
 
                             </ul>
                         </li>
 
                     </ul>
+                @empty
+                    <p>No logs</p>
 
-                @endforeach
+                @endforelse
             </div>
         </div>
 
