@@ -16,9 +16,11 @@
                             {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
                             this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
-                                @foreach ($audit->new_values as $attribute => $values)
-                                <li>{{ $attribute }}: {{ $values }}</li>
+                                @if (is_array($audit->new_values) || is_object($audit->new_values))
+                                @foreach($audit->new_values as $attribute => $value)
+                                  <b>{{ $attribute }} =</b> {{ $value }}<br>
                                 @endforeach
+                             @endif
                                
                             </ul>
                         </li>
