@@ -21,7 +21,7 @@ class ActivityLogController extends Controller
         if ($request->ajax()) {
             $data = DB::table('audits')
                 ->join('users', 'audits.user_id', '=', 'users.id')
-                ->select('audits.event', 'audits.created_at', 'audits.auditable_type', 'users.id', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
+                ->select('audits.id', 'audits.event', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
                 ->where('audits.user_id', '!=', NULL)
                 ->latest();
 
