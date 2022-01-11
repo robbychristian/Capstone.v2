@@ -12,7 +12,7 @@
                 @foreach ($audits as $audit)
                     <ul class="list-unstyled">
 
-                        <li>On {{ $audit->created_at }}, {{ $audit->user_id }}[{{ $audit->ip_address }}] {{ $audit->event }} this record via {{ $audit->url }}
+                        <li>On {{ $audit->created_at }}, {{ $audit->user_id }}[{{ $audit->ip_address }}] {{ $audit->event }} this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
                             <ul>
                                 <li>are unaffected by this style</li>
                                 <li>will still show a bullet</li>

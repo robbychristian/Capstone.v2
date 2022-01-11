@@ -33,6 +33,11 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
         'is_deactivated',
     ];
 
+    protected $auditExclude = [
+        'email_verified_at',
+        'password',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
