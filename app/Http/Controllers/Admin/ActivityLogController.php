@@ -61,7 +61,7 @@ class ActivityLogController extends Controller
                     $formatedDate = Carbon::parse($row->created_at)->diffForHumans();
                     return ' <div class= "name">
                     <p>' . $fulldate.'</p>
-                    <p class="text-muted">' . $formatedDate . '</p>
+                    <small class="text-muted">' . $formatedDate . '</small>
                     </div>';
                 })
 
