@@ -25,7 +25,7 @@
 
                     </ul>
                 @empty
-                    <p>No logs</p>
+                    <div class="card-text">No logs</div>
 
                 @endforelse
             </div>
