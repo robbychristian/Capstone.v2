@@ -30,7 +30,7 @@ class ActivityLogController extends Controller
 
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="#"data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
+                    $btn = '<a href="'. \URL::route('admin.activitylog.show', $row->id)  .'"data-id="' . $row->id . '" class="btn btn-primary btn-circle btn-sm" id="viewbtn"><i class="fas fa-search"></i></a>';
                     return $btn;
                 })
 
@@ -39,7 +39,6 @@ class ActivityLogController extends Controller
                     <h6>' . $row->first_name . ' ' . $row->last_name . '</h6>
                     <small class="text-muted">' . $row->email . '</small>
                     </div>';
-                    
                 })
 
                 ->addColumn('user_type', function ($row) {
@@ -62,7 +61,7 @@ class ActivityLogController extends Controller
                     return $fulldate;
                 })
 
-                ->rawColumns(['action' , 'user', 'user_type'])
+                ->rawColumns(['action', 'user', 'user_type'])
                 ->make(true);
         }
         return view('features.activitylog');
@@ -104,7 +103,13 @@ class ActivityLogController extends Controller
      */
     public function show($id)
     {
-        //
+        $audits = DB::table('audits')
+            ->where('id', $id)
+            ->get();
+
+        return view('features.viewactivitylog', [
+            'audits' => $audits,
+        ]);   
     }
 
     /**

@@ -4,7 +4,7 @@
     <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">My Activity Log</h1>
+            <h1 class="h3 mb-0 text-gray-800">Users Audit Logs</h1>
         </div>
 
         <div class="card shadow-card mb-3 mt-3">
@@ -59,42 +59,6 @@
                         {
                             data: 'auditable_type',
                             name: 'auditable_type'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        },
-                    ],
-
-                });
-
-            });
-        </script>
-
-    @elseif (Auth::user()->user_role >= 3)
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var table = $('.data-table').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('user.manageresident.index') }}",
-                    columns: [{
-                            data: 'full_name',
-                            name: 'full_name'
-                        },
-                        {
-                            data: 'user_role',
-                            name: 'user_role'
-                        },
-                        {
-                            data: 'brgy_loc',
-                            name: 'brgy_loc'
-                        },
-                        {
-                            data: 'is_valid',
-                            name: 'is_valid'
                         },
                         {
                             data: 'action',
