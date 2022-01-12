@@ -550,7 +550,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('user.evacuation.index') }}",
+                ajax: "{{ route('user.evacuation-lgu.index') }}",
                 columns: [{
                         data: 'id',
                         name: 'id'

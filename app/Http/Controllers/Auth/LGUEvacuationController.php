@@ -22,42 +22,7 @@ class LGUEvacuationController extends Controller
                 ->where('deleted_at', null);
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-
-                    if ($row->is_approved == '0') {
-                        return '<div class="d-flex justify-content-center align-items-center">
-                    <div class="dropdown" style="text-align:center;">
-                        <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
-                        </a>
-                      
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" data-id="' . $row->id . '" id="approveEvacuationBtn">Approve</a>
-                          <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                          <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Delete</a>
-                        </div>
-                      </div>
-
-                      </div>
-                      ';
-                    } else {
-                        return '<div class="d-flex justify-content-center align-items-center">
-                        <div class="dropdown" style="text-align:center;">
-                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v text-primary fa-2x"></i>
-                            </a>
-                          
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href=' . \URL::route('admin.evacuation.edit', $row->id) . '>Edit</a>
-                              <a class="dropdown-item" data-id="' . $row->id . '" id="deleteEvacuationBtn">Delete</a>
-                            </div>
-                          </div>
-    
-                          </div>
-                          ';
-                    }
-                })
-
+                
                 ->addColumn('is_approved', function ($row) {
                     if ($row->is_approved == '1') {
                         return '<label class="badge badge-success">Approved</label>';
@@ -73,7 +38,7 @@ class LGUEvacuationController extends Controller
                         return '<label class="badge badge-danger">Not Available</label>';
                     }
                 })
-                ->rawColumns(['action', 'is_approved', 'availability'])
+                ->rawColumns(['is_approved', 'availability'])
                 ->make(true);
         }
 
