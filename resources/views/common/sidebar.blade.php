@@ -69,19 +69,21 @@
         @endif
 
 
-        <!-- Nav Item - Account -->
-        <li class="nav-item">
-            <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
-                <i class="fas fa-fw fa-user-circle"></i>
-                <span>Account</span></a>
-        </li>
+        @if (Auth::user()->user_role >= 6)
+            <!-- Nav Item - Account -->
+            <li class="nav-item">
+                <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
+                    <i class="fas fa-fw fa-user-circle"></i>
+                    <span>Account</span></a>
+            </li>
 
-        <!-- Nav Item - Announcements -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.announcements.index') }}">
-                <i class="fas fa-fw fa-bullhorn"></i>
-                <span>Announcements</span></a>
-        </li>
+            <!-- Nav Item - Announcements -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.announcements.index') }}">
+                    <i class="fas fa-fw fa-bullhorn"></i>
+                    <span>Announcements</span></a>
+            </li>
+        @endif
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -106,36 +108,40 @@
                 <span>Vulnerability Map</span></a>
         </li>
 
-        <!-- Nav Item - Reports -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.reports.index') }}">
-                <i class="fas fa-fw fa-edit"></i>
-                <span>Reports</span></a>
-        </li>
-        @if (Auth::user()->user_role >= 4)
-            <!-- Nav Item - Reports -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.emergencymessage.create') }}">
-                    <i class="fas fa-fw fa-envelope"></i>
-                    <span>Emergency Alert
-                        Message</span></a>
-            </li>
+        @if (Auth::user()->user_role >= 6)
+
 
             <!-- Nav Item - Reports -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('user.stats.index') }}">
-                    <i class="fas fa-fw fa-clipboard"></i>
-                    <span>Disaster Statistics</span></a>
+                <a class="nav-link" href="{{ route('user.reports.index') }}">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Reports</span></a>
+            </li>
+            @if (Auth::user()->user_role >= 4)
+                <!-- Nav Item - Reports -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.emergencymessage.create') }}">
+                        <i class="fas fa-fw fa-envelope"></i>
+                        <span>Emergency Alert
+                            Message</span></a>
+                </li>
+
+                <!-- Nav Item - Reports -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.stats.index') }}">
+                        <i class="fas fa-fw fa-clipboard"></i>
+                        <span>Disaster Statistics</span></a>
+                </li>
+            @endif
+
+
+            <!-- Nav Item - Reports -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.manageresident.index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Manage Resident</span></a>
             </li>
         @endif
-
-
-        <!-- Nav Item - Reports -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.manageresident.index') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Manage Resident</span></a>
-        </li>
 
 
     @elseif (Auth::user()->user_role === 1)
@@ -224,37 +230,6 @@
             <a class="nav-link" href="{{ route('admin.activitylog.index') }}">
                 <i class="fas fa-fw fa-list"></i>
                 <span>Audit Logs</span></a>
-        </li>
-
-    @elseif (Auth::user()->user_role === 7)
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item ">
-            <a class="nav-link" href="">
-                <i class="fas fa-fw fa-chart-bar"></i>
-                <span>Dashboard</span></a>
-        </li>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-bookmark"></i>
-                <span>Protocols</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="">Guidelines</a>
-                    <a class="collapse-item" href="">Evacuation
-                        Centers <br> and Hospitals</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Announcements -->
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fas fa-fw fa-map-marked"></i>
-                <span>Vulnerability Map</span></a>
         </li>
 
     @endif
