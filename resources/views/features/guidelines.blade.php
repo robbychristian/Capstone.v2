@@ -60,7 +60,11 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -132,7 +136,9 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -201,7 +207,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+
+                                                            @if (Auth::user()->user_role === 7)
+
+                                                            @elseif(Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -275,7 +284,9 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -344,7 +355,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -413,7 +427,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -488,7 +505,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -557,8 +577,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
+                                                            @if (Auth::user()->user_role === 7)
 
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -628,7 +650,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -705,7 +730,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -774,7 +802,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
                                                                     <div class="dropdown">
 
@@ -843,7 +874,10 @@
                                                                     {{ $guideline->guideline }}
                                                                 </div>
                                                             </div>
-                                                            @if (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @if (Auth::user()->user_role === 7)
+
+
+                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
