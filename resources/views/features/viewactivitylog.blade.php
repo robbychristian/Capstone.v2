@@ -72,19 +72,19 @@
                         <div class="changed-values mt-3">
                             @foreach (json_decode($audit->old_values) as $attribute => $value)
                                 @if ($value == null)
-                                    &#8226; The {{ $attribute }} has been modified from
+                                    <br> <span style="font-size: 36px">&#9675;</span> The {{ $attribute }} has been modified from
                                     <strong><em>NULL</em></strong>
                                 @else
-                                    &#8226; The {{ $attribute }} has been modified from
+                                    <br> <span style="font-size: 36px">&#9675;</span> The {{ $attribute }} has been modified from
                                     <strong>{{ $value }}</strong>
                                 @endif
                             @endforeach
 
                             @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                to <strong>{{ $value }}</strong>. <br>
+                                to <strong>{{ $value }}</strong>.
                             @endforeach
                         </div>
-                        
+
                     @endif
 
                 @empty
