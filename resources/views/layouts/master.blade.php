@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container mt-3">
             <div class="card">
                 @if (Auth::user()->is_blocked == 1)
                     <div class="card-body">
