@@ -35,8 +35,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    
-    
+
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Sweet Alert
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
@@ -101,6 +101,7 @@
 
 </head>
 
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -110,29 +111,49 @@
         @include('common.sidebar')
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
 
-            <!-- Main Content -->
-            <div id="content">
+            <div class="card">
+                @if (Auth::user()->is_blocked == 1)
+                    <div class="card-body">
+                        Sorry! Your account has been blocked. 
+                    </div>
 
-                <!-- Topbar -->
-                @include('common.header')
-                <!-- End of Topbar -->
+                @elseif (Auth::user()->is_valid == 0)
+                    <div class="card-body">
+                        Your account is not yet verified. Please wait for the confirmation of your residence after a couple of days. 
+                    </div>
+                @elseif (Auth::user()->is_deactivated == 1)
+                    <div class="card-body">
+                        Sorry! Your account has been deactivated. If you wish to activate your account, please contact your respective barangay office for assistance.
+                    </div>
+                @endif
+            </div>
+        @else
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Begin Page Content -->
-                @yield('content')
-                <!-- /.container-fluid -->
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    @include('common.header')
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    @yield('content')
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                @include('common.footer')
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            @include('common.footer')
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
+            <!-- End of Content Wrapper -->
+        @endif
 
     </div>
     <!-- End of Page Wrapper -->
