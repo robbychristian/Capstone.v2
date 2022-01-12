@@ -103,56 +103,8 @@
 
 
 <body id="page-top">
-    @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
-        <div id="wrapper">
-            <div id="content-wrapper" class="d-flex flex-column">
-                <div id="content" style="background-color: white">
-                    <!-- Topbar -->
-                    @include('common.header')
-                    <!-- End of Topbar -->
 
-                    <div class="container mt-3">
-
-                        @if (Auth::user()->is_blocked == 1)
-                            <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">Sorry! Your account has been blocked!</h4>
-                                <p>Your account has been blocked due to falsifying submitted reports which could greatly
-                                    harm the operation of the barangay.
-                                    Please understand that blocking of accounts are done if you fail to comply on the
-                                    regulations in using the system.</p>
-                                <hr>
-                                <p class="mb-0">If you wish to ask for assistance, please contact your
-                                    respective barangay office.</p>
-                            </div>
-
-
-                        @elseif (Auth::user()->is_valid == 0)
-                            <div class="alert alert-warning" role="alert">
-                                <h4 class="alert-heading">Sorry! Your account is not yet verified!</h4>
-                                <p> Your account is not yet verified. Please wait for the confirmation of your residence
-                                    after a couple of days. Thank you for your patience and understanding.</p>
-                                <hr>
-                                <p class="mb-0">If you wish to ask for assistance, please contact your
-                                    respective barangay office.</p>
-                            </div>
-
-                        @elseif (Auth::user()->is_deactivated == 1)
-                            <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">Sorry! Your account has been deactivated.</h4>
-                                <hr>
-                                <p class="mb-0">If you wish to activate your account, please contact
-                                    your respective barangay office for assistance.</p>
-                            </div>
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-    @elseif (Auth::user()->user_role == 1 || Auth::user()->is_blocked == 0 || Auth::user()->is_valid == 1 || Auth::user()->is_deactivated == 0)
+    @if (Auth::user()->user_role == 1 || Auth::user()->is_blocked == 0 || Auth::user()->is_valid == 1 || Auth::user()->is_deactivated == 0)
         <!-- Page Wrapper -->
         <div id="wrapper">
 
@@ -183,10 +135,60 @@
 
             </div>
             <!-- End of Content Wrapper -->
-    @endif
+        </div>
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+    @elseif (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
+        <div id="wrapper">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content" style="background-color: white">
+                    <!-- Topbar -->
+                    @include('common.header')
+                    <!-- End of Topbar -->
+
+                    <div class="container mt-3">
+
+                        @if (Auth::user()->is_blocked == 1)
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Sorry! Your account has been blocked!</h4>
+                                <p>Your account has been blocked due to falsifying submitted reports which could
+                                    greatly
+                                    harm the operation of the barangay.
+                                    Please understand that blocking of accounts are done if you fail to comply on
+                                    the
+                                    regulations in using the system.</p>
+                                <hr>
+                                <p class="mb-0">If you wish to ask for assistance, please contact your
+                                    respective barangay office.</p>
+                            </div>
+
+
+                        @elseif (Auth::user()->is_valid == 0)
+                            <div class="alert alert-warning" role="alert">
+                                <h4 class="alert-heading">Sorry! Your account is not yet verified!</h4>
+                                <p> Your account is not yet verified. Please wait for the confirmation of your
+                                    residence
+                                    after a couple of days. Thank you for your patience and understanding.</p>
+                                <hr>
+                                <p class="mb-0">If you wish to ask for assistance, please contact your
+                                    respective barangay office.</p>
+                            </div>
+
+                        @elseif (Auth::user()->is_deactivated == 1)
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Sorry! Your account has been deactivated.</h4>
+                                <hr>
+                                <p class="mb-0">If you wish to activate your account, please contact
+                                    your respective barangay office for assistance.</p>
+                            </div>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
