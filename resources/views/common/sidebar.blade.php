@@ -226,44 +226,36 @@
                 <span>Audit Logs</span></a>
         </li>
 
-    @elseif (Auth::user()->user_role === 5)
-        <!-- Nav Item - Barangay -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('lgu.brgy_delapaz.index') }}">
-                <i class="fas fa-fw fa-chevron-right"></i>
-                <span>Barangay Dela Paz</span></a>
+    @elseif (Auth::user()->user_role === 7)
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item ">
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-chart-bar"></i>
+                <span>Dashboard</span></a>
         </li>
 
-        <!-- Nav Item - Barangay -->
+        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('lgu.brgy_manggahan.index') }}">
-                <i class="fas fa-fw fa-chevron-right"></i>
-                <span>Barangay Manggahan</span></a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-bookmark"></i>
+                <span>Protocols</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="">Guidelines</a>
+                    <a class="collapse-item" href="">Evacuation
+                        Centers <br> and Hospitals</a>
+                </div>
+            </div>
         </li>
 
-        <!-- Nav Item - Barangay -->
+        <!-- Nav Item - Announcements -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('lgu.brgy_maybunga.index') }}">
-                <i class="fas fa-fw fa-chevron-right"></i>
-                <span>Barangay Maybunga</span></a>
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-map-marked"></i>
+                <span>Vulnerability Map</span></a>
         </li>
-
-        <!-- Nav Item - Barangay -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('lgu.brgy_rosario.index') }}">
-                <i class="fas fa-fw fa-chevron-right"></i>
-                <span>Barangay Rosario</span></a>
-        </li>
-
-        <!-- Nav Item - Barangay -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('lgu.brgy_santolan.index') }}">
-                <i class="fas fa-fw fa-chevron-right"></i>
-                <span>Barangay Santolan</span></a>
-        </li>
-
-
-
 
     @endif
 
