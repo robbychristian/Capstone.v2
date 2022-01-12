@@ -20,21 +20,12 @@
                     @if ($audit->event == 'created' || $audit->event == 'deleted')
 
 
-                        <ul class="list-group" style="font-size: 0.5rem;">
-                            @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}
-                                </li>
-                            @endforeach
-                        </ul>
-
-
-
                         <div class="table-responsive mt-3">
                             <table class="table table-sm table-borderless" style="color:#464646;" width="50%">
                                 <thead>
                                     <tr>
-                                        <th scope="col" style="color:#464646;">Attribute</th>
-                                        <th scope="col" style="color:#464646;">Value</th>
+                                        <th scope="col" style="color:#464646;" class="col-sm-4">Attribute</th>
+                                        <th scope="col" style="color:#464646;" class="col-sm-8">Value</th>
                                     </tr>
                                 </thead>
                                 <tbody>
