@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
 use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
 use App\Http\Controllers\Auth\GenerateReportController as UserGenerateReport;
 use App\Http\Controllers\Auth\LGUDashboardController as LGUDashboard;
+use App\Http\Controllers\Auth\LGUEvacuationController as LGUEvacuation;
 use App\Http\Controllers\Auth\LGUGenerateReportController as LGUGenerate;
 use App\Http\Controllers\Auth\ManageResidentController as UserManageResident;
 use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
@@ -105,6 +106,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/announcements/approve/{id}', [UserAnnouncement::class, 'approve'])->name('announcement.approve');
         Route::post('/announcements/disapprove/{id}', [UserAnnouncement::class, 'disapprove'])->name('announcement.disapprove');
         Route::resource('/evacuation', UserEvacuation::class);
+        Route::resource('/evacuation-lgu', LGUEvacuation::class);
         Route::post('/evacuation/approve/{id}', [UserEvacuation::class,'approve'])->name('evacuation.approve');
         Route::resource('/guidelines', UserGuidelines::class);
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);

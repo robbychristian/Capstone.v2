@@ -73,7 +73,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
-                    <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation
+                    <a class="collapse-item" href="{{ route('user.evacuation-lgu.index') }}">Evacuation
                         Centers <br> and Hospitals</a>
                 </div>
             </div>
