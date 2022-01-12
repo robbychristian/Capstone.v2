@@ -22,7 +22,6 @@ class ActivityLogController extends Controller
             $data = DB::table('audits')
                 ->join('users', 'audits.user_id', '=', 'users.id')
                 ->select('audits.id', 'audits.event', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
-                ->where('audits.user_id', '!=', NULL)
                 ->latest();
 
             return DataTables::of($data)
@@ -110,7 +109,6 @@ class ActivityLogController extends Controller
         $audits = DB::table('audits')
             ->join('users', 'audits.user_id', '=', 'users.id')
             ->select('audits.*', 'users.*')
-            ->where('audits.user_id', '!=', NULL)
             ->where('audits.id', $id)
             ->get();
 

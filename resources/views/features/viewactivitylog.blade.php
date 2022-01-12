@@ -14,9 +14,16 @@
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
                 @forelse($audits as $audit)
-                    <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
-                        {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
-                        this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+
+                @if ($audit->user_id == NULL)
+                <div class="card-text">On {{ $audit->created_at }}, Admin[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
+                    this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                @else
+                <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
+                    {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
+                    this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                @endif
+                    
                     @if ($audit->event == 'created' || $audit->event == 'deleted')
 
 
@@ -42,17 +49,21 @@
                     @elseif ($audit->event == 'updated')
                         <ul class="list-unstyled">
                             <li>
-                                @foreach (json_decode($audit->old_values) as $attribute => $value)
-                                    @if ($value == null)
-                                        The {{ $attribute }} has been modified from <em>NULL</em>
-                                    @else
-                                        The {{ $attribute }} has been modified from {{ $value }}
-                                    @endif
-                                @endforeach
+                                <ul>
+                                    <li>
+                                        @foreach (json_decode($audit->old_values) as $attribute => $value)
+                                            @if ($value == null)
+                                                The {{ $attribute }} has been modified from <strong><em>NULL</em></strong>
+                                            @else
+                                                The {{ $attribute }} has been modified from <strong>{{ $value }}</strong>
+                                            @endif
+                                        @endforeach
 
-                                @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                    to {{ $value }}.
-                                @endforeach
+                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                            to <strong>{{ $value }}</strong>.
+                                        @endforeach
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     @endif
