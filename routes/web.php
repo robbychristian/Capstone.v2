@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\DashboardController as UserDashboard;
 use App\Http\Controllers\Auth\GuidelinesController as UserGuidelines;
 use App\Http\Controllers\Auth\EvacuationController as UserEvacuation;
 use App\Http\Controllers\Auth\GenerateReportController as UserGenerateReport;
+use App\Http\Controllers\Auth\LGUDashboardController as LGUDashboard;
 use App\Http\Controllers\Auth\ManageResidentController as UserManageResident;
 use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
 use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
@@ -124,6 +125,10 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::resource('/stats', UserStatsReports::class);
         Route::resource('/generate', UserGenerateReport::class);
         Route::resource('/dashboard', UserDashboard::class);
+        Route::resource('/dashboard-lgu', LGUDashboard::class);
+        Route::get('/dashboard-lgu/brgy/{brgy}', [LGUDashboard::class, "brgyDashboard"])->name('dashboard.stats');
+        //Route::get('/generate/{brgy}', [LGUDashboard::class, 'showGenerator']);
+        //Route::post('/generate/{brgy}/{brgy_loc}', [LGUDashboard::class, 'testGenerate']);
         Route::resource('/emergencymessage', BrgyEmergency::class);
     });
 });

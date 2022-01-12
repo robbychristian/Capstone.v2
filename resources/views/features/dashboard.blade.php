@@ -7,12 +7,20 @@
 
         @if (Auth::user()->user_role == 1)
             <a href="/admin/dashboard" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
+
+        @elseif (Auth::user()->user_role == 7)
+            <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
         @endif
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
-            @if (Auth::user()->user_role >= 4)
+            @if (Auth::user()->user_role == 7)
+                <a href="/user/generate/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i>
+                    Generate Report</a>
+
+            @elseif(Auth::user()->user_role >= 4)
                 <a href="{{ route('user.generate.index') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>

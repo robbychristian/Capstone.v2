@@ -59,7 +59,7 @@
     @elseif (Auth::user()->user_role === 7)
         <!-- Nav Item - Dashboard -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('user.dashboard.index') }}">
+            <a class="nav-link" href="">
                 <i class="fas fa-fw fa-chart-bar"></i>
                 <span>Dashboard</span></a>
         </li>
