@@ -14,14 +14,17 @@
             <div class="card-body">
                 @forelse($audits as $audit)
 
-                @if ($audit->user_id == NULL)
-                <div class="card-text">On {{ $audit->created_at }}, Admin[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
-                    this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
-                @else
-                <div class="card-text">On {{ $audit->created_at }},""[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
-                    this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
-                @endif
-                    
+                    @if ($audit->user_id == null)
+                        <div class="card-text">On {{ $audit->created_at }}, Admin[{{ $audit->ip_address }}]
+                            <strong>{{ $audit->event }}</strong>
+                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                    @else
+
+                        <div class="card-text">On {{ $audit->created_at }}, User[{{ $audit->ip_address }}]
+                            <strong>{{ $audit->event }}</strong>
+                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                    @endif
+
                     @if ($audit->event == 'created' || $audit->event == 'deleted')
 
 
@@ -51,9 +54,11 @@
                                     <li>
                                         @foreach (json_decode($audit->old_values) as $attribute => $value)
                                             @if ($value == null)
-                                                The {{ $attribute }} has been modified from <strong><em>NULL</em></strong>
+                                                The {{ $attribute }} has been modified from
+                                                <strong><em>NULL</em></strong>
                                             @else
-                                                The {{ $attribute }} has been modified from <strong>{{ $value }}</strong>
+                                                The {{ $attribute }} has been modified from
+                                                <strong>{{ $value }}</strong>
                                             @endif
                                         @endforeach
 

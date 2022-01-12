@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DataTables;
@@ -127,9 +128,6 @@ class ActivityLogController extends Controller
         $audits = DB::table('audits')
             ->where('audits.id', $id)
             ->get();
-
-
-
 
         return view('features.viewactivitylog', [
             'audits' => $audits,
