@@ -17,7 +17,7 @@
                     <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
                         {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
-                    @if ($audit->created_at == 'created' || $audit->created_at == 'deleted')
+                    @if ($audit->event == 'created' || $audit->event == 'deleted')
 
                         <ul class="list-group">
                             @foreach (json_decode($audit->new_values) as $attribute => $value)
