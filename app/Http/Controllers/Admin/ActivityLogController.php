@@ -22,7 +22,7 @@ class ActivityLogController extends Controller
             $data = DB::table('audits')
                 ->join('users', 'audits.user_id', '=', 'users.id')
                 ->select('audits.id', 'audits.event', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
-                ->where('audits.id', '!=', NULL)
+                ->whereNull('audits.user_id')
                 ->latest();
 
             return DataTables::of($data)
