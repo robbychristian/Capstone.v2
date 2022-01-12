@@ -110,32 +110,36 @@
                     <!-- Topbar -->
                     @include('common.header')
                     <!-- End of Topbar -->
+
+                    <div class="container mt-3">
+                        <div class="card">
+                            @if (Auth::user()->is_blocked == 1)
+                                <div class="card-body">
+                                    Sorry! Your account has been blocked.
+                                </div>
+
+                            @elseif (Auth::user()->is_valid == 0)
+                                <div class="card-body">
+                                    Your account is not yet verified. Please wait for the confirmation of your residence
+                                    after a
+                                    couple
+                                    of days.
+                                </div>
+                            @elseif (Auth::user()->is_deactivated == 1)
+                                <div class="card-body">
+                                    Sorry! Your account has been deactivated. If you wish to activate your account,
+                                    please contact
+                                    your
+                                    respective barangay office for assistance.
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container mt-3">
-            <div class="card">
-                @if (Auth::user()->is_blocked == 1)
-                    <div class="card-body">
-                        Sorry! Your account has been blocked.
-                    </div>
 
-                @elseif (Auth::user()->is_valid == 0)
-                    <div class="card-body">
-                        Your account is not yet verified. Please wait for the confirmation of your residence after a
-                        couple
-                        of days.
-                    </div>
-                @elseif (Auth::user()->is_deactivated == 1)
-                    <div class="card-body">
-                        Sorry! Your account has been deactivated. If you wish to activate your account, please contact
-                        your
-                        respective barangay office for assistance.
-                    </div>
-                @endif
-            </div>
-        </div>
 
     @else
         <!-- Page Wrapper -->
