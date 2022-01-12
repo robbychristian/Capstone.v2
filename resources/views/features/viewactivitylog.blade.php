@@ -19,34 +19,14 @@
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
                     @if ($audit->event == 'created' || $audit->event == 'deleted')
 
-                        <ul class="list-group">
-                            @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}</li>
-                            @endforeach
-
-
-                        </ul>
-                        <!--
-                        <div class="table-responsive mt-3">
-                            <table class="table table-sm table-bordered" style="color:#464646;" width="50%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="color:#464646;">Attribute</th>
-                                        <th scope="col" style="color:#464646;">Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                                <th scope="row">{{ $attribute }}</th>
-                                                <td>{{ $value }}</td>
-                                            </tr>
-                                        
-                                    
-
-                                </tbody>
-                            </table>
-                        </div> -->
-
+                        <div class="container">
+                            <ul class="list-group">
+                                @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                    <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @elseif ($audit->created_at == 'updated')
 
                     @endif
