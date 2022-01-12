@@ -17,17 +17,17 @@
                     @if ($audit->user_id == null)
                         <div class="card-text">On {{ $audit->created_at }}, Admin[{{ $audit->ip_address }}]
                             <strong>{{ $audit->event }}</strong>
-                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
+                        </div>
                     @else
 
                         <div class="card-text">On {{ $audit->created_at }}, User[{{ $audit->ip_address }}]
                             <strong>{{ $audit->event }}</strong>
-                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                            this record via {{ $audit->url }}/{{ $audit->auditable_id }}?
+                        </div>
                     @endif
 
-                    @if ($audit->event == 'created' || $audit->event == 'deleted')
-
-
+                    @if ($audit->event == 'created')
                         <div class="table-responsive mt-3">
                             <table class="table table-sm table-borderless" style="color:#464646;" width="50%">
                                 <thead>
@@ -46,6 +46,27 @@
                                 </tbody>
                             </table>
                         </div>
+
+                    @elseif ($audit->event == 'deleted')
+                        <div class="table-responsive mt-3">
+                            <table class="table table-sm table-borderless" style="color:#464646;" width="50%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="color:#464646;" class="col-sm-3">Attribute</th>
+                                        <th scope="col" style="color:#464646;" class="col-sm-9">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (json_decode($audit->old_values) as $attribute => $value)
+                                        <tr>
+                                            <th scope="row">{{ $attribute }}</th>
+                                            <td>{{ $value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
 
                     @elseif ($audit->event == 'updated')
                         <ul class="list-unstyled">
