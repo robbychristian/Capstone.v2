@@ -7,7 +7,9 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Disaster Preparedness</h1>
 
-            @if (Auth::user()->user_role >= 4)
+            @if (Auth::user()->user_role == 7)
+
+            @elseif (Auth::user()->user_role >= 4)
                 <a href="{{ route('user.guidelines.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i>
                     Add Guidelines </a>
