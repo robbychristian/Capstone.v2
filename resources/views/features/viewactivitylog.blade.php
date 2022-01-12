@@ -69,27 +69,22 @@
 
 
                     @elseif ($audit->event == 'updated')
-                        <ul class="list-unstyled">
-                            <li>
-                                <ul>
-                                    <li>
-                                        @foreach (json_decode($audit->old_values) as $attribute => $value)
-                                            @if ($value == null)
-                                                The {{ $attribute }} has been modified from
-                                                <strong><em>NULL</em></strong>
-                                            @else
-                                                The {{ $attribute }} has been modified from
-                                                <strong>{{ $value }}</strong>
-                                            @endif
-                                        @endforeach
+                        <div class="changed-values mt-3">
+                            @foreach (json_decode($audit->old_values) as $attribute => $value)
+                                @if ($value == null)
+                                    &#8226; The {{ $attribute }} has been modified from
+                                    <strong><em>NULL</em></strong>
+                                @else
+                                    &#8226; The {{ $attribute }} has been modified from
+                                    <strong>{{ $value }}</strong>
+                                @endif
+                            @endforeach
 
-                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                            to <strong>{{ $value }}</strong>.
-                                        @endforeach
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                            @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                to <strong>{{ $value }}</strong>. <br>
+                            @endforeach
+                        </div>
+                        
                     @endif
 
                 @empty
