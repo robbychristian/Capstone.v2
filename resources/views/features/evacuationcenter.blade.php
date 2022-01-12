@@ -399,7 +399,7 @@
 
                 var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
                 var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
-
+                
                 var infoWindow = new google.maps.InfoWindow();
 
 
@@ -433,7 +433,7 @@
                     } else {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: resmap,
+                            map:resmap,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
@@ -472,9 +472,8 @@
     <div class="container-fluid mb-5" style="color: black;">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-4 text-gray-800">Evacuation Centers and Nearby Hospitals</h1>
-            @if (Auth::user()->user_role == 7)
 
-            @elseif (Auth::user()->user_role >= 3)
+            @if (Auth::user()->user_role >= 3)
                 <a href="{{ route('user.evacuation.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i>
                     Add Evacuation Centers or Nearby Hospitals</a>
@@ -612,30 +611,16 @@
                                     style="color:#464646 !important">
                                     <thead>
                                         <tr>
-                                            @if (Auth::user()->user_role == 7)
-                                                <th>No</th>
-                                                <th>Added By</th>
-                                                <th>Evacuation Name</th>
-                                                <th>Nearest Landmark</th>
-                                                <th>Barangay Location</th>
-                                                <th>Phone Number</th>
-                                                <th>Capacity</th>
-                                                <th>Status</th>
-                                                <th>Approved</th>
-                                            @else
-                                                <th>No</th>
-                                                <th>Added By</th>
-                                                <th>Evacuation Name</th>
-                                                <th>Nearest Landmark</th>
-                                                <th>Barangay Location</th>
-                                                <th>Phone Number</th>
-                                                <th>Capacity</th>
-                                                <th>Status</th>
-                                                <th>Approved</th>
-                                                <th>Action</th>
-                                            @endif
-
-
+                                            <th>No</th>
+                                            <th>Added By</th>
+                                            <th>Evacuation Name</th>
+                                            <th>Nearest Landmark</th>
+                                            <th>Barangay Location</th>
+                                            <th>Phone Number</th>
+                                            <th>Capacity</th>
+                                            <th>Status</th>
+                                            <th>Approved</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -657,23 +642,6 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                 @foreach ($barangays as $barangay)
-                                                    <button class="dropdown-item changeBrgy" id="changeBrgy"
-                                                        data-lat="{{ $barangay->brgy_lat }}"
-                                                        data-lng="{{ $barangay->brgy_lng }}"
-                                                        type="button">{{ $barangay->brgy_loc }}</button>
-                                                @endforeach
-                                            </div>
-                                        </div>
-
-                                    @elseif (Auth::user()->user_role == 7)
-
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary" type="button" id="dropdownMenu2"
-                                                data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fas fa-caret-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                @foreach ($lgubarangays as $barangay)
                                                     <button class="dropdown-item changeBrgy" id="changeBrgy"
                                                         data-lat="{{ $barangay->brgy_lat }}"
                                                         data-lng="{{ $barangay->brgy_lng }}"
@@ -956,57 +924,6 @@
             });
         </script>
 
-    @elseif (Auth::user()->user_role == 7)
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('user.evacuation.index') }}",
-                columns: [{
-                        data: 'id',
-                        name: 'id'
-                    },
-                    {
-                        data: 'added_by',
-                        name: 'added_by'
-                    },
-                    {
-                        data: 'evac_name',
-                        name: 'evac_name'
-                    },
-                    {
-                        data: 'nearest_landmark',
-                        name: 'nearest_landmark'
-                    },
-                    {
-                        data: 'brgy_loc',
-                        name: 'brgy_loc'
-                    },
-                    {
-                        data: 'phone_no',
-                        name: 'phone_no'
-                    },
-                    {
-                        data: 'capacity',
-                        name: 'capacity'
-                    },
-                    {
-                        data: 'availability',
-                        name: 'availability'
-                    },
-                    {
-                        data: 'is_approved',
-                        name: 'is_approved',
-                        orderable: false,
-                        searchable: false
-                    },
-                ],
-
-            });
-
-        });
-    </script>
     @elseif (Auth::user()->user_role >= 4)
         <script type="text/javascript">
             $(document).ready(function() {
