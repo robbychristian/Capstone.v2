@@ -19,18 +19,18 @@
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
                     @if ($audit->event == 'created' || $audit->event == 'deleted')
 
-                        <div class="container">
-                            <ul class="list-group">
-                                @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                    <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
+
+                        <ul class="list-group" style="font-size: 0.5rem;">
+                            @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}
+                                </li>
+                            @endforeach
+                        </ul>
+
 
 
                         <div class="table-responsive mt-3">
-                            <table class="table table-sm table-borderlessd" style="color:#464646;" width="50%">
+                            <table class="table table-sm table-borderless" style="color:#464646;" width="50%">
                                 <thead>
                                     <tr>
                                         <th scope="col" style="color:#464646;">Attribute</th>
