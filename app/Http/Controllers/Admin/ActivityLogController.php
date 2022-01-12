@@ -23,6 +23,7 @@ class ActivityLogController extends Controller
                 ->leftJoin('users', 'audits.user_id', '=', 'users.id')
                 ->select('audits.id', 'audits.event', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
                 ->whereNull('audits.user_id')
+                ->orWhere('audits.user_id', '!=', NULL)
                 ->latest();
 
             return DataTables::of($data)
