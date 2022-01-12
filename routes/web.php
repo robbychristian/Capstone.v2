@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\GenerateReportController as UserGenerateReport;
 use App\Http\Controllers\Auth\LGUDashboardController as LGUDashboard;
 use App\Http\Controllers\Auth\LGUEvacuationController as LGUEvacuation;
 use App\Http\Controllers\Auth\LGUGenerateReportController as LGUGenerate;
+use App\Http\Controllers\Auth\LGUVulnerabilityMapController as LGUVulnerabilityMap;
 use App\Http\Controllers\Auth\ManageResidentController as UserManageResident;
 use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
 use App\Http\Controllers\Auth\VulnerabilityMapController as UserVulnerabilityMap;
@@ -110,6 +111,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/evacuation/approve/{id}', [UserEvacuation::class,'approve'])->name('evacuation.approve');
         Route::resource('/guidelines', UserGuidelines::class);
         Route::resource('/vulnerabilitymap', UserVulnerabilityMap::class);
+        Route::resource('/vulnerabilitymap-lgu', LGUVulnerabilityMap::class);
         Route::post('/vulnerabilitymap/approve/{id}', [UserVulnerabilityMap::class, 'approve'])->name('vulnerabilitymap.approve');
         Route::resource('/reports', UserReports::class);
         Route::get('/getreports/{id}', [UserReports::class, 'getreports']);

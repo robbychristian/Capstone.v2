@@ -81,7 +81,7 @@
 
         <!-- Nav Item - Announcements -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}">
+            <a class="nav-link" href="{{ route('user.vulnerabilitymap-lgu.index') }}">
                 <i class="fas fa-fw fa-map-marked"></i>
                 <span>Vulnerability Map</span></a>
         </li>
