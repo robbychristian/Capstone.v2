@@ -39,7 +39,7 @@
                             </table>
                         </div>
 
-                    @elseif ($audit->created_at == 'updated')
+                    @elseif ($audit->event == 'updated')
                         <ul class="list-unstyled">
                             <li>Nested lists:
                                 <ul>
