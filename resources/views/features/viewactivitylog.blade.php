@@ -24,8 +24,8 @@
                             <table class="table table-sm table-borderless" style="color:#464646;" width="50%">
                                 <thead>
                                     <tr>
-                                        <th scope="col" style="color:#464646;" class="col-sm-3 text-center">Attribute</th>
-                                        <th scope="col" style="color:#464646;" class="col-sm-9 text-center">Value</th>
+                                        <th scope="col" style="color:#464646;" class="col-sm-3">Attribute</th>
+                                        <th scope="col" style="color:#464646;" class="col-sm-9">Value</th>
                                     </tr>
                                 </thead>
                                 <tbody>
