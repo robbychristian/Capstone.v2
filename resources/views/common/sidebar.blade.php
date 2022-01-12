@@ -69,7 +69,7 @@
         @endif
 
 
-        @if (Auth::user()->user_role >= 6)
+        @if (Auth::user()->user_role <= 6)
             <!-- Nav Item - Account -->
             <li class="nav-item">
                 <a class="nav-link" href="/user/account/{{ Auth::user()->id }}/edit">
@@ -108,7 +108,7 @@
                 <span>Vulnerability Map</span></a>
         </li>
 
-        @if (Auth::user()->user_role >= 6)
+        @if (Auth::user()->user_role <= 6)
 
 
             <!-- Nav Item - Reports -->
