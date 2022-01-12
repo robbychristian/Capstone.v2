@@ -21,7 +21,7 @@ class ActivityLogController extends Controller
         if ($request->ajax()) {
             $data = DB::table('audits')
                 ->leftJoin('users', 'audits.user_id', '=', 'users.id')
-                ->select('audits.id', 'audits.event', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
+                ->select('audits.id', 'audits.event', 'audits.user_id', 'audits.created_at', 'audits.auditable_type', 'users.email', 'users.first_name', 'users.last_name', 'users.user_role')
                 ->whereNull('audits.user_id')
                 ->orWhere('audits.user_id', '!=', NULL)
                 ->latest();
@@ -40,6 +40,7 @@ class ActivityLogController extends Controller
                     if($row->user_id == NULL){
                         return ' <div class= "name">
                         <h6>Admin</h6>
+                        <small class="text-muted">admin@kabisig.com</small>
                         </div>';
                     }else{
                         return ' <div class= "name">
@@ -47,25 +48,21 @@ class ActivityLogController extends Controller
                         <small class="text-muted">' . $row->email . '</small>
                         </div>';
                     }
-                   
-
-                   
-                    
                 })
 
                 ->addColumn('user_type', function ($row) {
                     if ($row->user_role == '2') {
-                        return '<label class="badge badge-primary">Resident</label>';
+                        return '<label class="badge badge-pill badge-primary">Resident</label>';
                     } else if ($row->user_role == '3') {
-                        return '<label class="badge badge-info">Barangay Official</label>';
+                        return '<label class="badge badge-pill badge-info">Barangay Official</label>';
                     } else if ($row->user_role == '4') {
-                        return '<label class="badge badge-secondary">Barangay Secretary</label>';
+                        return '<label class="badge badge-pill badge-secondary">Barangay Secretary</label>';
                     } else if ($row->user_role == '5') {
-                        return '<label class="badge badge-warning">Barangay Co-Chairman</label>';
+                        return '<label class="badge badge-pill badge-warning">Barangay Co-Chairman</label>';
                     } else if ($row->user_role == '6') {
-                        return '<label class="badge badge-success">Barangay Chairman</label>';
+                        return '<label class="badge badge-pill badge-success">Barangay Chairman</label>';
                     } else{
-                        return '<label class="badge badge-dark">Administrator</label>';
+                        return '<label class="badge badge-pill badge-dark">Administrator</label>';
                     }
                 })
 
