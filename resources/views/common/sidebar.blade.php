@@ -56,8 +56,38 @@
                 <span>Reports</span></a>
         </li>
 
+    @elseif (Auth::user()->user_role === 7)
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('user.dashboard.index') }}">
+                <i class="fas fa-fw fa-chart-bar"></i>
+                <span>Dashboard</span></a>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-bookmark"></i>
+                <span>Protocols</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('user.guidelines.index') }}">Guidelines</a>
+                    <a class="collapse-item" href="{{ route('user.evacuation.index') }}">Evacuation
+                        Centers <br> and Hospitals</a>
+                </div>
+            </div>
+        </li>
 
-    @elseif (Auth::user()->user_role >= 3 || Auth::user()->user_role <= 6)
+        <!-- Nav Item - Announcements -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.vulnerabilitymap.index') }}">
+                <i class="fas fa-fw fa-map-marked"></i>
+                <span>Vulnerability Map</span></a>
+        </li>
+
+
+    @elseif (Auth::user()->user_role >= 3)
 
         @if (Auth::user()->user_role >= 4)
             <!-- Nav Item - Dashboard -->
