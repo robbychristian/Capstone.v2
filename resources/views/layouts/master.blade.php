@@ -152,7 +152,7 @@
 
 
 
-    @else
+    @elseif (Auth::user()->user_role == 1 || Auth::user()->is_blocked == 0 || Auth::user()->is_valid == 1 || Auth::user()->is_deactivated == 0)
         <!-- Page Wrapper -->
         <div id="wrapper">
 
