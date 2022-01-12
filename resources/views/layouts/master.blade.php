@@ -112,28 +112,40 @@
                     <!-- End of Topbar -->
 
                     <div class="container mt-3">
-                        <div class="card">
-                            @if (Auth::user()->is_blocked == 1)
-                                <div class="card-body">
-                                    Sorry! Your account has been blocked.
-                                </div>
 
-                            @elseif (Auth::user()->is_valid == 0)
-                                <div class="card-body">
-                                    Your account is not yet verified. Please wait for the confirmation of your residence
-                                    after a
-                                    couple
-                                    of days.
-                                </div>
-                            @elseif (Auth::user()->is_deactivated == 1)
-                                <div class="card-body">
-                                    Sorry! Your account has been deactivated. If you wish to activate your account,
-                                    please contact
-                                    your
-                                    respective barangay office for assistance.
-                                </div>
-                            @endif
-                        </div>
+                        @if (Auth::user()->is_blocked == 1)
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Sorry! Your account has been blocked!</h4>
+                                <p>Your account has been blocked due to falsifying submitted reports which could greatly
+                                    harm the operation of the barangay.
+                                    Please understand that blocking of accounts are done if you fail to comply on the
+                                    regulations in using the system.</p>
+                                <hr>
+                                <p class="mb-0">If you wish to ask for assistance, please contact your
+                                    respective barangay office.</p>
+                            </div>
+
+
+                        @elseif (Auth::user()->is_valid == 0)
+                            <div class="alert alert-warning" role="alert">
+                                <h4 class="alert-heading">Sorry! Your account is not yet verified!</h4>
+                                <p> Your account is not yet verified. Please wait for the confirmation of your residence
+                                    after a couple of days. Thank you for your patience and understanding.</p>
+                                <hr>
+                                <p class="mb-0">If you wish to ask for assistance, please contact your
+                                    respective barangay office.</p>
+                            </div>
+
+                        @elseif (Auth::user()->is_deactivated == 1)
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">Well done!</h4>
+                                <p>Sorry! Your account has been deactivated. </p>
+                                <hr>
+                                <p class="mb-0">If you wish to activate your account,please contact
+                                    your respective barangay office for assistance.</p>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
