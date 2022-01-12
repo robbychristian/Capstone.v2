@@ -118,13 +118,16 @@ class ActivityLogController extends Controller
         //    ->where('id', $id)
         //    ->get();
 
+        //$audits = DB::table('audits')
+        //    ->join('users', 'audits.user_id', '=', 'users.id')
+        //    ->select('audits.*', 'users.*')
+        //    ->where('audits.id', $id)
+        //    ->get();
+
         $audits = DB::table('audits')
-            ->leftJoin('users', 'audits.user_id', '=', 'users.id')
-            ->select('audits.*', 'users.*')
             ->where('audits.id', $id)
-            ->whereNull('audits.user_id')
-            ->orWhere('audits.user_id', '!=', NULL)
             ->get();
+
 
 
 

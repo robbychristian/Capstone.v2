@@ -18,8 +18,7 @@
                 <div class="card-text">On {{ $audit->created_at }}, Admin[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
                     this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
                 @else
-                <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
-                    {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
+                <div class="card-text">On {{ $audit->created_at }},""[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
                     this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
                 @endif
                     
