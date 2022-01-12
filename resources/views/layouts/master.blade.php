@@ -138,8 +138,7 @@
 
                         @elseif (Auth::user()->is_deactivated == 1)
                             <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">Well done!</h4>
-                                <p>Sorry! Your account has been deactivated. </p>
+                                <h4 class="alert-heading">Sorry! Your account has been deactivated.</h4>
                                 <hr>
                                 <p class="mb-0">If you wish to activate your account,please contact
                                     your respective barangay office for assistance.</p>
