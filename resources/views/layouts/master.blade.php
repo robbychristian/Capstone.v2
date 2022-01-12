@@ -140,7 +140,7 @@
                             <div class="alert alert-danger" role="alert">
                                 <h4 class="alert-heading">Sorry! Your account has been deactivated.</h4>
                                 <hr>
-                                <p class="mb-0">If you wish to activate your account,please contact
+                                <p class="mb-0">If you wish to activate your account, please contact
                                     your respective barangay office for assistance.</p>
                             </div>
                         @endif
