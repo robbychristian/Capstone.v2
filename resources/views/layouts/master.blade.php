@@ -106,7 +106,7 @@
     @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
         <div id="wrapper">
             <div id="content-wrapper" class="d-flex flex-column">
-                <div id="content">
+                <div id="content" style="background-color: white">
                     <!-- Topbar -->
                     @include('common.header')
                     <!-- End of Topbar -->
