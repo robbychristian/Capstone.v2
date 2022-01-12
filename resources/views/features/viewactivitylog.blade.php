@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '| Activity Log')
 @section('content')
-<!---comments: continue on update event view and admin -->
+    <!---comments: continue on update event view and admin -->
     <div class="container-fluid" style="color: black">
 
         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
@@ -17,25 +17,39 @@
                     <div class="card-text">On {{ $audit->created_at }}, {{ $audit->first_name }}
                         {{ $audit->last_name }}[{{ $audit->ip_address }}] <strong>{{ $audit->event }}</strong>
                         this record via {{ $audit->url }}/{{ $audit->auditable_id }}?</div>
+                    @if ($audit->created_at == 'created' || $audit->created_at == 'deleted')
 
-                    <div class="table-responsive mt-3">
-                        <table class="table table-sm table-bordered" style="color:#464646;" width="50%">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="color:#464646;">Attribute</th>
-                                    <th scope="col" style="color:#464646;">Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (json_decode($audit->new_values) as $attribute => $value)
+                        <ul class="list-group">
+                            @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                <li class="list-group-item"><strong>{{ $attribute }}:</strong> {{ $value }}</li>
+                            @endforeach
+
+
+                        </ul>
+                        <!--
+                        <div class="table-responsive mt-3">
+                            <table class="table table-sm table-bordered" style="color:#464646;" width="50%">
+                                <thead>
                                     <tr>
-                                        <th scope="row">{{ $attribute }}</th>
-                                        <td>{{ $value }}</td>
+                                        <th scope="col" style="color:#464646;">Attribute</th>
+                                        <th scope="col" style="color:#464646;">Value</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                                <th scope="row">{{ $attribute }}</th>
+                                                <td>{{ $value }}</td>
+                                            </tr>
+                                        
+                                    
+
+                                </tbody>
+                            </table>
+                        </div> -->
+
+                    @elseif ($audit->created_at == 'updated')
+
+                    @endif
 
                 @empty
                     <div class="card-text">No logs</div>
