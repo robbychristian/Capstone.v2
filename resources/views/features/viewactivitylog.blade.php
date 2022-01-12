@@ -44,7 +44,7 @@
                             <li>Nested lists:
                                 <ul>
                                     <li>
-                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                        @foreach (json_decode($audit->old_values) as $attribute => $value)
                                             The {{ $attribute }} has been modified from {{ $value }}
                                         @endforeach
 
