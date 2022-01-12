@@ -166,6 +166,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/manageresident/activate/{manageresident}', [AdminManageResident::class, 'activate'])->name('manageresident.activate');
         Route::post('/manageresident/approve/{manageresident}', [AdminManageResident::class, 'approve'])->name('manageresident.approve');
         Route::post('/manageresident/disapprove/{manageresident}', [AdminManageResident::class, 'disapprove'])->name('manageresident.disapprove');
+        Route::post('/manageresident/promotelgu/{manageresident}', [AdminManageResident::class, 'lgu'])->name('manageresident.lgu');
         Route::post('/manageresident/promotechairman/{manageresident}', [AdminManageResident::class, 'chairman'])->name('manageresident.chairman');
         Route::post('/manageresident/promotecochairman/{manageresident}', [AdminManageResident::class, 'coChairman'])->name('manageresident.cochairman');
         Route::post('/manageresident/promotesecretary/{manageresident}', [AdminManageResident::class, 'secretary'])->name('manageresident.secretary');

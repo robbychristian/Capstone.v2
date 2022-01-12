@@ -169,6 +169,9 @@
                                                             @if (Auth::user()->user_role == 1)
                                                                 <div class="dropdown-header">Higher Officials</div>
                                                                 <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
+                                                                <a class="dropdown-item" href="#"
                                                                     data-id="{{ $user->id }}" id="chairman">Barangay
                                                                     Chairman</a>
                                                                 <a class="dropdown-item" href="#"
@@ -213,6 +216,9 @@
                                                             @if (Auth::user()->user_role == 1)
                                                                 <div class="dropdown-header">Higher Officials</div>
                                                                 <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
+                                                                <a class="dropdown-item" href="#"
                                                                     data-id="{{ $user->id }}" id="chairman">Barangay
                                                                     Chairman</a>
                                                                 <a class="dropdown-item" href="#"
@@ -255,6 +261,9 @@
 
                                                             @if (Auth::user()->user_role == 1)
                                                                 <div class="dropdown-header">Higher Officials</div>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
                                                                 <a class="dropdown-item" href="#"
                                                                     data-id="{{ $user->id }}" id="chairman">Barangay
                                                                     Chairman</a>
@@ -299,6 +308,9 @@
                                                             @if (Auth::user()->user_role == 1)
                                                                 <div class="dropdown-header">Higher Officials</div>
                                                                 <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
+                                                                <a class="dropdown-item" href="#"
                                                                     data-id="{{ $user->id }}" id="chairman">Barangay
                                                                     Chairman</a>
                                                                 <a class="dropdown-item" href="#"
@@ -341,6 +353,56 @@
 
                                                             @if (Auth::user()->user_role == 1)
                                                                 <div class="dropdown-header">Higher Officials</div>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="chairman">Barangay
+                                                                    Chairman</a>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="co-chairman">Barangay
+                                                                    Co-Chairman</a>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="secretary">Barangay
+                                                                    Secretary</a>
+                                                            @endif
+
+                                                            <div class="dropdown-header">Subordinates</div>
+                                                            <a class="dropdown-item" href="#" id="subordinates"
+                                                                data-id="{{ $user->id }}">Barangay
+                                                                Official</a>
+
+                                                            <div class="dropdown-header">Basic User</div>
+                                                            <a class="dropdown-item" href="#" id="basicuser"
+                                                                data-id="{{ $user->id }}">Resident</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                    @endif
+
+
+                                    @if ($user->user_role == 7)
+                                        <div class="col-sm-9">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown">
+                                                        <button class="btn dropdown-toggle p-0 shadow-none" type="button"
+                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <span class="badge badge-pill badge-dark">Local Government
+                                                                Unit Officer</span>
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                            @if (Auth::user()->user_role == 1)
+                                                                <div class="dropdown-header">Higher Officials</div>
+                                                                <a class="dropdown-item" href="#"
+                                                                    data-id="{{ $user->id }}" id="lgu">Local Government
+                                                                    Unit Officer</a>
                                                                 <a class="dropdown-item" href="#"
                                                                     data-id="{{ $user->id }}" id="chairman">Barangay
                                                                     Chairman</a>
@@ -541,6 +603,52 @@
 
     @if (Auth::user()->user_role == 1)
         <script>
+            $(document).on('click', '#lgu', function() {
+                var id = $(this).data('id');
+                console.log(id);
+
+                swal({
+                        title: "Are you sure?",
+                        text: "You want to change the role of this user?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            });
+
+                            $.ajax({
+                                url: "https://kabisigapp.com/admin/manageresident/promotelgu/" +
+                                    id,
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: {
+                                    "id": id
+                                },
+
+                                success: function(response) {
+                                    location.reload();
+                                    swal("Success!", response.message, "success");
+                                },
+
+                                error: function(response) {
+                                    console.log(response);
+                                }
+                            });
+                        } else {
+                            swal("No changes were made!");
+                        }
+                    });
+
+
+            });
+
             $(document).on('click', '#chairman', function() {
                 var id = $(this).data('id');
                 console.log(id);

@@ -66,7 +66,10 @@ class ManageResidentController extends Controller
                         return '<label class="badge badge-warning">Barangay Co-Chairman</label>';
                     } else if ($row->user_role == '6') {
                         return '<label class="badge badge-success">Barangay Chairman</label>';
+                    } else if ($row->user_role == '7') {
+                        return '<label class="badge badge-dark">Local Government Unit</label>';
                     }
+                    
                 })
 
                 ->rawColumns(['action', 'is_valid', 'full_name', 'user_role'])
@@ -297,6 +300,15 @@ class ManageResidentController extends Controller
         $isBlocked->is_valid = 0;
         $isBlocked->save();
         return redirect('admin/manageresident/' . $id . '/edit')->with('success', 'User account successfully unverified!');
+    }
+
+    public function lgu($id)
+    {
+        $user = User::find($id);
+        $user->user_role = 7;
+        $user->save();
+        //User::find($id)->update(['user_role' => 6]);
+        return response()->json(['message' => 'The user is now a Local Government Unit Officer!']);
     }
 
     public function chairman($id)

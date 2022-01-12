@@ -80,6 +80,8 @@
                                         <span class="badge badge-pill badge-warning">Barangay Co-Chairman</span>
                                     @elseif ($user->user_role == 6)
                                         <span class="badge badge-pill badge-success">Barangay Chairman</span>
+                                    @elseif ($user->user_role == 7)
+                                        <span class="badge badge-pill badge-dark">Local Government Unit Officer</span>
                                     @endif
                                 </div>
 
