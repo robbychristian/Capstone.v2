@@ -41,20 +41,19 @@
 
                     @elseif ($audit->event == 'updated')
                         <ul class="list-unstyled">
-                            <li>Nested lists:
-                                <ul>
-                                    <li>
-                                        @foreach (json_decode($audit->old_values) as $attribute => $value)
-                                            The {{ $attribute }} has been modified from {{ $value }}
-                                        @endforeach
+                            <li>
+                                @foreach (json_decode($audit->old_values) as $attribute => $value)
+                                    @if ($value == null)
+                                        The {{ $attribute }} has been modified from <em>NULL</em>
+                                    @else
+                                        The {{ $attribute }} has been modified from {{ $value }}
+                                    @endif
+                                @endforeach
 
-                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                            to {{ $value }}.
-                                        @endforeach
-                                    </li>
-                                </ul>
+                                @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                    to {{ $value }}.
+                                @endforeach
                             </li>
-
                         </ul>
                     @endif
 
