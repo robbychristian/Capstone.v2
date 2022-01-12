@@ -36,10 +36,21 @@ class ActivityLogController extends Controller
                 })
 
                 ->addColumn('user', function ($row) {
-                    return ' <div class= "name">
-                    <h6>' . $row->first_name . ' ' . $row->last_name . '</h6>
-                    <small class="text-muted">' . $row->email . '</small>
-                    </div>';
+
+                    if($row->user_id == NULL){
+                        return ' <div class= "name">
+                        <h6>Admin</h6>
+                        </div>';
+                    }else{
+                        return ' <div class= "name">
+                        <h6>' . $row->first_name . ' ' . $row->last_name . '</h6>
+                        <small class="text-muted">' . $row->email . '</small>
+                        </div>';
+                    }
+                   
+
+                   
+                    
                 })
 
                 ->addColumn('user_type', function ($row) {
@@ -53,6 +64,8 @@ class ActivityLogController extends Controller
                         return '<label class="badge badge-warning">Barangay Co-Chairman</label>';
                     } else if ($row->user_role == '6') {
                         return '<label class="badge badge-success">Barangay Chairman</label>';
+                    } else{
+                        return '<label class="badge badge-dark">Administrator</label>';
                     }
                 })
 
