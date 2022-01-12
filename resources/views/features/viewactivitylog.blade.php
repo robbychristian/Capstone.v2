@@ -40,7 +40,22 @@
                         </div>
 
                     @elseif ($audit->created_at == 'updated')
+                        <ul class="list-unstyled">
+                            <li>Nested lists:
+                                <ul>
+                                    <li>
+                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                            The {{ $attribute }} has been modified from {{ $value }}
+                                        @endforeach
 
+                                        @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                            to {{ $value }}.
+                                        @endforeach
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
                     @endif
 
                 @empty
