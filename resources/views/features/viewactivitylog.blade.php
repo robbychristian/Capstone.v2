@@ -27,6 +27,27 @@
                                 @endforeach
                             </ul>
                         </div>
+
+
+                        <div class="table-responsive mt-3">
+                            <table class="table table-sm table-borderlessd" style="color:#464646;" width="50%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="color:#464646;">Attribute</th>
+                                        <th scope="col" style="color:#464646;">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                        <tr>
+                                            <th scope="row">{{ $attribute }}</th>
+                                            <td>{{ $value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
                     @elseif ($audit->created_at == 'updated')
 
                     @endif
