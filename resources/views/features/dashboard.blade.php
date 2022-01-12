@@ -16,7 +16,7 @@
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
             @if (Auth::user()->user_role == 7)
-                <a href="/user/generate/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                <a href="/user/generate-lgu/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>
 

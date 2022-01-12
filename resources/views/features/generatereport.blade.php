@@ -15,8 +15,10 @@
                 @endif
                 @if (Auth::user()->user_role === 1)
                     <form action="/admin/generate/{{ $barangay }}/{{ $barangay }}" method="POST">
-                    @elseif (Auth::user()->user_role >= 4)
-                        <form action="/user/generate" method="POST">
+                    @elseif (Auth::user()->user_role == 7)
+                        <form action="/user/generate-lgu/{{ $barangay }}/{{ $barangay }}" method="POST">
+                        @elseif (Auth::user()->user_role >= 4)
+                            <form action="/user/generate" method="POST">
                 @endif
                 @csrf
                 <div class="form-row">
@@ -24,7 +26,8 @@
                         <label for="inputBrgy">Barangay</label>
                         @if (Auth::user()->user_role === 1)
                             <input class="form-control" type="text" value="{{ $barangay }}" name="barangay" readonly>
-
+                        @elseif(Auth::user()->user_role === 7)
+                            <input class="form-control" type="text" value="{{ $barangay }}" name="barangay" readonly>
                         @elseif(Auth::user()->user_role >= 4)
                             <input class="form-control" type="text" value="{{ Auth::user()->brgy_loc }}" name="barangay"
                                 readonly>
@@ -83,6 +86,9 @@
                 @if (Auth::user()->user_role == 1)
                     <a class="btn btn-outline-secondary" href="/admin/dashboard/brgy/{{ $barangay }}"
                         role="button">Cancel</a>
+                @elseif (Auth::user()->user_role == 7)
+                        <a class="btn btn-outline-secondary" href="/user/dashboard-lgu/brgy/{{ $barangay }}"
+                            role="button">Cancel</a>
 
                 @elseif (Auth::user()->user_role >= 4)
                     <a class="btn btn-outline-secondary" href="{{ route('user.dashboard.index') }}"
