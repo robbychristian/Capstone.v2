@@ -103,33 +103,43 @@
 
 
 <body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        @include('common.sidebar')
-        <!-- End of Sidebar -->
-
-        @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
-
-            <div class="card">
-                @if (Auth::user()->is_blocked == 1)
-                    <div class="card-body">
-                        Sorry! Your account has been blocked. 
-                    </div>
-
-                @elseif (Auth::user()->is_valid == 0)
-                    <div class="card-body">
-                        Your account is not yet verified. Please wait for the confirmation of your residence after a couple of days. 
-                    </div>
-                @elseif (Auth::user()->is_deactivated == 1)
-                    <div class="card-body">
-                        Sorry! Your account has been deactivated. If you wish to activate your account, please contact your respective barangay office for assistance.
-                    </div>
-                @endif
+    @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
+        <div id="wrapper">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <!-- Topbar -->
+                    @include('common.header')
+                    <!-- End of Topbar -->
+                </div>
             </div>
-        @else
+        </div>
+        
+        <div class="card">
+            @if (Auth::user()->is_blocked == 1)
+                <div class="card-body">
+                    Sorry! Your account has been blocked.
+                </div>
+
+            @elseif (Auth::user()->is_valid == 0)
+                <div class="card-body">
+                    Your account is not yet verified. Please wait for the confirmation of your residence after a couple
+                    of days.
+                </div>
+            @elseif (Auth::user()->is_deactivated == 1)
+                <div class="card-body">
+                    Sorry! Your account has been deactivated. If you wish to activate your account, please contact your
+                    respective barangay office for assistance.
+                </div>
+            @endif
+        </div>
+    @else
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            @include('common.sidebar')
+            <!-- End of Sidebar -->
+
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
@@ -153,7 +163,7 @@
 
             </div>
             <!-- End of Content Wrapper -->
-        @endif
+    @endif
 
     </div>
     <!-- End of Page Wrapper -->
