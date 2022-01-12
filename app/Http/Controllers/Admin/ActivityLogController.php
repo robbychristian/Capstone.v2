@@ -37,12 +37,12 @@ class ActivityLogController extends Controller
 
                 ->addColumn('user', function ($row) {
 
-                    if($row->user_id == NULL){
+                    if ($row->user_id == NULL) {
                         return ' <div class= "name">
                         <h6>Admin</h6>
                         <small class="text-muted">admin@kabisig.com</small>
                         </div>';
-                    }else{
+                    } else {
                         return ' <div class= "name">
                         <h6>' . $row->first_name . ' ' . $row->last_name . '</h6>
                         <small class="text-muted">' . $row->email . '</small>
@@ -61,7 +61,7 @@ class ActivityLogController extends Controller
                         return '<label class="badge badge-pill badge-warning">Barangay Co-Chairman</label>';
                     } else if ($row->user_role == '6') {
                         return '<label class="badge badge-pill badge-success">Barangay Chairman</label>';
-                    } else{
+                    } else {
                         return '<label class="badge badge-pill badge-dark">Administrator</label>';
                     }
                 })
@@ -119,12 +119,14 @@ class ActivityLogController extends Controller
         //    ->get();
 
         $audits = DB::table('audits')
-            ->join('users', 'audits.user_id', '=', 'users.id')
+            ->leftJoin('users', 'audits.user_id', '=', 'users.id')
             ->select('audits.*', 'users.*')
             ->where('audits.id', $id)
+            ->whereNull('audits.user_id')
+            ->orWhere('audits.user_id', '!=', NULL)
             ->get();
 
-           
+
 
         return view('features.viewactivitylog', [
             'audits' => $audits,
