@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LGUSendMailController extends Controller
 {
@@ -35,14 +37,32 @@ class LGUSendMailController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required',
             'file' => 'required',
+        ], $messages = [
+            'email.required' => 'The email field is required!',
+            'file.required' => 'The file field is required!',
         ]);
 
-        $path = public_path('storage');
+        if ($validator->fails()) {
+            return redirect('/user/sendreport/create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+           // if ($request->hasFile('file')) {
+           //     $file = $request->file('file')->getClientOriginalName();
+           //     $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
+           // }
 
-        return $path;
+           $path = storage_path('profile_pics');
+
+            return $path;
+        }
+
+        //$path = public_path('storage');
+
+        //return $path;
 
     }
 
