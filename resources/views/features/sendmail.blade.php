@@ -41,8 +41,7 @@
                     
                     <div class="form-group">
                         <label>Body</label>
-                        <input type="text" class="form-control" name="body"
-                            value="{{ old('body') }}">
+                        <textarea name="body" id="" cols="30" rows="10" class="form-control">{{ old('body') }}</textarea>
                         @error('body')
                             <small class="text-danger">
                                 {{ $message }}
