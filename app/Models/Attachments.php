@@ -14,7 +14,7 @@ class Attachments extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     use SoftDeletes;
 
-    protected $table = 'announcements';
+    protected $table = 'attachments';
 
     protected $fillable = [
         'user_id',
