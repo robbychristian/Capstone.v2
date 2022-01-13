@@ -6,6 +6,12 @@
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            @if (Auth::user()->user_role == 7)
+                <a href="{{ route('user.sendreport.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-envelope fa-sm text-white-50"></i>
+                    Send Report</a>
+
+            @endif
         </div>
 
         <div class="row mt-3">

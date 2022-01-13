@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\GenerateReportController as UserGenerateReport;
 use App\Http\Controllers\Auth\LGUDashboardController as LGUDashboard;
 use App\Http\Controllers\Auth\LGUEvacuationController as LGUEvacuation;
 use App\Http\Controllers\Auth\LGUGenerateReportController as LGUGenerate;
+use App\Http\Controllers\Auth\LGUSendMailController as LGUSendReport;
 use App\Http\Controllers\Auth\LGUVulnerabilityMapController as LGUVulnerabilityMap;
 use App\Http\Controllers\Auth\ManageResidentController as UserManageResident;
 use App\Http\Controllers\Auth\PendingAnnouncements as UserPendingAnnouncements;
@@ -134,6 +135,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/dashboard-lgu/brgy/{brgy}', [LGUDashboard::class, "brgyDashboard"])->name('dashboard.stats');
         Route::get('/generate-lgu/{brgy}', [LGUGenerate::class, 'showGenerator']);
         Route::post('/generate-lgu/{brgy}/{brgy_loc}', [LGUGenerate::class, 'testGenerate']);
+        Route::resource('/sendreport', LGUSendReport::class);
         Route::resource('/emergencymessage', BrgyEmergency::class);
     });
 });
