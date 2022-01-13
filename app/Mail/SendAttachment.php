@@ -34,6 +34,6 @@ class SendAttachment extends Mailable
     {
         return $this->view('features.mail')
             ->subject('This is notification')
-            ->attach(storage_path('attachments/' . $this->user . '/' . $this->file));
+            ->attach(storage_path('app/public/attachments/' . $this->user . '/' . $this->file));
     }
 }

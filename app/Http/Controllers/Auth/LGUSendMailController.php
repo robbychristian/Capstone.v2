@@ -58,27 +58,27 @@ class LGUSendMailController extends Controller
                 ->withInput();
         } else {
 
-            //if ($request->hasFile('file')) {
-            //    $file = $request->file('file')->getClientOriginalName();
-            //    $attachment = Attachments::create([
-            //        'user_id' => Auth::user()->id,
-            //        'email' => $request->input('email'),
-            //        'subject' => $request->input('subject'),
-            //        'body' => $request->input('body'),
-            //        'file' => $file,
-            //    ]);
-            //    $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
-            //}
-//
-            //$email = $request->input('email');
-            //$user = Auth::user()->id;
-//
-            //Mail::to($email)->send(new SendAttachment($file, $user));
-            //
-            //return redirect('/user/sendreport/create')->with('success', 'Attachment successfully added!');
-             $path = storage_path('app/public/attachments/' . Auth::user()->id);
+            if ($request->hasFile('file')) {
+                $file = $request->file('file')->getClientOriginalName();
+                $attachment = Attachments::create([
+                    'user_id' => Auth::user()->id,
+                    'email' => $request->input('email'),
+                    'subject' => $request->input('subject'),
+                    'body' => $request->input('body'),
+                    'file' => $file,
+                ]);
+                $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
+            }
 
-            return $path;
+            $email = $request->input('email');
+            $user = Auth::user()->id;
+
+            Mail::to($email)->send(new SendAttachment($file, $user));
+            
+            return redirect('/user/sendreport/create')->with('success', 'Attachment successfully added!');
+             //$path = storage_path('app/public/attachments/' . Auth::user()->id);
+
+            //return $path;
         }
 
         //$path = public_path('storage');
