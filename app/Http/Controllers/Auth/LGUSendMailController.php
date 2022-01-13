@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attachments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -39,9 +40,13 @@ class LGUSendMailController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required',
+            'subject' => 'required',
+            'body' => 'required',
             'file' => 'required',
         ], $messages = [
             'email.required' => 'The email field is required!',
+            'subject.required' => 'The subject field is required!',
+            'body.required' => 'The body field is required!',
             'file.required' => 'The file field is required!',
         ]);
 
@@ -50,14 +55,19 @@ class LGUSendMailController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-           // if ($request->hasFile('file')) {
-           //     $file = $request->file('file')->getClientOriginalName();
-           //     $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
-           // }
 
-           $path = storage_path('profile_pics');
-
-            return $path;
+            if ($request->hasFile('file')) {
+                $file = $request->file('file')->getClientOriginalName();
+                $attachment = Attachments::create([
+                    'user_id' => Auth::user()->id,
+                    'email' => $request->input('email'),
+                    'subject' => $request->input('subject'),
+                    'body' => $request->input('body'),
+                    'file' => $request->input('file'),
+                ]);
+                $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
+                return redirect('/user/sendreport')->with('success', 'Attachment successfully added!');
+            }
         }
 
         //$path = public_path('storage');
