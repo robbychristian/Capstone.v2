@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendAttachment;
 use App\Models\Attachments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class LGUSendMailController extends Controller
@@ -66,8 +68,14 @@ class LGUSendMailController extends Controller
                     'file' => $file,
                 ]);
                 $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
-                return redirect('/user/sendreport/create')->with('success', 'Attachment successfully added!');
             }
+
+            $email = $request->input('email');
+            $user = Auth::user()->id;
+
+            Mail::to($email)->send(new SendAttachment($file, $user));
+            
+            return redirect('/user/sendreport/create')->with('success', 'Attachment successfully added!');
         }
 
         //$path = public_path('storage');
