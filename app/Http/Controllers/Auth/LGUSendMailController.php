@@ -63,7 +63,7 @@ class LGUSendMailController extends Controller
                     'email' => $request->input('email'),
                     'subject' => $request->input('subject'),
                     'body' => $request->input('body'),
-                    'file' => $request->input('file'),
+                    'file' => $file,
                 ]);
                 $request->file('file')->storeAs('attachments', Auth::user()->id . '/' . $file, '');
                 return redirect('/user/sendreport')->with('success', 'Attachment successfully added!');
