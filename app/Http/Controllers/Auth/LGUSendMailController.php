@@ -71,20 +71,17 @@ class LGUSendMailController extends Controller
             }
 
             $email = $request->input('email');
+            $subject = $request->input('subject');
+            $maildata = [
+                'subject' => $request->input('subject'),
+                'body' => $request->input('body')
+            ];
             $user = Auth::user()->id;
 
-            Mail::to($email)->send(new SendAttachment($file, $user));
-            
-            return redirect('/user/sendreport/create')->with('success', 'Attachment successfully added!');
-             //$path = storage_path('app/public/attachments/' . Auth::user()->id);
+            Mail::to($email)->send(new SendAttachment($file, $user, $subject, $maildata));
 
-            //return $path;
+            return redirect('/user/sendreport/create')->with('success', 'Report successfully sent!');
         }
-
-        //$path = public_path('storage');
-
-        //return $path;
-
     }
 
     /**

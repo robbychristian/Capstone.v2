@@ -19,10 +19,15 @@ class SendAttachment extends Mailable
 
     public $file;
     public $user;
-    public function __construct($file, $user)
+    public $subject;
+    public $maildata;
+
+    public function __construct($file, $user, $subject, $maildata)
     {
         $this->file = $file;
         $this->user = $user;
+        $this->subject = $subject;
+        $this->maildata = $maildata;
     }
 
     /**
@@ -33,7 +38,7 @@ class SendAttachment extends Mailable
     public function build()
     {
         return $this->view('features.mail')
-            ->subject('This is notification')
+            ->subject($this->subject)
             ->attach(storage_path('app/public/attachments/' . $this->user . '/' . $this->file));
     }
 }
