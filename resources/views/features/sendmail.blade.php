@@ -2,7 +2,7 @@
 @section('title', '| Send Report')
 @section('content')
 
-    <div class="container-fluid" style="color: black;">
+    <div class="container-fluid mb-5" style="color: black;">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Send Report</h1>
