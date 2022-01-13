@@ -35,7 +35,15 @@ class LGUSendMailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'email' => 'required',
+            'file' => 'required',
+        ]);
+
+        $path = public_path('storage');
+
+        return $path;
+
     }
 
     /**
