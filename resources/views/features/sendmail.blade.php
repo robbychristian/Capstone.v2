@@ -15,7 +15,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" class="form-control" id="" aria-describedby="emailHelp"
+                        <input type="email" class="form-control" id="" aria-describedby="emailHelp" name="email"
                             value="{{ old('email') }}">
                         @error('email')
                             <small class="text-danger">
