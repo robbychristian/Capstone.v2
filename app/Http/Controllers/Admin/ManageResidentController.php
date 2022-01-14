@@ -67,7 +67,7 @@ class ManageResidentController extends Controller
                     } else if ($row->user_role == '6') {
                         return '<label class="badge badge-success">Barangay Chairman</label>';
                     } else if ($row->user_role == '7') {
-                        return '<label class="badge badge-dark">Local Government Unit</label>';
+                        return '<label class="badge badge-dark">Local Government Unit Officer</label>';
                     }
                     
                 })

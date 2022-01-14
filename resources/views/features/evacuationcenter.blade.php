@@ -218,6 +218,38 @@
                 //
                 //});
 
+                function newLocation(newLat, newLng) {
+                    allmap.setCenter({
+                        lat: newLat,
+                        lng: newLng
+                    });
+                }
+                Setting Location with jQuery
+                $(document).ready(function() {
+                    $("#1").on('click', function() {
+                        newLocation(14.5654, 121.0693);
+                    });
+
+                    $("#2").on('click', function() {
+                        newLocation(14.5591, 121.0747);
+                    });
+
+                    $("#3").on('click', function() {
+                        newLocation(14.5554, 121.0801);
+                    });
+
+                    $("#4").on('click', function() {
+                        newLocation(14.5547, 121.0672);
+                    });
+
+                    $("#5").on('click', function() {
+                        newLocation(14.5719, 121.0779);
+                    });
+                    $("#6").on('click', function() {
+                        newLocation(14.5488, 121.0866);
+                    });
+                });
+
                 var allMarkers = [
                     @foreach ($evacmaps as $evacmap)
                         ["{{ $evacmap->evac_latitude }}","{{ $evacmap->evac_longitude }}",
@@ -642,7 +674,7 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                 @foreach ($barangays as $barangay)
-                                                    <button class="dropdown-item changeBrgy" id="changeBrgy"
+                                                    <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
                                                         data-lat="{{ $barangay->brgy_lat }}"
                                                         data-lng="{{ $barangay->brgy_lng }}"
                                                         type="button">{{ $barangay->brgy_loc }}</button>
