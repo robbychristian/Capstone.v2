@@ -101,6 +101,7 @@
                 });
                 map.setZoom(16);
                 vMarker.setPosition(newLat, newLng);
+                vMarker.setMap(map);
             }
 
             $("#dropdown").change(function() {
