@@ -37,15 +37,6 @@
                 },
             }
 
-            var options2 = {
-                zoom: 16,
-                center: {
-                    lat: evac_latitude,
-                    lng: evac_longitude
-                },
-            }
-
-
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
 
