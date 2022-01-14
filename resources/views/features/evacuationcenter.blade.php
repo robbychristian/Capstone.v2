@@ -225,10 +225,11 @@
                     });
                     allmap.setZoom(16);
                 }
-                
+
                 $(document).ready(function() {
                     $("#1").on('click', function() {
                         newLocation(14.5654, 121.0693);
+                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
                     });
 
                     $("#2").on('click', function() {
@@ -259,7 +260,7 @@
                         newLocation(14.5595, 121.0787);
                     });
                     $("#10").on('click', function() {
-                        newLocation(14.5758, 121.0643); 
+                        newLocation(14.5758, 121.0643);
                     });
                     $("#11").on('click', function() { //parang wala sa maps
                         newLocation(14.5636, 121.0858);
@@ -504,7 +505,7 @@
 
                 var is_added_marker = "https://kabisigapp.com/img/greenmarker.png"
                 var is_not_added_marker = "https://kabisigapp.com/img/redmarker.png"
-                
+
                 var infoWindow = new google.maps.InfoWindow();
 
 
@@ -538,7 +539,7 @@
                     } else {
                         var marker = new google.maps.Marker({
                             position: location,
-                            map:resmap,
+                            map: resmap,
                             icon: data[2] == "1" ? is_added_marker : is_not_added_marker,
                             html: '<div class="card">' + '<div class="card-body">' +
                                 '<h5 class="card-title"><strong>' + data[4] + '</strong></h5>' +
@@ -740,20 +741,24 @@
                                 <div class="container-fluid">
 
                                     @if (Auth::user()->user_role == 1)
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary" type="button" id="dropdownMenu2"
-                                                data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fas fa-caret-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                @foreach ($barangays as $barangay)
-                                                    <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
-                                                        data-lat="{{ $barangay->brgy_lat }}"
-                                                        data-lng="{{ $barangay->brgy_lng }}"
-                                                        type="button">{{ $barangay->brgy_loc }}</button>
-                                                @endforeach
+                                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                            <h3 class="h3 mb-4 text-gray-800" id="barangay-name"></h3>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary" type="button" id="dropdownMenu2"
+                                                    data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fas fa-caret-down"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    @foreach ($barangays as $barangay)
+                                                        <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
+                                                            data-lat="{{ $barangay->brgy_lat }}"
+                                                            data-lng="{{ $barangay->brgy_lng }}"
+                                                            type="button">{{ $barangay->brgy_loc }}</button>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
+
                                     @endif
 
                                     <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;">
