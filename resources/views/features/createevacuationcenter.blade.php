@@ -102,131 +102,10 @@
                 map.setZoom(16);
             }
 
-            $(document).ready(function() {
-                $("#1").on('click', function() {
-                   
-                    newLocation(14.5654, 121.0693);
-                });
-
-                $("#2").on('click', function() {
-                   
-                    newLocation(14.5591, 121.0747);
-                });
-
-                $("#3").on('click', function() {
-                    
-                    newLocation(14.5554, 121.0801);
-                });
-
-                $("#4").on('click', function() {
-                   
-                    newLocation(14.5547, 121.0672);
-                });
-
-                $("#5").on('click', function() {
-                  
-                    newLocation(14.5719, 121.0779);
-                });
-                $("#6").on('click', function() {
-                  
-                    newLocation(14.5488, 121.0866);
-                });
-                $("#7").on('click', function() {
-                   
-                    newLocation(14.5638, 121.0758);
-                });
-                $("#8").on('click', function() {
-                   
-                    newLocation(14.5692, 121.0602);
-                });
-                $("#9").on('click', function() {
-                   
-                    newLocation(14.5595, 121.0787);
-                });
-                $("#10").on('click', function() {
-                   
-                    newLocation(14.5758, 121.0643);
-                });
-                $("#11").on('click', function() { //parang wala sa maps
-                   
-                    newLocation(14.5636, 121.0858);
-                });
-                $("#12").on('click', function() {
-                    
-                    newLocation(14.5636, 121.0636);
-                });
-                $("#13").on('click', function() {
-                    
-                    newLocation(14.5656, 121.0790);
-                });
-                $("#14").on('click', function() {
-                    
-                    newLocation(14.5827, 121.0615);
-                });
-                $("#15").on('click', function() {
-                   
-                    newLocation(14.5522, 121.0758);
-                });
-                $("#16").on('click', function() {
-                   
-                    newLocation(14.5605, 121.0740);
-                });
-                $("#17").on('click', function() {
-                   
-                    newLocation(14.5609, 121.0804);
-                });
-                $("#18").on('click', function() {
-                    
-                    newLocation(14.5629, 121.0797);
-                });
-                $("#19").on('click', function() {
-                   
-                    newLocation(14.5577, 121.0711);
-                });
-                $("#20").on('click', function() {
-                    
-                    newLocation(14.5615, 121.0830);
-                });
-                $("#21").on('click', function() {
-                   
-                    newLocation(14.5563, 121.0744);
-                });
-                $("#22").on('click', function() {
-                    
-                    newLocation(14.5829, 121.0726);
-                });
-                $("#23").on('click', function() {
-                    
-                    newLocation(14.6137, 121.0960);
-                });
-                $("#24").on('click', function() {
-                    
-                    newLocation(14.60188, 121.093698);
-                });
-                $("#25").on('click', function() {
-                    
-                    newLocation(14.5763, 121.0850);
-                });
-                $("#26").on('click', function() {
-                    
-                    newLocation(14.5497, 121.0977);
-                });
-                $("#27").on('click', function() {
-                   
-                    newLocation(14.5885, 121.0891);
-                });
-                $("#28").on('click', function() {
-                   
-                    newLocation(14.5672, 121.0923);
-                });
-                $("#29").on('click', function() {
-                    
-                    newLocation(14.6131, 121.0880);
-                });
-                $("#30").on('click', function() {
-                    
-                    newLocation(14.5840, 121.1012);
-                });
+            $("#dropdown").change(function() {
+                var newLat = $("#dropdown option:selected").data('lat');
+                var newLng = $("#dropdown option:selected").data('lng');
+                newLocation(newLat, newLng);
             });
         }
     </script>
@@ -235,24 +114,8 @@
         <h1 class="h3 mb-4 text-gray-800">Add an Evacuation Center or Nearby Hospitals</h1>
         <div class="card">
             <div class="card-body">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
-                            to zoom in the map for accuracy of the position. </em></div>
-                    <div class="dropdown">
-                        <button class="btn btn-primary" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fas fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            @foreach ($barangays as $barangay)
-                                <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
-                                    data-lat="{{ $barangay->brgy_lat }}" data-lng="{{ $barangay->brgy_lng }}"
-                                    type="button">{{ $barangay->brgy_loc }}</button>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
+                <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
+                    to zoom in the map for accuracy of the position. </em></div>
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         @if (Auth::user()->user_role == 1)
@@ -261,8 +124,32 @@
                             @elseif (Auth::user()->user_role >= 3)
                                 <form action="{{ route('user.evacuation.store') }}" method="POST" style="color: black;">
                         @endif
-
                         @csrf
+
+                        <div class="form-group">
+                            <label>Barangay</label>
+                            @if (Auth::user()->user_role === 1)
+                                <select name="brgy_loc" class="form-control">
+                                    @foreach ($barangays as $barangay)
+                                        <option disabled hidden selected>Select Barangay</option>
+                                        <option data-lat={{ $barangay->brgy_lat }} data-lng={{ $barangay->brgy_lng }}
+                                            value='{{ $barangay->brgy_loc }}'
+                                            {{ old('brgy_loc') == $barangay->brgy_loc ? 'selected' : '' }}>
+                                            {{ $barangay->brgy_loc }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            @endif
+
+                            @if (Auth::user()->user_role >= 3)
+                                <input class="form-control" type="text" name="brgy_loc"
+                                    value="{{ Auth::user()->brgy_loc }}" readonly>
+                            @endif
+                            <small class="text-danger">@error('brgy_loc')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
                         <div class="form-group">
                             <label>Location</label>
                             <input type="text" class="form-control" name="evac_name" value="{{ old('evac_name') }}">
@@ -313,29 +200,6 @@
                             <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
                                 center.</small>
                             <small class="text-danger">@error('nearest_landmark')
-                                    {{ $message }}
-                                @enderror</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Barangay</label>
-                            @if (Auth::user()->user_role === 1)
-                                <select name="brgy_loc" class="form-control">
-                                    @foreach ($barangays as $barangay)
-                                        <option disabled hidden selected>Select Barangay</option>
-                                        <option value='{{ $barangay->brgy_loc }}'
-                                            {{ old('brgy_loc') == $barangay->brgy_loc ? 'selected' : '' }}>
-                                            {{ $barangay->brgy_loc }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            @endif
-
-                            @if (Auth::user()->user_role >= 3)
-                                <input class="form-control" type="text" name="brgy_loc"
-                                    value="{{ Auth::user()->brgy_loc }}" readonly>
-                            @endif
-                            <small class="text-danger">@error('brgy_loc')
                                     {{ $message }}
                                 @enderror</small>
                         </div>
