@@ -223,6 +223,7 @@
                         lat: newLat,
                         lng: newLng
                     });
+                    allmap.setZoom(16);
                 }
                 
                 $(document).ready(function() {
