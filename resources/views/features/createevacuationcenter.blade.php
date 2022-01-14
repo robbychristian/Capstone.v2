@@ -70,14 +70,24 @@
 
             function placeMarker(location, map) {
 
-                if (!vmarker || !vmarker.setCenter) {
-                    vmarker = new google.maps.Marker({
+                //if (!vmarker || !vmarker.setCenter) {
+                //    vmarker = new google.maps.Marker({
+                //        position: location,
+                //        map: map,
+                //    });
+                //
+                //} else {
+                //    vmarker.setCenter(location);
+                //}
+
+                if (vMarker) {
+                    vMarker.setPosition(location);
+                } else {
+                    vMarker = new google.maps.Marker({
                         position: location,
                         map: map,
+                        draggable: true
                     });
-
-                } else {
-                    vmarker.setCenter(location);
                 }
             }
 
@@ -88,7 +98,7 @@
                 //map.panTo(evt.latLng);
             });
 
-            //@if (Auth::user()->user_role >= 3)
+            @if (Auth::user()->user_role >= 3)
                 // // creates a draggable marker to the given coords
                 // var vMarker = new google.maps.Marker({
                 // position: new google.maps.LatLng(userLatparse, userLngparse),
