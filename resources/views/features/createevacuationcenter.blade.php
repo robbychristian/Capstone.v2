@@ -129,7 +129,7 @@
                         <div class="form-group">
                             <label>Barangay</label>
                             @if (Auth::user()->user_role === 1)
-                                <select name="brgy_loc" class="form-control">
+                                <select name="brgy_loc" class="form-control" id="dropdown">
                                     @foreach ($barangays as $barangay)
                                         <option disabled hidden selected>Select Barangay</option>
                                         <option data-lat={{ $barangay->brgy_lat }} data-lng={{ $barangay->brgy_lng }}
