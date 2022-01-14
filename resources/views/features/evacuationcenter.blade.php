@@ -224,7 +224,7 @@
                         lng: newLng
                     });
                 }
-                Setting Location with jQuery
+                
                 $(document).ready(function() {
                     $("#1").on('click', function() {
                         newLocation(14.5654, 121.0693);
