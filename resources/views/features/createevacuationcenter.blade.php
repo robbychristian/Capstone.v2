@@ -70,24 +70,14 @@
 
             function placeMarker(location, map) {
 
-                //if (!vmarker || !vmarker.setCenter) {
-                //    vmarker = new google.maps.Marker({
-                //        position: location,
-                //        map: map,
-                //    });
-                //
-                //} else {
-                //    vmarker.setCenter(location);
-                //}
-
-                if (vMarker) {
-                    vMarker.setPosition(location);
-                } else {
-                    vMarker = new google.maps.Marker({
+                if (!vmarker || !vmarker.setPosition) {
+                    vmarker = new google.maps.Marker({
                         position: location,
                         map: map,
-                        draggable: true
                     });
+                
+                } else {
+                    vmarker.setPosition(location);
                 }
             }
 
