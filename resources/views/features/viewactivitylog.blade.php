@@ -70,20 +70,21 @@
 
                     @elseif ($audit->event == 'updated')
                         <div class="changed-values">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <ul>
-                                        @foreach (json_decode($audit->old_values) as $oldattribute => $oldvalue)
-                                            @foreach (json_decode($audit->new_values) as $newattribute => $newvalue)
-                                                <li>The {{ $oldattribute }} has been modified from
-                                                    <strong>{{ $oldvalue }}</strong> to
-                                                    <strong>{{ $newvalue }}</strong>. <br>
-                                                </li>
-                                            @endforeach
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            </ul>
+                            @foreach (json_decode($audit->old_values) as $attribute => $value)
+                                @if ($value == null)
+                                    <span style="font-size: 20px">&#9675;</span> The {{ $attribute }} has been modified
+                                    from
+                                    <strong><em>NULL</em></strong>
+                                @else
+                                    <span style="font-size: 20px">&#9675;</span> The {{ $attribute }} has been modified
+                                    from
+                                    <strong>{{ $value }}</strong>
+                                @endif
+                            @endforeach
+
+                            @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                to <strong>{{ $value }}</strong>. <br>
+                            @endforeach
                         </div>
 
                     @endif
