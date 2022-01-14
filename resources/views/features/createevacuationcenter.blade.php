@@ -100,7 +100,11 @@
                     lng: newLng
                 });
                 map.setZoom(16);
-                vMarker.setPosition(newLat, newLng);
+                // creates a draggable marker to the given coords
+                var vMarker = new google.maps.Marker({
+                    position: new google.maps.LatLng(newLat, newLng),
+                    draggable: true
+                });
                 vMarker.setMap(map);
             }
 
@@ -125,7 +129,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-muted"><em>Note: Locate the location first before submitting and make sure
-                    to zoom in the map for accuracy of the position. </em></div>
+                        to zoom in the map for accuracy of the position. </em></div>
                 <div class="row mt-3">
                     <div class="col-sm-12 col-md-6 col-lg-4">
                         @if (Auth::user()->user_role == 1)
