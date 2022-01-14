@@ -324,11 +324,11 @@
                         newLocation(14.6137, 121.0960);
                     });
                     $("#24").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Dela Paz";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Manggahan";
                         newLocation(14.60188, 121.093698);
                     });
                     $("#25").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Dela Paz";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Maybunga";
                         newLocation(14.5763, 121.0850);
                     });
                     $("#26").on('click', function() {
@@ -344,11 +344,11 @@
                         newLocation(14.5672, 121.0923);
                     });
                     $("#29").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay San Miguel";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Santolan";
                         newLocation(14.6131, 121.0880);
                     });
                     $("#30").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay San Miguel";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sta. Lucia";
                         newLocation(14.5840, 121.1012);
                     });
                 });
@@ -767,41 +767,41 @@
                         <!-- ALL EVAC MAPS -->
                         <div class="tab-pane fade" id="pills-allMap" role="tabpanel" aria-labelledby="pills-allMap-tab">
                             @if (count($evacmaps) > 0)
-                                <div class="container-fluid">
 
-                                    @if (Auth::user()->user_role == 1)
-                                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                            <h3 class="h3 mb-4 text-gray-800" id="barangay-name"></h3>
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary" type="button" id="dropdownMenu2"
-                                                    data-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fas fa-caret-down"></i>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    @foreach ($barangays as $barangay)
-                                                        <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
-                                                            data-lat="{{ $barangay->brgy_lat }}"
-                                                            data-lng="{{ $barangay->brgy_lng }}"
-                                                            type="button">{{ $barangay->brgy_loc }}</button>
-                                                    @endforeach
-                                                </div>
+
+                                @if (Auth::user()->user_role == 1)
+                                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                        <h3 class="h3 text-gray-800" id="barangay-name"></h3>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary" type="button" id="dropdownMenu2"
+                                                data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-caret-down"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                @foreach ($barangays as $barangay)
+                                                    <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
+                                                        data-lat="{{ $barangay->brgy_lat }}"
+                                                        data-lng="{{ $barangay->brgy_lng }}"
+                                                        type="button">{{ $barangay->brgy_loc }}</button>
+                                                @endforeach
                                             </div>
                                         </div>
-
-                                    @endif
-
-                                    <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;">
                                     </div>
-                                    <h6 class="mt-3 font-weight-bold">Legend:</h6>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
-                                                style="color:#00a79d"></i>Approved</li>
-                                        <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
-                                                style="color:#fb5968"></i>Not yet approved</li>
-                                    </ul>
 
+                                @endif
 
+                                <div id="evac_map_all" class="map-container mt-3" style="height: 500px; width:100%;">
                                 </div>
+                                <h6 class="mt-3 font-weight-bold">Legend:</h6>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                            style="color:#00a79d"></i>Approved</li>
+                                    <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
+                                            style="color:#fb5968"></i>Not yet approved</li>
+                                </ul>
+
+
+
 
                             @else
 
