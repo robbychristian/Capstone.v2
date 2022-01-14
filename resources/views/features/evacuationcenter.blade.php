@@ -787,6 +787,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                @elseif (Auth::user()->user_role >= 4)
+                                    <h3 class="h3 text-gray-800" id="barangay-name">{{ Auth::user()->brgy_loc }}</h3>
 
                                 @endif
 
