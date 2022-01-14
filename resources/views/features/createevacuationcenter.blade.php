@@ -105,6 +105,11 @@
             $("#dropdown").change(function() {
                 var newLat = $("#dropdown option:selected").data('lat');
                 var newLng = $("#dropdown option:selected").data('lng');
+
+                console.log(newLat);
+                console.log(newLng);
+                console.log(typeof newLat);
+                console.log(typeof newLng);
                 newLocation(newLat, newLng);
             });
         }
