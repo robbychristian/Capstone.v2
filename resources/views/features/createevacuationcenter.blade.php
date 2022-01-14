@@ -85,7 +85,7 @@
                 placeMarker(evt.latLng, map);
                 $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
                 $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
-                map.panTo(evt.latLng);
+                //map.panTo(evt.latLng);
             });
 
             //@if (Auth::user()->user_role >= 3)
