@@ -95,11 +95,11 @@
             vMarker.setMap(map);
 
             function newLocation(newLat, newLng) {
-                allmap.setCenter({
+                map.setCenter({
                     lat: newLat,
                     lng: newLng
                 });
-                allmap.setZoom(16);
+                map.setZoom(16);
             }
 
             $(document).ready(function() {
@@ -323,7 +323,7 @@
                                 <select name="brgy_loc" class="form-control">
                                     @foreach ($barangays as $barangay)
                                         <option disabled hidden selected>Select Barangay</option>
-                                        <option value='{{ $barangay->brgy_loc }}'
+                                        <option id="{{ $barangay->id }}" value='{{ $barangay->brgy_loc }}'
                                             {{ old('brgy_loc') == $barangay->brgy_loc ? 'selected' : '' }}>
                                             {{ $barangay->brgy_loc }}
                                         </option>
