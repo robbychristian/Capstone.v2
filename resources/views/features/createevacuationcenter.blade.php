@@ -65,34 +65,63 @@
             @endif
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
+            //place marker
+            var vmarker;
 
-            @if (Auth::user()->user_role >= 3)
-                // creates a draggable marker to the given coords
-                var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(userLatparse, userLngparse),
-                draggable: true
-                });
-            
-            @elseif (Auth::user()->user_role == 1)
-                // creates a draggable marker to the given coords
-                var vMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(14.5764, 121.0851),
-                draggable: true
-                });
-            @endif
+            function placeMarker(location, map) {
 
-            // adds a listener to the marker
-            // gets the coords when drag event ends
-            // then updates the input with the new coords
-            google.maps.event.addListener(vMarker, 'dragend', function(evt) {
+                if (!vmarker || !vmarker.setCenter) {
+                    vmarker = new google.maps.Circle({
+                        center: location,
+                        position: location,
+                        map: map,
+                        radius: 100,
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillOpacity: 0.35,
+                        fillColor: "#808080",
+                        strokeColor: "#808080",
+                    });
+
+                } else {
+                    vmarker.setCenter(location);
+                }
+            }
+
+            google.maps.event.addListener(map, 'click', function(evt) {
+                placeMarker(evt.latLng, map);
                 $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
                 $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
-                map.panTo(evt.latLng);
+                //map.panTo(evt.latLng);
             });
-            // centers the map on markers coords
-            map.setCenter(vMarker.position);
-            // adds the marker on the map
-            vMarker.setMap(map);
+
+            //@if (Auth::user()->user_role >= 3)
+                // // creates a draggable marker to the given coords
+                // var vMarker = new google.maps.Marker({
+                // position: new google.maps.LatLng(userLatparse, userLngparse),
+                // draggable: true
+                // });
+                //
+            //@elseif (Auth::user()->user_role == 1)
+                // // creates a draggable marker to the given coords
+                // var vMarker = new google.maps.Marker({
+                // position: new google.maps.LatLng(14.5764, 121.0851),
+                // draggable: true
+                // });
+                //@endif
+
+            //// adds a listener to the marker
+            //// gets the coords when drag event ends
+            //// then updates the input with the new coords
+            //google.maps.event.addListener(vMarker, 'dragend', function(evt) {
+            //    $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
+            //    $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
+            //    map.panTo(evt.latLng);
+            //});
+            //// centers the map on markers coords
+            //map.setCenter(vMarker.position);
+            //// adds the marker on the map
+            //vMarker.setMap(map);
 
             function newLocation(newLat, newLng) {
                 map.setCenter({
@@ -100,12 +129,6 @@
                     lng: newLng
                 });
                 map.setZoom(16);
-                // creates a draggable marker to the given coords
-                var vMarker = new google.maps.Marker({
-                    position: new google.maps.LatLng(newLat, newLng),
-                    draggable: true
-                });
-                vMarker.setMap(map);
             }
 
             $("#dropdown").change(function() {
