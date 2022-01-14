@@ -100,6 +100,7 @@
                     lng: newLng
                 });
                 map.setZoom(16);
+                vMarker.setPosition(newLat, newLng);
             }
 
             $("#dropdown").change(function() {
