@@ -25,46 +25,31 @@
 
             var userLatparse = parseFloat(userLat);
             var userLngparse = parseFloat(userLng);
-            @if (Auth::user()->user_role == 1)
-                var options = {
-                zoom: 12,
-                center: {
-                lat: 14.5764,
-                lng: 121.0851
-                },
-                }
-            
-                var options2 = {
-                zoom: 13,
-                center: {
-                lat: 14.5764,
-                lng: 121.0851
-                },
-                }
-            
-            @elseif (Auth::user()->user_role >= 2)
-                var options = {
+
+            var evac_latitude = document.getElementById("evac_latitude").value;
+            var evac_longitude = document.getElementById("evac_longitude").value;
+
+            var options = {
                 zoom: 16,
                 center: {
-                lat: userLatparse,
-                lng: userLngparse
+                    lat: evac_latitude,
+                    lng: evac_longitude
                 },
-                }
-            
-                var options2 = {
+            }
+
+            var options2 = {
                 zoom: 16,
                 center: {
-                lat: userLatparse,
-                lng: userLngparse
+                    lat: evac_latitude,
+                    lng: evac_longitude
                 },
-                }
-            @endif
+            }
+
 
             var map = new google.maps.Map(document.getElementById('evac_map'), options);
 
 
-            var evac_latitude = document.getElementById("evac_latitude").value;
-            var evac_longitude = document.getElementById("evac_longitude").value;
+
             // creates a draggable marker to the given coords
 
             var vMarker = new google.maps.Marker({

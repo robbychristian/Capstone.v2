@@ -88,7 +88,7 @@
                 //map.panTo(evt.latLng);
             });
 
-            @if (Auth::user()->user_role >= 3)
+            //@if (Auth::user()->user_role >= 3)
                 // // creates a draggable marker to the given coords
                 // var vMarker = new google.maps.Marker({
                 // position: new google.maps.LatLng(userLatparse, userLngparse),
