@@ -248,107 +248,107 @@
                     });
 
                     $("#5").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Caniogan";
                         newLocation(14.5719, 121.0779);
                     });
                     $("#6").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Kalawaan";
                         newLocation(14.5488, 121.0866);
                     });
                     $("#7").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Kapasigan";
                         newLocation(14.5638, 121.0758);
                     });
                     $("#8").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Kapitolyo";
                         newLocation(14.5692, 121.0602);
                     });
                     $("#9").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Malinao";
                         newLocation(14.5595, 121.0787);
                     });
                     $("#10").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Oranbo";
                         newLocation(14.5758, 121.0643);
                     });
                     $("#11").on('click', function() { //parang wala sa maps
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Palatiw";
                         newLocation(14.5636, 121.0858);
                     });
                     $("#12").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Pineda";
                         newLocation(14.5636, 121.0636);
                     });
                     $("#13").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sagad";
                         newLocation(14.5656, 121.0790);
                     });
                     $("#14").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Antonio";
                         newLocation(14.5827, 121.0615);
                     });
                     $("#15").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Joaquin";
                         newLocation(14.5522, 121.0758);
                     });
                     $("#16").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Jose";
                         newLocation(14.5605, 121.0740);
                     });
                     $("#17").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Nicolas";
                         newLocation(14.5609, 121.0804);
                     });
                     $("#18").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sta. Cruz";
                         newLocation(14.5629, 121.0797);
                     });
                     $("#19").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sta. Rosa";
                         newLocation(14.5577, 121.0711);
                     });
                     $("#20").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sto. Tomas";
                         newLocation(14.5615, 121.0830);
                     });
                     $("#21").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Sumilang";
                         newLocation(14.5563, 121.0744);
                     });
                     $("#22").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Ugong";
                         newLocation(14.5829, 121.0726);
                     });
                     $("#23").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Dela Paz";
                         newLocation(14.6137, 121.0960);
                     });
                     $("#24").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Dela Paz";
                         newLocation(14.60188, 121.093698);
                     });
                     $("#25").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Dela Paz";
                         newLocation(14.5763, 121.0850);
                     });
                     $("#26").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Pinagbuhatan";
                         newLocation(14.5497, 121.0977);
                     });
                     $("#27").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay Rosario";
                         newLocation(14.5885, 121.0891);
                     });
                     $("#28").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Miguel";
                         newLocation(14.5672, 121.0923);
                     });
                     $("#29").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Miguel";
                         newLocation(14.6131, 121.0880);
                     });
                     $("#30").on('click', function() {
-                        document.getElementById('barangay-name').innerHTML = "Barangay Bagong Ilog";
+                        document.getElementById('barangay-name').innerHTML = "Barangay San Miguel";
                         newLocation(14.5840, 121.1012);
                     });
                 });
