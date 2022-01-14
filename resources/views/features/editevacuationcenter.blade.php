@@ -68,6 +68,28 @@
             map.setCenter(vMarker.position);
             // adds the marker on the map
             vMarker.setMap(map);
+
+            function newLocation(newLat, newLng) {
+                map.setCenter({
+                    lat: newLat,
+                    lng: newLng
+                });
+                map.setZoom(16);
+            }
+
+            $("#dropdown").change(function() {
+                var newLat = $("#dropdown option:selected").data('lat');
+                var newLng = $("#dropdown option:selected").data('lng');
+
+                var parseLat = parseFloat(newLat);
+                var parseLng = parseFloat(newLng);
+
+                console.log(parseLat);
+                console.log(parseLng);
+                console.log(typeof parseLat);
+                console.log(typeof parseLng);
+                newLocation(parseLat, parseLng);
+            });
         }
     </script>
 
@@ -88,6 +110,30 @@
                         @endif
                         @csrf
                         @method('PUT')
+
+                        <div class="form-group">
+                            <label>Barangay</label>
+                            @if (Auth::user()->user_role === 1)
+                                <select name="brgy_loc" class="form-control" id="dropdown">
+                                    @foreach ($barangays as $barangay)
+                                        <option data-lat={{ $barangay->brgy_lat }} data-lng={{ $barangay->brgy_lng }}
+                                            value='{{ $barangay->brgy_loc }}'
+                                            {{ $evacuationcenter->brgy_loc == $barangay->brgy_loc ? 'selected' : '' }}>
+                                            {{ $barangay->brgy_loc }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            @endif
+
+                            @if (Auth::user()->user_role >= 3)
+                                <input class="form-control" type="text" name="brgy_loc"
+                                    value="{{ $evacuationcenter->brgy_loc }}" readonly>
+                            @endif
+                            <small class="text-danger">@error('brgy_loc')
+                                    {{ $message }}
+                                @enderror</small>
+                        </div>
+
                         <div class="form-group">
                             <label>Location</label>
                             <input type="text" class="form-control" name="evac_name"
@@ -138,28 +184,6 @@
                             <small class="form-text text-muted">Indicate the nearby places in the specified evacuation
                                 center.</small>
                             <small class="text-danger">@error('nearest_landmark')
-                                    {{ $message }}
-                                @enderror</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Barangay</label>
-                            @if (Auth::user()->user_role === 1)
-                                <select name="brgy_loc" class="form-control">
-                                    @foreach ($barangays as $barangay)
-                                        <option value='{{ $barangay->brgy_loc }}'
-                                            {{ $evacuationcenter->brgy_loc == $barangay->brgy_loc ? 'selected' : '' }}>
-                                            {{ $barangay->brgy_loc }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            @endif
-
-                            @if (Auth::user()->user_role >= 3)
-                                <input class="form-control" type="text" name="brgy_loc"
-                                    value="{{ $evacuationcenter->brgy_loc }}" readonly>
-                            @endif
-                            <small class="text-danger">@error('brgy_loc')
                                     {{ $message }}
                                 @enderror</small>
                         </div>
