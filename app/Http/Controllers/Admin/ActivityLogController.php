@@ -65,7 +65,7 @@ class ActivityLogController extends Controller
                     } else if ($row->user_role == '7') {
                         return '<label class="badge badge-pill badge-dark">Local Government Unit Officer</label>';
                     } else {
-                        return '<label class="badge badge-pill badge-danger">Administrator</label>';
+                        return '<label class="badge badge-pill badge-light">Administrator</label>';
                     }
                 })
 
