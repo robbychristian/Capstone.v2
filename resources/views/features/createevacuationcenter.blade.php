@@ -245,7 +245,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             @foreach ($barangays as $barangay)
-                                <button class="dropdown-item changeBrgy" id="{{ $barangay->id }}"
+                                <button class="dropdown-item changeBrgy"
                                     data-lat="{{ $barangay->brgy_lat }}" data-lng="{{ $barangay->brgy_lng }}"
                                     type="button">{{ $barangay->brgy_loc }}</button>
                             @endforeach
