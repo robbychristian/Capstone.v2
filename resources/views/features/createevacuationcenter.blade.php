@@ -106,11 +106,14 @@
                 var newLat = $("#dropdown option:selected").data('lat');
                 var newLng = $("#dropdown option:selected").data('lng');
 
-                console.log(newLat);
-                console.log(newLng);
-                console.log(typeof newLat);
-                console.log(typeof newLng);
-                newLocation(newLat, newLng);
+                var parseLat = parseFloat(newLat);
+                var parseLng = parseFloat(newLng);
+
+                console.log(parseLat);
+                console.log(parseLng);
+                console.log(typeof parseLat);
+                console.log(typeof parseLng);
+                newLocation(parseLat, parseLng);
             });
         }
     </script>
