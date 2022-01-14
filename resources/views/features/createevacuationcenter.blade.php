@@ -71,16 +71,9 @@
             function placeMarker(location, map) {
 
                 if (!vmarker || !vmarker.setCenter) {
-                    vmarker = new google.maps.Circle({
-                        center: location,
+                    vmarker = new google.maps.Marker({
                         position: location,
                         map: map,
-                        radius: 100,
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        fillOpacity: 0.35,
-                        fillColor: "#808080",
-                        strokeColor: "#808080",
                     });
 
                 } else {
@@ -92,7 +85,7 @@
                 placeMarker(evt.latLng, map);
                 $("#evac_latitude").val(evt.latLng.lat().toFixed(6));
                 $("#evac_longitude").val(evt.latLng.lng().toFixed(6));
-                //map.panTo(evt.latLng);
+                map.panTo(evt.latLng);
             });
 
             //@if (Auth::user()->user_role >= 3)
