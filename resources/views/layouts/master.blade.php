@@ -104,7 +104,43 @@
 
 <body id="page-top">
 
-    @if (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
+    @if (Auth::user()->user_role == 1)
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            @include('common.sidebar')
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    @include('common.header')
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    @yield('content')
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                @include('common.footer')
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Page Wrapper -->
+
+
+
+    @elseif (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
         <div id="wrapper">
             <div id="content-wrapper" class="d-flex flex-column">
                 <div id="content" style="background-color: white">
@@ -156,7 +192,7 @@
 
 
 
-    @elseif (Auth::user()->user_role == 1 || Auth::user()->is_blocked == 0 || Auth::user()->is_valid == 1 || Auth::user()->is_deactivated == 0)
+    @elseif (Auth::user()->is_blocked == 0 || Auth::user()->is_valid == 1 || Auth::user()->is_deactivated == 0)
         <!-- Page Wrapper -->
         <div id="wrapper">
 
