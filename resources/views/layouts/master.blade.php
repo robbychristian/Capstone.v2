@@ -138,7 +138,7 @@
         </div>
         <!-- End of Page Wrapper -->
 
-    @elseif (Auth::user()->is_blocked == 1 || Auth::user()->is_valid == 0 || Auth::user()->is_deactivated == 1)
+    @elseif (Auth::user()->is_valid == 0)
         <div id="wrapper">
             <div id="content-wrapper" class="d-flex flex-column">
                 <div id="content" style="background-color: white">
