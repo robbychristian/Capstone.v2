@@ -277,7 +277,7 @@
                                 <div class="form-group col-md-6 required">
                                     <label class="control-label" for="inputPassword">Password</label>
                                     <input name="pass" type="password" class="form-control" id="inputPassword">
-                                    <small class="text-muted">Must be 8 and above characters long.</small>
+                                    <small class="text-muted">Must be 8 or more characters and contain atleast 1 number, symbol and uppercase letters.</small>
                                     <small class="text-danger">@error('pass')
                                             {{ $message }}
                                         @enderror</small>
