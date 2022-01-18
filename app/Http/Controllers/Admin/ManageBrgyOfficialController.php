@@ -24,8 +24,7 @@ class ManageBrgyOfficialController extends Controller
         if ($request->ajax()) {
             $data = DB::table('users')
                 ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
-                ->where('users.user_role', '<=', 6)
-                ->orWhere('users.user_role', '>=', 3)
+                ->where('users.user_role', '>=', 3)
                 ->select('users.*', 'user_profiles.*')
                 ->get();
             return DataTables::of($data)

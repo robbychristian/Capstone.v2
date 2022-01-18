@@ -34,11 +34,11 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                     style="background-color: white;">
                     @if (Auth::user()->user_role == 1)
-                        <a href="/admin/manageresident/" class="btn btn-primary btn-sm active" role="button"
+                        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
 
                     @elseif (Auth::user()->user_role >= 4)
-                        <a href="/user/manageresident/" class="btn btn-primary btn-sm active" role="button"
+                        <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
                     @endif
 
