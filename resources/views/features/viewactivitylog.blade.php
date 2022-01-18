@@ -69,45 +69,33 @@
 
 
                     @elseif ($audit->event == 'updated')
-
-
-                        <table class="table table-borderless" style="color:#464646;">
-                            <thead>
-                                <tr style="color:#464646;">
-                                    <th scope="col">Attribute</th>
-                                    <th scope="col">Old Value</th>
-                                    <th scope="col">New Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach (json_decode($audit->old_values) as $attribute => $value)
-                                    <tr>
-                                        <td>
-                                            {{ $attribute }}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                @foreach (json_decode($audit->old_values) as $attribute => $value)
-                                    <tr>
+                        <div class="changed-values">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    @foreach (json_decode($audit->old_values) as $attribute => $value)
                                         @if ($value == null)
-                                            <td>
-                                                <strong><em>NULL</em></strong>
-                                            </td>
+                                            <span style="font-size: 20px">&#9675;</span> The {{ $attribute }} has been
+                                            modified
+                                            from
+                                            <strong><em>NULL</em></strong>
                                         @else
-                                            <td>
-                                                <strong>{{ $value }}</strong>
-                                            </td>
+                                            <span style="font-size: 20px">&#9675;</span> The {{ $attribute }} has been
+                                            modified
+                                            from
+                                            <strong>{{ $value }}</strong>
                                         @endif
-                                    </tr>
-                                @endforeach
-                                @foreach (json_decode($audit->new_values) as $attribute => $value)
-                                    <tr>
-                                        <td><strong>{{ $value }}</strong>. <br></td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                    @endforeach
+
+                                </div>
+                                <div class="col-sm-6">
+                                    @foreach (json_decode($audit->new_values) as $attribute => $value)
+                                        to <strong>{{ $value }}</strong>. <br>
+                                    @endforeach
+                                </div>
+                            </div>
+
+
+                        </div>
 
                     @endif
 
