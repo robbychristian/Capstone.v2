@@ -287,21 +287,34 @@
                     <div class="form-group col-md-6 required">
                         <label class="control-label" for="inputPassword">Password</label>
                         <input name="pass" type="password" class="form-control" id="inputPassword">
-                        <small class="text-muted">Must be 8 and above characters long.</small>
+                        <small class="text-muted">Must be 8 or more characters and contain atleast 1 number, symbol and
+                            uppercase letters.</small>
                         <small class="text-danger">@error('pass')
                                 {{ $message }}
                             @enderror</small>
                     </div>
                     <div class="form-group col-md-6 required">
                         <label class="control-label" for="inputConfpw">Confirm Password</label>
-                        <input name="conf_pass" type="password" class="form-control" id="inputConfpw">
-                        <small class="text-danger">@error('conf_pass')
+                        <input name="cpass" type="password" class="form-control" id="inputConfpw">
+                        <small class="text-danger">@error('cpass')
                                 {{ $message }}
                             @enderror</small>
                     </div>
                 </div>
 
-                <div class="form-group required">
+                <div class="form-group">
+                    <label class="control-label" for="inputUpload">Upload your Valid ID</label>
+                    <input name="validID" class="form-control" type="file" id="formFile">
+                    <small class="text-muted">Accessible formats: jpg, png, jpeg,
+                        only</small>
+                    @error('validID')
+                        <small class="text-danger">
+                            {{ $message }}
+                        </small>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label class="control-label" for="inputUpload">Upload your Profle Picture</label>
                     <input name="file" class="form-control" type="file" id="formFile">
                     <small class="text-muted">Accessible formats: jpg, png, jpeg,
