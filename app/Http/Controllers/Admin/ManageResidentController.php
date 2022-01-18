@@ -26,6 +26,7 @@ class ManageResidentController extends Controller
             $data = DB::table('users')
                 ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
                 ->where('users.user_role', 2)
+                ->orWhere('users.user_role', 7)
                 ->select('users.*', 'user_profiles.*')
                 ->get();
             return DataTables::of($data)

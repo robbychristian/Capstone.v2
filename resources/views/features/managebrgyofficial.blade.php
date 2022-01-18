@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '| Manage Resident')
+@section('title', '| Manage Barangay Officials')
 @section('content')
     <div class="container-fluid" style="color: black">
 
