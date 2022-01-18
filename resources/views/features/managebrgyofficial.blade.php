@@ -1,68 +1,82 @@
 @extends('layouts.master')
-
-@section('title', '| Add Barangay Officials')
+@section('title', '| Manage Resident')
 @section('content')
-    <div class="container-fluid" style="color: black;">
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
+    <div class="container-fluid" style="color: black">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Manage Barangay Officials</h1>
-            <a href="{{ route('admin.managebrgy_official.create') }}"
-                class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
-                Barangay Official</a>
+            <h1 class="h3 mb-0 text-gray-800">Manage Resident</h1>
+            @if (Auth::user()->user_role === 1)
+                <a href="{{ route('admin.managebrgy_official.create') }}"
+                    class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
+                    Barangay Official</a>
+            @endif
         </div>
-        @if (count($brgy_officials) > 0)
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead style="background-color: #004f91;">
-                        <tr class="table-active">
-                            <th scope="col" style="color: white;">Full Name</th>
-                            <th scope="col" style="color: white;">Email</th>
-                            <th scope="col" style="color: white;">Contact Number</th>
-                            <th scope="col" style="color: white;">Barangay Location</th>
-                            <th scope="col" style="color: white;">Barangay Position</th>
-                            <th scope="col" style="color: white;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($brgy_officials as $brgy_official)
-                            <tr>
-                                <td>{{ $brgy_official->first_name }} {{ $brgy_official->middle_name }}
-                                    {{ $brgy_official->last_name }}</td>
-                                <td>{{ $brgy_official->email }}</td>
-                                <td>{{ $brgy_official->contact_no }}</td>
-                                <td>{{ $brgy_official->brgy_loc }}</td>
-                                <td>
-                                    <form action="/admin/managebrgy_official/{{ $brgy_official->id }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
-                                    <form action="/admin/managebrgy_official/demote/{{ $brgy_official->id }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('post')
-                                        <button class="btn btn-danger">Demote</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
 
-        @else
-            <div class="card mt-3">
-                <div class="card-body" style="font-weight: 400; font-size: 1rem;">
-                    There are no registered barangay officials yet.
+        <div class="card shadow-card mb-3 mt-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table data-table" id="dataTable" width="100%" cellspacing="0"
+                        style="color:#464646 !important">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Barangay Location</th>
+                                <th>Resident Verification</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
-        @endif
+        </div>
+
     </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.managebrgy_official.index') }}",
+                columns: [{
+                        data: 'full_name',
+                        name: 'full_name'
+                    },
+                    {
+                        data: 'user_role',
+                        name: 'user_role'
+                    },
+                    {
+                        data: 'brgy_loc',
+                        name: 'brgy_loc'
+                    },
+                    {
+                        data: 'is_valid',
+                        name: 'is_valid'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+
+            });
+
+
+
+
+
+        });
+    </script>
+
 
 
 

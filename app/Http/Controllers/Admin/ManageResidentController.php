@@ -25,6 +25,7 @@ class ManageResidentController extends Controller
         if ($request->ajax()) {
             $data = DB::table('users')
                 ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
+                ->where('users.user_role', 2)
                 ->select('users.*', 'user_profiles.*')
                 ->get();
             return DataTables::of($data)
