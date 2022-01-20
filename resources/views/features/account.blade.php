@@ -100,7 +100,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="inputEmail">Barangay</label>
-                            <input type="text" name="email"
+                            <input type="text" name="email" class="form-control"
                                 id="inputEmail" value="{{ $user->brgy_loc }}" readonly>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                             <label for="inputNewPw">New Password</label>
                             <input type="password" name="new_pass"
                                 class="form-control  @error('new_pass') is-invalid @enderror" id="inputNewPw">
-                            <small class="text-muted">Must be 8 and above characters long.</small>
+                            <small class="text-muted">Must be 8 or more characters and contain atleast 1 number, symbol and uppercase letters.</small>
                             <small class="text-danger">@error('new_pass')
                                     {{ $message }}
                                 @enderror</small>

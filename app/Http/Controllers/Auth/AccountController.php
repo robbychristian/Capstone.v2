@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserProfile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules\Password;
 
 class AccountController extends Controller
 {
@@ -93,7 +94,11 @@ class AccountController extends Controller
                     }
                 },
             ],
-            'new_pass' => 'required|min:8',
+            'new_pass' => ['required', Password::min(8)
+            ->letters()
+            ->mixedCase()
+            ->numbers()
+            ->symbols()],
             'conf_pass' => 'required|min:8|same:new_pass'
         ], $messages = [
             'email.required' => 'The email field must not be empty!',
