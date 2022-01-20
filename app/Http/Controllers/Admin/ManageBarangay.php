@@ -163,7 +163,6 @@ class ManageBarangay extends Controller
 
         $barangay = Barangay::find($id);
         $barangay->is_added = 0;
-        $barangay->deleted_at = now();
         $barangay->save();
         
         return redirect('admin/managebarangay/')->with('success', 'The barangay has been archived!');
