@@ -18,7 +18,7 @@ class ManageBarangay extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Barangay::withTrashed()->get();
+            $data = Barangay::all()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -124,7 +124,6 @@ class ManageBarangay extends Controller
         //    ->update(['is_added' => 0, 'deleted_at' => now()]);
         $barangay = Barangay::find($id);
         $barangay->is_added = 0;
-        $barangay->deleted_at = now();
         $barangay->save();
 
         return response()->json(['message' => 'The barangay has been archived!']);
