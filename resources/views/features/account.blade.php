@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="inputEmail">Email Address</label>
                             <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
                                 id="inputEmail" value="{{ $user->email }}" readonly>
@@ -88,7 +88,7 @@
                                     {{ $message }}
                                 @enderror</small>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="inputContactNum">Contact Number</label>
                             <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="11" name="cnum"
                                 class="form-control @error('cnum') is-invalid @enderror" id="inputContactNum"
@@ -96,6 +96,12 @@
                             <small class="text-danger">@error('cnum')
                                     {{ $message }}
                                 @enderror</small>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail">Barangay</label>
+                            <input type="text" name="email"
+                                id="inputEmail" value="{{ $user->brgy_loc }}" readonly>
                         </div>
                     </div>
 
