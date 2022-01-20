@@ -18,7 +18,7 @@ class ManageBarangay extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Barangay::all()->get();
+            $data = Barangay::all();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
