@@ -157,6 +157,7 @@ class GuidelinesController extends Controller
     public function guidelinesMobile()
     {
         $guidelines = DB::table('guidelines')
+            ->where('deleted_at', null)
             ->get();
         return $guidelines;
     }
