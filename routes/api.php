@@ -43,6 +43,9 @@ Route::post('checkpass', [AccountController::class, 'checkPass']);
 //for register mobile
 Route::get('allBrgys', [ManageBarangay::class, 'mobileBarangays']);
 //for guidelines
-Route::get('guidelines', [GuidelinesController::class, 'guidelinesMobile']);
+Route::get('earthquake', [GuidelinesController::class, 'guidelinesEarthquake']);
+Route::get('flood', [GuidelinesController::class, 'guidelinesFlood']);
+Route::get('cyclone', [GuidelinesController::class, 'guidelinesCyclone']);
+Route::get('tsunami', [GuidelinesController::class, 'guidelinesTsunami']);
 
 Auth::routes();

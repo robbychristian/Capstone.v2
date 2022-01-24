@@ -154,10 +154,35 @@ class GuidelinesController extends Controller
         return redirect('/user/guidelines')->with('success', 'The guidelines has been deleted!');
     }
 
-    public function guidelinesMobile()
+    public function guidelinesEarthquake()
     {
         $guidelines = DB::table('guidelines')
             ->where('deleted_at', null)
+            ->where('disaster', 'Earthquake')
+            ->get();
+        return $guidelines;
+    }
+    public function guidelinesFlood()
+    {
+        $guidelines = DB::table('guidelines')
+            ->where('deleted_at', null)
+            ->where('disaster', 'Flood')
+            ->get();
+        return $guidelines;
+    }
+    public function guidelinesCyclone()
+    {
+        $guidelines = DB::table('guidelines')
+            ->where('deleted_at', null)
+            ->where('disaster', 'Cyclone')
+            ->get();
+        return $guidelines;
+    }
+    public function guidelinesTsunami()
+    {
+        $guidelines = DB::table('guidelines')
+            ->where('deleted_at', null)
+            ->where('disaster', 'Tsunami')
             ->get();
         return $guidelines;
     }
