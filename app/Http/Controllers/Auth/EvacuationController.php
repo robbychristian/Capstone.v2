@@ -280,7 +280,7 @@ class EvacuationController extends Controller
         $evacuationcenters->is_approved = 1;
         $evacuationcenters->updated_at = now();
         $evacuationcenters->save();
-        
+
         return response()->json(['message' => 'The evacuation center has been approved!']);
     }
 
@@ -288,6 +288,8 @@ class EvacuationController extends Controller
     {
         $evacuation = DB::table('evacuation_centers')
             ->where('brgy_loc', $brgy)
+            ->where('deleted_at', null)
+            ->where('is_approved', 1)
             ->get();
         return $evacuation;
     }
