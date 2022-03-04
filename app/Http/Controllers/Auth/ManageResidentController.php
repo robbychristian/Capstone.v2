@@ -27,8 +27,9 @@ class ManageResidentController extends Controller
                 ->join('user_profiles', 'users.email', '=', 'user_profiles.user_email')
                 ->select('users.*', 'user_profiles.*')
                 ->where('users.brgy_loc', Auth::user()->brgy_loc)
-                ->where('users.user_role', 2)
-                ->orWhere('users.user_role', 3)
+                ->whereIn('users.user_role', [2, 3])
+                //->where('users.user_role', 2)
+                //->orWhere('users.user_role', 3)
                 ->get();
             return DataTables::of($data)
                 ->addIndexColumn()
