@@ -87,17 +87,17 @@ class EmergencyController extends Controller
 
 
             if ($validator->fails()) {
-                return redirect('/brgy_official/emergencymessage/create')
+                return redirect('/user/emergencymessage/create')
                     ->withErrors($validator)
                     ->withInput();
             } else {
                 $result = $this->itexmo($number, $message, $apicode, $apipwd);
                 if ($result == "") {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
+                    return redirect('/user/emergencymessage/create')->with('success', 'Something went wrong!');
                 } else if ($result == 0) {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+                    return redirect('/user/emergencymessage/create')->with('success', 'Message sent!');
                 } else {
-                    return redirect('/brgy_official/emergencymessage/create')->with('error', 'Error was encountered!');
+                    return redirect('/user/emergencymessage/create')->with('error', 'Error was encountered!');
                 }
             }
         }
