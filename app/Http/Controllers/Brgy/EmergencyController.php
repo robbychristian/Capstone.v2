@@ -75,8 +75,8 @@ class EmergencyController extends Controller
             ->pluck('contact_no');
         foreach ($allNumbers as $number) {
             $message = $request->input('message');
-            $apicode = "ST-CHRIS079696_15BMB";
-            $apipwd = "{sti)c]m8)";
+            $apicode = "TR-QUADC054756_QWFEJ";
+            $apipwd = "w}5266@ikb";
 
             $brgyloc = Auth::user()->brgy_loc;
             $numbers = DB::table('user_profiles')
