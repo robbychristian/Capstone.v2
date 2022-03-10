@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <script>
         $(document).ready(function() {
 
@@ -161,26 +160,32 @@
                                     <label class="control-label" for="inputfName">First Name</label>
                                     <input name="fname" type="text" class="form-control" id="inputfName"
                                         value="{{ old('fname') }}">
-                                    <small class="text-danger">@error('fname')
+                                    <small class="text-danger">
+                                        @error('fname')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-4 required">
                                     <label class="control-label" for="inputmName">Middle Name</label>
                                     <input name="mname" type="text" class="form-control" id="inputmName"
                                         value="{{ old('mname') }}">
-                                    <small class="text-danger">@error('mname')
+                                    <small class="text-danger">
+                                        @error('mname')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
 
                                 <div class="form-group col-md-4 required">
                                     <label class="control-label" for="inputlName">Last Name</label>
                                     <input name="lname" type="text" class="form-control" id="inputlName"
                                         value="{{ old('lname') }}">
-                                    <small class="text-danger">@error('lname')
+                                    <small class="text-danger">
+                                        @error('lname')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -188,9 +193,11 @@
                                     <label class="control-label" for="inputAddress">Home Address</label>
                                     <input name="home_add" type="text" class="form-control" id="inputAddress"
                                         value="{{ old('home_add') }}">
-                                    <small class="text-danger">@error('home_add')
+                                    <small class="text-danger">
+                                        @error('home_add')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-4 required">
                                     <label class="control-label" for="inputBrgy">Barangay</label>
@@ -204,9 +211,11 @@
                                         @endforeach
 
                                     </select>
-                                    <small class="text-danger">@error('brgy')
+                                    <small class="text-danger">
+                                        @error('brgy')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                             </div>
 
@@ -216,9 +225,11 @@
                                     <input name="cnum" type="text" class="form-control" id="inputContactNum"
                                         onkeypress="return onlyNumberKey(event)" maxlength="11"
                                         value="{{ old('cnum') }}">
-                                    <small class="text-danger">@error('cnum')
+                                    <small class="text-danger">
+                                        @error('cnum')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-2 required">
                                     <label class="control-label" for="inputBday">Birthday</label>
@@ -237,9 +248,11 @@
                                         <option value='11'>November</option>
                                         <option value='12'>December</option>
                                     </select>
-                                    <small class="text-danger">@error('mbday')
+                                    <small class="text-danger">
+                                        @error('mbday')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
@@ -248,9 +261,11 @@
                                     <select name="dbday" id="dbday" class="form-control" value="{{ old('dbday') }}">
                                         <option selected disabled>Day</option>
                                     </select>
-                                    <small class="text-danger">@error('dbday')
+                                    <small class="text-danger">
+                                        @error('dbday')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-2 required">
                                     <div class="d-none d-xl-block d-lg-block d-md-block">
@@ -258,9 +273,11 @@
                                     </div>
                                     <input name="ybday" type="text" class="form-control mt-2" id="inputBday"
                                         placeholder="Year" value="{{ old('ybday') }}">
-                                    <small class="text-danger">@error('ybday')
+                                    <small class="text-danger">
+                                        @error('ybday')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                             </div>
 
@@ -268,26 +285,33 @@
                                 <label class="control-label" for="inputEmail">Email</label>
                                 <input name="email" type="email" class="form-control" id="inputEmail"
                                     value="{{ old('email') }}">
-                                <small class="text-danger">@error('email')
+                                <small class="text-danger">
+                                    @error('email')
                                         {{ $message }}
-                                    @enderror</small>
+                                    @enderror
+                                </small>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6 required">
                                     <label class="control-label" for="inputPassword">Password</label>
                                     <input name="pass" type="password" class="form-control" id="inputPassword">
-                                    <small class="text-muted">Must be 8 or more characters and contain atleast 1 number, symbol and uppercase letters.</small>
-                                    <small class="text-danger">@error('pass')
+                                    <small class="text-muted">Must be 8 or more characters and contain atleast 1 number,
+                                        symbol and uppercase letters.</small>
+                                    <small class="text-danger">
+                                        @error('pass')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                                 <div class="form-group col-md-6 required">
                                     <label class="control-label" for="inputConfpw">Confirm Password</label>
                                     <input name="cpass" type="password" class="form-control" id="inputConfpw">
-                                    <small class="text-danger">@error('cpass')
+                                    <small class="text-danger">
+                                        @error('cpass')
                                             {{ $message }}
-                                        @enderror</small>
+                                        @enderror
+                                    </small>
                                 </div>
                             </div>
 
@@ -323,9 +347,11 @@
                                         style="text-decoration: underline; color: blue; cursor: pointer;">terms and
                                         conditions
                                     </span></label>
-                                <small class="text-danger">@error('cbox')
+                                <small class="text-danger">
+                                    @error('cbox')
                                         {{ $message }}
-                                    @enderror</small>
+                                    @enderror
+                                </small>
                             </div>
 
                             <button name="" type="submit" class="btn btn-primary mt-2">Submit</button>
@@ -455,5 +481,4 @@
             </div>
         </div>
     </div>
-
 @endsection

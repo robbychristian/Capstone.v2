@@ -95,10 +95,10 @@ class AccountController extends Controller
                 },
             ],
             'new_pass' => ['required', Password::min(8)
-            ->letters()
-            ->mixedCase()
-            ->numbers()
-            ->symbols()],
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->symbols()],
             'conf_pass' => 'required|min:8|same:new_pass'
         ], $messages = [
             'email.required' => 'The email field must not be empty!',
