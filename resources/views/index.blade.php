@@ -95,8 +95,8 @@
                     style="height: 20rem; border-radius: 2.5rem; background-color: transparent">
                     <img class="card-img-top" src="{{ URL::asset('img/feature-icon-chat.png') }}" alt="">
                     <div class="card-body feature-content">
-                        <h4 class="card-title color feature-title">Chat Offline</h4>
-                        <p class="card-text feature-text">Communicate offline and reach out with people within your range
+                        <h4 class="card-title color feature-title">Chat</h4>
+                        <p class="card-text feature-text">Communicate within your range through Peer-to-Peer WiFi Direct
                         </p>
                     </div>
                 </div>

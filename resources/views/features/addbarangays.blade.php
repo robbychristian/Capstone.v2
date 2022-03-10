@@ -120,9 +120,9 @@
                         <h6 class="mt-3 font-weight-bold">Legend:</h6>
                         <ul class="list-inline">
                             <li class="list-inline-item"><i class="fas fa-map-marker mr-2"
-                                    style="color:#00a79d"></i>Approved</li>
+                                    style="color:#00a79d"></i>Added</li>
                             <li class="list-inline-item"><i class="fas fa-map-marker mr-2" style="color:#fb5968"></i>Not yet
-                                approved</li>
+                                added</li>
                         </ul>
                     </div>
 

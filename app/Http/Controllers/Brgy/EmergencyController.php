@@ -75,8 +75,8 @@ class EmergencyController extends Controller
             ->pluck('contact_no');
         foreach ($allNumbers as $number) {
             $message = $request->input('message');
-            $apicode = "ST-CHRIS079696_15BMB";
-            $apipwd = "{sti)c]m8)";
+            $apicode = "TR-QUADC054756_QWFEJ";
+            $apipwd = "w}5266@ikb";
 
             $brgyloc = Auth::user()->brgy_loc;
             $numbers = DB::table('user_profiles')
@@ -87,17 +87,17 @@ class EmergencyController extends Controller
 
 
             if ($validator->fails()) {
-                return redirect('/brgy_official/emergencymessage/create')
+                return redirect('/user/emergencymessage/create')
                     ->withErrors($validator)
                     ->withInput();
             } else {
                 $result = $this->itexmo($number, $message, $apicode, $apipwd);
                 if ($result == "") {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Something went wrong!');
+                    return redirect('/user/emergencymessage/create')->with('success', 'Something went wrong!');
                 } else if ($result == 0) {
-                    return redirect('/brgy_official/emergencymessage/create')->with('success', 'Message sent!');
+                    return redirect('/user/emergencymessage/create')->with('success', 'Message sent!');
                 } else {
-                    return redirect('/brgy_official/emergencymessage/create')->with('error', 'Error was encountered!');
+                    return redirect('/user/emergencymessage/create')->with('error', 'Error was encountered!');
                 }
             }
         }

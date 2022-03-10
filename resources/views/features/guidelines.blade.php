@@ -58,7 +58,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -76,19 +76,6 @@
                                                                                     href="/admin/guidelines/{{ $guideline->id }}/edit">Edit</a>
                                                                                 <form
                                                                                     action="/admin/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
-
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
                                                                                     method="post">
                                                                                     @csrf
                                                                                     @method('DELETE')
@@ -132,7 +119,7 @@
                                                             </div>
                                                             @if (Auth::user()->user_role === 7)
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -156,18 +143,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -204,7 +180,7 @@
 
                                                             @if (Auth::user()->user_role === 7)
 
-                                                            @elseif(Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif(Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -228,18 +204,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -280,7 +245,7 @@
                                                             </div>
                                                             @if (Auth::user()->user_role === 7)
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -304,18 +269,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -352,7 +306,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -376,18 +330,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -424,7 +367,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -448,18 +391,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -502,7 +434,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -526,18 +458,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -574,7 +495,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -598,18 +519,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -647,7 +557,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -671,18 +581,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -727,7 +626,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -751,18 +650,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -799,7 +687,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
                                                                     <div class="dropdown">
 
@@ -823,18 +711,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -871,7 +748,7 @@
                                                             @if (Auth::user()->user_role === 7)
 
 
-                                                            @elseif (Auth::user()->user_role == 1 || Auth::user()->user_role >= 4)
+                                                            @elseif (Auth::user()->user_role == 1)
                                                                 <div class="col-auto">
 
                                                                     <div class="dropdown">
@@ -895,18 +772,7 @@
                                                                                         class="dropdown-item">Delete</button>
                                                                                 </form>
 
-                                                                            @elseif (Auth::user()->user_role >= 4)
-
-                                                                                <a class="dropdown-item"
-                                                                                    href="/user/guidelines/{{ $guideline->id }}/edit">Edit</a>
-                                                                                <form
-                                                                                    action="/user/guidelines/{{ $guideline->id }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button
-                                                                                        class="dropdown-item">Delete</button>
-                                                                                </form>
+                                                                        
                                                                             @endif
                                                                         </div>
                                                                     </div>

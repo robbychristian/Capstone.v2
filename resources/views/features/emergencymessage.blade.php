@@ -18,8 +18,8 @@
 
             @if (Auth::user()->user_role === 1)
                 <form action="/admin/emergencymessage" method="POST">
-                @elseif (Auth::user()->user_role === 3)
-                    <form action="/brgy_official/emergencymessage" method="POST">
+                @elseif (Auth::user()->user_role >= 4)
+                    <form action="/user/emergencymessage" method="POST">
             @endif
             @csrf
 
