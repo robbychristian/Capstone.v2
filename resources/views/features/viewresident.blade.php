@@ -23,7 +23,7 @@
                         <div class="profile-img" style=" display: inline-block;">
 
                             @if ($profile->profile_pic == null)
-                                <i class="fas fa-user-circle fa-4x mr-3" style="color: #DEDEDE"></i>
+                                <i class="fas fa-user-circle fa-10x mr-3" style="color: #DEDEDE"></i>
                             @else
                                 <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
                                     style="border-radius: 100%; width: 200px; height: 200px;">
@@ -187,8 +187,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
-                                                        class="img-fluid rounded mx-auto d-block">
+
+                                                    @if ($profile->valid_id == null)
+                                                        <p>There was no valid ID submitted. Please verify the residency of the user through the barangay list.</p>
+                                                    @else
+                                                        <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
+                                                            class="img-fluid rounded mx-auto d-block">
+                                                    @endif
                                                 </div>
 
                                             </div>

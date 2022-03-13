@@ -36,7 +36,6 @@
                     @if (Auth::user()->user_role == 1)
                         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
-
                     @elseif (Auth::user()->user_role >= 4)
                         <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active" role="button"
                             aria-pressed="true">Back</a>
@@ -83,7 +82,6 @@
                                 @method('POST')
                                 <button class="dropdown-item" type="submit">Unblock</button>
                                 </form>
-
                             @else
                                 @if (Auth::user()->user_role == 1)
                                     <form action="/admin/manageresident/block/{{ $user->id }}" method="POST">
@@ -104,8 +102,13 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-12 d-flex" style="justify-content: center; align-items: center;">
                             <div class="profile-img" style=" display: inline-block;">
-                                <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                    style="border-radius: 100%; width: 200px; height: 200px;">
+
+                                @if ($profile->profile_pic == null)
+                                    <i class="fas fa-user-circle fa-10x mr-3" style="color: #DEDEDE"></i>
+                                @else
+                                    <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
+                                        style="border-radius: 100%; width: 200px; height: 200px;">
+                                @endif
 
                             </div>
 
@@ -448,12 +451,10 @@
                                         <div class="col-sm-9"><i
                                                 class="fas fa-check-circle text-success mr-2"></i>{{ $user->email }}
                                         </div>
-
                                     @else
                                         <div class="col-sm-9"><i
                                                 class="fas fa-times-circle text-danger mr-2"></i>{{ $user->email }}
                                         </div>
-
                                     @endif
 
                                 </div>
@@ -496,7 +497,6 @@
                                         @if ($user->is_valid == 1)
                                             <i class="fas fa-check-circle text-success mr-2"></i>
                                             <span class="text-success font-weight-bold">Verified Resident</span>
-
                                         @else
                                             <i class="fas fa-times-circle text-danger mr-2"></i>
                                             <span class="text-danger font-weight-bold">Unverified Resident</span>
@@ -529,7 +529,6 @@
                                                     @if (Auth::user()->user_role == 1)
                                                         <form action="/admin/manageresident/approve/{{ $user->id }}"
                                                             method="POST">
-
                                                         @elseif (Auth::user()->user_role >= 4)
                                                             <form action="/user/manageresident/approve/{{ $user->id }}"
                                                                 method="POST">
@@ -542,14 +541,11 @@
                                                         Residency</button>
                                                     </form>
                                                 </li>
-
-
                                             @else
                                                 <li class="list-inline-item">
                                                     @if (Auth::user()->user_role == 1)
                                                         <form action="/admin/manageresident/disapprove/{{ $user->id }}"
                                                             method="POST">
-
                                                         @elseif (Auth::user()->user_role >= 4)
                                                             <form
                                                                 action="/user/manageresident/disapprove/{{ $user->id }}"
@@ -581,8 +577,13 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
-                                                            class="img-fluid rounded mx-auto d-block">
+                                                        @if ($profile->valid_id == null)
+                                                            <p>There was no valid ID submitted. Please verify the residency
+                                                                of the user through the barangay list.</p>
+                                                        @else
+                                                            <img src="{{ URL::asset('KabisigGit/storage/app/public/valid_id/' . $user->id . '/' . $profile->valid_id) }}"
+                                                                class="img-fluid rounded mx-auto d-block">
+                                                        @endif
                                                     </div>
 
                                                 </div>
@@ -879,9 +880,7 @@
 
             });
         </script>
-
     @elseif (Auth::user()->user_role >= 4)
-
         <script>
             $(document).on('click', '#subordinates', function() {
                 var id = $(this).data('id');
