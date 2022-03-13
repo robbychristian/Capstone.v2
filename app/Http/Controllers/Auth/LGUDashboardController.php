@@ -96,10 +96,10 @@ class LGUDashboardController extends Controller
     public function brgyDashboard($brgy, Request $request)
     {
         if ($request->ajax()) {
-            $data = DB::table('disaster_reports')->get();
-                //->where('deleted_at', null)
-                //->where('barangay', $brgy)
-                //->latest();
+            $data = DB::table('disaster_reports')
+                ->where('deleted_at', null)
+                ->where('barangay', $brgy)
+                ->latest();
 
             return DataTables::of($data)
                 ->addIndexColumn()

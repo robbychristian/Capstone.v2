@@ -148,7 +148,7 @@
     @elseif (Auth::user()->user_role == 7)
         <script type="text/javascript">
             $(document).ready(function() {
-                var stats_brgy = $('#pills-table-tab').attr("data-brgy");
+                var stats_brgy = $('#pills-table-tab').attr("data-id");
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
