@@ -53,7 +53,7 @@ class ManageResidentController extends Controller
                 ->addColumn('full_name', function ($row) {
                     if($row->profile_pic == NULL){
                         return '<div class="media">
-                        <i class="fas fa-user-circle fa-4x" style="color: #DEDEDE"></i>
+                        <i class="fas fa-user-circle fa-4x mr-3" style="color: #DEDEDE"></i>
                         <div class="media-body">
                       <h6>' . $row->first_name . ' ' . $row->middle_name . ' ' . $row->last_name . '</h6>
                       <small class="text-muted">' . $row->user_email . '</small>
