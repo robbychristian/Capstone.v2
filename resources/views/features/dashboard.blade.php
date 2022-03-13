@@ -152,7 +152,7 @@
                 var table = $('.data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "/user/dashboard/brgy/" + stats_brgy,
+                    ajax: "/user/dashboard-lgu/brgy/" + stats_brgy,
                     columns: [{
                             data: 'created_at',
                             name: 'created_at'
