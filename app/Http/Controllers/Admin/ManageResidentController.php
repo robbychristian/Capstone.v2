@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use DataTables;
+use Illuminate\Validation\Rules\Password;
+
 
 class ManageResidentController extends Controller
 {
@@ -112,23 +114,31 @@ class ManageResidentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'email' => 'required|unique:users|email',
             'fname' => 'required|max:255',
             'mname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'email' => 'required|email|unique:users',
             'address' => 'required|max:255',
-            'cnum' => 'required|max:255|unique:user_profiles,contact_no',
+            'brgy' => 'required',
             'mbday' => 'required',
-            'dbday' => 'required|max:31|integer',
-            'ybday' => 'required|max:2100|integer',
-            'pass' => 'required|min:8',
-            'conf_pass' => 'required|min:8|same:pass',
-            'file' => 'required|mimes:jpeg,png,jpg',
+            'dbday' => 'required',
+            'ybday' => 'required',
+            'email' => 'required|email|unique:users|string',
+            'cnum' => 'required|max:255|unique:user_profiles,contact_no',
+            'pass' => ['required', Password::min(8)
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->symbols()],
+            'cpass' => 'required|min:8|same:pass',
+            'validID' => 'mimes:jpeg,png,jpg',
+            'file' => 'mimes:jpeg,png,jpg',
             'cbox' => 'accepted'
         ], $messages = [
             'fname.required' => 'The first name field is required!',
             'mname.required' => 'The middle name field is required!',
             'lname.required' => 'The last name field is required!',
+            'email.unique' => 'This email is taken already!',
             'address.required' => 'The home address field is required!',
             'cnum.required' => 'The contact number field must not be empty!',
             'cnum.unique' => 'The contact number  has already been taken!',
@@ -139,9 +149,8 @@ class ManageResidentController extends Controller
             'ybday.max' => 'Enter a valid year',
             'pass.required' => 'The password field is required!',
             'pass.min' => 'Password must be at least 8 characters',
-            'conf_pass.required' => 'The confirm password field is required!',
-            'conf_pass.same' => 'Password mismatch!',
-            'file.required' => 'An image upload is required',
+            'cpass.required' => 'The confirm password field is required!',
+            'cpass.same' => 'Password mismatch!',
             'cbox.accepted' => 'Terms and conditions must be confirmed!',
         ]);
 
@@ -150,11 +159,12 @@ class ManageResidentController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            if ($request->hasFile('file')) {
+            if ($request->hasFile('file') || $request->hasFile('validID')) {
                 $file = $request->file('file')->getClientOriginalName();
+                $validID = $request->file('validID')->getClientOriginalName();
 
                 $user = User::create([
-                    'user_role' => 4,
+                    'user_role' => 2,
                     'email' => $request['email'],
                     'first_name' => $request['fname'],
                     'last_name' => $request['lname'],
@@ -162,6 +172,7 @@ class ManageResidentController extends Controller
                     'email_verified_at' => Carbon::now(),
                     'is_blocked' => 0,
                     'is_deactivated' => 0,
+                    'is_valid' => 1,
                     'password' => Hash::make($request['pass']),
                 ]);
 
@@ -171,9 +182,36 @@ class ManageResidentController extends Controller
                     'home_add' => $request['address'],
                     'contact_no' => $request['cnum'],
                     'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
-                    'profile_pic' => 'noimage.jpg',
+                    'valid_id' => $validID,
+                    'profile_pic' => $file,
                 ]);
                 $request->file('file')->storeAs('profile_pics', $user->id . '/' . $file, '');
+                $request->file('validID')->storeAs('valid_id', $user->id . '/' . $validID, '');
+                return redirect('/admin/manageresident')->with('success', 'User successfully added!');
+            } else{
+                $user = User::create([
+                    'user_role' => 2,
+                    'email' => $request['email'],
+                    'first_name' => $request['fname'],
+                    'last_name' => $request['lname'],
+                    'brgy_loc' => $request['brgy'],
+                    'email_verified_at' => Carbon::now(),
+                    'is_blocked' => 0,
+                    'is_deactivated' => 0,
+                    'is_valid' => 1,
+                    'password' => Hash::make($request['pass']),
+                ]);
+
+                $user_profile = UserProfile::create([
+                    'user_email' => $request['email'],
+                    'middle_name' => $request['mname'],
+                    'home_add' => $request['address'],
+                    'contact_no' => $request['cnum'],
+                    'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
+                    'valid_id' => NULL,
+                    'profile_pic' => NULL,
+                ]);
+            
                 return redirect('/admin/manageresident')->with('success', 'User successfully added!');
             }
         }

@@ -159,7 +159,7 @@ class ManageResidentController extends Controller
                 $validID = $request->file('validID')->getClientOriginalName();
 
                 $user = User::create([
-                    'user_role' => 3,
+                    'user_role' => 2,
                     'email' => $request['email'],
                     'first_name' => $request['fname'],
                     'last_name' => $request['lname'],
@@ -182,6 +182,31 @@ class ManageResidentController extends Controller
                 ]);
                 $request->file('file')->storeAs('profile_pics', $user->id . '/' . $file, '');
                 $request->file('validID')->storeAs('valid_id', $user->id . '/' . $validID, '');
+                return redirect('/user/manageresident')->with('success', 'User successfully added!');
+            } else{
+                $user = User::create([
+                    'user_role' => 2,
+                    'email' => $request['email'],
+                    'first_name' => $request['fname'],
+                    'last_name' => $request['lname'],
+                    'brgy_loc' => $request['brgy'],
+                    'email_verified_at' => Carbon::now(),
+                    'is_blocked' => 0,
+                    'is_deactivated' => 0,
+                    'is_valid' => 1,
+                    'password' => Hash::make($request['pass']),
+                ]);
+
+                $user_profile = UserProfile::create([
+                    'user_email' => $request['email'],
+                    'middle_name' => $request['mname'],
+                    'home_add' => $request['address'],
+                    'contact_no' => $request['cnum'],
+                    'birth_day' => $request['mbday'] . '/' . $request['dbday'] . '/' . $request['ybday'],
+                    'valid_id' => NULL,
+                    'profile_pic' => NULL,
+                ]);
+            
                 return redirect('/user/manageresident')->with('success', 'User successfully added!');
             }
         }
