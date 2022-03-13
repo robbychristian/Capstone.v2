@@ -145,48 +145,6 @@
 
             });
         </script>
-    @elseif (Auth::user()->user_role == 7)
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var stats_brgy = $('#pills-table-tab').attr("data-brgy");
-                var table = $('.data-table').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "/user/dashboard-lgu/brgy/" + stats_brgy,
-                    columns: [{
-                            data: 'created_at',
-                            name: 'created_at'
-                        },
-                        {
-                            data: 'month_disaster',
-                            name: 'month_disaster'
-                        },
-                        {
-                            data: 'year_disaster',
-                            name: 'year_disaster'
-                        },
-                        {
-                            data: 'type_disaster',
-                            name: 'type_disaster'
-                        },
-                        {
-                            data: 'barangay',
-                            name: 'barangay'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        },
-                    ],
-
-                });
-
-                console.log(stats_brgy)
-
-            });
-        </script>
     @elseif (Auth::user()->user_role >= 4)
         <script type="text/javascript">
             $(document).ready(function() {
