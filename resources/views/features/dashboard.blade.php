@@ -40,7 +40,7 @@
 
 
                     <li class="nav-item">
-                        @if (Auth::user()->user_role == 1)
+                        @if (Auth::user()->user_role == 1 || Auth::user()->user_role == 7)
                             <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
                                 aria-controls="pills-table" aria-selected="false" data-id="{{ $brgy_loc }}"><i
                                     class="fas fa-list"></i></a>
