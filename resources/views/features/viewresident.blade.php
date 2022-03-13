@@ -20,11 +20,14 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-sm-12 d-flex" style="justify-content: center; align-items: center;">
-                        <div class="profile-img"
-                            style=" display: inline-block;">
-                            <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
-                                style="border-radius: 100%; width: 200px; height: 200px;">
+                        <div class="profile-img" style=" display: inline-block;">
 
+                            @if ($profile->profile_pic == null)
+                                <i class="fas fa-user-circle fa-4x mr-3" style="color: #DEDEDE"></i>
+                            @else
+                                <img src="{{ URL::asset('KabisigGit/storage/app/public/profile_pics/' . $user->id . '/' . $profile->profile_pic) }}"
+                                    style="border-radius: 100%; width: 200px; height: 200px;">
+                            @endif
                         </div>
 
 
@@ -101,11 +104,9 @@
                                 @if ($user->email_verified_at != null)
                                     <div class="col-sm-9"><i
                                             class="fas fa-check-circle text-success mr-2"></i>{{ $user->email }}</div>
-
                                 @else
                                     <div class="col-sm-9"><i
                                             class="fas fa-times-circle text-danger mr-2"></i>{{ $user->email }}</div>
-
                                 @endif
 
                             </div>
@@ -148,7 +149,6 @@
                                     @if ($user->is_valid == 1)
                                         <i class="fas fa-check-circle text-success mr-2"></i>
                                         <span class="text-success font-weight-bold">Verified Resident</span>
-
                                     @else
                                         <i class="fas fa-times-circle text-danger mr-2"></i>
                                         <span class="text-danger font-weight-bold">Unverified Resident</span>
