@@ -145,6 +145,9 @@
 
             });
         </script>
+
+    @elseif (Auth::user()->user_role == 7)
+    
     @elseif (Auth::user()->user_role >= 4)
         <script type="text/javascript">
             $(document).ready(function() {
