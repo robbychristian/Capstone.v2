@@ -9,11 +9,17 @@
                 <a href="{{ route('admin.manageresident.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-plus fa-sm text-white-50"></i>Add Resident</a>
             @elseif (Auth::user()->user_role >= 3)
-                <a href="{{ route('user.manageresident.create') }}"
-                    class="d-sm-inline-block btn btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add
+                <a href="{{ route('user.manageresident.create') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i>Add
                     Resident</a>
             @endif
         </div>
+
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-3 mb-3">
+                {{ Session::get('success') }}
+            </div>
+        @endif
 
         <div class="card shadow-card mb-3 mt-3">
             <div class="card-body">
@@ -79,7 +85,6 @@
 
             });
         </script>
-
     @elseif (Auth::user()->user_role >= 3)
         <script type="text/javascript">
             $(document).ready(function() {
