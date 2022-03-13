@@ -7,9 +7,9 @@
 
         @if (Auth::user()->user_role == 1)
             <a href="/admin/dashboard" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
-
         @elseif (Auth::user()->user_role == 7)
-            <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
+            <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+                aria-pressed="true">Back</a>
         @endif
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -19,7 +19,6 @@
                 <a href="/user/generate-lgu/{{ $brgy_loc }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report</a>
-
             @elseif(Auth::user()->user_role >= 4)
                 <a href="{{ route('user.generate.index') }}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i>
@@ -45,11 +44,9 @@
                             <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
                                 aria-controls="pills-table" aria-selected="false" data-id="{{ $brgy_loc }}"><i
                                     class="fas fa-list"></i></a>
-
                         @elseif (Auth::user()->user_role >= 4)
                             <a class="nav-link" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
                                 aria-controls="pills-table" aria-selected="false"><i class="fas fa-list"></i></a>
-
                         @endif
 
 
@@ -148,9 +145,49 @@
 
             });
         </script>
+    @elseif (Auth::user()->user_role == 7)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var stats_brgy = $('#pills-table-tab').attr("data-id");
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "/user/dashboard-lgu/brgy/" + stats_brgy,
+                    columns: [{
+                            data: 'created_at',
+                            name: 'created_at'
+                        },
+                        {
+                            data: 'month_disaster',
+                            name: 'month_disaster'
+                        },
+                        {
+                            data: 'year_disaster',
+                            name: 'year_disaster'
+                        },
+                        {
+                            data: 'type_disaster',
+                            name: 'type_disaster'
+                        },
+                        {
+                            data: 'barangay',
+                            name: 'barangay'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ],
 
+                });
+
+                console.log(stats_brgy)
+
+            });
+        </script>
     @elseif (Auth::user()->user_role >= 4)
-
         <script type="text/javascript">
             $(document).ready(function() {
                 var stats_brgy = $('#pills-table-tab').attr("data-id");
