@@ -162,8 +162,8 @@
                 @if (Auth::user()->user_role === 1)
                     <form action="{{ route('admin.manageresident.store') }}" method="POST" class="mt-3"
                         enctype="multipart/form-data">
-                    @elseif (Auth::user()->user_role === 3)
-                        <form action="{{ route('brgy_official.manageresident.store') }}" method="POST"
+                    @elseif (Auth::user()->user_role >= 3)
+                        <form action="{{ route('user.manageresident.store') }}" method="POST"
                             class="mt-3" enctype="multipart/form-data">
                 @endif
                 @csrf
@@ -215,7 +215,7 @@
                             <small class="text-danger">@error('brgy')
                                     {{ $message }}
                                 @enderror</small>
-                        @elseif (Auth::user()->user_role === 3)
+                        @elseif (Auth::user()->user_role >= 3)
                             <input name="brgy" type="text" class="form-control" id="inputAddress"
                                 value="{{ Auth::user()->brgy_loc }}" readonly>
                         @endif
@@ -338,7 +338,7 @@
                         @enderror</small>
                 </div>
 
-                <button name="" type="submit" class="btn btn-primary mt-2">Submit</button>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
                 </form>
             </div>
 
