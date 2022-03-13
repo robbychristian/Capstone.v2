@@ -8,7 +8,7 @@
         @if (Auth::user()->user_role == 1)
             <a href="/admin/dashboard" class="btn btn-primary btn-sm active mb-3" role="button" aria-pressed="true">Back</a>
         @elseif (Auth::user()->user_role == 7)
-            <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm active mb-3" role="button"
+            <a href="/user/dashboard-lgu" class="btn btn-primary btn-sm active mb-3" role="button"
                 aria-pressed="true">Back</a>
         @endif
 
