@@ -133,7 +133,7 @@
     </footer>
     <!-- Footer -->
 
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
         test()
         console.log(moment('1995-12-25'))
