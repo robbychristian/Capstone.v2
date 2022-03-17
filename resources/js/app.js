@@ -1,3 +1,5 @@
 import moment from "moment";
-console.log(moment("1995-12-25"));
+function test() {
+    console.log(moment("1995-12-25"));
+}
 require("./bootstrap");

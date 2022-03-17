@@ -135,6 +135,7 @@
 
 
     <script>
+        test()
         console.log(moment('1995-12-25'))
         AOS.init();
     </script>
