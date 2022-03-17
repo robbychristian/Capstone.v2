@@ -16179,6 +16179,15 @@ readers do not read off random characters that represent icons */
   background: #e69500;
   color: #e2e2e2;
 }
+
+#barangayOption:checked + .button-label {
+  background: #3490dc;
+  color: #efefef;
+}
+#barangayOption:checked + .button-label:hover {
+  background: #2484d2;
+  color: #e2e2e2;
+}
 body {
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
@@ -16375,6 +16384,10 @@ body {
 
     .icon-legend {
         font-size: 2rem !important;
+    }
+
+    .guide-content-icon .fa-class {
+        font-size: 0.875em;
     }
 }
 
