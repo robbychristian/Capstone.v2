@@ -1,4 +1,4 @@
 import moment from "moment";
-$(document).ready(function () {
+const plsWork = () => {
     console.log(moment("1995-12-12"));
-});
+};

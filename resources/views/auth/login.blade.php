@@ -71,6 +71,7 @@
                                             style="background:#004F91; color:white; ">
                                             {{ __('Login') }}
                                         </button>
+                                        <button id='testBtn'>Test</button>
 
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link color" href="{{ route('password.request') }}">
@@ -98,7 +99,9 @@
     <script>
         $(document).ready(function() {
             console.log('LOGIN PAGE')
-            console.log(moment('1995-11-11').format('MM-DD-YYYY'))
+            $('#testBtn').click(function() {
+                plsWork();
+            })
         })
     </script>
 @endsection
