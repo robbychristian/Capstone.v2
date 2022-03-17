@@ -101,5 +101,6 @@
             console.log('LOGIN PAGE')
             console.log(moment('1995-11-11'))
         })
+        cosnole.log('Login page')
     </script>
 @endsection
