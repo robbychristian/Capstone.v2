@@ -95,7 +95,7 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-    <script>
+    <script type="module">
         import express from 'express';
         console.log('LOGIN PAGE')
         console.log(moment('1995-11-11').format('MM-DD-YYYY'))
