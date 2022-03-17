@@ -99,6 +99,7 @@
     <script src="{{ asset('js/test.js') }}">
         $(document).ready(function() {
             console.log('LOGIN PAGE')
+            console.log(moment('1995-11-11'))
             $('#testBtn').click(function(e) {
                 e.preventDefault();
 
