@@ -96,7 +96,6 @@
     </footer>
     <!-- Footer -->
     <script>
-        var moment = require('moment'); // require
         console.log(moment('1995-12-12').format())
     </script>
 @endsection
