@@ -96,7 +96,7 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-    <script>
+    <script src="{{ asset('js/test.js') }}">
         $(document).ready(function() {
             console.log('LOGIN PAGE')
             $('#testBtn').click(function() {
