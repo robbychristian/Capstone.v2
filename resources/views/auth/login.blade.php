@@ -96,7 +96,7 @@
     </footer>
     <!-- Footer -->
     <script type="module">
-        import moment from 'moment';
+        import moment from './KabisigGit/node_modules/moment/moment.d.ts';
         console.log('LOGIN PAGE')
         console.log(moment('1995-11-11').format('MM-DD-YYYY'))
     </script>
