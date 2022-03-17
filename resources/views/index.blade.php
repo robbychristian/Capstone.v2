@@ -134,7 +134,7 @@
     <!-- Footer -->
 
     <script type="module">
-        import moment from 'moment'
+        import moment from '../../node_modules/moment/moment.d.ts';
     </script>
     <script>
         AOS.init();
