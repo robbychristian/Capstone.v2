@@ -95,9 +95,10 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-    <script type="module">
-        import moment from '../KabisigGit/node_modules/moment/moment.js';
-        console.log('LOGIN PAGE')
-        console.log(moment('1995-11-11').format('MM-DD-YYYY'))
+    <script>
+        $(document).ready(function() {
+            console.log('LOGIN PAGE')
+            console.log(moment('1995-11-11').format('MM-DD-YYYY'))
+        })
     </script>
 @endsection
