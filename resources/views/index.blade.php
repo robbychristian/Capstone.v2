@@ -133,11 +133,10 @@
     </footer>
     <!-- Footer -->
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="module">
+        import moment from 'moment'
+    </script>
     <script>
-        $(document).ready(function() {
-            const use = require('moment')
-        })
         AOS.init();
     </script>
 @endsection
