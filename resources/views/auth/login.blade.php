@@ -96,7 +96,7 @@
     </footer>
     <!-- Footer -->
     <script type="module">
-        import express from '../../../node_modules/moment/moment.d.ts';
+        import express from '/domains/kabisigapp.com/public_html/KabisigGit/node_modules/moment/moment.js';
         console.log('LOGIN PAGE')
         console.log(moment('1995-11-11').format('MM-DD-YYYY'))
     </script>
