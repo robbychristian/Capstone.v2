@@ -135,8 +135,7 @@
 
 
     <script>
+        import moment from 'moment';
         AOS.init();
     </script>
-
-
 @endsection
