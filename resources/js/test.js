@@ -1,4 +1,3 @@
 import moment from "moment";
-const plsWork = () => {
-    console.log(moment("1995-12-12"));
-};
+
+console.log(moment("1999-11-11"));
