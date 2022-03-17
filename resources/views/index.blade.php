@@ -135,6 +135,9 @@
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
+        $(document).ready(function() {
+            const use = require('moment')
+        })
         AOS.init();
     </script>
 @endsection
