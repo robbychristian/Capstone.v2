@@ -133,10 +133,8 @@
     </footer>
     <!-- Footer -->
 
-    <script type="module">
-        import moment from '../../node_modules/moment/moment.d.ts';
-    </script>
     <script>
+        console.log(moment('1995-12-12'))
         AOS.init();
     </script>
 @endsection
