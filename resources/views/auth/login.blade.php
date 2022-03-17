@@ -96,7 +96,7 @@
     </footer>
     <!-- Footer -->
     <script type="module">
-        import express from 'express';
+        import express from '../../../node_modules/moment/moment.d.ts';
         console.log('LOGIN PAGE')
         console.log(moment('1995-11-11').format('MM-DD-YYYY'))
     </script>
