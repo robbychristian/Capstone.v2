@@ -1,1 +1,2 @@
-require('./bootstrap');
+import moment from "moment";
+require("./bootstrap");
