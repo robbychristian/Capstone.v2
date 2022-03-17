@@ -95,6 +95,7 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
-
+    <script>
+        console.log('test')
+    </script>
 @endsection
