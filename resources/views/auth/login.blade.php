@@ -71,7 +71,6 @@
                                             style="background:#004F91; color:white; ">
                                             {{ __('Login') }}
                                         </button>
-                                        <button id='testBtn'>Test</button>
 
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link color" href="{{ route('password.request') }}">
@@ -85,6 +84,7 @@
                     </div>
                 </div>
             </div>
+            <button id='testBtn'>Test</button>
         </div>
     </div>
 
@@ -99,7 +99,9 @@
     <script src="{{ asset('js/test.js') }}">
         $(document).ready(function() {
             console.log('LOGIN PAGE')
-            $('#testBtn').click(function() {
+            $('#testBtn').click(function(e) {
+                e.preventDefault();
+
                 plsWork();
             })
         })
