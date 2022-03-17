@@ -96,7 +96,7 @@
     </footer>
     <!-- Footer -->
     <script>
-        const momentJs = require('moment')
+        import express from 'express';
         console.log(moment('1995-12-12').format())
     </script>
 @endsection
