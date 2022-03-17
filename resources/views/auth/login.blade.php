@@ -97,6 +97,7 @@
     <!-- Footer -->
     <script>
         import express from 'express';
-        console.log(moment('1995-12-12').format())
+        console.log('LOGIN PAGE')
+        console.log(moment('1995-11-11').format('MM-DD-YYYY'))
     </script>
 @endsection
