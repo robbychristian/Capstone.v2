@@ -1,6 +1,5 @@
 {
     "private": true,
-    "type": "commonjs",
     
     "scripts": {
         "dev": "npm run development",
