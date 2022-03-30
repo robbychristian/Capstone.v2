@@ -84,7 +84,6 @@
                     </div>
                 </div>
             </div>
-            <button id='testBtn'>Test</button>
         </div>
     </div>
 
@@ -96,11 +95,4 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-    <script src="{{ asset('js/test.js') }}">
-        $(document).ready(function() {
-            console.log('LOGIN PAGE')
-            console.log(moment('1995-11-11'))
-        })
-        cosnole.log('Login page')
-    </script>
 @endsection
