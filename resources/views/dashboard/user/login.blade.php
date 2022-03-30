@@ -95,6 +95,4 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
-
 @endsection
